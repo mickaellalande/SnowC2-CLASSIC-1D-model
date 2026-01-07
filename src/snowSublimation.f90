@@ -1,5 +1,5 @@
 !> \file
-!> Sublimation calculations for the snow pack on the ground.
+!> Sublimation calculations for the snowpack on the ground.
 !
 subroutine snowSublimation (RHOSNO, ZSNOW, HCPSNO, TSNOW, EVAP, QFN, QFG, HTCS, & ! Formerly SNOVAP
                             WLOST, TRUNOF, RUNOFF, TOVRFL, OVRFLW, &

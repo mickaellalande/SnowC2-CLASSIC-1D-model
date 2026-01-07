@@ -1,0 +1,33 @@
+name: "sop"
+full_name: "Sodankylä, Finland"
+lat: 67.368 
+lon: 26.633
+elevation: 179 # m
+start: 2007 # 1 October 2007 to 30 September 2014 (remove first and last year for CLASSIC full years)
+end: 2014
+ZRFH: 2.0 # m
+ZRFM: 2.0 # m
+PFTs: "Grass" # use same PFT naming convention as in run_parameters.txt/model code.
+# Keep 100% grass as the site is in forest gaps (open areas), although we could consider adding some fractions of 
+# needleleaf evergreen trees.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+doi: "https://doi.org/10.1594/PANGAEA.897575"
+notes: "Small clearing in a pine plantation with sandy loam soil. Wind speed and radiation are
+measured above the canopy height, so forcing data have been adjusted for sheltering of
+the clearing.
+
+Initialize the model for CLASSIC (CLASS+CTEM) run. Use the Paul's previous SnowMIP soil properties based on the site description
++ combine to satellite data.
+
+The Grass C3/C4 proportions, soil permeable depth (SDEP), and soil color index (SOCI) are determinte with satellite data.
+
+"
+
+principal_refs: "Essery, R., Kontu, A., Lemmetyinen, J., Dumont, M., & MÃ©nard, C. B. (2016). 
+A 7-year dataset for driving and evaluating snow models at an Arctic site (Sodankyla, Finland). 
+Geoscientific Instrumentation, Methods and Data Systems, 5(1), 219-227. https://doi.org/10.5194/gi-5-219-2016
+
+
+
+"

@@ -124,6 +124,7 @@ contains
     TCANGAT=> class_gat%TCANGAT,                        & !< real, dimension(:) : Vegetation canopy temperature [K] 
     TPNDGAT=> class_gat%TPNDGAT,                        & !< real, dimension(:) : Temperature of ponded water [K] 
     TSNOGAT=> class_gat%TSNOGAT,                        & !< real, dimension(:) : Snowpack temperature [K] 
+    TSNBGAT=> class_gat%TSNBGAT,                        & !< real, dimension(:) : Bottom snowpack temperature [K] 
     WSNOGAT=> class_gat%WSNOGAT,                        & !< real, dimension(:) : Liquid water content of snow pack \f$[kg m^{-2} ]\f$ 
     ZPNDGAT=> class_gat%ZPNDGAT,                        & !< real, dimension(:) : Depth of ponded water on surface [m] 
     REFGAT=> class_gat%REFGAT,                          & !< real, dimension(:) : Snow grain size (for ISNOALB=1 option)  [m] 
@@ -372,6 +373,8 @@ contains
 
     ISNDGAT => class_gat%ISNDGAT,                       & !< integer, dimension(:,:) : Integer identifier associated with sand content 
     TBARGAT => class_gat%TBARGAT,                       & !< real, dimension(:,:) : Temperature of soil layers [K] 
+    TCTOGAT => class_gat%TCTOGAT,                       & !< real, dimension(:,:) : Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$ 
+    TCBOGAT => class_gat%TCBOGAT,                       & !< real, dimension(:,:) : Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$ 
     THICGAT => class_gat%THICGAT,                       & !< real, dimension(:,:) : Volumetric frozen water content of soil layers \f$[m^3 m^{-3} ]\f$ 
     THLQGAT => class_gat%THLQGAT,                       & !< real, dimension(:,:) : Volumetric liquid water content of soil layers \f$[m^3 m^{-3} ]\f$ 
     BIGAT => class_gat%BIGAT,                           & !< real, dimension(:,:) : Clapp and Hornberger empirical “b” parameter [ ] 
@@ -506,13 +509,15 @@ contains
     QACROT => class_rot%QACROT,                         & !< real, dimension(:,:) : 
     RCANROT => class_rot%RCANROT,                       & !< real, dimension(:,:) : 
     RHOSROT => class_rot%RHOSROT,                       & !< real, dimension(:,:) : 
+    TCSNROT => class_rot%TCSNROT,                       & !< real, dimension(:,:) : Thermal conductivity of snow \f$[W m^{-1} K^{-1}]\f$
     SCANROT => class_rot%SCANROT,                       & !< real, dimension(:,:) : 
     SNOROT => class_rot%SNOROT,                         & !< real, dimension(:,:) : 
     TACROT => class_rot%TACROT,                         & !< real, dimension(:,:) : 
     TBASROT => class_rot%TBASROT,                       & !< real, dimension(:,:) : 
     TCANROT => class_rot%TCANROT,                       & !< real, dimension(:,:) : 
     TPNDROT => class_rot%TPNDROT,                       & !< real, dimension(:,:) : 
-    TSNOROT => class_rot%TSNOROT,                       & !< real, dimension(:,:) : 
+    TSNOROT => class_rot%TSNOROT,                       & !< real, dimension(:,:) : Snowpack temperature [K]
+    TSNBROT => class_rot%TSNBROT,                       & !< real, dimension(:,:) : Bottom snowpack temperature [K]
     WSNOROT => class_rot%WSNOROT,                       & !< real, dimension(:,:) : 
     ZPNDROT => class_rot%ZPNDROT,                       & !< real, dimension(:,:) : 
     REFROT => class_rot%REFROT,                         & !< real, dimension(:,:) : Snow grain size (for ISNOALB=1 option)  [m] 
@@ -609,6 +614,8 @@ contains
 
     ISNDROT => class_rot%ISNDROT,                       & !< integer, dimension(:,:,:) : 
     TBARROT => class_rot%TBARROT,                       & !< real, dimension(:,:,:) : 
+    TCTOROT => class_rot%TCTOROT,                       & !< real, dimension(:,:,:) : Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$ 
+    TCBOROT => class_rot%TCBOROT,                       & !< real, dimension(:,:,:) : Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$ 
     THICROT => class_rot%THICROT,                       & !< real, dimension(:,:,:) : 
     THLQROT => class_rot%THLQROT,                       & !< real, dimension(:,:,:) : 
     BIROT => class_rot%BIROT,                           & !< real, dimension(:,:,:) : 
@@ -1571,7 +1578,7 @@ contains
 
     call atmosphericVarsCalc(VPDROW, TADPROW, PADRROW, RHOAROW, RHSIROW, & ! Formerly CLASSI
                              RPCPROW, TRPCROW, SPCPROW, TSPCROW, TAROW, QAROW, &
-                             PREROW, RPREROW, SPREROW, PRESROW, &
+                             PREROW, RPREROW, SPREROW, PRESROW, VMODROW, &
                              IPCP, NLAT, 1, NLTEST)
 #endif
 
@@ -1905,7 +1912,7 @@ contains
                             TRVSCN, TRIRCN, TRVSCS, TRIRCS, RC, RCS, WTRGGAT, groundHeatFlux, QLWOGAT, &
                             FRAINC, FSNOWC, FRAICS, FSNOCS, CMASSC, CMASCS, DISP, DISPS, &
                             ZOMLNC, ZOELNC, ZOMLNG, ZOELNG, ZOMLCS, ZOELCS, ZOMLNS, ZOELNS, &
-                            TBARGAT, THLQGAT, THICGAT, TPNDGAT, ZPNDGAT, TBASGAT, TCANGAT, TSNOGAT, &
+                            TBARGAT, TCTOGAT, TCBOGAT, THLQGAT, THICGAT, TPNDGAT, ZPNDGAT, TBASGAT, TCANGAT, TSNOGAT, TSNBGAT, &
                             ZSNOW, RHOSGAT, WSNOGAT, THPGAT, THRGAT, THMGAT, THFCGAT, THLWGAT, &
                             TRSNOWC, TRSNOWG, ALSNO, FSSBGAT, FROOT, FROOTS, &
                             RADJGAT, PREGAT, HCPSGAT, TCSGAT, TSFSGAT, DELZ, DLZWGAT, ZBTWGAT, &
@@ -1959,7 +1966,7 @@ contains
                            JLAT, ICAN, IGND, IGND + 1, IGND + 2, &
                            NLANDCS, NLANDGS, NLANDC, NLANDG, NLANDI, &
                            RB, RC, RCS, FRAINC, FSNOWC, FRAICS, FSNOCS, &  
-                           LAIPAIRatio, LAISPAISRatio)  
+                           LAIPAIRatio, LAISPAISRatio, VMODGAT, ZOMLNS, ZRFMGAT, IZREF)  
 
     !========================================================================
 
@@ -2202,6 +2209,8 @@ contains
       ILMOROT(ILMOS(K),JLMOS(K)) = ILMOGAT(K)
       UEROT  (ILMOS(K),JLMOS(K)) = UEGAT(K)
       HBLROT (ILMOS(K),JLMOS(K)) = HBLGAT(K)
+      TCSNROT(ILMOS(K),JLMOS(K)) = TCSNOW(K)
+      TSNBROT(ILMOS(K),JLMOS(K)) = TSNBGAT(K)
     end do ! loop 380
 
     do L = 1,IGND
@@ -2210,6 +2219,8 @@ contains
         HTCROT (ILMOS(K),JLMOS(K),L) = HTCGAT (K,L)
         QFCROT (ILMOS(K),JLMOS(K),L) = QFCGAT (K,L)
         GFLXROT(ILMOS(K),JLMOS(K),L) = GFLXGAT(K,L)
+        TCTOROT(ILMOS(K),JLMOS(K),L) = TCTOGAT(K,L)
+        TCBOROT(ILMOS(K),JLMOS(K),L) = TCBOGAT(K,L)
       end do
     end do ! loop 390
 

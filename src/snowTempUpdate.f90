@@ -5,7 +5,7 @@
 !
 subroutine snowTempUpdate (GSNOW, TSNOW, WSNOW, RHOSNO, QMELTG, & ! Formerly TSPOST
                            GZERO, TSNBOT, HTCS, HMFN, &
-                           GCONSTS, GCOEFFS, GCONST, GCOEFF, TBAR, &
+                           GCONSTS, GCOEFFS, GCONST, GCOEFF, TBAR, TCTOP, &
                            TSURF, ZSNOW, TCSNOW, HCPSNO, QTRANS, &
                            FI, DELZ, ILG, IL1, IL2, JL, IG)
   !
@@ -84,7 +84,7 @@ subroutine snowTempUpdate (GSNOW, TSNOW, WSNOW, RHOSNO, QMELTG, & ! Formerly TSP
   real,intent(in) :: TSURF (ILG)  !< Snow surface temperature [K]
   real,intent(in) :: ZSNOW (ILG)  !< Depth of snow pack \f$[m] (\Delta z_s)\f$
   real,intent(in) :: TCSNOW(ILG)  !< Thermal conductivity of snow \f$[W m^{-1} K^{-1}]\f$
-  real,intent(inout) :: HCPSNO(ILG)  !< Heat capacity of snow \f$[J m^{-3} K^1] (C_s)\f$
+  real,intent(inout) :: HCPSNO(ILG)  !< Heat capacity of snow \f$[J m^{-3} K^{-1}] (C_s)\f$
   real,intent(in) :: QTRANS(ILG)  !< Shortwave radiation transmitted through the
   !< snow pack \f$[W m^{-2}]\f$
   real,intent(in) :: GCONST(ILG)  !< Intercept used in equation relating snow
@@ -99,12 +99,14 @@ subroutine snowTempUpdate (GSNOW, TSNOW, WSNOW, RHOSNO, QMELTG, & ! Formerly TSP
   !< surface heat flux to snow surface temperature \f$[W m^{-2} K^{-1}]\f$
 
   real(r8),intent(in) :: TBAR(ILG,IG) !< Temperatures of soil layers, averaged over modelled area [K]
+  real, intent(in) :: TCTOP (ILG,IG) !< Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1}] (\lambda_t)\f$
+
 
   real,intent(in) :: DELZ  (IG)   !< Overall thickness of soil layer [m]
   !
   !     * TEMPORARY VARIABLES.
   !
-  real :: GSNOLD, HADD, HCONV, WFREZ
+  real :: GSNOLD, HADD, HCONV, WFREZ, TCZERO
   !
   !-----------------------------------------------------------------------
   !
@@ -138,11 +140,22 @@ subroutine snowTempUpdate (GSNOW, TSNOW, WSNOW, RHOSNO, QMELTG, & ! Formerly TSP
   !!
   do I = IL1,IL2 ! loop 100
     if (FI(I) > 0.) then
+      ! Note that GSNOLD might differ from GSNOW especially over canopy subareas, 
+      ! as it is adjusted after the canopy energy budget. It is also the case in 
+      ! src/energBalNoVegSolve.f90 if QMELT(I) < 0.
       GSNOLD = GCOEFFS(I) * TSURF(I) + GCONSTS(I)
-      TSNBOT(I) = (ZSNOW(I) * TSNOW(I) + DELZ(1) * TBAR(I,1)) / &
-                  (ZSNOW(I) + DELZ(1))
-      !              TSNBOT(I)=0.90*TSNOW(I)+0.10*TBAR(I,1)
-      !              TSNBOT(I)=TSURF(I)-GSNOLD*ZSNOW(I)/(2.0*TCSNOW(I))
+
+      !! TSNB_REF
+      ! TSNBOT(I) = (ZSNOW(I) * TSNOW(I) + DELZ(1) * TBAR(I,1)) / &
+      !             (ZSNOW(I) + DELZ(1))
+      !! TSNB_OP1
+      TSNBOT(I) = (1 / ZSNOW(I) * TSNOW(I) + 1 / DELZ(1) * TBAR(I,1)) / &
+                  (1 / ZSNOW(I) + 1 / DELZ(1))
+      !
+      !! Bottom surface temperature derived from the quadratic temperature equation used in src/snowHeatCond.f90
+      !! -> may be biased as the thermal conduction flux at the bottom of the snowpack is not null
+      ! TSNBOT(I) = TSURF(I)-GSNOLD*ZSNOW(I)/(2.0*TCSNOW(I))
+
       TSNBOT(I) = MIN(TSNBOT(I),TFREZ)
       GZERO(I) = GCOEFF(I) * TSNBOT(I) + GCONST(I)
       if (QMELTG(I) < 0.) then
@@ -199,7 +212,7 @@ subroutine snowTempUpdate (GSNOW, TSNOW, WSNOW, RHOSNO, QMELTG, & ! Formerly TSP
         then
       HTCS(I) = HTCS(I) - FI(I) * HCPSNO(I) * (TSNOW(I) + TFREZ) * ZSNOW(I) / &
                 DELT
-      HADD = - TSNOW(I) * HCPSNO(I) * ZSNOW(I)
+      HADD = - TSNOW(I) * HCPSNO(I) * ZSNOW(I) ! TFREZ - (TSNOW(I) + TFREZ) = - TSNOW(I)
       HCONV = CLHMLT * WSNOW(I)
       if (HADD <= HCONV) then
         WFREZ = HADD / CLHMLT

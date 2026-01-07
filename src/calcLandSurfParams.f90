@@ -635,7 +635,15 @@ subroutine calcLandSurfParams (FC, FG, FCS, FGS, PAICAN, PAICNS, FSVF, FSVFS, & 
   !     *        LOW VEGETATION:       0.003 M.
   !     *        FOREST:               0.01  M.
   !
+  
+  ! if (ctem_on) then
+  !   THR_LAI = 0.05 ! test -> not obvious if this should change or not (+ applied only to grass/crops or not)
+  ! else
+  !   THR_LAI = 1.0
+  ! end if
+
   THR_LAI = 1.0
+
   !>
   !! In the 175 loop, the fractional coverage of the modelled area by each of the four vegetation categories is
   !! calculated, for snow-free (FCAN) and snow-covered ground (FCANS). For needleleaf and broadleaf
@@ -681,6 +689,7 @@ subroutine calcLandSurfParams (FC, FG, FCS, FGS, PAICAN, PAICNS, FSVF, FSVFS, & 
           if (FCAN(I,J) < 1.0E-5) FCAN(I,J) = 0.0
         end if
       case ('NdlTr' , 'BdlTr', 'BdlSh')
+        ! PRINT '(A9 F12.5)', 'PAI(I,J) = ', PAI(I,J)
         if (PAI(I,J) < THR_LAI) then ! FLAG HACK
           FCAN(I,J) = FCANMX(I,J) * (1.0 - FSNOW(I)) * PAI(I,J)
           PAI (I,J) = THR_LAI
@@ -700,6 +709,7 @@ subroutine calcLandSurfParams (FC, FG, FCS, FGS, PAICAN, PAICNS, FSVF, FSVFS, & 
           if (FCANS(I,J) < 1.0E-5) FCANS(I,J) = 0.0
         end if
       case ('NdlTr' , 'BdlTr', 'BdlSh')
+        ! PRINT '(A9 F12.5)', 'PAIS(I,J) = ', PAIS(I,J)
         if (PAIS(I,J) < THR_LAI) then ! FLAG HACK
           FCANS(I,J) = FCANMX(I,J) * FSNOW(I) * PAIS(I,J)
           PAIS (I,J) = THR_LAI
@@ -860,7 +870,7 @@ subroutine calcLandSurfParams (FC, FG, FCS, FGS, PAICAN, PAICNS, FSVF, FSVFS, & 
   !! (2006) \cite Bartlett2006-xp, using a relation developed by Schmidt and Gluns (1991):
   !! \f$W_{f, max} = 6.0 \Lambda_p [0.27 + 46.0 \rho_{s, f} ]\f$
   !! where \f$\rho_{s, f}\f$ is the density of fresh snow. As was done for the intercepted liquid water, if either the average
-  !! amount of snow on the canopy, SNCAN, or the total cancpy coverage is less than a small threshold value,
+  !! amount of snow on the canopy, SNCAN, or the total canopy coverage is less than a small threshold value,
   !! the value of SNCAN is stored in a residual water array SRESID, and SNCAN is set to zero. Next the
   !! intercepted snow is partitioned between FC and FCS. First SNCAN is recalculated as an average over the
   !! canopy-covered area only, rather than over the whole modelled area. Then the intercepted snow amounts

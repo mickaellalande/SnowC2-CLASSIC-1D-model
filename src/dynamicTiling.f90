@@ -542,6 +542,7 @@ contains
     CMAIROT = weightedAvg2d(CMAIROT,nlat,nmos,outputIndex,headTile,inputLength,inputIndex,FAREROT,mode)
     WSNOROT = weightedAvg2d(WSNOROT,nlat,nmos,outputIndex,headTile,inputLength,inputIndex,FAREROT,mode)
     ZSNLROT = 0.10
+    ! ZSNLROT = 0.01
     TSFSROT = weightedAvg3d(TSFSROT,4,nlat,nmos,outputIndex,headTile,inputLength,inputIndex,FAREROT,mode)
     TACROT = weightedAvg2d(TACROT,nlat,nmos,outputIndex,headTile,inputLength,inputIndex,FAREROT,mode)
     QACROT = weightedAvg2d(QACROT,nlat,nmos,outputIndex,headTile,inputLength,inputIndex,FAREROT,mode)

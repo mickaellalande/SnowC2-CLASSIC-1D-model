@@ -952,7 +952,8 @@ contains
         TBASROT(I,M) = TBARROT(I,M,IGND)
         CMAIROT(I,M) = 0.
         WSNOROT(I,M) = 0.
-        ZSNLROT(I,M) = 0.10
+        ZSNLROT(I,M) = 0.10 ! Can go down to 3 cm at SnowMIP sites (further energyBalance crash)
+        ! ZSNLROT(I,M) = 0.03
         TSFSROT(I,M,1) = TFREZ
         TSFSROT(I,M,2) = TFREZ
         TSFSROT(I,M,3) = TBARROT(I,M,1)

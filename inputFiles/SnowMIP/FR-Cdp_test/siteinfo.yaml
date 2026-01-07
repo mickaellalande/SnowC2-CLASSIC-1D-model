@@ -1,0 +1,10 @@
+name: "FR-Cdp
+lon: 5.77
+lat: 45.30
+soilcolour: 15
+start: 1995
+end: 2013
+ZRFH: 1.5
+ZRFM: 10.
+notes: "ESMSnowMIP_Reference_sites.pdf"
+# Comments are started with the pound sign, as per usual.

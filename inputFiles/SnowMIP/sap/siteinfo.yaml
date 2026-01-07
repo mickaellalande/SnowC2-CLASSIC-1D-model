@@ -1,0 +1,30 @@
+name: "sap"
+full_name: "Sapporo, Japan"
+lat: 43.082222 # 43° 04' 56"
+lon: 141.341667 # 141° 20' 30"
+elevation: 15 # m
+start: 2005 # 1 October 2005 to 30 September 2015 (remove first and last year for CLASSIC full years)
+end: 2015
+ZRFH: 1.5 # m
+ZRFM: 1.5 # m
+PFTs: "Grass" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+doi: "https://doi.org/10.1594/PANGAEA.897575"
+notes: "Urban short grass site with frequent deposition of atmospheric aerosols. Clay soil. In situ
+measurements have been complemented by reanalyses between May and October to form
+a continuous forcing dataset.
+
+Initialize the model for CLASSIC (CLASS+CTEM) run. Use the Paul's previous SnowMIP soil properties based on the site description
++ combine to satellite data.
+
+The Grass C3/C4 proportions, soil permeable depth (SDEP), and soil color index (SOCI) are determinte with satellite data.
+
+"
+
+principal_refs: "Niwano, M., Aoki, T., Kuchiki, K., Hosaka, M., & Kodama, Y. (2012). Snow Metamorphism and Albedo Process (SMAP) 
+model for climate studiesâ€¯: Model validation using meteorological and snow impurity data measured at Sapporo, Japan. 
+Journal of Geophysical Research: Earth Surface, 117(F3). https://doi.org/10.1029/2011JF002239
+
+
+"

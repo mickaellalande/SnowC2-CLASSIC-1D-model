@@ -63,6 +63,7 @@ module classStateVars
     real, dimension(ilg) :: TCANGAT !< Vegetation canopy temperature [K]
     real, dimension(ilg) :: TPNDGAT !< Temperature of ponded water [K]
     real, dimension(ilg) :: TSNOGAT !< Snowpack temperature [K]
+    real, dimension(ilg) :: TSNBGAT !< Bottom snowpack temperature [K]
     real, dimension(ilg) :: WSNOGAT !< Liquid water content of snow pack \f$[kg m^{-2} ]\f$
     real, dimension(ilg) :: maxAnnualActLyrGAT  !< Active layer depth maximum over the e-folding period specified by parameter eftime (m).
     real, dimension(ilg) :: ZPNDGAT !< Depth of ponded water on surface [m]
@@ -126,7 +127,7 @@ module classStateVars
     real, dimension(ilg) :: SFCUBS  !<
     real, dimension(ilg) :: SFCVBS  !<
     real, dimension(ilg) :: USTARBS !<
-    real, dimension(ilg) :: TCSNOW  !<
+    real, dimension(ilg) :: TCSNOW  !< Thermal conductivity of snow \f$[W m^{-1} K^{-1}]\f$
     real, dimension(ilg) :: GSNOW   !<
     real, dimension(ilg) :: ALIRGAT !< Diagnosed total near-infrared albedo of land surface [ ]
     real, dimension(ilg) :: ALVSGAT !< Diagnosed total visible albedo of land surface [ ]
@@ -315,6 +316,8 @@ module classStateVars
 
     real(r8), dimension(ilg,ignd) :: TBARGAT !< Temperature of soil layers [K]
 
+    real, dimension(ilg,ignd) :: TCTOGAT !< Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$
+    real, dimension(ilg,ignd) :: TCBOGAT !< Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$
     real, dimension(ilg,ignd) :: THICGAT !< Volumetric frozen water content of soil layers \f$[m^3 m^{-3} ]\f$
     real, dimension(ilg,ignd) :: THLQGAT !< Volumetric liquid water content of soil layers \f$[m^3 m^{-3} ]\f$
     real, dimension(ilg,ignd) :: BIGAT   !< Clapp and Hornberger empirical “b” parameter [ ]
@@ -411,6 +414,7 @@ module classStateVars
     real, dimension(nlat) :: latIndexROW!< Index of grid cell being run on the input files grid (latitude)
     real, dimension(nlat) :: FCLOROW !< Fractional cloud cover [ ]
     real, dimension(nlat) :: RHOSROW !< Density of snow \f$[kg m^{-3}]\f$
+    real, dimension(nlat) :: TCSNROW !< Thermal conductivity of snow \f$[W m^{-1} K^{-1}]\f$
     real, dimension(nlat) :: GGEOROW !<
     real, dimension(nlat) :: PADRROW !<
     real, dimension(nlat) :: PREROW  !< Surface precipitation rate \f$[kg m^{-2} s^{-1} ]\f$
@@ -425,6 +429,7 @@ module classStateVars
     real, dimension(nlat) :: SPREROW !< Snowfall rate over modelled area \f$[kg m^{-2} s^{-1} ]\f$
     real, dimension(nlat) :: TAROW   !< Air temperature at reference height [K]
     real, dimension(nlat) :: TSNOROW !< Snowpack temperature [K]
+    real, dimension(nlat) :: TSNBROW !< Bottom snowpack temperature [K]
     real, dimension(nlat) :: TCANROW !< Vegetation canopy temperature [K]
     real, dimension(nlat) :: TPNDROW !< Temperature of ponded water [K]
     real, dimension(nlat) :: ZPNDROW !< Depth of ponded water [m]
@@ -532,6 +537,7 @@ module classStateVars
     real, dimension(nlat,nmos) :: QACROT  !<
     real, dimension(nlat,nmos) :: RCANROT !< Intercepted liquid water stored on canopy \f$[kg m^{-2} ]\f$
     real, dimension(nlat,nmos) :: RHOSROT !< Density of snow \f$[kg m^{-3}]\f$
+    real, dimension(nlat,nmos) :: TCSNROT !< Thermal conductivity of snow \f$[W m^{-1} K^{-1}]\f$
     real, dimension(nlat,nmos) :: SCANROT !< Intercepted frozen water stored on canopy \f$[kg m^{-2} ]\f$
     real, dimension(nlat,nmos) :: SNOROT  !< Mass of snow pack \f$[kg m^{-2}]\f$
     real, dimension(nlat,nmos) :: TACROT  !<
@@ -539,6 +545,7 @@ module classStateVars
     real, dimension(nlat,nmos) :: TCANROT !< Vegetation canopy temperature [K]
     real, dimension(nlat,nmos) :: TPNDROT !< Temperature of ponded water [K]
     real, dimension(nlat,nmos) :: TSNOROT !< Snowpack temperature [K]
+    real, dimension(nlat,nmos) :: TSNBROT !< Bottom snowpack temperature [K]
     real, dimension(nlat,nmos) :: WSNOROT !< Liquid water content of snow pack \f$[kg m^{-2} ]\f$
     real, dimension(nlat,nmos) :: ZPNDROT !< Depth of ponded water [m]
     real, dimension(nlat,nmos) :: REFROT  !<
@@ -639,6 +646,8 @@ module classStateVars
 
     real(r8), dimension(nlat,nmos,ignd) :: TBARROT !< Temperature of soil layers [K]
 
+    real, dimension(nlat,nmos,ignd) :: TCTOROT !< Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$
+    real, dimension(nlat,nmos,ignd) :: TCBOROT !< Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$
     real, dimension(nlat,nmos,ignd) :: THICROT !< Volumetric frozen water content of soil layers \f$[m^3 m^{-3} ]\f$
     real, dimension(nlat,nmos,ignd) :: THLQROT !< Volumetric liquid water content of soil layers \f$[m^3 m^{-3} ]\f$
     real, dimension(nlat,nmos,ignd) :: BIROT   !<
@@ -665,6 +674,8 @@ module classStateVars
 
     ! allocated with nlat,nmos,ignd:
     real, dimension(nlat,nmos,ignd) :: TBARACC_M        !< Temperature of soil layers [K] (accumulated for means)
+    real, dimension(nlat,nmos,ignd) :: TCTOACC_M        !< Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$ (accumulated for means)
+    real, dimension(nlat,nmos,ignd) :: TCBOACC_M        !< Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$ (accumulated for means)
     real, dimension(nlat,nmos,ignd) :: THLQACC_M        !< Volumetric liquid water content of soil layers \f$[kg m^{-2}]\f$ (accumulated for means)
     real, dimension(nlat,nmos,ignd) :: THICACC_M        !< Volumetric frozen water content of soil layers \f$[kg m^{-2}]\f$ (accumulated for means)
     !real, dimension(nlat,nmos,ignd) :: tbaraccrow_m     !< Temperature of soil layers [K] (accumulated for CTEM)
@@ -702,6 +713,8 @@ module classStateVars
     ! These will be allocated the dimension: 'nlat,ignd'
 
     real, dimension(nlat,ignd) :: TBARROW !< Temperature of soil layers [K]
+    real, dimension(nlat,ignd) :: TCTOROW !< Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$
+    real, dimension(nlat,ignd) :: TCBOROW !< Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$
     real, dimension(nlat,ignd) :: THALROW !< Total volumetric water content of soil layers \f$[m^3 m^{-3} ]\f$
     real, dimension(nlat,ignd) :: THICROW !< Volumetric frozen water content of soil layers \f$[m^3 m^{-3} ]\f$
     real, dimension(nlat,ignd) :: THLQROW !< Volumetric liquid water content of soil layers \f$[m^3 m^{-3} ]\f$
@@ -736,7 +749,9 @@ module classStateVars
     real, dimension(nlat,nmos) :: ALVSACC_M             !< Diagnosed total visible albedo of land surface [ ]
     real, dimension(nlat,nmos) :: ALIRACC_M             !< Diagnosed total near-infrared albedo of land surface [ ]
     real, dimension(nlat,nmos) :: RHOSACC_M             !< Density of snow \f$[kg m^{-3} ]\f$
+    real, dimension(nlat,nmos) :: TCSNACC_M             !< Thermal conductivity of snow \f$[W m^{-1} K^{-1}]\f$
     real, dimension(nlat,nmos) :: TSNOACC_M             !< Snowpack temperature [K]
+    real, dimension(nlat,nmos) :: TSNBACC_M             !< Bottom snowpack temperature [K]
     real, dimension(nlat,nmos) :: WSNOACC_M             !< Liquid water content of snow pack \f$[kg m^{-2} ]\f$
     real, dimension(nlat,nmos) :: TCANACC_M             !< Vegetation canopy temperature [K]
     real, dimension(nlat,nmos) :: RCANACC_M             !< Intercepted liquid water stored on canopy \f$[kg m^{-2} ]\f$
@@ -782,6 +797,7 @@ module classStateVars
     real, dimension(nlat) :: RCAN_MO      !< Intercepted liquid water stored on canopy \f$[kg m^{-2} ]\f$
     real, dimension(nlat) :: SCAN_MO      !< Intercepted frozen water stored on canopy \f$[kg m^{-2} ]\f$
     real, dimension(nlat) :: SNOACC_MO    !< Mass of snow pack \f$[kg m^{-2} ]\f$
+    real, dimension(nlat) :: RHOSACC_MO    !< Mass of snow pack \f$[kg m^{-2} ]\f$
     real, dimension(nlat) :: FSNOACC_MO    !< Fractional cover snow pack \f$[fraction]\f$
     real, dimension(nlat) :: BCSNACC_MO    !< Black carbon mixing ratio \f$[kg m^{-3}]\f$
     real, dimension(nlat) :: WSNOACC_MO   !< Liquid water content of snow pack \f$[kg m^{-2} ]\f$
@@ -813,6 +829,8 @@ module classStateVars
 
     ! allocated with nlat,ignd:
     real, dimension(nlat,ignd) :: TBARACC_MO !< Temperature of soil layers [K] (accumulated for means)
+    real, dimension(nlat,ignd) :: TCTOACC_MO !< Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$ (accumulated for means)
+    real, dimension(nlat,ignd) :: TCBOACC_MO !< Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$ (accumulated for means)
     real, dimension(nlat,ignd) :: THLQACC_MO !< Volumetric liquid water content of soil layers \f$[kg m^{-2}]\f$ (accumulated for means)
     real, dimension(nlat,ignd) :: THICACC_MO !< Volumetric frozen water content of soil layers \f$[kg m^{-2}]\f$ (accumulated for means)
 
@@ -877,6 +895,7 @@ contains
       class_out%SCAN_MO(I) = 0.
       class_out%RCAN_MO(I) = 0.
       class_out%SNOACC_MO(I) = 0.
+      class_out%RHOSACC_MO(I) = 0.
       class_out%WSNOACC_MO(I) = 0.
       class_out%ZSNACC_MO(I) = 0.
       class_out%OVRACC_MO(I) = 0.
@@ -904,6 +923,8 @@ contains
 
       do J = 1,IGND
         class_out%TBARACC_MO(I,J) = 0.
+        class_out%TCTOACC_MO(I,J) = 0.
+        class_out%TCBOACC_MO(I,J) = 0.
         class_out%THLQACC_MO(I,J) = 0.
         class_out%THICACC_MO(I,J) = 0.
         class_out%MRSOL_MO(i,j) = 0.
@@ -1000,7 +1021,9 @@ contains
         class_rot%ALVSACC_M(i,m) = 0.
         class_rot%ALIRACC_M(i,m) = 0.
         class_rot%RHOSACC_M(i,m) = 0.
+        class_rot%TCSNACC_M(i,m) = 0.
         class_rot%TSNOACC_M(i,m) = 0.
+        class_rot%TSNBACC_M(i,m) = 0.
         class_rot%WSNOACC_M(i,m) = 0.
         class_rot%TCANACC_M(i,m) = 0.
         class_rot%RCANACC_M(i,m) = 0.
@@ -1025,6 +1048,8 @@ contains
 
         do J = 1,IGND
           class_rot%TBARACC_M(I,M,J) = 0.
+          class_rot%TCTOACC_M(I,M,J) = 0.
+          class_rot%TCBOACC_M(I,M,J) = 0.
           class_rot%THLQACC_M(I,M,J) = 0.
           class_rot%THICACC_M(I,M,J) = 0.
         end do
@@ -1197,6 +1222,7 @@ contains
     class_rot%ROFNROW = 0.
     class_rot%ROVGROW = 0.
     class_rot%RHOSROW = 0.
+    class_rot%TCSNROW = 0.
     class_rot%WTRCROW = 0.
     class_rot%WTRSROW = 0.
     class_rot%WTRGROW = 0.
@@ -1205,6 +1231,7 @@ contains
     class_rot%SCANROW = 0.
     class_rot%RCANROW = 0.
     class_rot%TSNOROW = 0.
+    class_rot%TSNBROW = 0.
     class_rot%WSNOROW = 0.
     class_rot%TPNDROW = 0.
     class_rot%ZPNDROW = 0.
@@ -1220,6 +1247,8 @@ contains
     class_rot%QFCROW = 0.
     class_rot%GFLXROW = 0.
     class_rot%TBARROW = 0.
+    class_rot%TCTOROW = 0.
+    class_rot%TCBOROW = 0.
     class_rot%THALROW = 0.
     class_rot%THICROW = 0.
     class_rot%THLQROW = 0.
@@ -1410,6 +1439,7 @@ contains
     print *, 'DLATROW ', class_rot%DLATROW
     print *, 'latIndexROW ', class_rot%latIndexROW
     print *, 'RHOSROW ', class_rot%RHOSROW
+    print *, 'TCSNROW ', class_rot%TCSNROW
     print *, 'PADRROW ', class_rot%PADRROW
     print *, 'PRESROW ', class_rot%PRESROW
     print *, 'RADJROW ', class_rot%RADJROW
@@ -1417,6 +1447,7 @@ contains
     print *, 'RPREROW ', class_rot%RPREROW
     print *, 'SPREROW ', class_rot%SPREROW
     print *, 'TSNOROW ', class_rot%TSNOROW
+    print *, 'TSNBROW ', class_rot%TSNBROW
     print *, 'TPNDROW ', class_rot%TPNDROW
     print *, 'SCANROW ', class_rot%SCANROW
     print *, 'TADPROW ', class_rot%TADPROW
@@ -1543,6 +1574,8 @@ contains
     print *, 'CSALROT ', class_rot%CSALROT
     print *, 'FSFBROL ', class_rot%FSFBROL
     print *, 'TBARROW ', class_rot%TBARROW
+    print *, 'TCTOROW ', class_rot%TCTOROW
+    print *, 'TCBOROW ', class_rot%TCBOROW
     print *, 'THICROW ', class_rot%THICROW
     print *, 'GFLXROW ', class_rot%GFLXROW
     print *, 'HTCROW ', class_rot%HTCROW
@@ -1556,6 +1589,7 @@ contains
     print *, 'ROFNACC_M ', class_rot%ROFNACC_M
     print *, 'ALVSACC_M ', class_rot%ALVSACC_M
     print *, 'RHOSACC_M ', class_rot%RHOSACC_M
+    print *, 'TCSNACC_M ', class_rot%TCSNACC_M
     print *, 'WSNOACC_M ', class_rot%WSNOACC_M
     print *, 'RCANACC_M ', class_rot%RCANACC_M
     print *, 'ALTOTACC_M ', class_rot%ALTOTACC_M
@@ -1585,6 +1619,8 @@ contains
     print *, 'CANOPYEVAP ', class_out%CANOPYEVAP
     print *, 'EVSPSBL_MO ', class_out%EVSPSBL_MO
     print *, 'TBARACC_MO ', class_out%TBARACC_MO
+    print *, 'TCTOACC_MO ', class_out%TCTOACC_MO
+    print *, 'TCBOACC_MO ', class_out%TCBOACC_MO
     print *, 'THICACC_MO ', class_out%THICACC_MO
     print *, 'TCANACC_MO ', class_out%TCANACC_MO
     print *, 'ALIRACC_YR ', class_out%ALIRACC_YR

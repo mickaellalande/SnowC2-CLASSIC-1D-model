@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Script to obtain status of jobs on gpscc3.
+
+# Usage: jobstat_collab <-u USER> <-a> <-s> <-f> <-h>
+#
+# Optional arguments:
+#   -u USER   : user account      (default: current user, i.e. $USER)
+#   -a        : get status of all running and queued jobs
+#   -f        : get list of finished jobs for user
+#   -s        : get status of job steps
+#   -h        : output possible options
+
+# Modifications:
+
+# Initial implementation: Ed Chan, Jan 2024 (based on the script used for the ECCC HPC clusters).
+
+# Retrieve command line options.
+
+while getopts "u:asfh" opt; do
+    case "$opt" in
+    u) USER=$OPTARG    ;;
+    a) option=all      ;;
+    f) option=finished ;;
+    s) option=steps    ;;
+    *) echo 'options: -u username --  user account (defaults to current user)'
+       echo '         -a          --  get status for all running and queued jobs'
+       echo '         -f          --  get account status for finished/running jobs'
+       echo '         -s          --  get job step status'
+       exit ;;
+    esac
+done
+
+# Get job status information according to specified options.
+
+format="%.18i %.9P %.8j %.8u %.8T %.9M %.10l %.10m %.6C %.6D %R"
+
+case "$option" in
+      all) echo Job status for all users: 
+           squeue -o "$format"                 ;;
+    steps) echo Job status steps for $USER:
+           squeue -l -s -u $USER               ;;
+ finished) echo State of finished/running jobs for $USER:
+           sacct -u $USER                   ;;
+        *) echo Job status for user $USER:
+           squeue -u $USER -o "$format"        ;;
+esac
+
+exit
+

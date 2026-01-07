@@ -4,7 +4,8 @@
 subroutine snowHeatCond (GCOEFFS, GCONSTS, CPHCHG, IWATER, & ! Formerly TSPREP
                          FI, ZSNOW, TSNOW, TCSNOW, &
                          ILG, IL1, IL2, JL)
-  !
+  !     
+  !     * APR 19/24 - M. LALANDE. ADD THE DETAILED CALCULATION IN THE DOCUMENTATION
   !     * AUG 16/06 - D.VERSEGHY. MAJOR REVISION TO IMPLEMENT THERMAL
   !     *                         SEPARATION OF SNOW AND SOIL.
   !     * MAY 24/06 - D.VERSEGHY. LIMIT DELZ3 TO <= 4.1 M.
@@ -84,7 +85,7 @@ subroutine snowHeatCond (GCOEFFS, GCONSTS, CPHCHG, IWATER, & ! Formerly TSPREP
 end subroutine snowHeatCond
 !> \file
 !!
-!! @author D. Verseghy, M. Lazare
+!! @author D. Verseghy, M. Lazare, M. Lalande
 !!
 !!   In this subroutine, coefficients are derived for an equation
 !!   relating the heat flux at the snow surface to the snow surface
@@ -123,3 +124,31 @@ end subroutine snowHeatCond
 !!   surface; and the latent heat of vaporization at the surface,
 !!   CPHCHG, is set to the value for sublimation (by adding the latent
 !!   heat of melting to the latent heat of vaporization).
+!!   
+!!   ---
+!!   #### Detailed calculation using the above mentioned hypothesis: 
+!!   
+!!   \f$T(z) = \frac{1}{2}az^2 + bz + c = \frac{1}{2}{T}''(0)z^2 + {T}'(0)z + T(0)\f$
+!!   
+!!   with \f$ {T}''(0) = \frac{ {T}'(\Delta z_s) - T'(0) }{ \Delta z_s }\f$
+!!   and
+!!   \f$\left \{
+!!   \begin{array}{l}
+!!   G(0) = -\lambda_s {T}'(0) \\
+!!   G(\Delta z_s) = -\lambda_s {T}'(\Delta z_s) = 0
+!!   \end{array}
+!!   \right.\f$
+!!
+!!   \f$T(z) = \frac{1}{2}\frac{ {T}'(\Delta z_s) - T'(0) }{ \Delta z_s }z^2 + {T}'(0)z + T(0)
+!!           = \frac{- T'(0)}{2\Delta z_s}z^2 + {T}'(0)z + T(0)
+!!           = T'(0) \left[ z - \frac{z^2}{2\Delta z_s} \right] + T(0)
+!!           = - \frac{G(0)}{\lambda_s} \left[ z - \frac{z^2}{2\Delta z_s} \right] + T(0)\f$
+!! 
+!!   By integrating the later equation:  
+!!   \f$  T_s(\Delta z_s) = \frac{1}{\Delta z_s} \int_{0}^{\Delta z_s} T(z)dz 
+!!                        = \frac{1}{\Delta z_s} \left\{ - \frac{G(0)}{\lambda_s} \left[ \frac{\Delta z_s^2}{2} - \frac{\Delta z_s^3}{6\Delta z_s} \right] + T(0)\Delta z_s \right\} 
+!!                        = - \frac{G(0)}{\lambda_s} \left[ \frac{\Delta z_s}{2} - \frac{\Delta z_s}{6} \right] + T(0) 
+!!                        = - \frac{G(0)\Delta z_s}{3\lambda_s} + T(0)  \f$
+!!
+!!  Hence the final result: \f$G(0) = \frac{3 \lambda_s}{\Delta z_s} \left[T(0) - T_s(\Delta z_s)\right]\f$
+

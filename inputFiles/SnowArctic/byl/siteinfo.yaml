@@ -1,0 +1,35 @@
+name: "byl"
+full_name: "Bylot Island, Canadian high Arctic"
+lat: 73.1504
+lon: -80.0046
+elevation: 25 # m
+start: 2013 # 11 July 2013 to 25 June 2019 (remove first and last year for CLASSIC full years)
+end: 2019
+ZRFH: 2.3 # m
+ZRFM: 2.3 # m
+PFTs: "Grass" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+doi: "https://doi.org/10.5885/45693CE-02685A5200DD4C38"
+notes: "         
+Localisation / Location:
+------------------------
+- Île Bylot, vallée Qarlikturvik, polygone à coins de glace
+- Bylot Island, Qarlikturvik valley, ice-wedge polygon
+
+Description:
+------------
+- Le site est un polygone à centre déprimé et comporte une végétation herbacée sans espèce érigée
+- The site is a low-center polygon, with herb tundra and no erect vegetation
+
+The Grass C3/C4 proportions, soil permeable depth (SDEP), and soil color index (SOCI) are determinte with satellite data.
+
+"
+
+principal_refs: "Domine, F., Lackner, G., Sarrazin, D., Poirier, M., & Belke-Brea, M. (2021). 
+Meteorological, snow and soil data (2013â€“2019) from a herb tundra permafrost site at Bylot Island, 
+Canadian high Arctic, for driving and testing snow and land surface models. 
+Earth System Science Data, 13(9), 4331-4348. https://doi.org/10.5194/essd-13-4331-2021
+
+
+"

@@ -32,7 +32,7 @@ subroutine waterBudgetDriver (THLIQ, THICE, TBAR, TCAN, RCAN, SNCAN, & ! Formerl
                               JL, IC, IG, IGP1, IGP2, &
                               NLANDCS, NLANDGS, NLANDC, NLANDG, NLANDI, &
                               RB, RC, RCS, FRAINC, FSNOWC, FRAICS, FSNOCS, & 
-                              LAIPAIRatio, LAISPAISRatio) 
+                              LAIPAIRatio, LAISPAISRatio, VMOD, ZOMLNS, ZREFM, IZREF) 
   !
   !     * AUG 04/15 - M.LAZARE.   SPLIT FROOT INTO TWO ARRAYS, FOR CANOPY
   !     *                         AREAS WITH AND WITHOUT SNOW.
@@ -229,6 +229,10 @@ subroutine waterBudgetDriver (THLIQ, THICE, TBAR, TCAN, RCAN, SNCAN, & ! Formerl
   real, intent(in) :: TSPCP (ILG)  !< Snowfall temperature over modelled area [C]
   real, intent(in) :: PCPR  (ILG)  !< Surface precipitation rate \f$[kg m^{-2} s^{-1}]\f$
   real, intent(in) :: TA    (ILG)  !< Air temperature at reference height [K]
+  real, intent(in) :: VMOD  (ILG)  !< Wind speed at reference height \f$[m s^{-1} ]\f$
+  real, intent(in) :: ZOMLNS(ILG)  !< Logarithm of roughness length for momentum of snow [ ]
+  real, intent(in) :: ZREFM (ILG)  !< Reference height associated with forcing wind speed [m]
+  integer, intent(in) :: IZREF !< Flag governing treatment of surface roughness length
   !
   real(r8), intent(in) :: TBARC(ILG,IG)  !< Subarea temperatures of soil layers [C]
   real(r8), intent(in) :: TBARG(ILG,IG)  !< Subarea temperatures of soil layers [C]
@@ -378,7 +382,7 @@ subroutine waterBudgetDriver (THLIQ, THICE, TBAR, TCAN, RCAN, SNCAN, & ! Formerl
           WLSTCS(ILG), WLSTGS(ILG), RAC   (ILG), RACS  (ILG), &
           SNC   (ILG), SNCS  (ILG), TSNOWC(ILG), TSNOWG(ILG), &
           DT    (ILG), ZERO  (ILG), RALB  (ILG), ZFAV  (ILG), &
-          THLINV(ILG)
+          THLINV(ILG), ZRSLDM(ILG), ZOM   (ILG), VA2   (ILG)
   !
   integer :: LZFAV (ILG)
   !
@@ -567,8 +571,10 @@ subroutine waterBudgetDriver (THLIQ, THICE, TBAR, TCAN, RCAN, SNCAN, & ! Formerl
                           THLIQC, THICEC, ZSNOCS, RHOSCS, XSNOCS, SNO, &
                           WSNOCS, WSNOW, FCS, FGS, FCS, BAL, THPOR, THLMIN, &
                           DELZW, ISAND, IG, ILG, IL1, IL2, JL, N)
+    ! Pass 0 for the windspeed within the canopy as we consider that there is no further snow compaction due to wind within 
+    ! the canopy. Alternatively, we could create/pass a variable like VACS (to save within src/energyBudgetDriver.f90).
     call snowAging(ALBSCS, RHOSCS, ZSNOCS, HCPSCS, & ! Formerly SNOALBW
-                   TSNOCS, FCS, SPCCS, RALB, WSNOCS, RHOMAX, &
+                   TSNOCS, FCS, SPCCS, RALB, WSNOCS, RHOMAX, ZERO, &
                    ISAND, ILG, IG, IL1, IL2, JL)
   end if
   !
@@ -635,8 +641,25 @@ subroutine waterBudgetDriver (THLIQ, THICE, TBAR, TCAN, RCAN, SNCAN, & ! Formerl
                           THLIQG, THICEG, ZSNOGS, RHOSGS, XSNOGS, SNO, &
                           WSNOGS, WSNOW, FCS, FGS, FGS, BAL, THPOR, THLMIN, &
                           DELZW, ISAND, IG, ILG, IL1, IL2, JL, N)
+    do I = IL1,IL2 ! loop 200
+      ! Compute the wind speed at 2 m above the snow for the snow aging parameterization
+      if (FGS(I) > 0.) then
+        ZOM(I) = EXP(ZOMLNS(I))
+        if (IZREF == 1) then
+          ZRSLDM(I) = ZREFM(I)
+        else
+          ZRSLDM(I) = ZREFM(I) + ZOM(I)
+        end if
+        VA2(I) = VMOD(I) * (LOG(2.0) - ZOMLNS(I)) / (LOG(ZRSLDM(I) - ZSNOGS(I)) - ZOMLNS(I))
+        ! PRINT '(A12 F12.5)', 'VMOD(I) = ', VMOD(I)
+        ! PRINT '(A12 F12.5)', 'VA2(I) = ', VA2(I)
+        ! PRINT '(A12 F12.5)', 'ZREFM(I) = ', ZREFM(I)
+        ! PRINT '(A12 F12.5)', 'ZSNOW(I) = ', ZSNOW(I)
+        ! PRINT '(A12 F12.5)', 'ZSNOGS(I) = ', ZSNOGS(I)
+      end if
+    end do ! loop 200
     call snowAging(ALBSGS, RHOSGS, ZSNOGS, HCPSGS, & ! Formerly SNOALBW
-                   TSNOGS, FGS, SPCGS, RALB, WSNOGS, RHOMAX, &
+                   TSNOGS, FGS, SPCGS, RALB, WSNOGS, RHOMAX, VA2, &
                    ISAND, ILG, IG, IL1, IL2, JL)
   end if
   !
@@ -965,6 +988,11 @@ subroutine waterBudgetDriver (THLIQ, THICE, TBAR, TCAN, RCAN, SNCAN, & ! Formerl
                  FC (I) * ZSNOWC(I) + FG (I) * ZSNOWG(I)
       WSNOW(I) = FCS(I) * WSNOCS(I) + FGS(I) * WSNOGS(I)
       SNO(I) = ZSNOW(I) * RHOSNO(I)
+      ! PRINT '(A30)', 'src/waterBudgetDriver.f90'
+      ! PRINT '(A9 F12.5)', 'ZSNOW = ', ZSNOW(I)
+      ! PRINT '(A9 F12.5)', 'RHOSNO = ', RHOSNO(I)
+      ! PRINT '(A9 F12.5)', 'SNO = ', SNO(I)
+      ! PRINT '(A9 F12.5)', 'WSNOW = ', WSNOW(I)
       if (SNO(I) < 0.0) SNO(I) = 0.0
       !
       !           * LIMIT SNOW MASS TO A MAXIMUM OF 10 METRES TO AVOID

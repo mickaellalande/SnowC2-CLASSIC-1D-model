@@ -1,0 +1,30 @@
+name: "snb"
+full_name: "Senator Beck, Colorado, US"
+lat: 37.91 # 37° 54' 24.8"N (https://onlinelibrary.wiley.com/doi/abs/10.1002/2013WR013711)
+lon: -107.73 # 107° 43' 34.6"W -> but for watershep (common to swa, so better take SnowMIP description)
+elevation: 3714 # m
+start: 2005 # 1 October 2005 to 30 September 2015 (remove first and last year for CLASSIC full years)
+end: 2015
+ZRFH: 3.8 # m
+ZRFM: 4.0 # m
+PFTs: "0.7 Grass" # use same PFT naming convention as in run_parameters.txt/model code.
+# Set grass to 0.7 (could be 0.5 or other) to let a little bare ground (as described for this site)
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+doi: "https://doi.org/10.1594/PANGAEA.897575"
+notes: "Alpine tundra with thin soils and exposed bedrock..
+
+Initialize the model for CLASSIC (CLASS+CTEM) run. Use the Paul's previous SnowMIP soil properties based on the site description
++ combine to satellite data (because poor description). There is the first layer as peat, which was not described, but it sounds 
+correct regarding the simulated soil temperatures.
+
+The Grass C3/C4 proportions, soil permeable depth (SDEP), and soil color index (SOCI) are determinte with satellite data.
+
+"
+
+principal_refs: "Landry, C. C., Buck, K. A., Raleigh, M. S., & Clark, M. P. (2014). 
+Mountain system monitoring at Senator Beck Basin, San Juan Mountains, Colorado: 
+A new integrative data source to develop and evaluate models of snow and hydrologic processes. 
+Water Resources Research, 50(2), 1773-1788. https://doi.org/10.1002/2013WR013711
+
+"

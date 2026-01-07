@@ -1,0 +1,27 @@
+name: "rme"
+full_name: "Reynolds Mountain East, Idaho, USA"
+lon: -116.783 # 116°46′58.9′′W (Reba et al., 2011)
+lat: 43.186 # 43°11′9.6′′N 
+elevation: 2060 # m
+start: 1988 # 1 October 1988 to 30 September 2008 (remove first and last year for CLASSIC full years)
+end: 2008
+ZRFH: 3 # m
+ZRFM: 3 # m
+PFTs: "Grass" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+doi: "https://doi.org/10.1594/PANGAEA.897575"
+notes: "Sheltered grassy site in an aspen and fir grove. High organic content in surface soils and
+50 cm of silty clay (42% clay, 42% silt) overlying clay (50% clay, 40% silt).
+
+Initialize the model for CLASSIC (CLASS+CTEM) run. Use the Paul's previous SnowMIP soil properties based on the site description.
+
+The Grass C3/C4 proportions, soil permeable depth (SDEP), and soil color index (SOCI) are determinte with satellite data.
+
+"
+
+principal_refs: "Reba, M. L., Marks, D., Seyfried, M., Winstral, A., Kumar, M., & Flerchinger, G. (2011). 
+A long-term data set for hydrologic modeling in a snow-dominated mountain catchment. 
+Water Resources Research, 47(7). https://doi.org/10.1029/2010WR010030
+
+"

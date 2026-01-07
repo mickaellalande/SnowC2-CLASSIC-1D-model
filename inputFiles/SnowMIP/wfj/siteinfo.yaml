@@ -1,0 +1,27 @@
+name: "wjf"
+full_name: "Weissfluhjoch, Switzerland"
+lat: 46.829598 # https://envidat.ch/#/metadata/snowmip
+lon: 9.809568
+elevation: 2540 # m
+start: 1996 # 1 September 1996 to 31 August 2016 (remove first and last year for CLASSIC full years)
+end: 2016
+ZRFH: 4.5 # m
+ZRFM: 5.5 # m
+PFTs: "Bareground" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+doi: "https://doi.org/10.1594/PANGAEA.897575"
+notes: "Artificially drained moraine containing clay sediments overlain by serpentine rocks of
+varying sizes up to 20 cm diameter.
+
+Initialize the model for CLASSIC (CLASS+CTEM) run. Use the Paul's previous SnowMIP soil properties based on the site description
++ combine to satellite data.
+
+The Grass C3/C4 proportions, soil permeable depth (SDEP), and soil color index (SOCI) are determinte with satellite data.
+
+"
+
+principal_refs: "Wever, N. (2017). Weissfluhjoch dataset for ESM-SnowMIP [dataset]. 
+WSL Institute for Snow and Avalanche Research SLF. http://dx.doi.org/10.16904/16
+
+"
