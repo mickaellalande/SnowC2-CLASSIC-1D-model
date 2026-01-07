@@ -431,6 +431,17 @@ subroutine radiationDriver (FC, FG, FCS, FGS, ALVSCN, ALIRCN, & ! Formerly CLASS
   do I = IL1,IL2
     if (SNO(I) > 0.0) then
       ZSNOW(I) = SNO(I) / RHOSNO(I)
+
+      ! Test to keep the snow cover fraction to 1 for site level simulations
+      ! /!\ does not work be cause of water budget (CLASSIC does not allow SD < 10 cm)
+      ! FSNOW(I) = 1.0 
+
+      ! NY07
+      ! FSNOW(I) = tanh(ZSNOW(I)/(0.025*(RHOSNO(I)/50.)))
+
+      ! PRINT '(A9 F12.5)', 'ZSNOW = ', ZSNOW(I)
+      ! PRINT '(A9 F12.5)', 'SNOLIM = ', SNOLIM(I)
+
       if (ZSNOW(I) >= (SNOLIM(I) - 0.00001)) then
         FSNOW(I) = 1.0
       else
@@ -438,6 +449,7 @@ subroutine radiationDriver (FC, FG, FCS, FGS, ALVSCN, ALIRCN, & ! Formerly CLASS
         ZSNOW(I) = SNOLIM(I)
         WSNOW(I) = WSNOW(I) / FSNOW(I)
       end if
+
     else
       ZSNOW(I) = 0.0
       FSNOW(I) = 0.0

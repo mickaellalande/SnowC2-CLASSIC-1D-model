@@ -149,60 +149,60 @@
             <standardName>Surface Snow Amount</standardName>
             <longName>The mass of surface snow on the land portion of the grid cell divided by the land area in the grid cell reported as missing where the land fraction is 0 excludes snow on vegetation canopy or on sea ice.</longName>
             <shortName>snw</shortName>
-            <defaultUnits>kg/m$^2$</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>snoacc_mo</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>snoacc_d</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>halfhourly</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>sno_hh</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>halfhourly</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>sno_hh_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="5" includeBareGround="false" dormant="false">
             <standardName>Liquid water content of snow pack</standardName>
             <longName>The total mass of liquid water contained interstitially within the whole depth of the snow pack of the land portion of a grid cell divided by the area of the land portion of the cell.</longName>
             <shortName>wsnw</shortName>
-            <defaultUnits>kg/m$^2$</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>wsnoacc_mo</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>wsnoacc_d</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>halfhourly</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>wsno_hh</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>halfhourly</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>wsnoacc_hh_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="6" includeBareGround="false" dormant="false">
@@ -318,6 +318,12 @@
                 <nameInCode>groundevap_d</nameInCode>
                 <units>kg m$^{-2}$ s$^{-1}$</units>
             </variant>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>groundevap_hh</nameInCode>
+                <units>kg m$^{-2}$ s$^{-1}$</units>
+            </variant>
         </variable>
         <variable id="10" includeBareGround="false" dormant="false">
             <standardName>Water Evaporation from Canopy</standardName>
@@ -334,6 +340,12 @@
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>canopyevap_d</nameInCode>
+                <units>kg m$^{-2}$ s$^{-1}$</units>
+            </variant>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>canopyevap_hh</nameInCode>
                 <units>kg m$^{-2}$ s$^{-1}$</units>
             </variant>
         </variable>
@@ -697,6 +709,66 @@
                 <units>m</units>
             </variant>
         </variable>
+        <variable id="24" includeBareGround="false" dormant="false">
+            <standardName>Snow thermal conductivity</standardName>
+            <longName>Thermal conductivity of snow</longName>
+            <shortName>tcsnow</shortName>
+            <defaultUnits>W m$^{-1}$ K$^{-1}</defaultUnits>
+            <variant>
+                <timeFrequency>daily</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>tcsnow_d</nameInCode>
+                <units>W m$^{-1}$ K$^{-1}$</units>
+            </variant>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>tcsnow_hh</nameInCode>
+                <units>W m$^{-1}$ K$^{-1}$</units>
+            </variant>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>tile</outputForm>
+                <nameInCode>tcsnow_hh_t</nameInCode>
+                <units>W m$^{-1}$ K$^{-1}$</units>
+            </variant>
+        </variable>
+        <variable id="24" includeBareGround="false" dormant="false">
+            <standardName>Thermal conductivity of soil at top of layer</standardName>
+            <longName>Thermal conductivity of soil at top of layer</longName>
+            <shortName>tctop</shortName>
+            <defaultUnits>W m$^{-1}$ K$^{-1}</defaultUnits>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>layer</outputForm>
+                <nameInCode>tctop_hh</nameInCode>
+                <units>W m$^{-1}$ K$^{-1}$</units>
+            </variant>
+            <variant>
+                <timeFrequency>daily</timeFrequency>
+                <outputForm>layer</outputForm>
+                <nameInCode>tctop_d</nameInCode>
+                <units>W m$^{-1}$ K$^{-1}$</units>
+            </variant>
+        </variable>
+            <variable id="24" includeBareGround="false" dormant="false">
+            <standardName>Thermal conductivity of soil at bottom of layer</standardName>
+            <longName>Thermal conductivity of soil at bttom of layer</longName>
+            <shortName>tcbot</shortName>
+            <defaultUnits>W m$^{-1}$ K$^{-1}</defaultUnits>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>layer</outputForm>
+                <nameInCode>tcbot_hh</nameInCode>
+                <units>W m$^{-1}$ K$^{-1}$</units>
+            </variant>
+            <variant>
+                <timeFrequency>daily</timeFrequency>
+                <outputForm>layer</outputForm>
+                <nameInCode>tcbot_d</nameInCode>
+                <units>W m$^{-1}$ K$^{-1}$</units>
+            </variant>
+        </variable>
         <variable id="25" includeBareGround="false" dormant="false">
             <standardName>Vegetation Canopy Temperature</standardName>
             <longName>Vegetation Canopy Temperature</longName>
@@ -817,11 +889,125 @@
                 <units>K</units>
             </variant>
         </variable>
+
+        <!-- Output the surface temperature over each subareas  -->
+        <variable id="31" includeBareGround="false" dormant="false">
+            <standardName>Surface Temperature (Canopy Snow subarea)</standardName>
+            <longName>Surface (skin) temperature (Canopy Snow subarea)</longName>
+            <shortName>tscs</shortName>
+            <defaultUnits>K</defaultUnits>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>tsurfcs_hh</nameInCode>
+                <units>K</units>
+            </variant>
+        </variable>
+        <variable id="31" includeBareGround="false" dormant="false">
+            <standardName>Surface Temperature (Ground Snow subarea)</standardName>
+            <longName>Surface (skin) temperature (Ground Snow subarea)</longName>
+            <shortName>tsgs</shortName>
+            <defaultUnits>K</defaultUnits>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>tsurfgs_hh</nameInCode>
+                <units>K</units>
+            </variant>
+        </variable>
+        <variable id="31" includeBareGround="false" dormant="false">
+            <standardName>Surface Temperature (Canopy subarea)</standardName>
+            <longName>Surface (skin) temperature (Canopy subarea)</longName>
+            <shortName>tsc</shortName>
+            <defaultUnits>K</defaultUnits>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>tsurfc_hh</nameInCode>
+                <units>K</units>
+            </variant>
+        </variable>
+        <variable id="31" includeBareGround="false" dormant="false">
+            <standardName>Surface Temperature (Ground subarea)</standardName>
+            <longName>Surface (skin) temperature (Ground subarea)</longName>
+            <shortName>tsg</shortName>
+            <defaultUnits>K</defaultUnits>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>tsurfg_hh</nameInCode>
+                <units>K</units>
+            </variant>
+        </variable>
+
+        <!-- Output the subarea fractional coverage of modelled area  -->
+        <variable id="31" includeBareGround="false" dormant="false">
+            <standardName>Fractional coverage of Canopy Snow subarea</standardName>
+            <longName>Fractional coverage of Canopy Snow subarea</longName>
+            <shortName>fcs</shortName>
+            <defaultUnits>-</defaultUnits>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>fcs_hh</nameInCode>
+                <units>-</units>
+            </variant>
+        </variable>
+        <variable id="31" includeBareGround="false" dormant="false">
+            <standardName>Fractional coverage of Ground Snow subarea</standardName>
+            <longName>Fractional coverage of Ground Snow subarea</longName>
+            <shortName>fgs</shortName>
+            <defaultUnits>-</defaultUnits>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>fgs_hh</nameInCode>
+                <units>-</units>
+            </variant>
+        </variable>
+        <variable id="31" includeBareGround="false" dormant="false">
+            <standardName>Fractional coverage of Canopy subarea</standardName>
+            <longName>Fractional coverage of Canopy subarea</longName>
+            <shortName>fc</shortName>
+            <defaultUnits>-</defaultUnits>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>fc_hh</nameInCode>
+                <units>-</units>
+            </variant>
+        </variable>
+        <variable id="31" includeBareGround="false" dormant="false">
+            <standardName>Fractional coverage of Ground subarea</standardName>
+            <longName>Fractional coverage of Ground subarea</longName>
+            <shortName>fg</shortName>
+            <defaultUnits>-</defaultUnits>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>fg_hh</nameInCode>
+                <units>-</units>
+            </variant>
+        </variable>
+
+
         <variable id="32" includeBareGround="false" dormant="false">
             <standardName>Snow on canopy</standardName>
             <longName>Intercepted frozen water stored on canopy</longName>
             <shortName>scanopy</shortName>
             <defaultUnits>kg m$^{-2}$</defaultUnits>
+            <variant>
+                <timeFrequency>monthly</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>scan_mo</nameInCode>
+                <units>kg m$^{-2}$</units>
+            </variant>
+            <variant>
+                <timeFrequency>daily</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>scanacc_d</nameInCode>
+                <units>kg m$^{-2}$</units>
+            </variant>
             <variant>
                 <timeFrequency>halfhourly</timeFrequency>
                 <outputForm>grid</outputForm>
@@ -874,6 +1060,30 @@
                 <timeFrequency>halfhourly</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>tsno_hh_t</nameInCode>
+                <units>$^\circ$C</units>
+            </variant>
+        </variable>
+        <variable id="34" includeBareGround="false" dormant="false">
+            <standardName>Bottom temperature of snow pack</standardName>
+            <longName>Bottom snowpack temperature</longName>
+            <shortName>tsnbot</shortName>
+            <defaultUnits>$^\circ$C</defaultUnits>
+            <variant>
+                <timeFrequency>daily</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>tsnbacc_d</nameInCode>
+                <units>$^\circ$C</units>
+            </variant>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>tsnb_hh</nameInCode>
+                <units>$^\circ$C</units>
+            </variant>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>tile</outputForm>
+                <nameInCode>tsnb_hh_t</nameInCode>
                 <units>$^\circ$C</units>
             </variant>
         </variable>
@@ -1200,6 +1410,12 @@
                 <nameInCode>rofnacc_d</nameInCode>
                 <units>kg m$^{-2}$ s$^{-1}$</units>
             </variant>
+            <variant>
+                <timeFrequency>halfhourly</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>rofn_hh</nameInCode>
+                <units>kg m$^{-2}$ s$^{-1}$</units>
+            </variant>
         </variable>
         <variable id="53" includeBareGround="false" dormant="false">
             <standardName>Water Table Depth</standardName>
@@ -1339,192 +1555,192 @@
             <standardName>Carbon Mass in Vegetation</standardName>
             <longName>Carbon mass per unit area in vegetation</longName>
             <shortName>cVeg</shortName>
-            <defaultUnits>kg/m$^2$</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>vgbiomas_yr_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>vgbiomas_yr</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>vgbiomas_yr_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>vgbiomas_mo_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>vgbiomas_mo</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>vgbiomas_mo_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="58" includeBareGround="false" dormant="false">
             <standardName>Carbon Mass in Leaves</standardName>
             <longName>Carbon mass per unit area in leaves.</longName>
             <shortName>cLeaf</shortName>
-            <defaultUnits>kg/m$^2$</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>gleafmas_yr_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>gleafmas_yr</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>gleafmas_yr_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>gleafmas_mo_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>gleafmas_mo</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>gleafmas_mo_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>gleafmas_d_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>gleafmas_d</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>gleafmas_d_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="59" includeBareGround="false" dormant="true">
             <standardName>Carbon Mass in Leaves</standardName>
             <longName>Non-structural Carbon mass per unit area in leaves.</longName>
             <shortName>cLeaf_ns</shortName>
-            <defaultUnits>kg/m$^2$</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>gleafmas_NS_yr_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>gleafmas_NS_yr</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>gleafmas_NS_yr_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>gleafmas_NS_mo_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>gleafmas_NS_mo_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>gleafmas_NS_d_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>gleafmas_NS_d_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="60" includeBareGround="false" dormant="true">
             <standardName>Carbon Mass in Leaves</standardName>
             <longName>Structural Carbon mass per unit area in leaves.</longName>
             <shortName>cLeaf_s</shortName>
-            <defaultUnits>kg/m$^2$</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>gleafmass_yr_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>gleafmass_yr_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>gleafmass_mo_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>gleafmass_mo_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>gleafmass_d_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>gleafmass_d_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="61" includeBareGround="false" dormant="true">
@@ -1795,300 +2011,300 @@
             <standardName>Carbon Mass in Stem</standardName>
             <longName>Carbon Mass in Stem including sapwood and hardwood.</longName>
             <shortName>cStem</shortName>
-            <defaultUnits>kg/m$^2$</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>stemmass_yr_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>stemmass_yr</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>stemmass_yr_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>stemmass_mo_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>stemmass_mo</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>stemmass_mo_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>stemmass_d_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>stemmass_d</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>stemmass_d_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="68" includeBareGround="false" dormant="true">
             <standardName>Carbon Mass in Stem</standardName>
             <longName>Non-structural Carbon Mass in Stem including sapwood and hardwood.</longName>
             <shortName>cStem_ns</shortName>
-            <defaultUnits>kg/m$^2$</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>stemmass_NS_yr_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>stemmass_NS_yr</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>stemmass_NS_yr_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>stemmass_NS_mo_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>stemmass_NS_mo_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>stemmass_NS_d_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>stemmass_NS_d_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="69" includeBareGround="false" dormant="true">
             <standardName>Carbon Mass in Stem</standardName>
             <longName>Structural Carbon Mass in Stem including sapwood and hardwood.</longName>
             <shortName>cStem_s</shortName>
-            <defaultUnits>kg/m$^2$</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>stemmasss_yr_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>stemmasss_yr_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>stemmasss_mo_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>stemmasss_mo_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>stemmasss_d_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>stemmasss_d_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="70" includeBareGround="false" dormant="false">
             <standardName>Carbon Mass in Roots</standardName>
             <longName>Carbon mass per unit area in roots, including fine and coarse roots.</longName>
             <shortName>cRoot</shortName>
-            <defaultUnits>kg/m$^2$</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>rootmass_yr_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>rootmass_yr</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>rootmass_yr_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>rootmass_mo_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>rootmass_mo</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>rootmass_mo_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>rootmass_d_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>rootmass_d</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>rootmass_d_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="71" includeBareGround="false" dormant="true">
             <standardName>Carbon Mass in Roots</standardName>
             <longName>Non-structural Carbon mass per unit area in roots, including fine and coarse roots.</longName>
             <shortName>cRoot_ns</shortName>
-            <defaultUnits>kg/m$^2$</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>rootmass_NS_yr_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>rootmass_NS_yr</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>rootmass_NS_yr_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>rootmass_NS_mo_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>rootmass_NS_mo_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>rootmass_NS_d_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>rootmass_NS_d_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="72" includeBareGround="false" dormant="true">
             <standardName>Carbon Mass in Roots</standardName>
             <longName>Structural Carbon mass per unit area in roots, including fine and coarse roots.</longName>
             <shortName>cRoot_s</shortName>
-            <defaultUnits>kg/m$^2$</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>rootmasss_yr_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>rootmasss_yr_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>rootmasss_mo_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>rootmasss_mo_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>rootmasss_d_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>daily</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>rootmasss_d_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="78" includeBareGround="true" dormant="false">
@@ -2184,73 +2400,73 @@
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>litrmass_mo_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="73" includeBareGround="true" dormant="false">
             <standardName>Carbon Mass in Model Soil Pool</standardName>
             <longName>Carbon mass in the full depth of the soil model.</longName>
             <shortName>cSoil</shortName>
-            <defaultUnits>kg/m$^2$​</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>soilcmas_yr_g</nameInCode>
-                <units>kg/m$^2$​</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>soilcmas_yr</nameInCode>
-                <units>kg/m$^2$​</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>soilcmas_yr_t</nameInCode>
-                <units>kg/m$^2$​</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>soilcmas_mo_g</nameInCode>
-                <units>kg/m$^2$​</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>soilcmas_mo</nameInCode>
-                <units>kg/m$^2$​</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>monthly</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>soilcmas_mo_t</nameInCode>
-                <units>kg/m$^2$​</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="74" includeBareGround="true" dormant="false">
             <standardName>Total Carbon in All Terrestrial Carbon Pools</standardName>
             <longName>Report missing data over ocean grid cells. For fractional land report value averaged over the land fraction.</longName>
             <shortName>cLand</shortName>
-            <defaultUnits>kg/m$^2$</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>totcmass_yr_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>pft</outputForm>
                 <nameInCode>totcmass_yr</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>totcmass_yr_t</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="75" includeBareGround="false" dormant="false">
@@ -2274,6 +2490,12 @@
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>veghght_yr_t</nameInCode>
+                <units>m</units>
+            </variant>
+            <variant>
+                <timeFrequency>daily</timeFrequency>
+                <outputForm>grid</outputForm>
+                <nameInCode>veghght_d_g</nameInCode>
                 <units>m</units>
             </variant>
         </variable>
@@ -2827,24 +3049,24 @@
             <standardName>Carbon Mass in Model Litter Pool per layer</standardName>
             <longName>Carbon mass in the form of litter per ground layer of the soil model.</longName>
             <shortName>cLitterperlay</shortName>
-            <defaultUnits>kg/m$^2$​</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>layer</outputForm>
                 <nameInCode>litrMassPerLay_yr_g</nameInCode>
-                <units>kg/m$^2$​</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="89" includeBareGround="true" dormant="true">
             <standardName>Carbon Mass in Model Soil Pool per layer</standardName>
             <longName>Carbon mass per ground layer of the soil model.</longName>
             <shortName>cSoilperlay</shortName>
-            <defaultUnits>kg/m$^2$​</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>layer</outputForm>
                 <nameInCode>soilCMasPerLay_yr_g</nameInCode>
-                <units>kg/m$^2$​</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
         <variable id="96" includeBareGround="false" dormant="false">
@@ -6645,18 +6867,18 @@
             <standardName>peat soil carbon</standardName>
             <longName>peat depth for the peat mass of the peat soil carbon pool for the peatlands model</longName>
             <shortName>peatSoilC</shortName>
-            <defaultUnits>kg/m$^2$</defaultUnits>
+            <defaultUnits>kg m$^{-2}$</defaultUnits>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>grid</outputForm>
                 <nameInCode>peatSoilC_yr_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
             <variant>
                 <timeFrequency>annually</timeFrequency>
                 <outputForm>tile</outputForm>
                 <nameInCode>peatSoilC_yr_g</nameInCode>
-                <units>kg/m$^2$</units>
+                <units>kg m$^{-2}$</units>
             </variant>
         </variable>
     </group>

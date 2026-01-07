@@ -123,12 +123,25 @@ subroutine soilHeatFluxPrep (A1, A2, B1, B2, C2, GDENOM, GCOEFF, & ! Formerly TN
       else
         CPHCHG(I) = CLHVAP
       end if
-      !
+
+      ! It is not obvious if the following harmonic average is justified under the snowpack. Since CLASSIC supposes 
+      ! an explicit snow/soil interface temperature (TSNBOT), the computation of the conductive 
+      ! flux in the first soil layer, only depends on the supposed quadratic profile within this first soil 
+      ! layer and therefore its soil thermal conductivity. This is different in several other models that use the last 
+      ! snow layer center temperature and first soil center temperature to compute the conductive flux at the 
+      ! snow/soil interface, and therefore, they use an effective layer in between with half snow and soil. 
+
+      
       if (ZSNOW(I) > 0.0) then
+        !! TCZE_REF
         TCZERO = 1.0 / (0.5 / TCSNOW(I) + 0.5 / TCTOP(I,1))
+        !! TCZE_OP1 -> could be an alternative but worsen results at Col de Porte
+        ! TCZERO = TCTOP(I,1)
       else
         TCZERO = TCTOP(I,1)
       end if
+      !PRINT '(A9 F12.5)', 'TCZERO = ', TCZERO
+      !PRINT '(A9 F12.5)', 'ZSNOW = ', ZSNOW
       A1(I) = DELZ1 / (3.0 * TCZERO)
       A2(I) = DELZ1 / (2.0 * TCZERO)
       A3 = A2(I)

@@ -43,22 +43,22 @@ contains
   !! albedos, \f$\alpha_{s, VIS}\f$ and \f$\alpha_{s, NIR}\f$, on the decay curve will be analogous
   !! to that of the total albedo, \f$\alpha_{s, T}\f$. Thus, for dry snow:
   !!
-  !! \f$[\alpha_{s, VIS} - 0.84]/[0.95-0.84] = [\alpha_{s, T} - 0.70]/[0.84-0.70]\f$
+  !! \f$[\alpha_{s, VIS} - 0.84]/[0.95-0.84] = [\alpha_{s, T} - 0.70]/[0.84-0.70]\f$  
   !! \f$[\alpha_{s, NIR} - 0.56]/[0.73-0.56] = [\alpha_{s, T} - 0.70]/[0.84-0.70]\f$
   !!
   !! or, simplifying:
   !!
-  !! \f$\alpha_{s, VIS} = 0.7857 \alpha_{s, T} + 0.2900\f$
+  !! \f$\alpha_{s, VIS} = 0.7857 \alpha_{s, T} + 0.2900\f$  
   !! \f$\alpha_{s, NIR} = 1.2142 \alpha_{s, T} - 0.2900\f$
   !!
   !! For melting snow:
   !!
-  !! [\f$\alpha_{s, VIS} - 0.62]/[0.95-0.62] = [\alpha_{s, T} - 0.50]/[0.84-0.50]\f$
+  !! [\f$\alpha_{s, VIS} - 0.62]/[0.95-0.62] = [\alpha_{s, T} - 0.50]/[0.84-0.50]\f$  
   !! [\f$\alpha_{s, NIR} - 0.38]/[0.73-0.38] = [\alpha_{s, T} - 0.50]/[0.84-0.50]\f$
   !!
   !! or, simplifying:
   !!
-  !! \f$\alpha_{s, VIS} = 0.9706 \alpha_{s, T} + 0.1347\f$
+  !! \f$\alpha_{s, VIS} = 0.9706 \alpha_{s, T} + 0.1347\f$  
   !! \f$\alpha_{s, NIR} = 1.0294 \alpha_{s, T} - 0.1347\f$
   !!
   !! The above calculations are performed if the flag IALS is set to

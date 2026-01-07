@@ -48,7 +48,7 @@ contains
     real :: EVAPSUM         !< Total evapotranspiration \f$[kg m^{-2} s^{-1} ]\f$ (temporary variable)
     real :: FLSTAR
     real :: FSSTAR
-    real :: TCN, TPN, TSN, TSURF, ZSN
+    real :: TCN, TPN, TSN, TSNBOT, TSURF, ZSN
     ! real :: DSLav
     real :: an_grd, rml_grd, totvegarea
     real, dimension(nltest,nmtest,ignd) :: PSI
@@ -141,15 +141,19 @@ contains
     HTCROT => class_rot%HTCROT,                         & !< real, dimension(:,:,:) : Diagnosed internal energy change of soil layer due to conduction and/or change in mass \f$[W m^{-2} ]\f$ 
     QFCROT => class_rot%QFCROT,                         & !< real, dimension(:,:,:) : Diagnosed vapour flux from transpiration over modelled area \f$[W m^{-2} ]\f$ 
     TBARROT=> class_rot%TBARROT,                        & !< real, dimension(:,:,:) : Temperature of soil layers [K] 
+    TCTOROT=> class_rot%TCTOROT,                        & !< real, dimension(:,:,:) : Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$
+    TCBOROT=> class_rot%TCBOROT,                        & !< real, dimension(:,:,:) : Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$
     THICROT=> class_rot%THICROT,                        & !< real, dimension(:,:,:) : Volumetric frozen water content of soil layers \f$[m^3 m^{-3} ]\f$ 
     THLQROT=> class_rot%THLQROT,                        & !< real, dimension(:,:,:) : Volumetric liquid water content of soil layers \f$[m^3 m^{-3} ]\f$ 
     RHOSROT => class_rot%RHOSROT,                       & !< real, dimension(:,:) : Density of snow \f$[kg m^{-3}]\f$ 
     SCANROT => class_rot%SCANROT,                       & !< real, dimension(:,:) : Intercepted frozen water stored on canopy \f$[kg m^{-2} ]\f$ 
     RCANROT => class_rot%RCANROT,                       & !< real, dimension(:,:) : Intercepted liquid water stored on canopy \f$[kg m^{-2} ]\f$ 
     SNOROT => class_rot%SNOROT,                         & !< real, dimension(:,:) : Mass of snow pack \f$[kg m^{-2}]\f$ 
+    TCSNROT => class_rot%TCSNROT,                       & !< real, dimension(:,:) : Thermal conductivity of snow \f$[W m^{-1} K^{-1}]\f$ 
     WSNOROT => class_rot%WSNOROT,                       & !< real, dimension(:,:) : Liquid water content of snow pack \f$[kg m^{-2} ]\f$ 
     TCANROT=> class_rot%TCANROT,                        & !< real, dimension(:,:) : Vegetation canopy temperature [K] 
     TSNOROT=> class_rot%TSNOROT,                        & !< real, dimension(:,:) : Snowpack temperature [K] 
+    TSNBROT=> class_rot%TSNBROT,                        & !< real, dimension(:,:) : Bottom snowpack temperature [K] 
     TPNDROT=> class_rot%TPNDROT,                        & !< real, dimension(:,:) : Temperature of ponded water [K] 
     ZPNDROT=> class_rot%ZPNDROT,                        & !< real, dimension(:,:) : Depth of ponded water [m] 
     dlzwrot => class_rot%dlzwrot,                       & !< real, dimension(:,:,:) : Permeable thickness of soil layer [m] 
@@ -165,6 +169,7 @@ contains
     FDLROW => class_rot%FDLROW,                         & !< real, dimension(:) : Downwelling longwave sky radiation \f$[W m^{-2} ]\f$
     RHOSROW => class_rot%RHOSROW,                       & !< real, dimension(:) : Density of snow \f$[kg m^{-3}]\f$
     SNOROW => class_rot%SNOROW,                         & !< real, dimension(:) : Mass of snow pack \f$[kg m^{-2}]\f$
+    TCSNROW => class_rot%TCSNROW,                       & !< real, dimension(:) : Thermal conductivity of snow \f$[W m^{-1} K^{-1}]\f$
     BCSNROW => class_rot%BCSNROW,                       & !< Black carbon mixing ratio \f$[kg m^{-3}]\f$
     CDHROW => class_rot%CDHROW,                         & !< real, dimension(:) : Surface drag coefficient for heat [ ]
     CDMROW => class_rot%CDMROW,                         & !< real, dimension(:) : Surface drag coefficient for momentum [ ]
@@ -229,6 +234,8 @@ contains
     HTCROW => class_rot%HTCROW,                         & !< real, dimension(:,:) : Diagnosed internal energy change of soil layer due to conduction and/or change in mass \f$[W m^{-2} ]\f$
     QFCROW => class_rot%QFCROW,                         & !< real, dimension(:,:) : Diagnosed vapour flux from transpiration over modelled area \f$[W m^{-2} ]\f$
     TBARROW => class_rot%TBARROW,                       & !< real, dimension(:,:) : Temperature of soil layers [K]
+    TCTOROW=> class_rot%TCTOROW,                        & !< real, dimension(:,:) : Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$
+    TCBOROW=> class_rot%TCBOROW,                        & !< real, dimension(:,:) : Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$
     THALROW => class_rot%THALROW,                       & !< real, dimension(:,:) : Total volumetric water content of soil layers \f$[m^3 m^{-3} ]\f$
     THLQROW => class_rot%THLQROW,                       & !< real, dimension(:,:) : Volumetric liquid water content of soil layers \f$[m^3 m^{-3} ]\f$
     THICROW => class_rot%THICROW,                       & !< real, dimension(:,:) : Volumetric frozen water content of soil layers \f$[m^3 m^{-3} ]\f$
@@ -236,6 +243,7 @@ contains
     SCANROW => class_rot%SCANROW,                       & !< real, dimension(:) : Intercepted frozen water stored on canopy \f$[kg m^{-2} ]\f$
     RCANROW => class_rot%RCANROW,                       & !< real, dimension(:) : Intercepted liquid water stored on canopy \f$[kg m^{-2} ]\f$
     TSNOROW => class_rot%TSNOROW,                       & !< real, dimension(:) : Snowpack temperature [K]
+    TSNBROW => class_rot%TSNBROW,                       & !< real, dimension(:) : Bottom snowpack temperature [K]
     WSNOROW => class_rot%WSNOROW,                       & !< real, dimension(:) : Liquid water content of snow pack \f$[kg m^{-2} ]\f$
     TPNDROW => class_rot%TPNDROW,                       & !< real, dimension(:) : Temperature of ponded water [K]
     ZPNDROW => class_rot%ZPNDROW,                       & !< real, dimension(:) : Depth of ponded water [m]
@@ -272,6 +280,13 @@ contains
         SFCVROW(I) = SFCVROW(I) + SFCVROT(I,M) * FAREROT(I,M)
         SFCQROW(I) = SFCQROW(I) + SFCQROT(I,M) * FAREROT(I,M)
         SFRHROW(I) = SFRHROW(I) + SFRHROT(I,M) * FAREROT(I,M)
+        SNOROW(I)  = SNOROW(I) + SNOROT(I,M) * FAREROT(I,M)
+        TCSNROW(I)  = TCSNROW(I) + TCSNROT(I,M) * FAREROT(I,M)
+        TSNOROW(I)  = TSNOROW(I) + TSNOROT(I,M) * FAREROT(I,M)
+        TSNBROW(I)  = TSNBROW(I) + TSNBROT(I,M) * FAREROT(I,M)
+        TCANROW(I)  = TCANROW(I) + TCANROT(I,M) * FAREROT(I,M)
+        SCANROW(I)  = SCANROW(I) + SCANROT(I,M) * FAREROT(I,M)
+        WSNOROW(I)  = WSNOROW(I) + WSNOROT(I,M) * FAREROT(I,M)
         FSNOROW(I) = FSNOROW(I) + FSNOROT(I,M) * FAREROT(I,M)
         FSGVROW(I) = FSGVROW(I) + FSGVROT(I,M) * FAREROT(I,M)
         FSGSROW(I) = FSGSROW(I) + FSGSROT(I,M) * FAREROT(I,M)
@@ -318,6 +333,8 @@ contains
           QFCROW(I,J) = QFCROW(I,J) + QFCROT(I,M,J) * FAREROT(I,M)
           GFLXROW(I,J) = GFLXROW(I,J) + GFLXROT(I,M,J) * FAREROT(I,M)
           TBARROW(i,j) = TBARROW(i,j) + TBARROT(i,m,j) * FAREROT(i,m)
+          TCTOROW(i,j) = TCTOROW(i,j) + TCTOROT(i,m,j) * FAREROT(i,m)
+          TCBOROW(i,j) = TCBOROW(i,j) + TCBOROT(i,m,j) * FAREROT(i,m)
           THLQROW(i,j) = THLQROW(i,j) + THLQROT(i,m,j) * FAREROT(i,m)
           THICROW(i,j) = THICROW(i,j) + THICROT(i,m,j) * FAREROT(i,m)
 
@@ -381,9 +398,30 @@ contains
       TSURF = FCS(I) * TSFSGAT(I,1) + FGS(I) * TSFSGAT(I,2) + FC(I) * TSFSGAT(I,3) + FG(I) * TSFSGAT(I,4)
       call writeOutput1D(lonLocalIndex,latLocalIndex,'tsurf_hh'  ,timeStamp,'ts', [TSURF])
 
+      ! Output the surface temperature over each subareas
+      call writeOutput1D(lonLocalIndex,latLocalIndex,'tsurfcs_hh'  ,timeStamp,'tscs', [TSFSGAT(I,1)])
+      call writeOutput1D(lonLocalIndex,latLocalIndex,'tsurfgs_hh'  ,timeStamp,'tsgs', [TSFSGAT(I,2)])
+      call writeOutput1D(lonLocalIndex,latLocalIndex,'tsurfc_hh'  ,timeStamp,'tsc', [TSFSGAT(I,3)])
+      call writeOutput1D(lonLocalIndex,latLocalIndex,'tsurfg_hh'  ,timeStamp,'tsg', [TSFSGAT(I,4)])
+
+      ! call writeOutput1D(lonLocalIndex,latLocalIndex,'tsurf_subareas_hh'  ,timeStamp,'ts_subareas', [TSFSGAT(I,:)])
+
+      ! Output the subarea fractional coverage of modelled area
+      call writeOutput1D(lonLocalIndex,latLocalIndex,'fcs_hh'  ,timeStamp,'fcs', [FCS(I)])
+      call writeOutput1D(lonLocalIndex,latLocalIndex,'fgs_hh'  ,timeStamp,'fgs', [FGS(I)])
+      call writeOutput1D(lonLocalIndex,latLocalIndex,'fc_hh'  ,timeStamp,'fc', [FC(I)])
+      call writeOutput1D(lonLocalIndex,latLocalIndex,'fg_hh'  ,timeStamp,'fg', [FG(I)])
+
+
+
+
+
       TSN = 0.0
       if (TSNOROW(I) > 0.01) TSN = TSNOROW(I) - TFREZ
       call writeOutput1D(lonLocalIndex,latLocalIndex,'tsno_hh'   ,timeStamp,'tsn', [TSN])
+      TSNBOT = 0.0
+      if (TSNBROW(I) > 0.01) TSNBOT = TSNBROW(I) - TFREZ
+      call writeOutput1D(lonLocalIndex,latLocalIndex,'tsnb_hh'   ,timeStamp,'tsnbot', [TSNBOT])
 
       TPN = 0.0
       if (TPNDROW(I) > 0.01) TPN = TPNDROW(I) - TFREZ
@@ -393,11 +431,15 @@ contains
       call writeOutput1D(lonLocalIndex,latLocalIndex,'sno_hh' ,timeStamp,'snw', [SNOROW(I)])
       call writeOutput1D(lonLocalIndex,latLocalIndex,'wsno_hh',timeStamp,'wsnw', [WSNOROW(I)])
       call writeOutput1D(lonLocalIndex,latLocalIndex,'snodens_hh',timeStamp,'snwdens', [RHOSROW(I)])
+      call writeOutput1D(lonLocalIndex,latLocalIndex,'tcsnow_hh',timeStamp,'tcsnow', [TCSNROW(I)])
 
       call writeOutput1D(lonLocalIndex,latLocalIndex,'rof_hh',timeStamp,'mrro', [ROFROW(I)])
       call writeOutput1D(lonLocalIndex,latLocalIndex,'rofo_hh',timeStamp,'mrros', [ROFOROW(I)])
       call writeOutput1D(lonLocalIndex,latLocalIndex,'rofs_hh',timeStamp,'mrroi', [ROFSROW(I)])
       call writeOutput1D(lonLocalIndex,latLocalIndex,'rofb_hh',timeStamp,'mrrob', [ROFBROW(I)])
+      call writeOutput1D(lonLocalIndex,latLocalIndex,'rofn_hh',timeStamp,'mrron', [ROFNROW(I)])
+      call writeOutput1D(lonLocalIndex,latLocalIndex,'canopyevap_hh',timeStamp,'evspsblveg', [QFCFROW(I)+QFCLROW(I)])
+      call writeOutput1D(lonLocalIndex,latLocalIndex,'groundevap_hh',timeStamp,'evspsblsoi', [QFGROW(I)+QFNROW(I)])
 
       call writeOutput1D(lonLocalIndex,latLocalIndex,'cdh_hh',timeStamp,'cdh', [CDHROW(I)])
       call writeOutput1D(lonLocalIndex,latLocalIndex,'cdm_hh',timeStamp,'cdm', [CDMROW(I)])
@@ -405,6 +447,8 @@ contains
       !             call writeOutput1D(lonLocalIndex,latLocalIndex,'windv_hh',timeStamp,'windv', [SFCVROW(I)])  ! name
       !
       call writeOutput1D(lonLocalIndex,latLocalIndex,'tbar_hh',timeStamp,'tsl', [TBARROW(I,:)])
+      call writeOutput1D(lonLocalIndex,latLocalIndex,'tctop_hh',timeStamp,'tctop', [TCTOROW(I,:)])
+      call writeOutput1D(lonLocalIndex,latLocalIndex,'tcbot_hh',timeStamp,'tcbot', [TCBOROW(I,:)])
       call writeOutput1D(lonLocalIndex,latLocalIndex,'thlq_hh',timeStamp,'mrsll', [THLQROW(I,:)])
       call writeOutput1D(lonLocalIndex,latLocalIndex,'thic_hh',timeStamp,'mrsfl', [THICROW(I,:)])
       call writeOutput1D(lonLocalIndex,latLocalIndex,'gflx_hh',timeStamp,'gflx', [GFLXROW(I,:)])  
@@ -443,6 +487,9 @@ contains
           TSN = 0.0
           if (TSNOROT(I,M) > 0.01) TSN = TSNOROT(I,M) - TFREZ
           call writeOutput1D(lonLocalIndex,latLocalIndex,'tsno_hh_t'   ,timeStamp,'tsn', [TSN])
+          TSNBOT = 0.0
+          if (TSNBROT(I,M) > 0.01) TSNBOT = TSNBROT(I,M) - TFREZ
+          call writeOutput1D(lonLocalIndex,latLocalIndex,'tsnb_hh_t'   ,timeStamp,'tsnbot', [TSNBOT])
 
           TPN = 0.0
           if (TPNDROT(I,M) > 0.01) TPN = TPNDROT(I,M) - TFREZ
@@ -452,6 +499,7 @@ contains
           call writeOutput1D(lonLocalIndex,latLocalIndex,'sno_hh_t' ,timeStamp,'snw', [SNOROT(I,M)])
           call writeOutput1D(lonLocalIndex,latLocalIndex,'wsnoacc_hh_t',timeStamp,'wsnw', [WSNOROT(I,M)])
           call writeOutput1D(lonLocalIndex,latLocalIndex,'snodens_hh_t',timeStamp,'snwdens', [RHOSROT(I,M)])
+          call writeOutput1D(lonLocalIndex,latLocalIndex,'tcsnow_hh_t',timeStamp,'tcsnow', [TCSNROT(I,M)])
 
           call writeOutput1D(lonLocalIndex,latLocalIndex,'rof_hh_t',timeStamp,'mrro', [ROFROT(I,M)])
           call writeOutput1D(lonLocalIndex,latLocalIndex,'rofo_hh_t',timeStamp,'mrros', [ROFOROT(I,M)])
@@ -474,6 +522,8 @@ contains
           !           Need to change if want to always output 64-bit reals instead.
           !call writeOutput1D(lonLocalIndex,latLocalIndex,'tbar_hh_t',timeStamp,'tsl', [real(TBARROT(I,M,:))])
           call writeOutput1D(lonLocalIndex,latLocalIndex,'tbar_hh_t',timeStamp,'tsl', real(TBARROT(I,M,:)))
+          call writeOutput1D(lonLocalIndex,latLocalIndex,'tctop_hh_t',timeStamp,'tctop', real(TCTOROT(I,M,:)))
+          call writeOutput1D(lonLocalIndex,latLocalIndex,'tcbot_hh_t',timeStamp,'tcbot', real(TCBOROT(I,M,:)))
 
           ! For mrsll and mrsfl, add in conversion from m3/m3 to kg/m2
           call writeOutput1D(lonLocalIndex,latLocalIndex,'thlq_hh_t',timeStamp,'mrsll', [THLQROT(I,M,:) * 1000. * DLZWROT(I,M,:)])
@@ -627,18 +677,22 @@ contains
     real, dimension(nltest) :: SCANACC !< Intercepted frozen water stored on canopy \f$[kg m^{-2} ]\f$
     real, dimension(nltest) :: ZSNACC  !< Depth of snow pack \f$[ m ]\f$
     real, dimension(nltest) :: SNOACC  !< Mass of snow pack \f$[kg m^{-2} ]\f$
+    real, dimension(nltest) :: TCSNACC !< Thermal conductivity of snow \f$[W m^{-1} K^{-1}]\f$
     real, dimension(nltest) :: BCSNACC !< Black carbon mixing ratio \f$[kg m^{-3}]\f$
     real, dimension(nltest) :: FSNOACC !< Fractional cover of snow pack \f$[fraction]\f$
     real, dimension(nltest) :: TAACC   !< Air temperature at reference height [K]
     real, dimension(nltest) :: TCANACC !< Vegetation canopy temperature [K] (accumulated)
     real, dimension(nltest) :: TSURFACC !< Ground surface temperature [K] (accumulated)
     real, dimension(nltest) :: TSNOACC !< Snowpack temperature [K]
+    real, dimension(nltest) :: TSNBACC !< Bottom snowpack temperature [K]
     real, dimension(nltest) :: UVACC   !< Wind speed \f$[m s^{-1} ]\f$
     real, dimension(nltest) :: WSNOACC !< Liquid water content of snow pack \f$[kg m^{-2} ]\f$
     real, dimension(nltest) :: wtableACC !< Depth of water table in soil [m]
     real, dimension(nltest) :: ALTOTACC !< Broadband albedo [-]
     real, dimension(nltest) :: ALSNOACC !< Snow albedo [-]
     real, dimension(nltest,ignd) :: TBARACC  !< Temperature of soil layers [K] (accumulated)
+    real, dimension(nltest,ignd) :: TCTOACC  !< Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$ (accumulated)
+    real, dimension(nltest,ignd) :: TCBOACC  !< Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$ (accumulated)
     real, dimension(nltest,ignd) :: THLQACC  !< Volumetric frozen water content of soil layers \f$[m^3 m^{-3} ]\f$ (accumulated)
     real, dimension(nltest,ignd) :: THICACC  !< Volumetric liquid water content of soil layers \f$[m^3 m^{-3} ]\f$ (accumulated)
     real, dimension(nltest) :: ZPNDACC !<Depth of ponded water [m]
@@ -662,11 +716,13 @@ contains
     FDLROW => class_rot%FDLROW,                         & !< real, dimension(:) : Downwelling longwave sky radiation \f$[W m^{-2} ]\f$ 
     TAROW  => class_rot%TAROW,                          & !< real, dimension(:): Air temperature at reference height [K] 
     TBARROT=> class_rot%TBARROT,                        & !< real, dimension(:,:,:) : Temperature of soil layers [K] 
+    TCTOROT=> class_rot%TCTOROT,                        & !< real, dimension(:,:,:) : Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$
+    TCBOROT=> class_rot%TCBOROT,                        & !< real, dimension(:,:,:) : Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$
     THICROT=> class_rot%THICROT,                        & !< real, dimension(:,:,:) : Volumetric frozen water content of soil layers \f$[m^3 m^{-3} ]\f$ 
     THLQROT=> class_rot%THLQROT,                        & !< real, dimension(:,:,:) : Volumetric liquid water content of soil layers \f$[m^3 m^{-3} ]\f$ 
     SNOROT => class_rot%SNOROT,                         & !< real, dimension(:,:) : Mass of snow pack \f$[kg m^{-2}]\f$ 
     BCSNROW => class_rot%BCSNROW,                       & !< Black carbon mixing ratio \f$[kg m^{-3}]\f$ 
-    FSNOROT => class_rot%FSNOROT,                         & !< real, dimension(:,:) : Mass of snow pack \f$[kg m^{-2}]\f$ 
+    FSNOROT => class_rot%FSNOROT,                       & !< real, dimension(:,:) : Diagnosed fractional snow coverage [ ]
     HFSROT => class_rot%HFSROT,                         & !< real, dimension(:,:) : Diagnosed total surface sensible heat flux over modelled area \f$[W m^{-2} ]\f$ 
     QEVPROT => class_rot%QEVPROT,                       & !< real, dimension(:,:) : Diagnosed total surface latent heat flux over modelled area \f$[W m^{-2} ]\f$ 
     QFSROT => class_rot%QFSROT,                         & !< real, dimension(:,:) : Diagnosed total surface water vapour flux over modelled area \f$[kg m^{-2} s^{-1} ]\f$ 
@@ -691,7 +747,9 @@ contains
     ROFNROT => class_rot%ROFNROT,                       & !< real, dimension(:,:) : Liquid water runoff from snow pack \f$[kg m^{-2} s^{-1} ]\f$
     ROFSROT => class_rot%ROFSROT,                       & !< real, dimension(:,:) : Interflow from sides of soil column \f$[kg m^{-2} s^{-1} ]\f$
     RHOSROT => class_rot%RHOSROT,                       & !< real, dimension(:,:) : Density of snow \f$[kg m^{-3}]\f$ 
+    TCSNROT => class_rot%TCSNROT,                       & !< real, dimension(:,:) : Thermal conductivity of snow \f$[W m^{-1} K^{-1}]\f$ 
     TSNOROT=> class_rot%TSNOROT,                        & !< real, dimension(:,:) : Snowpack temperature [K] 
+    TSNBROT=> class_rot%TSNBROT,                        & !< real, dimension(:,:) : Bottom snowpack temperature [K] 
     WSNOROT => class_rot%WSNOROT,                       & !< real, dimension(:,:) : Liquid water content of snow pack \f$[kg m^{-2} ]\f$ 
     TCANROT=> class_rot%TCANROT,                        & !< real, dimension(:,:) : Vegetation canopy temperature [K] 
     RCANROT => class_rot%RCANROT,                       & !< real, dimension(:,:) : Intercepted liquid water stored on canopy \f$[kg m^{-2} ]\f$ 
@@ -718,12 +776,16 @@ contains
     OVRACC_M  => class_rot%OVRACC_M,                    & !< real, dimension(:,:) : Overland flow from top of soil column \f$[kg m^{-2} s^{-1} ]\f$ (accumulated)
     wtableACC_M => class_rot%wtableACC_M,               & !< real, dimension(:,:) : Depth of water table in soil [m]
     TBARACC_M => class_rot%TBARACC_M,                   & !< real, dimension(:,:,:) : Temperature of soil layers [K] (accumulated)
+    TCTOACC_M => class_rot%TCTOACC_M,                   & !< real, dimension(:,:,:) : Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$ (accumulated)
+    TCBOACC_M => class_rot%TCBOACC_M,                   & !< real, dimension(:,:,:) : Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$ (accumulated)
     THLQACC_M => class_rot%THLQACC_M,                   & !< real, dimension(:,:,:) : Volumetric frozen water content of soil layers \f$[kg m^{-2}]\f$ (accumulated)
     THICACC_M => class_rot%THICACC_M,                   & !< real, dimension(:,:,:) : Volumetric liquid water content of soil layers \f$[kg m^{-2}]\f$ (accumulated)
     ALVSACC_M => class_rot%ALVSACC_M,                   & !< real, dimension(:,:) : Diagnosed total visible albedo of land surface [ ] (accumulated)
     ALIRACC_M => class_rot%ALIRACC_M,                   & !< real, dimension(:,:) : Diagnosed total near-infrared albedo of land surface [ ] (accumulated)
     RHOSACC_M => class_rot%RHOSACC_M,                   & !< real, dimension(:,:) : Density of snow \f$[kg m^{-3}]\f$ (accumulated)
+    TCSNACC_M => class_rot%TCSNACC_M,                   & !< real, dimension(:,:) : Thermal conductivity of snow \f$[W m^{-1} K^{-1}]\f$
     TSNOACC_M => class_rot%TSNOACC_M,                   & !< real, dimension(:,:) : Snowpack temperature [K] (accumulated)
+    TSNBACC_M => class_rot%TSNBACC_M,                   & !< real, dimension(:,:) : Bottom snowpack temperature [K] (accumulated)
     WSNOACC_M => class_rot%WSNOACC_M,                   & !< real, dimension(:,:) : Liquid water content of snow pack \f$[kg m^{-2} ]\f$ (accumulated)
     TCANACC_M => class_rot%TCANACC_M,                   & !< real, dimension(:,:) : Vegetation canopy temperature [K] (accumulated)
     RCANACC_M => class_rot%RCANACC_M,                   & !< real, dimension(:,:) : Intercepted liquid water stored on canopy \f$[kg m^{-2} ]\f$ (accumulated)
@@ -778,6 +840,8 @@ contains
         do J = 1,IGND
           TRANSPACC_M(I,M) = TRANSPACC_M(I,M) + QFCROT(I,M,J)
           TBARACC_M(I,M,J) = TBARACC_M(I,M,J) + TBARROT(I,M,J)
+          TCTOACC_M(I,M,J) = TCTOACC_M(I,M,J) + TCTOROT(I,M,J)
+          TCBOACC_M(I,M,J) = TCBOACC_M(I,M,J) + TCBOROT(I,M,J)
           THLQACC_M(I,M,J) = THLQACC_M(I,M,J) + THLQROT(I,M,J) * 1000. * DLZWROT(I,M,J) ! converted to kg/m2
           THICACC_M(I,M,J) = THICACC_M(I,M,J) + THICROT(I,M,J) * 1000. * DLZWROT(I,M,J) ! converted to kg/m2
         end do
@@ -785,8 +849,10 @@ contains
         !ALIRACC_M(I,M) = ALIRACC_M(I,M) + ALIRROT(I,M) * FSIHROW(I)
         if (SNOROT(I,M) > 0.0) then
           RHOSACC_M(I,M) = RHOSACC_M(I,M) + RHOSROT(I,M)
-          TSNOACC_M(I,M) = TSNOACC_M(I,M) + TSNOROT(I,M)
+          TSNOACC_M(I,M) = TSNOACC_M(I,M) + TSNOROT(I,M) - TFREZ ! converted to °C
+          TSNBACC_M(I,M) = TSNBACC_M(I,M) + TSNBROT(I,M) - TFREZ ! converted to °C
           WSNOACC_M(I,M) = WSNOACC_M(I,M) + WSNOROT(I,M)
+          TCSNACC_M(I,M) = TCSNACC_M(I,M) + TCSNROT(I,M)
         end if
         if (TCANROT(I,M) > 0.5) then
           TCANACC_M(I,M) = TCANACC_M(I,M) + TCANROT(I,M)
@@ -820,11 +886,11 @@ contains
       OVRACC(:) = 0.0 ;    PREACC(:) = 0.0 ; PRESACC(:) = 0.0 ;   QAACC(:) = 0.0
       QEVPACC(:) = 0.0 ;   RCANACC(:) = 0.0 ; RHOSACC(:) = 0.0 ;  ROFACC(:) = 0.0
       ROFSACC(:) = 0.0 ;  ROFBACC(:) = 0.0 ; ROFCACC(:) = 0.0 ;  ROFNACC(:) = 0.0
-      SCANACC(:) = 0.0 ;   SNOACC(:) = 0.0 ; FSNOACC(:) = 0.0 ;  TAACC(:) = 0.0   ; TCANACC(:) = 0.0 
-      TRANSPACC(:) = 0.0 ; TSNOACC(:) = 0.0 ; UVACC(:) = 0.0 ;   WSNOACC(:) = 0.0 ; BCSNACC(:) = 0.0
+      SCANACC(:) = 0.0 ;  SNOACC(:) = 0.0 ; TCSNACC(:) = 0.0 ; FSNOACC(:) = 0.0 ;  TAACC(:) = 0.0   ; TCANACC(:) = 0.0 
+      TRANSPACC(:) = 0.0 ; TSNOACC(:) = 0.0 ; TSNBACC(:) = 0.0 ; UVACC(:) = 0.0 ;   WSNOACC(:) = 0.0 ; BCSNACC(:) = 0.0
       wtableACC(:) = 0.0 ; ALTOTACC(:) = 0.0 ; THLQACC(:,:) = 0.0 ; THICACC(:,:) = 0.0
       TBARACC(:,:) = 0.0 ; ZPNDACC(:) = 0.0 ;   ALSNOACC(:) = 0.0 ; ZSNACC(:) = 0.0
-      ACTLYRACC(:) = 0.0 ; TSURFACC(:) = 0.0
+      ACTLYRACC(:) = 0.0 ; TSURFACC(:) = 0.0 ; TCTOACC(:,:) = 0.0 ; TCBOACC(:,:) = 0.0
 
       do I = 1,NLTEST
         do M = 1,NMTEST
@@ -848,13 +914,17 @@ contains
           ALSNOACC(I) = ALSNOACC(I) + ALSNOACC_M(I,M) * FAREROT(I,M)
           do J = 1,IGND
             TBARACC(I,J) = TBARACC(I,J) + TBARACC_M(I,M,J) * FAREROT(I,M)
+            TCTOACC(I,J) = TCTOACC(I,J) + TCTOACC_M(I,M,J) * FAREROT(I,M)
+            TCBOACC(I,J) = TCBOACC(I,J) + TCBOACC_M(I,M,J) * FAREROT(I,M)
             THLQACC(I,J) = THLQACC(I,J) + THLQACC_M(I,M,J) * FAREROT(I,M)
             THICACC(I,J) = THICACC(I,J) + THICACC_M(I,M,J) * FAREROT(I,M)
           end do
           ALVSACC(I) = ALVSACC(I) + ALVSACC_M(I,M) * FAREROT(I,M)
           ALIRACC(I) = ALIRACC(I) + ALIRACC_M(I,M) * FAREROT(I,M)
           RHOSACC(I) = RHOSACC(I) + RHOSACC_M(I,M) * FAREROT(I,M)
+          TCSNACC(I) = TCSNACC(I) + TCSNACC_M(I,M) * FAREROT(I,M)
           TSNOACC(I) = TSNOACC(I) + TSNOACC_M(I,M) * FAREROT(I,M)
+          TSNBACC(I) = TSNBACC(I) + TSNBACC_M(I,M) * FAREROT(I,M)
           WSNOACC(I) = WSNOACC(I) + WSNOACC_M(I,M) * FAREROT(I,M)
           BCSNACC(I) = BCSNACC(I) + BCSNACC_M(I,M) * FAREROT(I,M)
           TCANACC(I) = TCANACC(I) + TCANACC_M(I,M) * FAREROT(I,M)
@@ -909,6 +979,8 @@ contains
         call writeOutput1D(lonLocalIndex,latLocalIndex,'qe_d'     ,timeStamp,'hfls', [QEVPACC(I)/real(NDAY)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'snm_d'    ,timeStamp,'snm', [HMFNACC(I)/real(NDAY)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'tbaracc_d',timeStamp,'tsl', [(TBARACC(I,:)/real(NDAY))])
+        call writeOutput1D(lonLocalIndex,latLocalIndex,'tctop_d',timeStamp,'tctop', [(TCTOACC(I,:)/real(NDAY))])
+        call writeOutput1D(lonLocalIndex,latLocalIndex,'tcbot_d',timeStamp,'tcbot', [(TCBOACC(I,:)/real(NDAY))])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'thlqacc_d',timeStamp,'mrsll', [THLQACC(I,:)/real(NDAY)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'thicacc_d',timeStamp,'mrsfl', [THICACC(I,:)/real(NDAY)])
         ! call writeOutput1D(lonLocalIndex,latLocalIndex,'taacc_d',timeStamp,'tas', [(TAACC(I)/REAL(NDAY))-TFREZ])
@@ -918,8 +990,11 @@ contains
         call writeOutput1D(lonLocalIndex,latLocalIndex,'fsnoacc_d',timeStamp,'snc', [FSNOACC(I)/REAL(NDAY)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'wsnoacc_d',timeStamp,'wsnw', [WSNOACC(I)/REAL(NDAY)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'tsnoacc_d',timeStamp,'tsn', [TSNOACC(I)/REAL(NDAY)])
+        call writeOutput1D(lonLocalIndex,latLocalIndex,'tsnbacc_d',timeStamp,'tsnbot', [TSNBACC(I)/REAL(NDAY)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'rhosacc_d',timeStamp,'snwdens', [RHOSACC(I)/REAL(NDAY)])
+        call writeOutput1D(lonLocalIndex,latLocalIndex,'tcsnow_d',timeStamp,'tcsnow', [TCSNACC(I)/REAL(NDAY)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'preacc_d',timeStamp,'pr', [PREACC(I)/REAL(NDAY)])
+        call writeOutput1D(lonLocalIndex,latLocalIndex,'scanacc_d',timeStamp,'scanopy', [SCANACC(I)/REAL(NDAY)])
         !call writeOutput1D(lonLocalIndex,latLocalIndex,'evapacc_d',timeStamp,'evspsbl', [EVAPACC(I)/REAL(NDAY)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'evspsbl_d',timeStamp,'evspsbl', [(CANOPYEVAP(I) + GROUNDEVAP(I) + TRANSPACC(I))/REAL(NDAY)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'groundevap_d',timeStamp,'evspsblsoi', [GROUNDEVAP(I)/REAL(NDAY)])
@@ -1185,6 +1260,8 @@ contains
     FGS => class_gat%FGS,                               & !< real, dimension(:) : Subarea fractional coverage of modelled area - snow-covered bare ground [ ]
     FCS => class_gat%FCS,                               & !< real, dimension(:) : Subarea fractional coverage of modelled area - snow-covered ground under canopy  [ ]
     TBARROT         => class_rot%TBARROT,               & !< real(r8), dimension(:,:,:): 
+    TCTOROT         => class_rot%TCTOROT,               & !< real, dimension(:,:,:) : Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$
+    TCBOROT         => class_rot%TCBOROT,               & !< real, dimension(:,:,:) : Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$
     THLQROT         => class_rot%THLQROT,               & !< real, dimension(:,:,:): 
     THICROT         => class_rot%THICROT,               & !< real, dimension(:,:,:): 
     QFCROT          => class_rot%QFCROT,                & !< real, dimension(:,:,:): 
@@ -1237,6 +1314,7 @@ contains
     RCAN_MO           => class_out%RCAN_MO,             & !< real, dimension(:) : Intercepted liquid water stored on canopy \f$[kg m^{-2} ]\f$ 
     BCSNACC_MO        => class_out%BCSNACC_MO,          & !< real, dimension(:) : Black carbon mixing ratio \f$[kg m^{-3} ]\f$ 
     SNOACC_MO         => class_out%SNOACC_MO,           & !< real, dimension(:) : Mass of snow pack \f$[kg m^{-2} ]\f$ 
+    RHOSACC_MO         => class_out%RHOSACC_MO,           & !< real, dimension(:) : Density of snow pack \f$[kg m^{-3} ]\f$ 
     FSNOACC_MO         => class_out%FSNOACC_MO,           & !< real, dimension(:) : Fractional snow cover [ ] 
     ZSNACC_MO         => class_out%ZSNACC_MO,           & !< real, dimension(:) : Depth of snow pack \f$[ m ]\f$ 
     WSNOACC_MO        => class_out%WSNOACC_MO,          & !< real, dimension(:) : Liquid water content of snow pack \f$[kg m^{-2} ]\f$ 
@@ -1249,6 +1327,8 @@ contains
     TRANSPACC_MO      => class_out%TRANSPACC_MO,        & !< real, dimension(:) : 
     TAACC_MO          => class_out%TAACC_MO,            & !< real, dimension(:) : Air temperature at reference height [K] 
     TBARACC_MO        => class_out%TBARACC_MO,          & !< real, dimension(:,:) : 
+    TCTOACC_MO        => class_out%TCTOACC_MO,          & !< real, dimension(:,:) : Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$ (accumulated)
+    TCBOACC_MO        => class_out%TCBOACC_MO,          & !< real, dimension(:,:) : Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$ (accumulated)
     THLQACC_MO        => class_out%THLQACC_MO,          & !< real, dimension(:,:) : Volumetric liquid water content of soil layers \f$[kg m^{-2}]\f$ (accumulated for means) 
     THICACC_MO        => class_out%THICACC_MO,          & !< real, dimension(:,:) : Volumetric frozen water content of soil layers \f$[kg m^{-2}]\f$ (accumulated for means) 
     ACTLYR_MO         => class_out%ACTLYR_MO,           & !< real, dimension(:) : 
@@ -1294,6 +1374,7 @@ contains
       QEVPACC_MO(I) = QEVPACC_MO(I) + QEVPROT(I,M) * FAREROT(I,M)
       groundHeatFlux_MO(I) = groundHeatFlux_MO(I) + groundHeatFluxROT(I,M) * FAREROT(I,M) !*()*()*()*()*()*()
       SNOACC_MO(I) = SNOACC_MO(I) + SNOROT(I,M) * FAREROT(I,M)
+      RHOSACC_MO(I) = RHOSACC_MO(I) + RHOSROT(I,M) * FAREROT(I,M)
       SCAN_MO(I) = SCAN_MO(I) + SCANROT(I,M) * FAREROT(I,M)
       RCAN_MO(I) = RCAN_MO(I) + RCANROT(I,M) * FAREROT(I,M)
       FSNOACC_MO(I) = FSNOACC_MO(I) + FSNOROT(I,M) * FAREROT(I,M)
@@ -1335,6 +1416,8 @@ contains
 
       do J = 1,IGND
         TBARACC_MO(I,J) = TBARACC_MO(I,J) + TBARROT(I,M,J) * FAREROT(I,M)
+        TCTOACC_MO(I,J) = TCTOACC_MO(I,J) + TCTOROT(I,M,J) * FAREROT(I,M)
+        TCBOACC_MO(I,J) = TCBOACC_MO(I,J) + TCBOROT(I,M,J) * FAREROT(I,M)
         ! Convert from m3/m3 to kg/m2
         THLQACC_MO(I,J) = THLQACC_MO(I,J) + THLQROT(I,M,J) * FAREROT(I,M) * 1000. * DLZWROT(I,M,J)
         THICACC_MO(I,J) = THICACC_MO(I,J) + THICROT(I,M,J) * FAREROT(I,M) * 1000. * DLZWROT(I,M,J)
@@ -1385,6 +1468,7 @@ contains
         QEVPACC_MO(I) = QEVPACC_MO(I)/real(NDMONTH)
         groundHeatFlux_MO(I) = groundHeatFlux_MO(I)/real(NDMONTH)
         SNOACC_MO(I) = SNOACC_MO(I)/real(NDMONTH)
+        RHOSACC_MO(I) = RHOSACC_MO(I)/real(NDMONTH)
         SCAN_MO(I) = SCAN_MO(I)/real(NDMONTH)
         RCAN_MO(I) = RCAN_MO(I)/real(NDMONTH)
         FSNOACC_MO(I) = FSNOACC_MO(I)/real(NDMONTH)
@@ -1409,6 +1493,8 @@ contains
 
         do J = 1,IGND
           TBARACC_MO(I,J) = TBARACC_MO(I,J)/real(NDMONTH)
+          TCTOACC_MO(I,J) = TCTOACC_MO(I,J)/real(NDMONTH)
+          TCBOACC_MO(I,J) = TCBOACC_MO(I,J)/real(NDMONTH)
           THLQACC_MO(I,J) = THLQACC_MO(I,J)/real(NDMONTH)
           THICACC_MO(I,J) = THICACC_MO(I,J)/real(NDMONTH)
           MRSOL_MO(I,J) = MRSOL_MO(I,J)/real(NDMONTH)
@@ -1435,6 +1521,7 @@ contains
         call writeOutput1D(lonLocalIndex,latLocalIndex,'qe_mo'     ,timeStamp,'hfls', [QE_MO])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'hfg_mo'    ,timeStamp,'hfg', [groundHeatFlux_MO])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'snoacc_mo' ,timeStamp,'snw', [SNOACC_MO(I)])
+        call writeOutput1D(lonLocalIndex,latLocalIndex,'rhosacc_mo' ,timeStamp,'snwdens', [RHOSACC_MO(I)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'fsnoacc_mo' ,timeStamp,'snc', [FSNOACC_MO(I)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'wsnoacc_mo',timeStamp,'wsnw', [WSNOACC_MO(I)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'taacc_mo'  ,timeStamp,'tas', [TAACC_MO(I)])
@@ -1450,6 +1537,8 @@ contains
         call writeOutput1D(lonLocalIndex,latLocalIndex,'alsnoacc_mo',timeStamp,'albsn', [ALSNOACC_MO(I)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'altotacc_mo',timeStamp,'albs', [ALTOTACC_MO(I)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'tbaracc_mo',timeStamp,'tsl', [TBARACC_MO(I,:)])
+        call writeOutput1D(lonLocalIndex,latLocalIndex,'tctopacc_mo',timeStamp,'tctop', [TCTOACC_MO(I,:)])
+        call writeOutput1D(lonLocalIndex,latLocalIndex,'tcbotacc_mo',timeStamp,'tcbot', [TCBOACC_MO(I,:)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'thlqacc_mo',timeStamp,'mrsll', [THLQACC_MO(I,:)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'thicacc_mo',timeStamp,'mrsfl', [THICACC_MO(I,:)])
         call writeOutput1D(lonLocalIndex,latLocalIndex,'mrso_mo',timeStamp,'mrso', [MRSO_MO(I)])
@@ -2723,6 +2812,7 @@ contains
     call writeOutput1D(lonLocalIndex,latLocalIndex,'rootmasss_d_g',timeStamp,'cRoot_s',[rootmass_s_g(i)])
     call writeOutput1D(lonLocalIndex,latLocalIndex,'ailcg_d_g',timeStamp,'lai',[ailcg_g(i)])
     call writeOutput1D(lonLocalIndex,latLocalIndex,'burnfrac_d_g',timeStamp,'burntFractionAll',[burnfrac_g(i)])
+    call writeOutput1D(lonLocalIndex,latLocalIndex,'veghght_d_g' ,timeStamp,'vegHeight', [veghght_g(i)])
     if (Ncycle_on) then
        call writeOutput1D(lonLocalIndex,latLocalIndex,'ngleafmas_d_g',timeStamp,'nLeaf',[ngleafmas_g(i)])
        call writeOutput1D(lonLocalIndex,latLocalIndex,'ngleafmas_NS_d_g',timeStamp,'nLeaf_ns',[ngleafmas_ns_g(i)])

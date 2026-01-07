@@ -7,7 +7,7 @@
 subroutine energyBudgetPrep (THLIQC, THLIQG, THICEC, THICEG, TBARC, TBARG, & ! Formerly TPREP
                              TBARCS, TBARGS, HCPC, HCPG, TCTOPC, TCBOTC, &
                              TCTOPG, TCBOTG, HCPSCS, HCPSGS, TCSNOW, TSNOCS, &
-                             TSNOGS, WSNOCS, WSNOGS, RHOSCS, RHOSGS, TCANO, &
+                             TSNOGS, TSNBGAT, WSNOCS, WSNOGS, RHOSCS, RHOSGS, TCANO, &
                              TCANS, CEVAP, IEVAP, TBAR1P, WTABLE, ZERO, &
                              EVAPC, EVAPCG, EVAPG, EVAPCS, EVPCSG, EVAPGS, &
                              GSNOWC, GSNOWG, GZEROC, GZEROG, GZROCS, GZROGS, &
@@ -21,7 +21,7 @@ subroutine energyBudgetPrep (THLIQC, THLIQG, THICEC, THICEG, TBARC, TBARG, & ! F
                              FSGV, FSGS, FSGG, FLGV, FLGS, FLGG, &
                              HFSC, HFSS, HFSG, HEVC, HEVS, HEVG, &
                              HMFC, HMFN, QFCF, QFCL, EVPPOT, ACOND, &
-                             DRAG, THLIQ, THICE, TBAR, ZPOND, TPOND, &
+                             DRAG, THLIQ, THICE, TBAR, TCTOGAT, TCBOGAT, ZPOND, TPOND, &
                              THPOR, THLMIN, THLRET, THFC, HCPS, TCS, &
                              TA, RHOSNO, TSNOW, ZSNOW, WSNOW, TCAN, &
                              FC, FCS, DELZ, DELZW, ZBOTW, &
@@ -174,11 +174,12 @@ subroutine energyBudgetPrep (THLIQC, THLIQG, THICEC, THICEG, TBARC, TBARG, & ! F
   real, intent(out)   :: TCBOTG(ILG,IG) !< Thermal conductivity of soil at bottom of
   !< layer in bare ground subareas \f$[W m^{-1} K^{-1}] (\lambda)\f$
   !
-  real, intent(inout) :: HCPSCS(ILG)    !< Heat capacity of snow pack under vegetation canopy \f$[J m^{-3} K^1] (C_s)\f$
-  real, intent(out)   :: HCPSGS(ILG)    !< Heat capacity of snow pack in bare areas \f$[J m^{-3} K^{1}] (C_s)\f$
+  real, intent(inout) :: HCPSCS(ILG)    !< Heat capacity of snow pack under vegetation canopy \f$[J m^{-3} K^{-1}] (C_s)\f$
+  real, intent(out)   :: HCPSGS(ILG)    !< Heat capacity of snow pack in bare areas \f$[J m^{-3} K^{-1}] (C_s)\f$
   real, intent(out)   :: TCSNOW(ILG)    !< Thermal conductivity of snow \f$[W m^{-1} K^{-1}]\f$
   real, intent(out)   :: TSNOGS(ILG)    !< Temperature of snow pack in bare areas [K]
   real, intent(out)   :: TSNOCS(ILG)    !< Temperature of snow pack under vegetation canopy [K]
+  real, intent(out)   :: TSNBGAT(ILG)    !< Temperature of snow pack under vegetation canopy [K]
   real, intent(out)   :: WSNOCS(ILG)    !< Liquid water content of snow pack under vegetation \f$[kg m^{-2}]\f$
   real, intent(out)   :: WSNOGS(ILG)    !< Liquid water content of snow pack in bare areas \f$[kg m^{-2}]\f$
   real, intent(out)   :: RHOSCS(ILG)    !< Density of snow pack under vegetation canopy \f$[kg m^{-3}]\f$
@@ -263,6 +264,8 @@ subroutine energyBudgetPrep (THLIQC, THLIQG, THICEC, THICEG, TBARC, TBARG, & ! F
   real, intent(out) :: ILMOX (ILG)  !< Inverse of Monin-Obukhov roughness length over each subarea \f$[m^{-1}]\f$
   real, intent(out) :: UEX   (ILG)  !< Friction velocity of air over each subarea \f$[m s^{-1}]\f$
   real, intent(out) :: HBLX  (ILG)  !< Height of the atmospheric boundary layer over each subarea [m]
+  real, intent(out) :: TCTOGAT (ILG, IG)!< Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$
+  real, intent(out) :: TCBOGAT (ILG, IG)!< Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$
 
   real, intent(out) :: QFCF(ILG), QFCL(ILG), FTEMP(ILG), FTEMPX(ILG), &
                        FVAP(ILG), FVAPX(ILG), RIB(ILG), RIBX(ILG)
@@ -356,6 +359,8 @@ subroutine energyBudgetPrep (THLIQC, THLIQG, THICEC, THICEG, TBARC, TBARG, & ! F
       TCBOTC(I,J) = 0.0
       TCTOPG(I,J) = 0.0
       TCBOTG(I,J) = 0.0
+      TCTOGAT(I,J) = 0.0
+      TCBOGAT(I,J) = 0.0
     end do
   end do ! loop 50
   !
@@ -437,6 +442,7 @@ subroutine energyBudgetPrep (THLIQC, THLIQG, THICEC, THICEG, TBARC, TBARG, & ! F
     FVAP  (I) = 0.
     RIB   (I) = 0.
     GSNOW (I) = 0.
+    TSNBGAT (I) = 0.
     FTEMPX(I) = 0.
     FVAPX (I) = 0.
     RIBX  (I) = 0.
@@ -647,12 +653,20 @@ subroutine energyBudgetPrep (THLIQC, THLIQG, THICEC, THICEG, TBARC, TBARG, & ! F
                   (RHOW * ZSNOW(I))
       HCPSGS(I) = HCPSCS(I)
       !             TCSNOW(I)=2.576E-6*RHOSNO(I)*RHOSNO(I)+0.074
-      if (RHOSNO(I) < 156.0) then
-        TCSNOW(I) = 0.234E-3 * RHOSNO(I) + 0.023
-      else
-        TCSNOW(I) = 3.233E-6 * RHOSNO(I) * RHOSNO(I) - 1.01E-3 * &
-                    RHOSNO(I) + 0.138
-      end if
+      ! if (RHOSNO(I) < 156.0) then
+      !   TCSNOW(I) = 0.234E-3 * RHOSNO(I) + 0.023
+      ! else
+      !   TCSNOW(I) = 3.233E-6 * RHOSNO(I) * RHOSNO(I) - 1.01E-3 * &
+      !               RHOSNO(I) + 0.138
+      ! end if
+
+      !! Calonne et al. (2011)
+      !! https://onlinelibrary.wiley.com/doi/abs/10.1029/2011GL049234
+      !! (closer to Yen, 1981)
+      TCSNOW(I) = 2.5E-6 * RHOSNO(I) * RHOSNO(I) - 1.23E-4 * RHOSNO(I) + 0.024
+
+      !PRINT '(A9 F12.5)', 'TCSNOW = ', TCSNOW
+      
       if (FVEG(I) < 1.) then
         TSNOGS(I) = TSNOW(I)
         WSNOGS(I) = WSNOW(I)

@@ -65,7 +65,7 @@ contains
   !! are encountered.
   !!
   subroutine snowAging (ALBSNO, RHOSNO, ZSNOW, HCPSNO, TSNOW, & ! Formerly SNOALBW
-                        FI, S, RMELT, WSNOW, RHOMAX, ISAND, &
+                        FI, S, RMELT, WSNOW, RHOMAX, VA2, ISAND, &
                         ILG, IG, IL1, IL2, JL)
     !
     !     * APR 17/14 - D.VERSEGHY. MAKE SNOW ALBEDO REFRESHMENT VALUE
@@ -128,6 +128,7 @@ contains
     real, intent(in) :: S     (ILG)  !< Snowfall rate \f$[m s^{-1}] \f$
     real, intent(in) :: RMELT (ILG)  !< Melt rate at top of snow pack \f$[m s^{-1}]\f$
     real, intent(in) :: WSNOW (ILG)  !< Liquid water content of snow pack \f$[kg m^{-2}]\f$
+    real, intent(in) :: VA2  (ILG)  !< Wind speed at 2 m above the snow \f$[m s^{-1} ]\f$
     !
     integer, intent(in) :: ISAND (ILG,IG) !< Sand content flag
     !
@@ -158,8 +159,23 @@ contains
       !
       if (FI(I) > 0. .and. ZSNOW(I) > 0.0001) then
         if (TSNOW(I) < - 0.01) then
-          RHOMAX(I) = 450.0 - (204.7 / ZSNOW(I)) * &
-                      (1.0 - EXP( - ZSNOW(I) / 0.673))
+
+          ! Brown et al. (2006): https://doi.org/10.3137/ao.440302
+          ! RHOMAX(I) = 450.0 - (204.7 / ZSNOW(I)) * &
+          ! (1.0 - EXP( - ZSNOW(I) / 0.673))
+
+          ! Lalande et al. (in prep): TODO
+          ! (tunning made on open SnowMIP + Arctic sites)
+          if (VA2(I) < 2.5) then
+            RHOMAX(I) = 430.0 - (204.7 / ZSNOW(I)) * &
+                        (1.0 - EXP( - ZSNOW(I) / 0.673))
+          else
+            RHOMAX(I) = 430.0 - (204.7 / ZSNOW(I)) * &
+                      (1.0 - EXP( - ZSNOW(I) / 0.673)) * &
+                      (1 - (1 - EXP( - VA2(I) / 3.5)) * & ! 2.5 / 3.5 best without / with TVC
+                      EXP( - (ZSNOW(I) - 0.8)**2 / (2 * 1.0**2 )))
+          end if
+
         else
           RHOMAX(I) = 700.0 - (204.7 / ZSNOW(I)) * &
                       (1.0 - EXP( - ZSNOW(I) / 0.673))

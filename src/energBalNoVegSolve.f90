@@ -1,13 +1,14 @@
 !> \file
 !> Solves surface energy balance for non-vegetated
 !! subareas.
-!! @author D. Verseghy, M. Lazare, A. Wu, P. Bartlett, Y. Delage, J. Cole, R. Brown, J. Melton, Y. Wu
+!! @author D. Verseghy, M. Lazare, A. Wu, P. Bartlett, Y. Delage, J. Cole, R. Brown, J. Melton, Y. Wu,
+!! M. Lalande
 !
 subroutine energBalNoVegSolve (ISNOW, FI, & ! Formerly TSOLVE
                                QSWNET, QLWOUT, QTRANS, QSENS, QEVAP, EVAP, &
                                TZERO, QZERO, GZERO, QMELT, CDH, CDM, RIB, CFLUX, &
                                FTEMP, FVAP, ILMO, UE, H, &
-                               QLWIN, TPOTA, QA, VA, PADRY, RHOAIR, &
+                               QLWIN, TPOTA, TA, QA, VA, VA10, PADRY, RHOAIR, &
                                ALVISG, ALNIRG, CRIB, CPHCH, CEVAP, TVIRTA, &
                                ZOSCLH, ZOSCLM, ZRSLFH, ZRSLFM, ZOH, ZOM, FCOR, &
                                GCONST, GCOEFF, TSTART, PCPR, TRSNOWG, FSSB, ALSNO, &
@@ -21,6 +22,7 @@ subroutine energBalNoVegSolve (ISNOW, FI, & ! Formerly TSOLVE
                                dmoss, anmoss, rmlmoss, iday, daylength, pdd, &
                                RSOIL) 
   !
+  !     * JUL 04/24 - M.LALANDE. ADD BLOWING SNOW SUBLIMATION LOSSES
   !     * OCT 29/20 - G. MEYER. Include effects of dry surface layer (DSL)
   !                             parameterization on  latent heat flux.
   !     * OCT 30/16 - J. MELTON. Finish implementation of peatland code by
@@ -115,6 +117,7 @@ subroutine energBalNoVegSolve (ISNOW, FI, & ! Formerly TSOLVE
   use classicParams, only : DELT, TFREZ, SBC, SPHAIR, RHOW, BETA
   use peatlandsMod,  only : mossPht
   use generalutils,  only : calcEsat
+  use snowWindSublimation, only : GD06
 
   implicit none
 
@@ -164,8 +167,10 @@ subroutine energBalNoVegSolve (ISNOW, FI, & ! Formerly TSOLVE
   !< atmosphere \f$[W m^{-2}]\f$
   real, intent(in) :: TPOTA (ILG)  !< Potential temperature of air at reference
   !< height \f$[K] (T_{a,pot})\f$
+  real, intent(in) :: TA    (ILG)  !< Air temperature at reference height [K]
   real, intent(in) :: QA    (ILG)  !< Specific humidity at reference height \f$[kg kg^{-1}] (q_a)\f$
   real, intent(in) :: VA    (ILG)  !< Wind speed at reference height \f$[m s^{-1}] (v_a)\f$
+  real, intent(in) :: VA10  (ILG)  !< Wind speed at 10 m height \f$[m s^{-1}]\f$
   real, intent(in) :: PADRY (ILG)  !< Partial pressure of dry air \f$[Pa] (p_{dry})\f$
   real, intent(in) :: RHOAIR(ILG)  !< Density of air \f$[kg m^{-3}] (\rho_a)\f$
   real, intent(in) :: ALVISG(ILG)  !< Visible albedo of ground surface [ ]
@@ -240,6 +245,7 @@ subroutine energBalNoVegSolve (ISNOW, FI, & ! Formerly TSOLVE
   !     * TEMPORARY VARIABLES.
   !
   real :: QSWNV(ilg), QSWNI, DCFLUX, DRDT0, TZEROT, QEVAPT, BOWEN, EZERO, EVPMAX(ILG)
+  real :: QS(ILG)     !< Blowing snow sublimation losses rate [kg m\f$^{-2}\f$ s\f$^{-1}\f$]
   !
   !>
   !! For the surface temperature iteration, two alternative schemes
@@ -260,12 +266,14 @@ subroutine energBalNoVegSolve (ISNOW, FI, & ! Formerly TSOLVE
     ITERMX = 12      ! was 5 YW March 27, 2015
   end if
   !
-  !      IF (ISNOW==0) THEN
-  !          EZERO=0.0
-  !      ELSE
-  !          EZERO=2.0
-  !      END IF
-  EZERO = 0.0
+  IF (ISNOW==0) THEN
+      EZERO=0.0
+  ELSE
+      EZERO=2.0
+      ! EZERO=1.0
+      ! EZERO=0.0
+  END IF
+  ! EZERO = 0.0
   !
 
   do I = IL1,IL2
@@ -589,7 +597,14 @@ subroutine energBalNoVegSolve (ISNOW, FI, & ! Formerly TSOLVE
           QSENS(I) = RHOAIR(I) * SPHAIR * CFLUX(I) * (TZERO(I) - &
                      TPOTA(I))
         end if
-        EVAP(I) = RHOAIR(I) * CFLUX(I) * (QZERO(I) - QA(I))
+        ! Gordon et al. (2006) blowing snow sublimation parameterization
+        if (ISNOW == 1) then                   
+          QS(I) = GD06(TA(I), VA10(I), RHOAIR(I), QA(I), PADRY(I))
+          ! QS(I) = 0.0
+        else
+          QS(I) = 0.0
+        end if
+        EVAP(I) = RHOAIR(I) * CFLUX(I) * (QZERO(I) - QA(I)) + QS(I)
         if (EVAP(I) > EVPMAX(I)) EVAP(I) = EVPMAX(I)
         QEVAP(I) = CPHCH(I) * EVAP(I)
         GZERO(I) = GCOEFF(I) * TZERO(I) + GCONST(I)
@@ -884,7 +899,14 @@ subroutine energBalNoVegSolve (ISNOW, FI, & ! Formerly TSOLVE
         QSENS(I) = RHOAIR(I) * SPHAIR * CFLUX(I) * (TZERO(I) - &
                    TPOTA(I))
       end if
-      EVAP(I) = RHOAIR(I) * CFLUX(I) * (QZERO(I) - QA(I))
+      ! Gordon et al. (2006) blowing snow sublimation parameterization
+      if (ISNOW == 1) then                   
+        QS(I) = GD06(TA(I), VA10(I), RHOAIR(I), QA(I), PADRY(I))
+        ! QS(I) = 0.0
+      else
+        QS(I) = 0.0
+      end if
+      EVAP(I) = RHOAIR(I) * CFLUX(I) * (QZERO(I) - QA(I)) + QS(I)
       if (EVAP(I) > EVPMAX(I)) EVAP(I) = EVPMAX(I)
       QEVAP(I) = CPHCH(I) * EVAP(I)
       GZERO(I) = GCOEFF(I) * TZERO(I) + GCONST(I)

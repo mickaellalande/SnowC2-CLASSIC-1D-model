@@ -76,7 +76,7 @@ subroutine checkWaterBudget (ISFC, PCPR, EVAP, RUNOFF, WLOST, RAICAN, SNOCAN, & 
   !     * INPUT FIELDS.
 
   real, intent(in) :: PCPR  (ILG)  !< Precipitation rate over modelled subarea \f$[kg m^{-2} s^{-1}]\f$
-  real, intent(in) :: EVAP  (ILG)  !< Evapotranspiration rate over modelled subarea \f$[kg m^{-2} s^{-1}]\f$
+  real, intent(in) :: EVAP  (ILG)  !< Evapotranspiration rate over modelled subarea \f$[m s^{-1}]\f$
   real, intent(in) :: RUNOFF(ILG)  !< Total runoff over modelled subarea [m]
   real, intent(in) :: WLOST (ILG)  !< Residual amount of water that cannot be
   !! supplied by surface stores \f$[kg m^{-2}]\f$

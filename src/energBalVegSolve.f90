@@ -383,11 +383,11 @@ subroutine energBalVegSolve (ISNOW, FI, & ! Formerly TSOLVC
   else
     ITERMX = 12
   end if
-  !      IF (ISNOW==0) THEN
-  !          EZERO=0.0
-  !      ELSE
-  !          EZERO=2.0
-  !      END IF
+  ! IF (ISNOW==0) THEN
+  !     EZERO=0.0
+  ! ELSE
+  !     EZERO=2.0
+  ! END IF
   EZERO = 0.0
   RAGCO = 1.9E-3
   !
@@ -407,7 +407,7 @@ subroutine energBalVegSolve (ISNOW, FI, & ! Formerly TSOLVC
   !! otherwise. The net shortwave radiation at the surface, QSWNG, is calculated as the sum of the net visible
   !! and net near-infrared shortwave radiation. Each of these is obtained as:
   !! \f$K_{*g} = K \downarrow \tau_c [1 - \alpha_g ]\f$
-  !! where \f$K_{*g} is the net radiation at the surface, \f$K \downarrow\f$ is the incoming shortwave radiation above the canopy, \f$\tau_c\f$
+  !! where \f$K_{*g}\f$ is the net radiation at the surface, \f$K \downarrow\f$ is the incoming shortwave radiation above the canopy, \f$\tau_c\f$
   !! is the canopy transmissivity and \f$\alpha_g\f$ is the surface albedo. This average value is corrected for the amount
   !! of radiation transmitted into the surface, QTRANS, obtained using TRTOP. The net shortwave radiation
   !! for the vegetation canopy, QSWNC, is calculated as the sum of the net visible and net near-infrared
@@ -728,8 +728,15 @@ subroutine energBalVegSolve (ISNOW, FI, & ! Formerly TSOLVC
       end if
       !
       QLWOG(I) = SBC * TZERO(I) * TZERO(I) * TZERO(I) * TZERO(I)
-      QSENSG(I) = RHOAIR(I) * SPHAIR * RAGINV(I) * &
-                  (TPOTG(I) - TAC(I))
+      ! It is questionable if it needs to be added for the vegetation fraction or not...
+      ! Initially, it was set only in energBalNoVegSolve.f90 (Brown et al., 2006)
+      if (TPOTG(I) < TAC(I)) then
+        QSENSG(I) = (RHOAIR(I) * SPHAIR * RAGINV(I) + EZERO) * & 
+                    (TPOTG(I) - TAC(I))
+      else
+        QSENSG(I) = RHOAIR(I) * SPHAIR * RAGINV(I) * &
+                    (TPOTG(I) - TAC(I))
+      end if
       EVAPG (I) = RHOAIR(I) * (QZERO(I) - QAC(I)) * RAGINV(I)
       if (EVAPG(I) > EVPMAX(I)) EVAPG(I) = EVPMAX(I)
       QEVAPG(I) = CPHCHG(I) * EVAPG(I)
@@ -900,8 +907,13 @@ subroutine energBalVegSolve (ISNOW, FI, & ! Formerly TSOLVC
         GZERO(I) = GCOEFF(I) * TZERO(I) + GCONST(I)
         if (TVIRTG(I) > (TVRTAC(I) + 0.001)) then
           RAGINV(I) = RAGCO * (TVIRTG(I) - TVRTAC(I)) ** 0.333333
-          QSENSG(I) = RHOAIR(I) * SPHAIR * RAGINV(I) * &
-                      (TPOTG(I) - TAC(I))
+          if (TPOTG(I) < TAC(I)) then
+            QSENSG(I) = (RHOAIR(I) * SPHAIR * RAGINV(I)  + EZERO) * &
+                        (TPOTG(I) - TAC(I))
+          else
+            QSENSG(I) = RHOAIR(I) * SPHAIR * RAGINV(I) * &
+                        (TPOTG(I) - TAC(I))
+          end if
           EVAPG (I) = RHOAIR(I) * (QZERO(I) - QAC(I)) * RAGINV(I)
         else
           RAGINV(I) = 0.0

@@ -60,7 +60,7 @@
 # Object files
 OBJ = classicParams.o ctemStateVars.o classStateVars.o generalUtils.o peatlandsMod.o \
 	fileIOModule.o ctemUtilities.o calcLandSurfParams.o groundAlbedo.o mvidx.o snowProcesses.o \
-	snowAlbedoTransmissMod.o soilHeatFluxPrep.o waterInfiltrateUnsat.o \
+	snowAlbedoTransmissMod.o snowWindSublimation.o soilHeatFluxPrep.o waterInfiltrateUnsat.o \
 	canopyInterception.o waterFlowNonInfiltrate.o energyBudgetPrep.o waterInfiltrateSat.o canopyAlbedoTransmiss.o \
 	classGatherScatter.o waterFlowInfiltrate.o snowSublimation.o energBalVegSolve.o waterCalcPrep.o methaneProcesses.o \
 	ctemGatherScatter.o applyAllometry.o photosynCanopyConduct.o canopyWaterUpdate.o \

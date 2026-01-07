@@ -177,6 +177,14 @@ subroutine snowInfiltrateRipen (R, TR, ZSNOW, TSNOW, RHOSNO, HCPSNO, WSNOW, & ! 
                     (RHOW * ZSNOW(I))
         TR(I) = 0.0
         R(I) = R(I) + ZMELT / DELT
+      ! Question (Mickaël Lalande 06/11/2024): should the rain be counted in WAVAIL or not? 
+      ! Diana's opinion is that in this case the rain would infiltrate the snowpack via 
+      ! preferential paths and reach the ground without being stored in the snow. 
+      ! This remains an open question, perhaps to be refined in the future?
+      !  [...]
+      !   WAVAIL = ZMELT * RHOSNO(I) + WSNOW(I) + R(I) * RHOW * DELT
+      !  [...]
+      !   R(I) = ZMELT / DELT
         !>
         !! If HSNWRM \f$\geq\f$ (HRCOOL + HRFREZ), the energy sink of the
         !! snow pack is sufficient to cool to 0 C

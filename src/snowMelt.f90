@@ -75,7 +75,7 @@ subroutine snowMelt (ZSNOW, TSNOW, QMELT, R, TR, GZERO, RALB, & ! Formrly TMELT
   !! and end of the subroutine, and stored in diagnostic variable HTCS
   !! (see notes on subroutine snowAddNew).
   !!
-  !! The calculations in the 100 loop are performed if QFREZ and the
+  !! The calculations in the 100 loop are performed if QMELT and the
   !! snow depth ZSNOW are both greater than zero. The available energy
   !! HADD to be applied to the snow pack is calculated from QMELT. The
   !! amount of energy required to raise the snow pack temperature to

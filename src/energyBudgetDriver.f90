@@ -25,7 +25,7 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
                                TRVSCN, TRIRCN, TRVSCS, TRIRCS, RC, RCS, WTRG, groundHeatFlux, QLWAVG, &
                                FRAINC, FSNOWC, FRAICS, FSNOCS, CMASSC, CMASCS, DISP, DISPS, &
                                ZOMLNC, ZOELNC, ZOMLNG, ZOELNG, ZOMLCS, ZOELCS, ZOMLNS, ZOELNS, &
-                               TBAR, THLIQ, THICE, TPOND, ZPOND, TBASE, TCAN, TSNOW, &
+                               TBAR, TCTOGAT, TCBOGAT, THLIQ, THICE, TPOND, ZPOND, TBASE, TCAN, TSNOW, TSNBGAT, &
                                ZSNOW, RHOSNO, WSNOW, THPOR, THLRET, THLMIN, THFC, THLW, &
                                TRSNOWC, TRSNOWG, ALSNO, FSSB, FROOT, FROOTS, &
                                RADJ, PCPR, HCPS, TCS, TSFSAV, DELZ, DELZW, ZBOTW, &
@@ -328,6 +328,7 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
   real, intent(out) :: TCTOPC(ILG,IG) !< Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$
   real, intent(out) :: TCTOPG(ILG,IG) !< Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$
   real, intent(out) :: TCSNOW(ILG)    !< Thermal conductivity of snow  \f$[W m^{-1} K^{-1} ]\f$
+  real, intent(out) :: TSNBGAT(ILG)   !< Bottom Snowpack temperature [K]
   real, intent(out) :: TFLUX (ILG)    !< Product of surface drag coefficient, wind speed and surface-air
   !< temperature difference \f$[K m s^{-1} ]\f$
   real, intent(out) :: THICEC(ILG,IG) !< Frozen water content of soil layers under vegetation \f$[m^3 m^{-3} ]\f$
@@ -430,6 +431,8 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
 
   real(r8), intent(in) :: TBAR  (ILG,IG) !< Temperature of soil layers [K]
 
+  real, intent(inout) :: TCTOGAT (ILG,IG) !< Thermal conductivity of soil at top of layer \f$[W m^{-1} K^{-1} ]\f$ 
+  real, intent(inout) :: TCBOGAT (ILG,IG) !< Thermal conductivity of soil at bottom of layer \f$[W m^{-1} K^{-1} ]\f$ 
   real, intent(inout) :: THLIQ (ILG,IG) !< Volumetric liquid water content of soil layers \f$[m^3 m^{-3} ]\f$
   real, intent(inout) :: THICE (ILG,IG) !< Volumetric frozen water content of soil layers \f$[m^3 m^{-3} ]\f$
   !
@@ -510,7 +513,7 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
           TACCS (ILG), QACCS (ILG), TACCO (ILG), QACCO (ILG), &
           ILMOX (ILG), UEX   (ILG), HBLX  (ILG), ZERO  (ILG), &
           STT   (ILG), SQT   (ILG), SUT   (ILG), SVT   (ILG), &
-          SHT   (ILG)
+          SHT   (ILG), VA10  (ILG)
   !
   integer             :: IEVAP (ILG), IWATER(ILG)
   !
@@ -865,7 +868,7 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
   call  energyBudgetPrep(THLIQC, THLIQG, THICEC, THICEG, TBARC, TBARG, & ! Formerly TPREP
                          TBARCS, TBARGS, HCPC, HCPG, TCTOPC, TCBOTC, &
                          TCTOPG, TCBOTG, HCPSCS, HCPSGS, TCSNOW, TSNOCS, &
-                         TSNOGS, WSNOCS, WSNOGS, RHOSCS, RHOSGS, TCANO, &
+                         TSNOGS, TSNBGAT, WSNOCS, WSNOGS, RHOSCS, RHOSGS, TCANO, &
                          TCANS, CEVAP, IEVAP, TBAR1P, WTABLE, ZERO, &
                          EVAPC, EVAPCG, EVAPG, EVAPCS, EVPCSG, EVAPGS, &
                          GSNOWC, GSNOWG, GZEROC, GZEROG, GZROCS, GZROGS, &
@@ -879,7 +882,7 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
                          FSGV, FSGS, FSGG, FLGV, FLGS, FLGG, &
                          HFSC, HFSS, HFSG, HEVC, HEVS, HEVG, &
                          HMFC, HMFN, QFCF, QFCL, EVPPOT, ACOND, &
-                         DRAG, THLIQ, THICE, TBAR, ZPOND, TPOND, &
+                         DRAG, THLIQ, THICE, TBAR, TCTOGAT, TCBOGAT, ZPOND, TPOND, &
                          THPOR, THLMIN, THLRET, THFC, HCPS, TCS, &
                          TA, RHOSNO, TSNOW, ZSNOW, WSNOW, TCAN, &
                          FC, FCS, DELZ, DELZW, ZBOTW, &
@@ -948,6 +951,8 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
     !
     call canopyPhaseChange(TCANS, RAICNS, SNOCNS, FRAICS, FSNOCS, CHCAPS, & ! Formerly CWCALC
                            HMFC, HTCC, FCS, CMASCS, ILG, IL1, IL2, JL)
+    !PRINT '(A30)', 'CANOPY OVER SNOW'
+    !PRINT '(A9 F12.5)', 'ZSNOW = ', ZSNOW
     call soilHeatFluxPrep(A1, A2, B1, B2, C2, GDENOM, GCOEFF, & ! Formerly TNPREP
                           GCONST, CPHCHG, IWATER, &
                           TBAR, TCTOPC, TCBOTC, &
@@ -989,7 +994,7 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
 
     call snowTempUpdate(GSNOWC, TSNOCS, WSNOCS, RHOSCS, QMELTC, & ! Formerly TSPOST
                         GZROCS, TSNBOT, HTCS, HMFN, &
-                        GCONSTS, GCOEFFS, GCONST, GCOEFF, TBAR, &
+                        GCONSTS, GCOEFFS, GCONST, GCOEFF, TBAR, TCTOPC, &
                         TSURX, ZSNOW, TCSNOW, HCPSCS, QTRANS, &
                         FCS, DELZ, ILG, IL1, IL2, JL, IG)
     call soilHeatFluxCleanup(TBARCS, G12CS, G23CS, TPNDCS, GZROCS, ZERO, GCONST, & ! Formerly TNPOST
@@ -1098,6 +1103,18 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
         FVAP (I) = FVAP (I) + FCS(I) * FVAPX (I)
         RIB  (I) = RIB  (I) + FCS(I) * RIBX  (I)
         GSNOW(I) = GSNOW(I) + FCS(I) / (FCS(I) + FGS(I)) * GSNOWC(I)
+        TSNBGAT(I) = TSNBGAT(I) + FCS(I) / (FCS(I) + FGS(I)) * TSNBOT(I)
+
+        do J = 1,IG
+          if (J == 1) then
+            ! For snow subareas the top soil layer thermal conductivity is averaged with the snow one (see src/soilHeatFluxPrep.f90),
+            ! therefore adjust the first layer top thermal conductivity to reflect this.
+            TCTOGAT(I,1) = TCTOGAT(I,1) + FCS(I) * (1.0 / (0.5 / TCSNOW(I) + 0.5 / TCTOPC(I,1)))
+          else
+            TCTOGAT(I,J) = TCTOGAT(I,J) + FCS(I) * TCTOPC(I,J)
+          end if
+          TCBOGAT(I,J) = TCBOGAT(I,J) + FCS(I) * TCBOTC(I,J)
+        end do 
       end if
     end do ! loop 175
   end if
@@ -1132,9 +1149,20 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
         CRIB(I) = - GRAV * ZRSLDM(I) / (TVIRTA(I) * VA(I) ** 2)
         DRAG(I) = DRAG(I) + FGS(I) * (VKC / (LOG(ZRSLDM(I)) - &
                   ZOMLNS(I))) ** 2
+        ! Compute wind speed at 10 m height for the snow sublimation losses parameterization
+        VA10(I) = VA(I) * (LOG(10.0) - ZOMLNS(I)) / (LOG(ZRSLDM(I) - ZSNOW(I)) - ZOMLNS(I))
+        ! PRINT '(A12 F12.5)', 'VA(I) = ', VA(I)
+        ! PRINT '(A12 F12.5)', 'VA10(I) = ', VA10(I)
+        ! PRINT '(A12 F12.5)', 'ZREFM(I) = ', ZREFM(I)
+        ! PRINT '(A12 F12.5)', 'ZRSLDM(I) = ', ZRSLDM(I)
+        ! PRINT '(A12 F12.5)', 'ZSNOW(I) = ', ZSNOW(I)
+        ! PRINT '(A12 F12.5)', 'DISP(I) = ', DISP(I)
+        ! PRINT '(A12 F12.5)', 'DISPS(I) = ', DISPS(I)
       end if
     end do ! loop 200
     !
+    !PRINT '(A30)', 'SNOW-COVERED GROUND'
+    !PRINT '(A9 F12.5)', 'ZSNOW = ', ZSNOW
     call soilHeatFluxPrep(A1, A2, B1, B2, C2, GDENOM, GCOEFF, & ! Formerly TNPREP
                           GCONST, CPHCHG, IWATER, &
                           TBAR, TCTOPG, TCBOTG, &
@@ -1148,7 +1176,7 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
                             QSWX, QLWX, QTRANS, QSENSX, QEVAPX, EVAPGS, &
                             TSURX, QSURX, GSNOWG, QMELTG, CDHX, CDMX, RIBX, CFLUX, &
                             FTEMPX, FVAPX, ILMOX, UEX, HBLX, &
-                            QLWIN, TPOTA, QA, VA, PADRY, RHOAIR, &
+                            QLWIN, TPOTA, TA, QA, VA, VA10, PADRY, RHOAIR, &
                             ALVSSN, ALIRSN, CRIB, CPHCHG, CEVAP, TVIRTA, &
                             ZOSCLH, ZOSCLM, ZRSLFH, ZRSLFM, ZOH, ZOM, FCOR, &
                             GCONSTS, GCOEFFS, TSFSAV(1, 2), PCPR, &
@@ -1164,7 +1192,7 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
     !
     call snowTempUpdate(GSNOWG, TSNOGS, WSNOGS, RHOSGS, QMELTG, & ! Formerly TSPOST
                         GZROGS, TSNBOT, HTCS, HMFN, &
-                        GCONSTS, GCOEFFS, GCONST, GCOEFF, TBAR, &
+                        GCONSTS, GCOEFFS, GCONST, GCOEFF, TBAR, TCTOPG, &
                         TSURX, ZSNOW, TCSNOW, HCPSGS, QTRANS, &
                         FGS, DELZ, ILG, IL1, IL2, JL, IG)
     call soilHeatFluxCleanup(TBARGS, G12GS, G23GS, TPNDGS, GZROGS, ZERO, GCONST, & ! Formerly TNPOST
@@ -1260,6 +1288,17 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
         FVAP (I) = FVAP (I) + FGS(I) * FVAPX (I)
         RIB  (I) = RIB  (I) + FGS(I) * RIBX  (I)
         GSNOW(I) = GSNOW(I) + FGS(I) / (FCS(I) + FGS(I)) * GSNOWG(I)
+        TSNBGAT(I) = TSNBGAT(I) + FGS(I) / (FCS(I) + FGS(I)) * TSNBOT(I)
+        do J = 1,IG
+          if (J == 1) then
+            ! For snow subareas the top soil layer thermal conductivity is averaged with the snow one (see src/soilHeatFluxPrep.f90),
+            ! therefore adjust the first layer top thermal conductivity to reflect this.
+            TCTOGAT(I,1) = TCTOGAT(I,1) + FGS(I) * (1.0 / (0.5 / TCSNOW(I) + 0.5 / TCTOPG(I,1)))
+          else
+            TCTOGAT(I,J) = TCTOGAT(I,J) + FGS(I) * TCTOPG(I,J)
+          end if
+          TCBOGAT(I,J) = TCBOGAT(I,J) + FGS(I) * TCBOTG(I,J)
+        end do 
       end if
     end do ! loop 275
   end if
@@ -1310,13 +1349,14 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
     !
     call canopyPhaseChange(TCANO, RAICAN, SNOCAN, FRAINC, FSNOWC, CHCAP, & ! Formerly CWCALC
                            HMFC, HTCC, FC, CMASSC, ILG, IL1, IL2, JL)
+    !PRINT '(A30)', 'CANOPY OVER BARE GROUND'
+    !PRINT '(A9 F12.5)', 'ZSNOW = ', ZSNOW
     call soilHeatFluxPrep(A1, A2, B1, B2, C2, GDENOM, GCOEFF, & ! Formerly TNPREP
                           GCONST, CPHCHG, IWATER, &
                           TBAR, TCTOPC, TCBOTC, &
-                          FC, ZPOND, TBAR1P, DELZ, TCSNOW, ZSNOW, &
+                          FC, ZPOND, TBAR1P, DELZ, TCSNOW, ZERO, &
                           ISAND, ILG, IL1, IL2, JL, IG)
     ISNOW = 0
-
     call energBalVegSolve(ISNOW, FC, & ! Formerly TSOLVC
                           QSWX, QSWNC, QSWNG, QLWX, QLWOC, QLWOG, QTRANS, &
                           QSENSX, QSENSC, QSENSG, QEVAPX, QEVAPC, QEVAPG, EVAPC, &
@@ -1460,6 +1500,10 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
         FTEMP(I) = FTEMP(I) + FC(I) * FTEMPX(I)
         FVAP (I) = FVAP (I) + FC(I) * FVAPX (I)
         RIB  (I) = RIB  (I) + FC(I) * RIBX   (I)
+        do J = 1,IG
+          TCTOGAT(I,J) = TCTOGAT(I,J) + FC(I) * TCTOPC(I,J)
+          TCBOGAT(I,J) = TCBOGAT(I,J) + FC(I) * TCBOTC(I,J)
+        end do 
       end if
     end do ! loop 375
   end if
@@ -1497,17 +1541,19 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
       end if
     end do ! loop 400
     !
+    !PRINT '(A30)', 'BARE GROUND'
+    !PRINT '(A9 F12.5)', 'ZSNOW = ', ZSNOW
     call soilHeatFluxPrep(A1, A2, B1, B2, C2, GDENOM, GCOEFF, & ! Formerly TNPREP
                           GCONST, CPHCHG, IWATER, &
                           TBAR, TCTOPG, TCBOTG, &
-                          FG, ZPOND, TBAR1P, DELZ, TCSNOW, ZSNOW, &
+                          FG, ZPOND, TBAR1P, DELZ, TCSNOW, ZERO, &
                           ISAND, ILG, IL1, IL2, JL, IG)
     ISNOW = 0
     call energBalNoVegSolve(ISNOW, FG, & ! Formerly TSOLVE
                             QSWX, QLWX, QTRANS, QSENSX, QEVAPX, EVAPG, &
                             TSURX, QSURX, GZEROG, QFREZG, CDHX, CDMX, RIBX, CFLUX, &
                             FTEMPX, FVAPX, ILMOX, UEX, HBLX, &
-                            QLWIN, TPOTA, QA, VA, PADRY, RHOAIR, &
+                            QLWIN, TPOTA, TA, QA, VA, ZERO, PADRY, RHOAIR, &
                             ALVSG, ALIRG, CRIB, CPHCHG, CEVAP, TVIRTA, &
                             ZOSCLH, ZOSCLM, ZRSLFH, ZRSLFM, ZOH, ZOM, FCOR, &
                             GCONST, GCOEFF, TSFSAV(1, 4), PCPR, &
@@ -1615,6 +1661,10 @@ subroutine energyBudgetDriver (TBARC, TBARG, TBARCS, TBARGS, THLIQC, THLIQG, & !
         FTEMP(I) = FTEMP(I) + FG(I) * FTEMPX(I)
         FVAP (I) = FVAP (I) + FG(I) * FVAPX (I)
         RIB  (I) = RIB  (I) + FG(I) * RIBX  (I)
+        do J = 1,IG
+          TCTOGAT(I,J) = TCTOGAT(I,J) + FG(I) * TCTOPG(I,J)
+          TCBOGAT(I,J) = TCBOGAT(I,J) + FG(I) * TCBOTG(I,J)
+        end do 
       end if
     end do ! loop 475
   end if

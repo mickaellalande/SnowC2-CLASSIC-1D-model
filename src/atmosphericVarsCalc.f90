@@ -6,7 +6,7 @@
 
 subroutine atmosphericVarsCalc (VPD, TADP, PADRY, RHOAIR, RHOSNI, RPCP, TRPCP, & ! Formerly CLASSI
                                 SPCP, TSPCP, TA, QA, PCPR, RRATE, SRATE, &
-                                PRESSG, IPCP, NL, IL1, IL2)
+                                PRESSG, VMOD, IPCP, NL, IL1, IL2)
 
   !     * NOV 17/11 - M.LAZARE.   REMOVE CALCULATION OF PCPR
   !     *                         FOR IPCP=4 (REDUNDANT SINCE
@@ -58,6 +58,7 @@ subroutine atmosphericVarsCalc (VPD, TADP, PADRY, RHOAIR, RHOSNI, RPCP, TRPCP, &
   real, intent(in) :: TA    (NL)   !< Air temperature at reference height \f$[K] (T_a)\f$
   real, intent(in) :: QA    (NL)   !< Specific humidity at reference height \f$[kg kg^{-1}] (q_a)\f$
   real, intent(in) :: PRESSG(NL)   !< Surface atmospheric pressure \f$[Pa] (p)\f$
+  real, intent(in) :: VMOD  (NL)   !< Wind speed at reference height \f$[m s^{-1}]\f$
   real, intent(in) :: PCPR  (NL)   !< Precipitation rate over modelled area
   !! \f$[kg m^{-2} s^{-1}]\f$
   real, intent(in) :: RRATE (NL)   !< Input rainfall rate over modelled area
@@ -71,7 +72,7 @@ subroutine atmosphericVarsCalc (VPD, TADP, PADRY, RHOAIR, RHOSNI, RPCP, TRPCP, &
   !
   !     * TEMPORARY VARIABLES.
   !
-  real :: EA, CA, CB, EASAT, CONST
+  real :: EA, CA, CB, EASAT, CONST, QASAT, RH, TW
   !
   !----------------------------------------------------------------
   !
@@ -150,6 +151,20 @@ subroutine atmosphericVarsCalc (VPD, TADP, PADRY, RHOAIR, RHOSNI, RPCP, TRPCP, &
     else
       RHOSNI(I) = MIN((119.17 + 20.0 * (TA(I) - TFREZ)),200.0)
     end if
+
+    !! CROCUS fresh snow density
+    ! REF
+    ! RHOSNI(I) = MAX(50.0, 109.0 + 6.0*(TA(I) - TFREZ) + 26.0*SQRT(MAX(0.0, VMOD(I))))
+    ! R21
+    ! RHOSNI(I) = MAX(50.0, 109.0 + 6.0*(TA(I) - TFREZ) + 52.0*SQRT(MAX(0.0, VMOD(I))))
+    ! GW1
+    ! RHOSNI(I) = MAX(50.0, 109.0 + 6.0*(TA(I) - TFREZ) + 39.0*SQRT(MAX(0.0, VMOD(I))))
+    ! GW2
+    ! RHOSNI(I) = MAX(50.0, 109.0 + 6.0*(TA(I) - TFREZ) + 32.5*SQRT(MAX(0.0, VMOD(I))))
+    ! W24
+    ! RHOSNI(I) = MAX(50.0, 43.0 + 9.0*(TA(I) - TFREZ) + 35.0*SQRT(MAX(0.0, VMOD(I))))
+    
+
     !
     !     * PRECIPITATION PARTITIONING BETWEEN RAIN AND SNOW.
     !
