@@ -1,0 +1,18 @@
+#!/bin/bash
+
+export NETCDFDIR=${NETCDFDIR-BROKEN}
+
+export CC="${CC-gcc}"
+export CPPFLAGS="${CPPFLAGS}"
+export CFLAGS="${CFLAGS--I${NETCDFDIR}/include -fopenmp}"
+export CXXFLAGS="${CXXFLAGS-${CFLAGS}}"
+export FC="${FC-gfortran}"
+export FCFLAGS="${FCFLAGS--I${NETCDFDIR}/include}"
+export FFLAGS="${FFLAGS-${FCFLAGS}}"
+export F77=${F77-gfortran}
+export LIBS="${LIBS--L${NETCDFDIR}/lib -lnetcdf -lhdf5_hl -lhdf5}"
+export LDFLAGS="${LDFLAGS}"
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH-${NETCDFDIR}/lib}
+
+make clean
+./configure --prefix=${NETCDFDIR} --enable-parallel-tests --disable-dap && make -j${NUMCORE-8} && make install

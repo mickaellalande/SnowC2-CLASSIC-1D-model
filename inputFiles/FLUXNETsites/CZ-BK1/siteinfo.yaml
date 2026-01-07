@@ -1,0 +1,49 @@
+name: "CZ-BK1"
+full_name: "Bily Kriz forest"
+biome: "ENF"
+lon: 18.5369
+lat: 49.5021
+soilcolour: 16
+start: 2004
+end: 2014
+ZRFH: 25
+ZRFM: 35
+PFTs: "1.0 NdlEvgTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "harvested"
+doi: "10.18140/FLX/1440143"
+notes: "
+Czech Republic
+
+Original values ZRFH = 25 m and ZRFM = 25 m. ZRFM was raised to 35 m to account for CLASSIC growing a vegetation canopy that was taller than the measurement heights.
+
+Vegetation:
+
+- Norway spruce monoculture with only 1% of silver fir -> 100% EVG NDL 
+
+- Google Maps shows 100% forest cover
+
+- planted in 1981 with four-year-old seedlings
+
+- stand density: 2000 trees/ha
+
+- mean canopy height: 12 m
+
+- mean DBH: 13 cm
+
+- LAI: 10.5 m2/m2
+
+- ground vegetation dominated by blueberries
+
+
+Climate:
+
+- See Niu et al., 2011
+"
+principal_refs: "
+Sedlak, P., Aubinet, M., Heinesch, B., Janous, D., Pavelka, M., Potuznikova, K., and Yernaux, M. (2010) Night-time Airflow in a Forest Canopy Near a Mountain Crest. Agriculture and Forest Meteorology, 150(736-744)
+
+<br><br>
+
+Niu, S., Luo, Y., Fei, S., Montagnani, L., Bohrer, G., Janssens, I. A., Gielen, B., Rambal, S., Moors, E., and Matteucci, G. (2011) Seasonal Hysteresis of Net Ecosystem Exchange in Response to Temperature Change: Patterns and Causes. Global Change Biology, 17(3102-3114), doi: 10.1111/j.1365-2486.2011.02459.x"

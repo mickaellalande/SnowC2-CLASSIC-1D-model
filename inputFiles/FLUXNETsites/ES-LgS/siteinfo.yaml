@@ -1,0 +1,44 @@
+name: "ES-LgS"
+full_name: "Laguna Seca"
+biome: "OSH"
+lon: -2.97
+lat: 37.10
+soilcolour: 15
+start: 2007
+end: 2009
+ZRFH: 2.25
+ZRFM: 2.25
+PFTs: "0.22 GrassC3, 0.23 BdlEvgSh" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440225"
+notes: "
+Alpine Shrubland - Sierra Nevada, Southern (coastal) Spain
+
+Vegetation:
+
+- dominant plant species: Festuca indigesta (C3 grass) cover 45%, Cystisus purgans (shrub)
+
+- litter covers 35%
+
+- 20% bare soil
+
+- presence of other plant species intermittent thorught the years and very sparse
+
+- average LAI: 1.23 m2/m2, approximately constant over the seasons
+
+
+Climate:
+
+- mean annual precipitation: 800 mm
+
+- mean annual temperature: 5.5 deg C
+
+- snow covered from December to March
+
+-> subsequent snow melt causes water to flow across the basin and accumulate at the bottom creating a small lagoon which remains for ~ 1 month during onset of the growing season
+
+The soil is composed of sand (56%), silt (30%) and clay (14%) with a bulk density of 1110 kg m−3, determined in situ using soil cores. The permanent wilting point was estimated at a volumetric water content of 2.6%. Soil organic matter ranged from 3.9% to 4.6% in the area around the fluxtower.
+"
+principal_refs: "R. Reverter, B & Sanchez-Canete, Enrique & Resco, Victor & Serrano-Ortiz, Penelope & Oyonarte, Cecilio & S. Kowalski, A. (2010). Analyzing the major drivers of NEE in a Mediterranean alpine shrubland. Biogeosciences. 7. 2601-2611. 10.5194/bg-7-2601-2010."

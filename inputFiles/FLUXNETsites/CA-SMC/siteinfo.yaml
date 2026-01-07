@@ -1,0 +1,52 @@
+name: "CA-SMC"
+full_name: "Smith Creek"
+biome: "ENF"
+lon: -123.2522
+lat: 63.1534
+soilcolour: 18
+start: 2017
+end: 2018
+ZRFH: 20
+ZRFM: 20
+PFTs: "0.22 NdlEvgTr, 0.15 Sedge, 0.34 BdlEvgSh, 0.12 BdlDCoSh" # use same naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1767830"
+notes: "
+
+Boreal forest-peatland landscape with discontinuous permafrost, 19 km southeast of Wrigley, NT, Canada
+
+General:
+
+- mean depth of organic layers is around 1-2 meters in the peat plateaus.
+
+- mineral soils are Cryic Gleysols with fine-textured till material (Silty clay loam to Silty clay)
+
+Vegetation:
+
+- Vegetation IGBP:	ENF (Evergreen Needleleaf Forests: Lands dominated by woody vegetation with a percent cover >60% and height exceeding 2 meters. Almost all trees remain green all year. Canopy is never without green foliage.)
+
+- Smith Creek is characterized by a heterogeneous landscape mainly with peat plateaus forests. 
+
+- peat plateaus has typical peatland black spruce forests underlain by permafrost. 
+
+- the tree stand is dominated by black spruce.
+
+- The understory consists of various shrubs and grasses, e.g., crowberry, lingonberry, bog birch, and sedges.
+
+- The ground is almost completely covered with mosses and Lichens, e.g., Sphagnum spp., Pleurozium schreberi, Dicranum undulatum, and Cladina stellaris. 
+
+Climate:
+
+- Climate Koeppen: Dfc (Subarctic: severe winter, no dry season, cool summer)
+
+- Mean Annual Temp (°C): -2.8
+
+- Mean Annual Precip. (mm):	388
+
+- Flux Species Measured: CO2, CH4, H, H2O
+"
+
+principal_refs: "Oliver Sonnentag (2021), AmeriFlux BASE CA-SMC Smith Creek, Ver. 1-5, AmeriFlux AMP, (Dataset). https://doi.org/10.17190/AMF/1767830"
+

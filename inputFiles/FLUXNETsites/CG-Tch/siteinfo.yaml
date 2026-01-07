@@ -1,0 +1,36 @@
+name: "CG-Tch"
+full_name: "Tchizalamou"
+biome: "SAV"
+lon: 11.65
+lat: -4.29
+soilcolour: 17
+start: 2006
+end: 2009
+ZRFH: 3.8
+ZRFM: 3.8
+PFTs: "0.9 GrassC4" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440142"
+notes: "
+Coastal woody grassland - Republic of the Congo
+
+Vegetation:
+
+- region covered by forst-savanna mosaic situated between coastline and Mayombee forest. Described in the paper as a grassland with 100% C4 coverage.
+
+- present grass and shrub savannas result from two interfacing factors: seasonally dry climate and expansion of populations practising savanna burning 
+
+- herbaceous layer dominated by taller Poaceae (e.g. Loudetia simplex)
+
+- some shrubs present (height 1 - 2 m), extensive fires every year mid-June to mid-July
+
+- Loudetia simplex makes up more than 50% of above-ground biomass that reached about 3.8 Mg/ha of dry matter at the end of rainy season in 2008
+
+Climate:
+
+- two season transition equatorial type: long dry and cloudy season from mid-May to mid-October, then rainy season from mid-October to mid-May. Optional short dry season mid-February to mid-May
+- mean annual rainfall: 1200mm
+- annual temperature: 25"
+principal_refs: "Merbold, L., Ardo, J., Arneth, A., Scholes, R. J., Nouvellon, Y., de Grandcourt, A., Archibald, S., Bonnefond, J. M., Boulain, N., Brueggemann, N., Bruemmer, C., Cappelaere, B., Ceschia, E., El-Khidir, H. A. M., El-Tahir, B. A., Falk, U., Lloyd, J., Kergoat, L., Le Dantec, V., Mougin, E., Muchinda, M., Mukelabai, M. M., Ramier, D., Roupsard, O., Timouk, F., Veenendaal, E. M. and Kutsch, W. L.: Precipitation as driver of carbon fluxes in 11 African ecosystems, Biogeosciences, 6(6), 1027-1041, doi:10.5194/bg-6-1027-2009, 2009."

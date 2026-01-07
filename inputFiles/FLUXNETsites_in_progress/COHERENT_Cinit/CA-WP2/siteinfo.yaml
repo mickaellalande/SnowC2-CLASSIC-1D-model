@@ -1,0 +1,48 @@
+name: "CA-WP2"
+full_name: "Alberta - Western Peatland - Poor Fen (Sphagnum moss)"
+biome: "WET"
+lon: -112.3343
+lat: 55.5375
+soilcolour: 18
+start: 2004
+end: 2006
+ZRFH: 3
+ZRFM: 2
+PFTs: "5% NdlEvgTr, 12% BdlEvgSh, 1% BdlDCoSh, 7% GrassC3, 7% Sedge" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "true"
+landscape_state: "undisturbed"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+A “patterned fen” consisting of alternating hummocks and hollows.
+
+Vegetation:
+
+- dominated by a continuous ground layer of Sphagnum spp. (68%), consisting of a mixture of S. angustifolium ([C. Jens. ex Russ.] C. Jens. in Tolf), S. magellanicum (Brid.), and S. fuscum ([Schimp.] Klinggr.).
+- the evergreen shrub Andromeda polifolia (L.), the herb Smilacina trifolia ([L.] Desf.), and the sedge Carex limosa (L.) were present
+- Some dwarf (average height < 0.75 m) Picea mariana ([Mill.] BSP.) and Larix laricina ([Du Roi] K.Koch) trees are along strings in the fen.
+
+- average tree height: trees were <0.75m
+
+- leaf area index: about 1.2 m2 leaf/m2 ground durin 2004 growing season
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+- Live aboveground biomass: 230.9 ± 15.3 g m−2
+
+- Mean Air Temperature: 2.1 °C, frost-free period of 85–90 days
+
+- Mean Annual Precipitation: 504 mm 
+
+- Cmossmass and litrmsmoss: Used the value from CA-WP1
+
+"
+
+principal_refs: "Glenn, A.J., Flanagan, L.B., Syed, K.H. and Carlson, P.J.,
+Comparison of net ecosystem CO2 exchange in two peatlands in western Canada with contrasting dominant vegetation, Sphagnum and Carex.,
+Agricultural and Forest Meteorology,
+Volume 149, Issues 1-4,
+2006,
+Pages 115-135,
+ISSN 0168-1923,
+doi.org/10.1016/j.agrformet.2006.03.020"

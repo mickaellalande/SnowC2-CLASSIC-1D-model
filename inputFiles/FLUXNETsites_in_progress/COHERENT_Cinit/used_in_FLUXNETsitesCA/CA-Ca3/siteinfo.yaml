@@ -1,0 +1,52 @@
+name: "CA-Ca3"
+full_name: "British Columbia - Pole sapling Douglas-fir stand"
+biome: "ENF"
+lon: -124.9004
+lat: 49.5346
+soilcolour: 20
+start: 2001
+end: 2010
+ZRFH: 12
+ZRFM: 12
+PFTs: "1.00 NdlEvgTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "harvested"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+Coastal Douglas-fir stand located on the east coast of Vancouver Island, BC, Canada
+
+Vegetation:
+
+- planted in 1988 with Douglas-fir (75%), western red cedar (Thuja plicata Donn) (21%) and grand fir (Abies grandis (Dougl. ex D. Don) Lindl.)(4%). 
+
+- in February 2007, an ~20-ha area at site was aerially fertilized with urea at 200 kgN/ha
+
+- The 30-year mean (1981 to 2010) annual temperature and precipitation from the closest Environment Canada weather station, Mud Bay, were 9.7 °C and 1631 mm, respectively.
+
+- average tree height: 7.57 m in 2002; 8.10-11.0 in 2008-2013; 12.0-20.0 in 2014-2019
+
+- measurement height: 12 m for 2001 to 2005, 15 m for 2006 to June 2015, 21 m for July 2015 to June 2017, 31 m for July 2017 to now
+
+- leaf area index: 4.7 m2 leaf/m2 ground in 2004
+
+- stand density: 675~1900 trees/ ha
+
+- basal area: 6.8-8.1 m2/ha
+
+- above ground biomass: 610 gC/m2 for tree wood, 220 gC/m2 for tree foliage, 295 gC/m2 for shrub, and 14 gC/m2 for others in 2002
+
+- lit biomass: 22 gC/m2 in 2002, 21 gC/m2 in 2003, 31 gC/m2 in 2004, 28 gC/m2 in 2005 
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "Elyn R. Humphreys, T. Andrew Black, Kai Morgenstern, Tiebo Cai, Gordon B. Drewitt, Zoran Nesic, J.A. Trofymow,
+Carbon dioxide fluxes in coastal Douglas-fir stands at different stages of development after clearcut harvesting,
+Agricultural and Forest Meteorology,
+Volume 140, Issues 1–4,
+2006,
+Pages 6-22,
+ISSN 0168-1923,
+10.1016/j.agrformet.2006.03.018"

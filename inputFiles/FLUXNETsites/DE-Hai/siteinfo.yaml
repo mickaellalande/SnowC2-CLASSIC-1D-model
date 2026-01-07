@@ -1,0 +1,47 @@
+name: "DE-Hai"
+full_name: "Hainich"
+biome: "DBF"
+lon: 10.4530
+lat: 51.0792
+soilcolour: 15
+start: 2000
+end: 2012
+ZRFH: 43.5 
+ZRFM: 43.5
+PFTs: "0.965 BdlDCoTr, 0.035 GrassC3" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed" 
+doi: "10.18140/FLX/1440148"
+notes: "
+
+Unmanaged forest with heterogenous structure. Until the end of the 19th century, it was managed as a coppice-with-standards system and was subjected to selective cutting until 1965.
+
+Vegetation: 
+
+- Beech (Fagus sylvatica L.) (64%)., Ash (Fraxinus excelsior L.) (28%), Sycamore (Acer pseudoplatanus L) (7%). and other species
+- Ground vegetation includes Allium ursinum, Mercurialis  perennis, and Anemone  nemorosa.
+- Biomass 212 tC/hectare, above ground biomass (stem + branch) 176 tC/ha.
+- plant density 334 trees/ha, 
+- canopy height 35 m, multi-layer canopy. Mean height is 23 m (34 m for top 20%)
+- LAI 5.1 m2/m2 (more of a PAI measurement)
+- mean tree diameter 31 cm (60 cm for top 20%)
+- Ages: max 265 years, biomass weighted average 140.
+- Litter  production  was 2.8 ± 0.2 tC/ha in  2000  and  2.0 ± 0.2 tC/ha in 2001  (Cotrufo  et  al.,  2002)
+- Large  amounts  of  dead wood  pools,  mainly  standing  dead  wood  and  coarse woody  debris  (13.5 tC/ha, Cotrufo  et  al.,  2002)
+
+Soils: 
+
+- Shallow soils (50 - 60 cm) with low water holding capacity. Pleistocene loess deposits with dominance of Cambisols on Triassic limestone. 
+- The  soil  is  characterised  by  a large  clay  content  (40%,  sand  4%)  and  a  thin  litter layer.  
+- Soil  carbon  pools  were  5.3 tC/ha in  the  organic layer and 124 tC/ha in the mineral horizons
+- 9.2 kgC/m2 soil C in top 30 cm.
+
+"
+principal_refs: "Tamrakar, R., Rayment, M. B., Moyano, F., Mund, M., and Knohl, A.: Implications of structural diversity for seasonal and annual carbon dioxide fluxes in two temperate deciduous forests, Agric. For. Meteorol., 263, 465–476, 2018.
+
+Knohl, A., Schulze, E.-D., Kolle, O., and Buchmann, N.: Large carbon uptake by an unmanaged 250-year-old deciduous forest in Central Germany, Agric. For. Meteorol., 118, 151–167, 2003.
+
+Anthoni, P. M., Knohl, A., Rebmann, C., Freibauer, A., Mund, M., Ziegler, W., Kolle, O., and Schulze, E.-D.: Forest and agricultural land-use-dependent CO2 exchange in Thuringia, Germany, Glob. Chang. Biol., 10, 2005–2019, 2004.
+
+"

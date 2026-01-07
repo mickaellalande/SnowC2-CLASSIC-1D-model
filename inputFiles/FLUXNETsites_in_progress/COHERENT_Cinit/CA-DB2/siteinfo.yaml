@@ -1,0 +1,51 @@
+name: "CA-DB2"
+full_name: "British Columbia - Delta Burns Bog 2"
+biome: "WET"
+lon: -122.9951
+lat: 49.1190
+soilcolour: 20
+start: 2019
+end: 2020
+ZRFH: 2.5
+ZRFM: 2.5
+PFTs: "10% BdlDCoTr, 60% Sedge" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "true"
+landscape_state: "disturbed"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+
+Disturbed raised bog ecosystem (peat harvesting 1930 to 1948). Site has been passively restored and rewetted in 2007 by ditch blocking.
+
+Vegetation:
+
+- depth of peat at the study site is 4 m
+
+- plant communities in the study ecosystem are dominated by Pine, Sphagnum, and white beak-rush
+
+- Some areas of Sphagnum hummocks are separated by large vegetated hollows
+
+- Sphagnum covers over 25 % of the surface and the open water ponds was estimated to be about 5 %
+
+- Mean Air Temperature: 10.4 °C
+
+- Mean Annual Precipitation: 1189 mm 
+
+- Water table height: 30 cm above ground to 30 cm below ground
+
+- average canopy height: 0.9m~1.3m
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+- Cmossmass and litrmsmoss: Used the value from CA-WP1
+
+"
+
+principal_refs: "Lee, S.C., Black, T.A., Nyberg, M., Merkens, M., Nesic, Z., Ng, D. and Knox, S.H.,
+Biophysical impacts of historical disturbances, restoration strategies, and vegetation types in a peatland ecosystem,
+Journal of Geophysical Research Biogeosciences,
+Volume 126, Issues 10,
+2021,
+Pages e2021JG006532,
+ISSN 2169-8961,
+doi.org/10.1029/2021JG006532"

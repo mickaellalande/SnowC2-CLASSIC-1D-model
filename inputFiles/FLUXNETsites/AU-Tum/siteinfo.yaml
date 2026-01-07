@@ -1,0 +1,60 @@
+name: "AU-Tum"
+full_name: "Tumbarumba"
+biome: "EBF"
+lon: 148.1516
+lat: -35.6566
+soilcolour: 19
+start: 2001
+end: 2014
+ZRFH: 71.5
+ZRFM: 71.5
+PFTs: "0.58 BdlEvgTr, 0.2646 GrassC3, 0.1554 GrassC4" # use same naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440126"
+notes: "
+Temperate Eucalyptus forest and tropical wet/dry savanna - Australia
+
+General:
+
+- Heat, water vapour, CO2 1.5 above 70 m tower. ~40m above d, zero-plane displacement. Wind speed appears to be at same height
+
+
+Vegetation:
+
+- located in Bago State Forest in southwestern NSW, part of 50 000 ha native forest that has been managed for wood production for over 100 years
+
+- site moderately open: LAI ~2.4, LAI of trees: ~1.4, LAI of understory ~1.0 (analysis of hemispherical photographs)
+
+- understory consits mainly of sparse cover of shrubs and fullcover of grasses
+
+- forest cover and species composition similar beyond this (?) distance similar in all directions for > 5km
+
+- dominant species: Eucalyptus delegatnesis and Eucalyptus dalrumpleana, both EVG BDL
+
+- mixed age forest ranging up to 90 years
+
+- 40 m tall forest
+
+- Set in model as: 68% EVG BDL, 32% grass out of which 37% C4 and 63% C3
+
+
+Climate:
+
+- severe drought all over eastern Australia from March 2002 - May 2003: 397 mm in winter months (May - October 2002); average long term: 600 mm 
+
+- 148.9 mm in summer (November 2002 - April 2003) -> lowest on record 
+
+- winter rainfall dominant but large rainfalls can also occur in late summer and early spring 
+
+- 2001: above average rainfall year 
+
+
+Init file:
+
+- chose literature for soil depth and took the average (3.5 m)
+
+- sort of derived plant cover from LAI which led to 58% EVG BDL and 42% grass; C3/C4 distribution in CTM is derived from table mentioned above. Occurred to me that getting plant cover from LAI could be weird but could fit with what Google Earth shows. Checke how model behaves if EVG BDL is higher and grass lower (78% EVG BDL, 22% grass) and model is closer to observation for lower EVG BDL value."
+principal_refs: "Leuning, R., Cleugh, H. A., Zegelin, S. J. and Hughes, D.: Carbon and water fluxes over a temperate Eucalyptus forest and a tropical wet/dry savanna in Australia: measurements and comparison with MODIS remote sensing estimates, Agric. For. Meteorol., 129(3-4), 151-173, 2005."
+# Comments are started with the pound sign, as per usual.

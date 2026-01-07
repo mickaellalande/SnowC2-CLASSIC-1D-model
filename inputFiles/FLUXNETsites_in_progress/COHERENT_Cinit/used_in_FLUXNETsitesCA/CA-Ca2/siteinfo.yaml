@@ -1,0 +1,50 @@
+name: "CA-Ca2"
+full_name: "British Columbia - Clearcut Douglas-fir stand (harvested winter 1999/2000)"
+biome: "ENF"
+lon: -125.2909
+lat: 49.8705
+soilcolour: 20
+start: 1999
+end: 2010
+ZRFH: 3
+ZRFM: 3
+PFTs: "1.00 NdlEvgTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "harvested"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+Coastal Douglas-fir stand located on the east coast of Vancouver Island, BC, Canada
+
+Vegetation:
+
+- Clearcut harvested in winter 1999/2000 and planted with 1-year-old seedlings. 
+
+- 93% Douglas-ﬁr and 7% western red cedar (Thuja plicata) 
+
+- Mean Air Temperature: 8.3 °C
+
+- Mean Annual Precipitation: 1461 mm 
+
+- average tree height: 0.8 m in 2002
+
+- leaf area index: 0.3-2.5 m2 leaf/m2 ground in 2004
+
+- stand density: 1600 trees/ ha
+
+- Woody debris biomass: 0.5-2.2 kg/m2 in 2002
+
+- Total aboveground biomass: 0.165 kg/m2 in 2002
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "Elyn R. Humphreys, T. Andrew Black, Kai Morgenstern, Tiebo Cai, Gordon B. Drewitt, Zoran Nesic, J.A. Trofymow,
+Carbon dioxide fluxes in coastal Douglas-fir stands at different stages of development after clearcut harvesting,
+Agricultural and Forest Meteorology,
+Volume 140, Issues 1–4,
+2006,
+Pages 6-22,
+ISSN 0168-1923,
+10.1016/j.agrformet.2006.03.018"

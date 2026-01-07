@@ -1,0 +1,43 @@
+name: "GH-Ank"
+full_name: "Ankasa"
+biome: "EBF"
+lon: -2.69
+lat: 5.26
+soilcolour: 15
+start: 2011
+end: 2014
+ZRFH: 65
+ZRFM: 65
+PFTs: "1.0 BdlEvgTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440229"
+notes: "
+Primary Tropical Forest - Southwest Ghana
+
+
+Vegetation:
+
+- site in Ankasa Conservation Area in Southwest Ghana on border with the Ivory coast
+
+- covers 509 km2 
+
+- hosts ancient rainforest and th emost biodiverse in Ghana
+
+- represents only wet evergreen protected area in almost pristine state
+
+- home to over 800 vascular plant species
+
+
+Climate:
+
+- distinctive bi-modal rainfall pattern ocurring from April to July and September to November
+
+- average rainfall: 1700 - 2000 mm
+
+- mean amonthly temepratures range from 24 - 28
+
+- relative humidity generally high throughout the year, being about 90% during the night, falling to 75% in early afternoon"
+principal_refs: "
+Belelli Marchesini, L., Bombelli, A., Chiti, T., Consalvo, C., Forgione, A., Grieco, E., Mazzenga, F., Papale, D., Stefani, P, Vittorini, E., Zompanti, R., & Valentini, R. (2011). Ankasa flux tower: a new research facility for the study of the carbon cycle in a primary tropical forest in Africa. Open Science Conference on Africa and Carbon Cycle: the Carbo-Africa project, 13-23"

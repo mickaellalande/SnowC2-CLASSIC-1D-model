@@ -1,0 +1,29 @@
+name: "US-UMB"
+full_name: "University of Michigan Biological Station"
+biome: "DBF"
+lon: -84.7138 #275.2862
+lat: 45.5598 
+soilcolour: 17
+start: 2000 #
+end: 2014
+ZRFH: 46
+ZRFM: 46
+PFTs: "1.0 BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1246107"
+notes: "US-UMB site is located within a protected forest owned by the University of Michigan and consists of mid-aged northern hardwoods, conifer understory, aspen, and old-growth hemlock.
+
+Note: This is different soil textures (sand/clay) than Asaadi et al. (2018) since I found textures in Gough et al. (2002).
+ Also I increase the ZRFM and ZRFH from 40 to 46 m due to value in Gough et al. (2000). The SDEP was 2.5 m but SoilGrids250m predicts 32.72 m.
+  Gough et al. does say that it is 'on a level to gently sloping high outwash plain derived from glacial drift', so the deeper value seems probable.
+
+The meteorology file is derived from the PLUMBER2 project (https://modelevaluation.org/) which processed it into netcdf format. It is hourly and
+ CLASSIC will transform it to the physics timestep on the fly. Half-hourly does not appear to be available.
+"
+principal_refs: "
+- Gough, C. M., Vogel, C. S., Schmid, H. P., Su, H.-B. and Curtis, P. S.: Multi-year convergence of biometric and meteorological estimates of forest carbon storage, Agric. For. Meteorol., 148(2), 158–170, 2008.
+
+  -Curtis, P. S., Hanson, P. J., Bolstad, P., Barford, C., Randolph, J. C., Schmid, H. P. and Wilson, K. B.: Biometric and eddy-covariance based estimates of annual carbon storage in five eastern North American deciduous forests, Agric. For. Meteorol., 113(1), 3–19, 2002.
+ "

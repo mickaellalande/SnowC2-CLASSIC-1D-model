@@ -1,0 +1,50 @@
+name: "CA-NS3"
+full_name: "Manitoba - UCI-1964 burn site"
+biome: "ENF"
+lon: -98.3822
+lat: 55.9117
+soilcolour: 18
+start: 2001
+end: 2005
+ZRFH: 45
+ZRFM: 45
+PFTs: "100% NdlEvgTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "fire"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+
+- A continental boreal forest, dominated by black spruce trees
+
+Vegetation:
+
+- 500–700 cm jack pine and aspen, with significant mortality and thinning; Many 200–600 cm tall black spruce
+- Ground cover of feather moss with sparse grass
+
+- Mean tree height: ~0.5 m in 2005
+
+- leaf area index: ~3 m2 leaf/m2 ground in 2005
+
+- Tree density : ~12000 tree/ha in 2005
+
+- diameter at breast height: ~2.5 cm in 2005
+
+- basal area: ~12 m2/ha in 2005
+
+- Mean Air Temperature: -2.9 °C
+
+- Mean Annual Precipitation: 500 mm 
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "Goulden, M.L., Winston, G.C., McMILLAN, A.M., Litvak, M.E., Read, E.L., Rocha, A.V. and Rob Elliot, J.,
+An eddy covariance mesonet to measure the effect of forest age on land–atmosphere exchange,
+Global change biology,
+Volume 12, Issues 11,
+2006,
+Pages 2146-2162,
+ISSN 1365-2486,
+10.1111/j.1365-2486.2006.01251.x"

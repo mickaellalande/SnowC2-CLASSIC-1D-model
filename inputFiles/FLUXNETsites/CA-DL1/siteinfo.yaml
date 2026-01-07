@@ -1,0 +1,60 @@
+name: "CA-DL1"
+full_name: "Daring Lake mixed tundra"
+biome: "OSH"
+lon: -111.57
+lat: 64.87
+soilcolour: 10
+start: 2004
+end: 2017
+ZRFH:  4
+ZRFM:  4
+PFTs: "0.18 Sedge, 0.30 BdlEvgSh, 0.12 BdlDCoSh" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.5281/zenodo.4301133"
+notes: "Southern Arctic tundra site, erect-shrub tundra, tundra dominated by low shrubs <40 cm, continuous permafrost
+Elevation: 425 m
+
+~300 km northeast of Yellowknife, ~70 km north of the treeline in Canada's Southern Arctic ecozone
+
+Vegetation:
+
+- dominant plant species: evergreen shrubs (Rhododendron tomentosum,Empetrum nigrum,Loiseleuria procumbens) and deciduous shrubs 
+(Betula glandulosa,Vaccinum uliginosum) (Lafleur and Humphreys, 2018). Small variations in microtopography result in wet areas 
+covering about 10% of the area within 100 m of the measurement tower, which support tussock-forming sedges and Sphagnum species. 
+
+- rooting depth: ~40 cm
+
+- average plant height ~18 cm
+
+- average LAI in July: 0.52 ± 0.05 m2/m2 (± SE)
+
+- plant cover:  60 % vascular plants, 40 % bare ground in CLASSIC (in reality most of the ground is covered by lichen and moss)
+percent ground cover: mosses 16.5 ± 4.9 % and lichens 78.9 ± 5.0 % (Lafleur and Humphreys, 2018).
+
+Climate:
+
+- mean annual precipitation: 250 mm (Fluxnet)
+
+- mean annual temperature: -9 degrees C (Fluxnet)
+
+
+Soils:
+
+- continuous permafrost with average thaw depth of 0.86 ± 0.03 m (± SE) measured over the period 2010-2015 (Lafleur and Humphreys, 2018)
+
+Soil composition (sand/clay/silt):  shallow (1-10 cm deep) surface soil organic layer (in better drained areas), deepening to 20 cm 
+or more in wetter areas; in CLASSIC, the top 10 cm layer is organic (fibric) underlain by coarse textured (sand to loamy sand) mineral soil with 
+80 % sand / 4.4 % clay / 3 % organic matter (apart from the 2nd layer, which was assigned 8% organic matter)
+
+Soil permeable depth: set to 5 m (rough estimate)
+
+Soil carbon: 18.5 ± 4.7 kg C m^{-2} (± SD) for 0-80 cm depth
+
+PI: Elyn Humphreys, Peter Lafleur
+"
+principal_refs: "Lafleur, P. M. and Humphreys, E. R.: Spring warming and carbon dioxide exchange over low Arctic tundra in central Canada, Global Change Biology,  14,  740–756,  https://doi.org/10.1111/j.1365-2486.2007.01529.x, 2008.,
+Humphreys, E. R. and Lafleur, P. M.: Does earlier snowmelt lead to greater CO2 sequestration in two low Arctic tundra ecosystems?, Geophysical Research Letters, 38, https://doi.org/10.1029/2011GL047339, 2011.,
+Lafleur, P. M. and Humphreys, E. R.: Tundra shrub effects on growing season energy and carbon dioxide exchange, Environmental ResearchLetters, 13, https://doi.org/10.1088/1748-9326/aab863, 2018.,
+Meyer, G., Humphreys, E. R., Melton, J. R., Cannon, A. J. and Lafleur, P. M.: Simulating shrubs and their energy and carbon dioxide fluxes in Canada’s Low Arctic with the Canadian Land Surface Scheme Including biogeochemical Cycles (CLASSIC), , doi:10.5194/bg-2020-458, 2020."

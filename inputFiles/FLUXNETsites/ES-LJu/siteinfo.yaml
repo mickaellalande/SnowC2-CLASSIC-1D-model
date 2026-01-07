@@ -1,0 +1,69 @@
+name: "ES-LJu"
+full_name: "Llano de los Juanes"
+biome: "OSH"
+lon: -2.75212
+lat: 36.92659
+soilcolour: 16
+start: 2004
+end: 2013
+ZRFH: 3
+ZRFM: 3
+PFTs: "0.31 C3Grass, 0.11 BdlEvgSh, 0.09 BdlDCoSh" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440157"
+notes: "
+Mediterrranean Shrubland Plateau (Serrano-Ortiz et al., 2007) 25 km from the coast (southeast Spain)
+Elevation: 1600 m (Serrano-Ortiz et al., 2007)
+
+Vegetation:
+
+- dominant plant species: Festuca scariosa (Lag.) Hackel 18.8%, Hormathophilla spinosa (L.) Kupfer 6.8% and Genista pumila (Vierh) ssp. 5.5%
+
+- other species present include Thymus serpilloides, Phlomis lychnitis, Ramnus murtifolis and Quercus sp.
+
+Sun and Verseghy used in CLASS: 51% shrub cover, 49% bare soil (bare soil, gravel and rock)
+
+- rooting depth not available, but Sun and Verseghy used 1.0 m
+
+- vegetation coverage 51% (Sun and Verseghy, 2019)
+
+- average plant height about 0.5 m (some species can reach up to 1.2 m, e.g., Festuca scariosa when in flower)
+
+- average LAI: 1.45 m2/m2 in June 2004; 1.16 m2/m2 in June 2005 (Serrano-Ortiz et al., 2007);
+1.13 m2/m2 in 2004; 0.92 m2/m2 in 2005; 1.18 m2/m2 in 2007 (Serrano-Ortiz et al., 2009)
+
+Climate:
+
+- mean annual precipitation: 400 mm (Fluxnet)/ 475 mm (Serrano-Ortiz et al., 2009)
+
+- mean annual temperature: 16 degrees C (Fluxnet) / 12 degrees C (Serrano-Ortiz et al., 2009)
+
+- semiarid montane Mediterranean climate, precipitation mostly falling during autumn and winter,
+very dry summer season
+
+Soils:
+
+- parent material (Triassic carbonate rocks) is a dark dolomite/limestone (98±2 % calcite) with a layered distribution and 30-40% rock fragments
+
+- classified as Lithic Haploxeroll with two horizons - surface A (0-10cm) with silt loam texture (15±1% clay, 37±5% loam, 48±5% silt) and subsurface B (10-35cm or even 150cm) with clay loam texture
+
+- neutral pH of 7.5±0.1, apparent density is 1.05±0.01 g cm-3 and C/N is 15±5 (50±10 g kg-1 of carbon and 3.2±0.4 g kg-1 of nitrogen)
+
+- high water retention of 14.3 and 22.8 mm in horizons A and B, respectively
+
+Soil composition (sand/clay): 14.8% / 22.4% (Sun and Verseghy, 2019)
+Soil permeable depth: 0.15-1.0 m (highly variable) on karst limestone
+
+Original values ZRFH = 1.5 and ZRFM = 2.5 were raised to 3 m to account for CLASSIC growing a vegetation canopy that was taller than the measurement heights.
+"
+
+principal_refs: "Serrano-Ortiz, P., Kowalski, A.S., Domingo, F., Rey, A., Pegoraro, E., Villagarcía, L., Alados-Arboledas, L., 2007. Variations in daytime net carbon and water exchange in
+a montane shrubland ecosystem in southeast Spain. Photosynthetica 45 (1), 30–35.
+Serrano-Ortiz, P., Domingo, F., Cazorla, A., Were, A., Cuezva, S., Villagarcía, L.A.,
+Kowalski, A.S., 2009. Interannual CO2 exchange of a sparse Mediterranean shrubland
+on a carbonaceous substrate. J. Geophys. Res. Biogeosci. 114 (G4).
+Morillas, L., Leuning, R., Villagarcía, L., García, M., Serrano-Ortiz, P., Domingo, F., 2013.
+Improving evapotranspiration estimates in Mediterranean drylands- the role of soil
+evaporation. Water Resour. Res. 49 (10), 6572–6586."

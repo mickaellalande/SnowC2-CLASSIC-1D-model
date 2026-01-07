@@ -1,0 +1,66 @@
+name: "CN-Dan"
+full_name: "Dangxiong"
+biome: "GRA"
+lon: 91.08
+lat: 30.85
+soilcolour: 8
+start: 2004
+end: 2005
+ZRFH: 2.1
+ZRFM: 2.1
+PFTs: "0.8 GrassC3" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440138"
+notes: "
+Alpine steppe meadow - Tibetan Plateau
+
+Vegetation:
+
+- three C3-grasses dominate area and cover 80%
+
+Climate:
+
+- elevation 4333m
+
+- plateau monsoon climate with characteristics of strong radiation, low temperature, large diurnal variation, small annual differences
+
+- annual mean temperature: 1.3 deg C
+
+- minimum mean in January: -10.4 deg C
+
+- maximum mean in July: 10.7 deg C
+
+- mean daily variation: 18 deg C
+
+- mean annual variation: 21 deg C
+
+- average soil temperature: 6.5 deg C
+
+- frozen soil duration: three months, November - next February
+
+- annual mean precipitation: 476.8 mm, 85.% in June and August
+
+- annual evaporation: 1725.7 mm
+
+- annual average sunlight: 2880.9 hr
+
+- sun radiation: 7527 MJ/m2
+
+Soil frozen duration is 3 months lasting from November to next January. The soil is classified as meadow soil with sandy loam. The soil has a depth of 0.3 ― 0.5 m, with 30% 
+of gravel content and 0.9% ― 2.97% of organic matter content.
+
+Vegetation and soil: The vegetation of Kobresia-steppe meadow is dominated by Kobresia pygmaea C. B., Stipa capillacea Keng and Carex montis-everestii Kükenth dominate the 
+meadows, accompanied by other tussock sedges, grasses and herbs; 50-80% vegetation cover  
+Peak LAI is 1.88 m2/m2
+
+Aboveground biomass and LAI in  2004 were higher than those in 2005 due to favorable soil moisture conditions. Aboveground biomass and LAI started to increase from late May, and 
+rose dramatically in July and August, then reached the maximum in late August or early September. In late September, aboveground biomass and LAI dropped sharply as a result of plant 
+senescence. Maximum aboveground biomass and LAI in 2004 were 150.9 g·m−2 (on September 7, DOY 231) and 1.86 (on August 18, DOY 251), and  those in 2005 were 106.2 g·m−2 and 
+1.01 (on September 11, DOY 262). Compared with 2004, maximum aboveground biomass and LAI in 2005 were delayed.
+
+The soil is Mat-Gryic Cambisol soil, corresponding to a Gelic Cambisol with soil layer about 30 to 50 cm. The contents of soil organic matter and soil nitrogen are 0.9-2.79% 
+and 0.05-0.19% respectively.
+"
+principal_refs: "Shi, P., Sun, X., Xu, L., Zhang, X., He, Y., Zhang, D. and Yu, G. (2006). Net ecosystem CO2 exchange and controlling factors in a steppe-Kobresia meadow on the Tibetan Plateau, Sci. China Ser. D Earth Sci., 49(2), 207-218"

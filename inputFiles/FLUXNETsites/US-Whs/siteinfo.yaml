@@ -1,0 +1,80 @@
+name: "US-Whs"
+full_name: "Walnut Gulch Lucky Hills Shrub"
+biome: "OSH"
+lon: -110.0522
+lat: 31.7438
+soilcolour: 16
+start: 2007
+end: 2014
+ZRFH: 2
+ZRFM: 4.5
+PFTs: "0.31 BdlEvgSh, 0.20 BdlDCoSh" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1246113"
+notes: " 
+Semiarid Chihuahuan Desert shrubland
+Elevation: 1370 m
+
+Vegetation:
+
+- dominant plant species: As determined by a 2003 survey of stem basal area, the dominant shrubs in order of
+decreasing abundance were creosotebush (Larrea tridentata - evergreen shrub), mariola (Parthenium incanum - deciduous shrub), whitethorn
+acacia (Acacia constricta - evergreen), littleleaf sumac (Rhus microphylla - deciduous), and tarbush (Flourensia cernua - deciduous)
+
+- common species in woody overstory: Parthenium incanum (deciduous shrub), Acacia constricta (evergreen shrub), Larrea tridentata (evergreen shrub), 
+  Flourensia cernua (deciduous shrub)
+
+- 3 % perennial grass cover (Zinnia acerosa)
+
+
+- rooting depth about 70% of the fine roots are located in the upper 15cm, exponentially decreases down to 1m (Cox et al., 1986);
+used 1m in CLASS
+
+- average plant height about 1m (Scott et al., 2015); range from 0.3 - 1.0 m
+
+- MODIS LAI: average annual 0.25 m2/m2; minimum 0.10 m2/m2 and maximum 0.57 m2/m2
+
+- plant cover: 51 % canopy cover, ~10 % of the surface covered with plant litter, 39 % bare soil (47 % of bare soil is composed of rock) (Scott et al., 2006); 
+51% shrub cover, 49% bare soil in CLASS (Sun and Verseghy, 2019)
+
+- during the 2003 growing season ET and T were measured; before the monsoon rains started, E and T were essentially 
+zero; at the onset of the monsoon rains, E dominated ET as it took ~10 days for the vegetation to recover from their dormant state; later, during interstorm
+periods, T was dominant and E was small; for the remainder of the growing season, after rainfalls, after 1-2 days of drying, E was minimal (Scott et al., 2006)
+
+- In 2003, most of the rain fell during July and August. In July, only about 21% of the monthly ET was T,  since  it  took  time  for the  shrubs  to become
+active (develop  leaf  area and  fine  roots)  and extract water from the soil volume. For the rest of the months, the shrubs were the major source of
+evaporative loss to the atmosphere,~70%. Thus, the shrubs were very capable of accessing much of the available soil moisture despite the shallow
+infiltration and the large amount of bare soil. (Scott et al., 2006)
+  
+- Overall,  plant  transpiration  comprised  58%  of  the  total  ET  for  the  study  period.  On  an  annual basis this ratio would decrease owing to the
+dormancy of the shrubs in the colder winter months. Following several rain events, Dugaset al. (1996) found that average T/ET ranged from 40 – 70% over 
+several different Chihuahuan shrub sites in New Mexico. Kempet al. (1997) simulated the annual ET partitioning of several different  Chihuahuan  Desert  
+communities  and  found  that  annual  T/ET  was  about  40%  for a creosotecommunity with 30% peak cover, but T/ET increased to 60% in a mixed community 
+with about 60% cover. Seasonal  T/ET  is  highly  variable  even  at  one  site  because  of  climate  variability  and differential  plant  functional  
+responses  (Reynolds et al., 2000).   
+
+Climate:
+
+- mean annual precipitation: 320 mm (Fluxnet); ~60 % of the rainfall during July-September (North American Monsoon) (Scott et al., 2006)
+
+- mean annual temperature: 17.6 degrees C (Fluxnet)
+
+Soils:
+
+- gravelly sandy loam with a high percentage of rock fragments (Scott et al., 2015)
+
+- bulk density 1.64 g/cm3 (Kustas and Goodrich, 1994)
+
+- Surface  A  horizon  (0–6 cm)  contained 650 g/kg sand,  290 g/kg silt,  and  60 g/kg clay with
+ 290 g/kg coarse  fragments  >2 mm,  8 g/kg organic carbon, and 21 g/kg inorganic carbon. (Emmerich, 2003)
+
+Soil composition (sand/clay/silt):(0-5 cm) 66% sand, 24% silt, 10% clay, 0.81% organic matter
+(Kustas and Goodrich, 1994)
+
+Soil permeable depth: 4.1m used in CLASS (Sun and Verseghy, 2019)
+"
+principal_refs: "Scott, R. L., Huxman, T. E., Cable, W. L. and Emmerich, W. E.: Partitioning of evapotranspiration and its relation to carbon dioxide exchange in a Chihuahuan Desert shrubland, Hydrol. Process., 20(15), 3227–3243, doi:10.1002/hyp.6329, 2006.
+Scott, R. L., J. A. Biederman, E. P. Hamerlynck, and G. A. Barron-Gafford (2015), The carbon balance pivot point of south-western U.S. semiarid ecosystems: Insights from the 21st century drought, J. Geophys. Res. Biogeosci., 120, 2612–2624, doi:10.1002/2015JG003181
+"

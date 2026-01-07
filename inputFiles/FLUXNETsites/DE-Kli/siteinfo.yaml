@@ -1,0 +1,31 @@
+name: "DE-Kli"
+full_name: "Klingenberg"
+biome: "CRO"
+lon: 13.5225
+lat: 50.8929
+soilcolour: 14
+start: 2004
+end: 2014
+ZRFH: 3.5
+ZRFM: 3.5
+PFTs: "1.0 CropC3" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "agriculture"
+doi: "10.18140/FLX/1440149"
+notes: "
+Cropland - East Germany
+
+Vegetation:
+
+- partially grassland before 1975
+
+- cultivated, organic and mineral fertilizer since 1975
+
+- winter barley (2004), rapeseed (2004/ 2005), winter wheat (2005/2006), maize (2007), spring barley (2008)
+
+- in 2008 full 5-year crop rotation was completed and winter barley was sown again
+
+The organic soil horizon (Ap) of the drained Gleysol was identified on average as a medium clayey loam with a mean thickness of 0.2 m. Within the B horizon, mainly slightly sandy clay and clayey sandy loam were observed. The mean values of C content in horizons Ap and B were 43 and 3 g C kg−1, respectively. The total soil carbon stock to 60 cm depth was 97 t C ha−1, and the mean C/N ratio was 13 .
+"
+principal_refs: "Moors, E., Jacobs, C., Jans, W., Supit, I., Kutschm, W. L., Bernhofer, C., Beziat, P., Buchmann, N., Carrara, A., Ceschia, E., Elbers, J., Eugster, W., Kruijt, B., Loubet, B., Magliulo, E., Moureaux, C., Olioso, A., Saunders, M., and Soegaard, H. (2010). Variability in Carbon Exchnage of European Croplands. Agriculture, Ecosystems and Environment, 139, 325-335"

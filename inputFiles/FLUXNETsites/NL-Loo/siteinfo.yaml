@@ -1,0 +1,43 @@
+name: "NL-Loo"
+full_name: "Loobos"
+biome: "ENF"
+lon: 5.743556
+lat: 52.166581
+soilcolour: 16
+start: 1996
+end: 2014
+ZRFH: 26
+ZRFM: 36
+PFTs: "0.98 NdlEvgTr, 0.02 GrassC3" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "disturbed"
+doi: "10.18140/FLX/1440178"
+notes: "
+Pine Forest - Central Netherlands
+
+Original values ZRFH = 26 m and ZRFM = 26 m. ZRFM was raised to 36 m to account for CLASSIC growing a vegetation canopy that was taller than the measurement heights.
+
+Vegetation:
+
+- forest planted on sand dunes in the beginning of this century, now almost 100 years old 
+
+- existing organic matter was largely removed at that time
+
+- area of Scots pine -> evergreen coniferous
+
+- Google Earth shows minor open spaces -> 98% forest, 2% grass
+
+- understory of Deschampsia flexuosa, a grass that can reach up to 50 cm
+
+- tree heigh: 15.1 m
+
+- roughness length: 2.05 m
+
+- density: 434 trees/ ha
+
+- diameter at breast height: 0.25 m
+
+- LAImax: 1.9"
+principal_refs: "
+Dolman, H., Moors, E. & Elbers, J. (2002). The carbon uptake of a mid latitude pine forest growing on sandy soil. Agricultural and Forest Meteorology. 111. 157-170. 10.1016/S0168-1923(02)00024-2. "

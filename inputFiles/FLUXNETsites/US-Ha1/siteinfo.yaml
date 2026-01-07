@@ -1,0 +1,31 @@
+name: "US-Ha1"
+full_name: "Harvard Forest"
+biome: "DBF"
+lon: -72.1715 #287.8285
+lat: 42.5378
+soilcolour: 18
+start: 1992
+end: 2012
+ZRFH: 29.0
+ZRFM: 29.0
+PFTs: "0.95 BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1246059"
+notes: "The US-Ha1 site is owned by Harvard University. Most of its surrounding area was cleared for agriculture during European settlement in 1600–1700. The trees at the site have been regrowing
+ since before 1900. Climate measurements have been made at the Harvard Forest since 1964.
+
+The area surrounding the tower is dominated by red oak (Quercus rubra) and redmaple (Acer rubrum), with scattered stands of Easternhemlock (Tsuga canadensis), white pine (Pinus strobus)and red pine (P. resinosa).
+
+ Harvard Forest is heterogeneous, reflecting topography and past land use. Portions were cleared for agriculture between 1790 and 1830, then abandoned, reverting to forest by 1890 (24). Commercial logging in the 1920s and 1930s declined after a devastating hurricane in 1938.
+
+Note: This is different soil textures (sand/clay) than Asaadi et al. (2018), here I use the SoilGrid250m data directly. From all papers I was able to find they never describe the soils (can also be seen in Curtis et al.). Also I increase the ZRFM and ZRFH from 40 to 29 m due to value in Urbanski et al. (2007). The SDEP was 2.5 m but SoilGrids250m predicts 11.65 m. I reduce the vegetated area to 0.95 following Wofsy et al. (1993).
+
+The meteorology file is derived from the PLUMBER2 project (https://modelevaluation.org/) which processed it into netcdf format. It is hourly and CLASSIC will transform it to the physics timestep on the fly. Half-hourly does not appear to be available.
+"
+principal_refs: "
+-Urbanski, S., Barford, C. and Wofsy, S.: Factors controlling CO2 exchange on timescales from hourly to decadal at Harvard Forest, Journal of [online] Available from: https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2006JG000293, 2007.
+- Wofsy, S. C., Goulden, M. L., Munger, J. W., Fan, S. M., Bakwin, P. S., Daube, B. C., Bassow, S. L. and Bazzaz, F. A.: Net Exchange of CO2 in a Mid-Latitude Forest, Science, 260(5112), 1314–1317, 1993.
+-Curtis, P. S., Hanson, P. J., Bolstad, P., Barford, C., Randolph, J. C., Schmid, H. P. and Wilson, K. B.: Biometric and eddy-covariance based estimates of annual carbon storage in five eastern North American deciduous forests, Agric. For. Meteorol., 113(1), 3–19, 2002.
+"

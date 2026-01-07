@@ -1,0 +1,41 @@
+name: "US-WCr"
+full_name: "Willow Creek"
+biome: "DBF"
+lon: -90.0799
+lat: 45.8059
+soilcolour: 18
+start: 1999
+end: 2014
+ZRFH: 29.6
+ZRFM: 29.6
+PFTs: "1.0 BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440095"
+notes: "
+Upland Deciduous Forest - Northern Wisconsin, US
+
+
+Vegetation:
+
+- 60 - 80 year old stand that occupies ~ 260 ha
+
+- closed canopy, approximately 24 m in height with LAI of 5.3 
+
+- consists mainly of: sugar maple, basswood, green ash
+
+- understory composed of sugar maple and ironwood (Ostrya viginiana, DCD BDL) saplings, leatherwood (DCD shrub), maidenhair (DCD fern), bracken ferns (DCD fern) and blue cohosh (perennial)
+
+- relativly homogenous within 0.6 km of the tower, the approximate flux fottprint, except for minor drainageway (about 80 m wide), located 0.3 km west of tower
+
+-> characterized by: red maple, black ash, slippery elm
+
+- pre-European settlement vegetation consisted primarily of: hemlock, birch, sugar maple, basswood
+
+- forests harvested extensively by early 1900s, likely, that trees growing on this site harvested at least twice since these early land surveys (surveys between 1857 - 1886)
+
+-> 100% COLD-DCD BDL
+"
+principal_refs: "
+Cook, B., Davis, K., Wang, W., Desai, A., Berger, B., Teclaw, R., Martin, J., Bolstad, P., Bakwin, P., Yi, C., & Heilman, W. (2004). Carbon exchange and venting anomalies in an upland deciduous forest in northern Wisconsin, USA. Agricultural and Forest Meteorology. 126. 271-295. 10.1016/j.agrformet.2004.06.008. "

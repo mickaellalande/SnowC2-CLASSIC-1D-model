@@ -1,0 +1,28 @@
+name: "US-MMS"
+full_name: "Morgan–Monroe State Forest"
+biome: "DBF"
+lon: -86.4131
+lat: 39.3232
+soilcolour: 15
+start: 1999 #1999 - 2014
+end: 2014 
+ZRFH: 46
+ZRFM: 46
+PFTs: "1.0 BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1246080 (2021), 10.17190/AMF/1854369 (2022)"
+notes: "The US-MMS site is owned by the Indiana Department ofNatural Resources. Many of the trees in the tower footprintare  60–80  years  old.
+ Today,  the  forest  is  a  secondary  suc-cessional  broadleaf  forest  within  the  maple–beech  to  oak–hickory transition zone of the eastern deciduous forest.
+
+Note: This is different soil textures (sand/clay) than Asaadi et al. (2018) since I found textures in Curtis et al. (2002). Also I increase the ZRFM and ZRFH from 40 to 46 m
+ due to value in Schmid et al. (2000). The SDEP was 2.5 m but SoilGrids250m predicts 10.02 m. Schmid et al. does say that it was just south of the limit of the Wisconsian glaciation.
+  Since it was not glaciated but at the edge, the deeper value seems probable.
+
+The meteorology file is derived from the PLUMBER2 project (https://modelevaluation.org/) which processed it into netcdf format. It is hourly and CLASSIC will 
+transform it to the physics timestep on the fly. Half-hourly does not appear to be available.
+"
+principal_refs: " - Schmid, H. P., Grimmond, C. S. B., Cropley, F., Offerle, B., andSu, H. B.: Measurements of CO2and energy fluxes over a mixedhardwood forest in the mid-western United States, Agr. ForestMeteorol., 103, 357–374, 2000.
+
+-Curtis, P. S., Hanson, P. J., Bolstad, P., Barford, C., Randolph, J. C., Schmid, H. P. and Wilson, K. B.: Biometric and eddy-covariance based estimates of annual carbon storage in five eastern North American deciduous forests, Agric. For. Meteorol., 113(1), 3–19, 2002."

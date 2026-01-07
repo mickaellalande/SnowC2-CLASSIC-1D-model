@@ -1,0 +1,54 @@
+name: "CA-SF2"
+full_name: "Saskatchewan - Western Boreal, forest burned in 1989"
+biome: "ENF"
+lon: -105.8775
+lat: 54.2539
+soilcolour: 19
+start: 2001
+end: 2006
+ZRFH: 45
+ZRFM: 45
+PFTs: "100% NdlEvgTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "fire"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+
+- Regenerated jack pine (Pinus banksiana) following fire in 1989
+
+- Measurement height changed to 10 m later
+
+Vegetation:
+
+- a mixture of jack pine, black spruce (Picea mariana (Mill.) BSP), and trembling aspen (Populus tremuloides Michx.)
+
+- Mean tree height: 4 m in 2009
+
+- leaf area index: 3 m2 leaf/m2 ground in 2009
+
+- Live above ground C: 8.4±3.4 t/ha in 2009
+
+- Dead above ground C: 13.7±8.0 t/ha in 2009
+
+- Top forest floor organic layer C: 28.9±5.7 t/ha in 2009
+
+- Mineral soil C (0–50 cm): 22.6±4.2 t/ha in 2009
+
+- Mean Air Temperature: 0.4 °C
+
+- Mean Annual Precipitation: 470 mm 
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "Mkhabela, M.S., Amiro, B.D., Barr, A.G., Black, T.A., Hawthorne, I.,
+Kidston, J., McCaughey, J.H., Orchansky, A.L., Nesic, Z., Sass, A. and Shashkov, A.,
+Comparison of carbon dynamics and water use efficiency following fire and harvesting in Canadian boreal forests.,
+Agricultural and Forest Meteorology,
+Volume 149, Issues 5,
+2009,
+Pages 783-794,
+ISSN 0168-1923,
+10.1016/j.agrformet.2008.10.025"

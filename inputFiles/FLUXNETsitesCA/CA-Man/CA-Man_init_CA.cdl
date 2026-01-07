@@ -1,0 +1,2930 @@
+netcdf CA-Man_new {
+dimensions:
+	lat = 1 ;
+	lon = 1 ;
+	tile = 1 ;
+	layer = 20 ;
+	slope = 8 ;
+	iccp2 = 17 ;
+	icc = 15 ;
+	ic = 5 ;
+	icp1 = 6 ;
+	iccp1 = 13 ;
+variables:
+	int nmtest(lat, lon) ;
+		nmtest:_FillValue = -999 ;
+		nmtest:units = "-" ;
+		nmtest:long_name = "Number of tiles in each grid cell" ;
+	double SAND(tile, layer, lat, lon) ;
+		SAND:_FillValue = -999. ;
+		SAND:units = "%" ;
+		SAND:long_name = "Percentage sand content" ;
+	double CLAY(tile, layer, lat, lon) ;
+		CLAY:_FillValue = -999. ;
+		CLAY:units = "%" ;
+		CLAY:long_name = "Percentage clay content" ;
+	double ORGM(tile, layer, lat, lon) ;
+		ORGM:_FillValue = -999. ;
+		ORGM:units = "%" ;
+		ORGM:long_name = "Percentage organic matter content" ;
+	double TBAR(tile, layer, lat, lon) ;
+		TBAR:_FillValue = -999. ;
+		TBAR:units = "C" ;
+		TBAR:long_name = "Temperature of soil layers" ;
+	float THIC(tile, layer, lat, lon) ;
+		THIC:_FillValue = -999.f ;
+		THIC:units = "m3/m3" ;
+		THIC:long_name = "Volumetric frozen water content of soil layers" ;
+	float THLQ(tile, layer, lat, lon) ;
+		THLQ:_FillValue = -999.f ;
+		THLQ:units = "m3/m3" ;
+		THLQ:long_name = "Volumetric liquid water content of soil layers" ;
+	double DELZ(layer) ;
+		DELZ:_FillValue = -999. ;
+		DELZ:units = "m" ;
+		DELZ:long_name = "Ground layer thickness" ;
+	double DRN(tile, lat, lon) ;
+		DRN:_FillValue = -999. ;
+		DRN:units = "-" ;
+		DRN:long_name = "Soil drainage index" ;
+	double FARE(tile, lat, lon) ;
+		FARE:_FillValue = -999. ;
+		FARE:units = "fraction" ;
+		FARE:long_name = "Tile fractional area of gridcell" ;
+	float SDEP(tile, lat, lon) ;
+		SDEP:_FillValue = -999.f ;
+		SDEP:units = "m" ;
+		SDEP:long_name = "Soil permeable depth" ;
+	float SOCI(tile, lat, lon) ;
+		SOCI:_FillValue = -999.f ;
+		SOCI:units = "index" ;
+		SOCI:long_name = "Soil colour index" ;
+	float TCAN(tile, lat, lon) ;
+		TCAN:_FillValue = NaNf ;
+		TCAN:long_name = "Vegetation canopy temperature" ;
+		TCAN:units = "C" ;
+	float ALBS(tile, lat, lon) ;
+		ALBS:_FillValue = NaNf ;
+		ALBS:long_name = "Snow albedo" ;
+		ALBS:units = "-" ;
+	double GRO(tile, lat, lon) ;
+		GRO:_FillValue = -999. ;
+		GRO:units = "-" ;
+		GRO:long_name = "Vegetation growth index" ;
+	float RCAN(tile, lat, lon) ;
+		RCAN:_FillValue = NaNf ;
+		RCAN:long_name = "Intercepted liquid water stored on canopy" ;
+		RCAN:units = "kg/m2" ;
+	float RHOS(tile, lat, lon) ;
+		RHOS:_FillValue = NaNf ;
+		RHOS:long_name = "Density of snow" ;
+		RHOS:units = "kg/m3" ;
+	float SCAN(tile, lat, lon) ;
+		SCAN:_FillValue = NaNf ;
+		SCAN:long_name = "Intercepted frozen water stored on canopy" ;
+		SCAN:units = "kg/m2" ;
+	float SNO(tile, lat, lon) ;
+		SNO:_FillValue = NaNf ;
+		SNO:long_name = "Mass of snow pack" ;
+		SNO:units = "kg/m2" ;
+	float TPND(tile, lat, lon) ;
+		TPND:_FillValue = NaNf ;
+		TPND:long_name = "Temperature of ponded water" ;
+		TPND:units = "C" ;
+	float TSNO(tile, lat, lon) ;
+		TSNO:_FillValue = NaNf ;
+		TSNO:long_name = "Snowpack temperature" ;
+		TSNO:units = "C" ;
+	float ZPND(tile, lat, lon) ;
+		ZPND:_FillValue = NaNf ;
+		ZPND:long_name = "Depth of ponded water on surface" ;
+		ZPND:units = "m" ;
+	double grclarea(lat, lon) ;
+		grclarea:_FillValue = -999. ;
+		grclarea:units = "km2" ;
+		grclarea:long_name = "Area of grid cell" ;
+	float twarmm(lat, lon) ;
+		twarmm:_FillValue = NaNf ;
+		twarmm:long_name = "Temperature of the warmest month (PFTCompetition variable)" ;
+		twarmm:units = "C" ;
+	float tcoldm(lat, lon) ;
+		tcoldm:_FillValue = NaNf ;
+		tcoldm:long_name = "Temperature of the coldest month (PFTCompetition variable)" ;
+		tcoldm:units = "C" ;
+	int gdd5(lat, lon) ;
+		gdd5:long_name = "Growing degree days above 5 C (PFTCompetition variable)" ;
+		gdd5:units = "days" ;
+	float aridity(lat, lon) ;
+		aridity:_FillValue = NaNf ;
+		aridity:long_name = "Aridity index, ratio of potential evaporation to precipitation (PFTCompetition variable)" ;
+		aridity:units = "-" ;
+	float srplsmon(lat, lon) ;
+		srplsmon:_FillValue = NaNf ;
+		srplsmon:long_name = "Number of months in a year with surplus water i.e. precipitation more than potential evaporation (PFTCompetition variable)" ;
+		srplsmon:units = "months" ;
+	float defctmon(lat, lon) ;
+		defctmon:_FillValue = NaNf ;
+		defctmon:long_name = "Number of months in a year with water deficit i.e. precipitation less than potential evaporation (PFTCompetition variable)" ;
+		defctmon:units = "months" ;
+	float anndefct(lat, lon) ;
+		anndefct:_FillValue = NaNf ;
+		anndefct:long_name = "Annual water deficit (PFTCompetition variable)" ;
+		anndefct:units = "mm" ;
+	float annsrpls(lat, lon) ;
+		annsrpls:_FillValue = NaNf ;
+		annsrpls:long_name = "Annual water surplus (PFTCompetition variable)" ;
+		annsrpls:units = "mm" ;
+	float annpcp(lat, lon) ;
+		annpcp:_FillValue = NaNf ;
+		annpcp:long_name = "Annual precipitation (PFTCompetition variable)" ;
+		annpcp:units = "mm" ;
+	float dry_season_length(lat, lon) ;
+		dry_season_length:_FillValue = NaNf ;
+		dry_season_length:long_name = "Length of dry season (PFTCompetition variable)" ;
+		dry_season_length:units = "months" ;
+	int ipeatland(tile, lat, lon) ;
+		ipeatland:long_name = "Peatland flag: 0 = not a peatland, 1= bog, 2 = fen" ;
+		ipeatland:units = "-" ;
+	float Cmossmas(tile, lat, lon) ;
+		Cmossmas:_FillValue = NaNf ;
+		Cmossmas:long_name = "C in moss biomass" ;
+		Cmossmas:units = "kgC/m2" ;
+	float litrmsmoss(tile, lat, lon) ;
+		litrmsmoss:_FillValue = NaNf ;
+		litrmsmoss:long_name = "Moss litter mass" ;
+		litrmsmoss:units = "kgC/m2" ;
+	float dmoss(tile, lat, lon) ;
+		dmoss:_FillValue = NaNf ;
+		dmoss:long_name = "Depth of living moss" ;
+		dmoss:units = "m" ;
+	double maxAnnualActLyr(tile, lat, lon) ;
+		maxAnnualActLyr:_FillValue = NaN ;
+		maxAnnualActLyr:long_name = "!< Active layer thickness maximum over the e-folding period specified by parameter eftime" ;
+		maxAnnualActLyr:units = "m" ;
+	double slopefrac(tile, slope, lat, lon) ;
+		slopefrac:_FillValue = -999. ;
+		slopefrac:units = "-" ;
+		slopefrac:long_name = "Slope-based fraction for dynamic wetlands" ;
+	float peatSoilC(tile, lat, lon) ;
+		peatSoilC:_FillValue = NaNf ;
+		peatSoilC:long_name = "Peat soil C for peatland tiles" ;
+		peatSoilC:units = "kg C/m^2" ;
+	float cfluxcg(tile, lat, lon) ;
+		cfluxcg:_FillValue = -999.f ;
+		cfluxcg:long_name = "Aerodynamic conductance, canopy over ground" ;
+		cfluxcg:units = "m/s" ;
+	float cfluxcs(tile, lat, lon) ;
+		cfluxcs:_FillValue = -999.f ;
+		cfluxcs:long_name = "Aerodynamic conductance, canopy over snow" ;
+		cfluxcs:units = "m/s" ;
+	int colddays_leaffall(tile, lat, lon) ;
+		colddays_leaffall:_FillValue = -999 ;
+		colddays_leaffall:long_name = "Cold days counters for needleleaved deciduous trees" ;
+		colddays_leaffall:units = "days" ;
+	int colddays_harvest(tile, lat, lon) ;
+		colddays_harvest:_FillValue = -999 ;
+		colddays_harvest:long_name = "Cold days counters for crops" ;
+		colddays_harvest:units = "days" ;
+	float fcol(lat, lon) ;
+		fcol:_FillValue = -999.f ;
+		fcol:long_name = "Land-atmosphere CO2 flux from previous time step, +ve up, NBP is +ve down, used in CanESM only" ;
+		fcol:units = "mol CO2/m2/s" ;
+	float FLND(lat, lon) ;
+		FLND:_FillValue = -999.f ;
+		FLND:long_name = "Fractional land cover. Excludes lakes, glaciers, and icesheets" ;
+		FLND:units = "-" ;
+	float soilpH(tile, lat, lon) ;
+		soilpH:_FillValue = -999.f ;
+		soilpH:units = "pH units" ;
+		soilpH:long_name = "soil pH" ;
+	float tracerMossCMass(tile, lat, lon) ;
+		tracerMossCMass:_FillValue = NaNf ;
+		tracerMossCMass:long_name = "Tracer of moss carbon mass" ;
+		tracerMossCMass:units = "Depend on type of tracer" ;
+	float tracerMossLitrMass(tile, lat, lon) ;
+		tracerMossLitrMass:_FillValue = NaNf ;
+		tracerMossLitrMass:long_name = "Tracer of moss litter mass" ;
+		tracerMossLitrMass:units = "Depend on type of tracer" ;
+	double litrmass(tile, layer, iccp2, lat, lon) ;
+		litrmass:_FillValue = -999. ;
+		litrmass:long_name = "Litter mass per soil layer" ;
+		litrmass:units = "kgC/m2" ;
+	float soilcmas(tile, layer, iccp2, lat, lon) ;
+		soilcmas:_FillValue = -999.f ;
+		soilcmas:long_name = "Soil C mass per soil layer" ;
+		soilcmas:units = "kgC/m2" ;
+	double tracerSoilCMass(tile, layer, iccp2, lat, lon) ;
+		tracerSoilCMass:_FillValue = NaN ;
+		tracerSoilCMass:long_name = "Tracer of soil carbon mass" ;
+		tracerSoilCMass:units = "Depend on type of tracer" ;
+	double tracerLitrMass(tile, layer, iccp2, lat, lon) ;
+		tracerLitrMass:_FillValue = NaN ;
+		tracerLitrMass:long_name = "Tracer of litter mass" ;
+		tracerLitrMass:units = "Depend on type of tracer" ;
+	double soilnmas(tile, iccp2, lat, lon) ;
+		soilnmas:_FillValue = NaN ;
+		soilnmas:long_name = "Soil N mass per soil layer" ;
+		soilnmas:units = "g N/m2" ;
+	double no3_mass(tile, iccp2, lat, lon) ;
+		no3_mass:_FillValue = NaN ;
+		no3_mass:long_name = "Nitrogen Mass in Model Nitrate Pool" ;
+		no3_mass:units = "g N/m2" ;
+	int nlitrmass(tile, iccp2, lat, lon) ;
+		nlitrmass:long_name = "Litter nitrogen mass per soil layer" ;
+		nlitrmass:units = "g N/m2" ;
+	double nh4_mass(tile, iccp2, lat, lon) ;
+		nh4_mass:_FillValue = NaN ;
+		nh4_mass:long_name = "Nitrogen Mass in Model Ammonium Pool" ;
+		nh4_mass:units = "g N/m2" ;
+	float bleafmas(tile, icc, lat, lon) ;
+		bleafmas:_FillValue = -999.f ;
+		bleafmas:long_name = "Brown leaf mass" ;
+		bleafmas:units = "kgC/m2" ;
+		bleafmas:missing_value = -999. ;
+	float lfstatus(tile, icc, lat, lon) ;
+		lfstatus:_FillValue = -999.f ;
+		lfstatus:long_name = "Leaf status, see Phenology" ;
+		lfstatus:units = "-" ;
+		lfstatus:missing_value = -999. ;
+	float pandays(tile, icc, lat, lon) ;
+		pandays:_FillValue = -999.f ;
+		pandays:long_name = "Days with +ve new photosynthesis, see Phenology" ;
+		pandays:units = "-" ;
+		pandays:missing_value = -999. ;
+	float grwtheff(tile, icc, lat, lon) ;
+		grwtheff:_FillValue = -999.f ;
+		grwtheff:long_name = "Growth efficiency. Change in biomass per year per unit max. LAI,for use in mortality subroutine" ;
+		grwtheff:units = "(kg C/m^2)/(m2/m2)" ;
+		grwtheff:missing_value = -999. ;
+	float gleafmas_ns(tile, icc, lat, lon) ;
+		gleafmas_ns:_FillValue = -999.f ;
+		gleafmas_ns:long_name = "Green leaf mass_ns" ;
+		gleafmas_ns:units = "kgC/m2" ;
+		gleafmas_ns:missing_value = -999. ;
+	float gleafmas_s(tile, icc, lat, lon) ;
+		gleafmas_s:_FillValue = -999.f ;
+		gleafmas_s:long_name = "Green leaf mass_s" ;
+		gleafmas_s:units = "kgC/m2" ;
+		gleafmas_s:missing_value = -999. ;
+	float stemmass_ns(tile, icc, lat, lon) ;
+		stemmass_ns:_FillValue = -999.f ;
+		stemmass_ns:long_name = "Stem mass_ns" ;
+		stemmass_ns:units = "kgC/m2" ;
+		stemmass_ns:missing_value = -999. ;
+	float stemmass_s(tile, icc, lat, lon) ;
+		stemmass_s:_FillValue = -999.f ;
+		stemmass_s:long_name = "Stem mass_s" ;
+		stemmass_s:units = "kgC/m2" ;
+	float rootmass_ns(tile, icc, lat, lon) ;
+		rootmass_ns:_FillValue = -999.f ;
+		rootmass_ns:long_name = "Root mass_ns" ;
+		rootmass_ns:units = "kgC/m2" ;
+	float rootmass_s(tile, icc, lat, lon) ;
+		rootmass_s:_FillValue = -999.f ;
+		rootmass_s:long_name = "Root mass_s" ;
+		rootmass_s:units = "kgC/m2" ;
+	double tracerRootMass(tile, icc, lat, lon) ;
+		tracerRootMass:_FillValue = NaN ;
+		tracerRootMass:long_name = "Tracer of root mass" ;
+		tracerRootMass:units = "Depend on type of tracer" ;
+	double tracerGLeafMass(tile, icc, lat, lon) ;
+		tracerGLeafMass:_FillValue = NaN ;
+		tracerGLeafMass:long_name = "Tracer of green leaf mass" ;
+		tracerGLeafMass:units = "Depend on type of tracer" ;
+	double tracerBLeafMass(tile, icc, lat, lon) ;
+		tracerBLeafMass:_FillValue = NaN ;
+		tracerBLeafMass:long_name = "Tracer of brown leaf mass" ;
+		tracerBLeafMass:units = "Depend on type of tracer" ;
+	double tracerStemMass(tile, icc, lat, lon) ;
+		tracerStemMass:_FillValue = NaN ;
+		tracerStemMass:long_name = "Tracer of stem mass" ;
+		tracerStemMass:units = "Depend on type of tracer" ;
+	double nstemmass_s(tile, icc, lat, lon) ;
+		nstemmass_s:_FillValue = NaN ;
+		nstemmass_s:long_name = "structural stem nitrogen mass" ;
+		nstemmass_s:units = "g N/m2" ;
+	double nrootmass_s(tile, icc, lat, lon) ;
+		nrootmass_s:_FillValue = NaN ;
+		nrootmass_s:long_name = "structural root nitrogen mass" ;
+		nrootmass_s:units = "g N/m2" ;
+	double nstemmass_ns(tile, icc, lat, lon) ;
+		nstemmass_ns:_FillValue = NaN ;
+		nstemmass_ns:long_name = "non-structural stem nitrogen mass" ;
+		nstemmass_ns:units = "g N/m2" ;
+	double ngleafmas_ns(tile, icc, lat, lon) ;
+		ngleafmas_ns:_FillValue = NaN ;
+		ngleafmas_ns:long_name = "non-structural green leaf nitrogen mass" ;
+		ngleafmas_ns:units = "g N/m2" ;
+	double nbleafmas(tile, icc, lat, lon) ;
+		nbleafmas:_FillValue = NaN ;
+		nbleafmas:long_name = "Brown leaf nitrogen mass" ;
+		nbleafmas:units = "g N/m2" ;
+	double nrootmass_ns(tile, icc, lat, lon) ;
+		nrootmass_ns:_FillValue = NaN ;
+		nrootmass_ns:long_name = "non-structural root nitrogen mass" ;
+		nrootmass_ns:units = "g N/m2" ;
+	double ngleafmas_s(tile, icc, lat, lon) ;
+		ngleafmas_s:_FillValue = NaN ;
+		ngleafmas_s:long_name = "structural green leaf nitrogen mass" ;
+		ngleafmas_s:units = "g N/m2" ;
+	float lygleafmasmax(tile, icc, lat, lon) ;
+		lygleafmasmax:_FillValue = NaNf ;
+		lygleafmasmax:long_name = "last year maximum of the green leaf mass for each PFT" ;
+		lygleafmasmax:units = "kg C/m^2" ;
+	float lystemmassmax(tile, icc, lat, lon) ;
+		lystemmassmax:_FillValue = NaNf ;
+		lystemmassmax:long_name = "last year maximum of the stem mass for each PFT" ;
+		lystemmassmax:units = "kg C/m^2" ;
+	float lyrootmassmax(tile, icc, lat, lon) ;
+		lyrootmassmax:_FillValue = NaNf ;
+		lyrootmassmax:long_name = "last year maximum of the root mass for each PFT" ;
+		lyrootmassmax:units = "kg C/m^2" ;
+	double flhrloss_ns(tile, icc, lat, lon) ;
+		flhrloss_ns:_FillValue = -999. ;
+		flhrloss_ns:long_name = "Fall and harvest loss rate for deciduous trees and crops (non-structural)" ;
+		flhrloss_ns:units = "day^{-1}" ;
+	double flhrloss_s(tile, icc, lat, lon) ;
+		flhrloss_s:_FillValue = -999. ;
+		flhrloss_s:long_name = "Fall and harvest loss rate for deciduous trees and crops (structural)" ;
+		flhrloss_s:units = "day^{-1}" ;
+	double stmhrlos(tile, icc, lat, lon) ;
+		stmhrlos:_FillValue = -999. ;
+		stmhrlos:long_name = "Stem harvest loss rate for crops" ;
+		stmhrlos:units = "day^{-1}" ;
+	double rothrlos(tile, icc, lat, lon) ;
+		rothrlos:_FillValue = -999. ;
+		rothrlos:long_name = "Root harvest loss rate for crops" ;
+		rothrlos:units = "day^{-1}" ;
+	double lystmmas(tile, icc, lat, lon) ;
+		lystmmas:_FillValue = -999. ;
+		lystmmas:long_name = "Stem mass at the end of last year" ;
+		lystmmas:units = "kgC/m2" ;
+	double lyrotmas(tile, icc, lat, lon) ;
+		lyrotmas:_FillValue = -999. ;
+		lyrotmas:long_name = "Root mass at the end of last year" ;
+		lyrotmas:units = "kgC/m2" ;
+	double tymaxlai(tile, icc, lat, lon) ;
+		tymaxlai:_FillValue = -999. ;
+		tymaxlai:long_name = "Maximum LAI this year" ;
+		tymaxlai:units = "m2 leaf/m2 ground" ;
+	double co2i1cg(tile, icc, lat, lon) ;
+		co2i1cg:_FillValue = -999. ;
+		co2i1cg:long_name = "Intercellular CO2 of big leaf(or sunlit if two-leaf) leaf for canopy over ground" ;
+		co2i1cg:units = "Pa" ;
+	double co2i2cg(tile, icc, lat, lon) ;
+		co2i2cg:_FillValue = -999. ;
+		co2i2cg:long_name = "Intercellular CO2 of shaded leaf for canopy over ground" ;
+		co2i2cg:units = "Pa" ;
+	double co2i1cs(tile, icc, lat, lon) ;
+		co2i1cs:_FillValue = -999. ;
+		co2i1cs:long_name = "Intercellular CO2 of big leaf(or sunlit if two-leaf) leaf for canopy over snow" ;
+		co2i1cs:units = "Pa" ;
+	double co2i2cs(tile, icc, lat, lon) ;
+		co2i2cs:_FillValue = -999. ;
+		co2i2cs:long_name = "Intercellular CO2 of shaded leaf for canopy over snow" ;
+		co2i2cs:units = "Pa" ;
+	double bnf_nat(tile, icc, lat, lon) ;
+		bnf_nat:_FillValue = -999. ;
+		bnf_nat:long_name = "Natural Biological Nitrogen Fixation" ;
+		bnf_nat:units = " kg N m$^{-2}$ s$^{-1}$" ;
+	double bnf_ant(tile, icc, lat, lon) ;
+		bnf_ant:_FillValue = -999. ;
+		bnf_ant:long_name = "Anthropogenic Biological Nitrogen Fixation" ;
+		bnf_ant:units = " kg N m$^{-2}$ s$^{-1}$" ;
+	float fcancmx(tile, icc, lat, lon) ;
+		fcancmx:_FillValue = NaNf ;
+		fcancmx:long_name = "PFT fractional coverage per grid cell" ;
+		fcancmx:units = "-" ;
+	float CMAS(tile, ic, lat, lon) ;
+		CMAS:_FillValue = -999.f ;
+		CMAS:units = "$[kg m^{-2} ]$" ;
+		CMAS:long_name = "Annual maximum canopy mass for vegetation category" ;
+		CMAS:missing_value = -999. ;
+	float PAMN(tile, ic, lat, lon) ;
+		PAMN:_FillValue = -999.f ;
+		PAMN:units = "m2/m2" ;
+		PAMN:long_name = "Annual minimum plant area index of vegetation category" ;
+		PAMN:missing_value = -999. ;
+	float PAMX(tile, ic, lat, lon) ;
+		PAMX:_FillValue = -999.f ;
+		PAMX:units = "m2/m2" ;
+		PAMX:long_name = "Annual maximum plant area index of vegetation category" ;
+		PAMX:missing_value = -999. ;
+	float ROOT(tile, ic, lat, lon) ;
+		ROOT:_FillValue = -999.f ;
+		ROOT:units = "m" ;
+		ROOT:long_name = "Annual maximum rooting depth of vegetation category" ;
+		ROOT:missing_value = -999. ;
+	float ALIC(tile, icp1, lat, lon) ;
+		ALIC:_FillValue = -999.f ;
+		ALIC:units = "-" ;
+		ALIC:long_name = "Average near-IR albedo of vegetation category when fully-leafed" ;
+		ALIC:missing_value = -999. ;
+	float ALVC(tile, icp1, lat, lon) ;
+		ALVC:_FillValue = -999.f ;
+		ALVC:units = "-" ;
+		ALVC:long_name = "Average visible albedo of vegetation category when fully-leafed" ;
+		ALVC:missing_value = -999. ;
+	float FCAN(tile, icp1, lat, lon) ;
+		FCAN:_FillValue = NaNf ;
+		FCAN:units = "-" ;
+		FCAN:long_name = "Annual maximum fractional coverage of modelled area (read in for CLASS only runs)" ;
+	float LNZ0(tile, icp1, lat, lon) ;
+		LNZ0:_FillValue = -999.f ;
+		LNZ0:units = "-" ;
+		LNZ0:long_name = "Natural logarithm of maximum vegetation roughness length" ;
+		LNZ0:missing_value = -999. ;
+	double lon(lon) ;
+		lon:_FillValue = NaN ;
+		lon:standard_name = "Longitude" ;
+		lon:units = "degrees_east" ;
+		lon:axis = "X" ;
+	double lat(lat) ;
+		lat:_FillValue = NaN ;
+		lat:standard_name = "Latitude" ;
+		lat:units = "degrees_north" ;
+		lat:axis = "Y" ;
+	int tile(tile) ;
+		tile:standard_name = "land surface tile" ;
+	int layer(layer) ;
+		layer:standard_name = "ground layers" ;
+	int iccp1(iccp1) ;
+		iccp1:standard_name = "biogeochemical (CTEM) PFTs plus bareground" ;
+	float slope(slope) ;
+		slope:_FillValue = NaNf ;
+		slope:standard_name = "wetland slope fractions for 0.025, 0.05, 0.1, 0.15, 0.20, 0.25, 0.3 and 0.35 percent slope threshold" ;
+	float iccp2(iccp2) ;
+		iccp2:_FillValue = NaNf ;
+		iccp2:long_name = "CTEM PFTs, bareground, LUC product pools" ;
+		iccp2:axis = "Z" ;
+	float icc(icc) ;
+		icc:_FillValue = NaNf ;
+		icc:long_name = "CTEM PFTs (tree:NDL-EVG, NDL-DCD, BDL-EVG, BDL-COLD, BDL-DRY; crops C3,C4; grasses C3,C4)" ;
+		icc:axis = "Z" ;
+	double ic(ic) ;
+		ic:_FillValue = NaN ;
+		ic:long_name = "CLASS PFTs (needleleaved tree, broadleaved tree, crops, grass)" ;
+		ic:axis = "Z" ;
+	double icp1(icp1) ;
+		icp1:_FillValue = NaN ;
+		icp1:long_name = "CLASS PFTs + bareground" ;
+		icp1:axis = "Z" ;
+	int control_vector(tile, lat, lon) ;
+		control_vector:_FillValue = -999 ;
+		control_vector:long_name = "the dynamic tiling control vector (0 = inactive,1 = active,-1 = head tile)" ;
+		control_vector:units = "-" ;
+	float tile_age(tile, lat, lon) ;
+		tile_age:_FillValue = -999.f ;
+		tile_age:long_name = "the age of the tile in months (this can be zeroed using namelist switch)" ;
+		tile_age:units = "months" ;
+
+// global attributes:
+		:title = "CLASSIC initialization file" ;
+		:creation_date = "20220428" ;
+		:row_bounds = "1 1" ;
+data:
+
+ nmtest =
+  1 ;
+
+ SAND =
+  -2,
+  -2,
+  -2,
+  -2,
+  2.3,
+  0.5,
+  0.5,
+  0.5,
+  1.1,
+  1.1,
+  1.1,
+  1.1,
+  1.1,
+  1.1,
+  1.1,
+  1.1,
+  1.1,
+  1.1,
+  1.1,
+  -3 ;
+
+ CLAY =
+  0,
+  0,
+  0,
+  0,
+  81,
+  90,
+  90,
+  90,
+  47.8,
+  47.8,
+  47.8,
+  47.8,
+  47.8,
+  47.8,
+  47.8,
+  47.8,
+  47.8,
+  47.8,
+  47.8,
+  0 ;
+
+ ORGM =
+  92.6,
+  93.8,
+  92,
+  80,
+  6.8,
+  5.2,
+  5.2,
+  5.2,
+  36.8,
+  36.8,
+  36.8,
+  36.8,
+  36.8,
+  36.8,
+  36.8,
+  36.8,
+  36.8,
+  36.8,
+  36.8,
+  0 ;
+
+ TBAR =
+  -3.70798833730584,
+  -1.22909305004646,
+  0,
+  0.414787432242747,
+  0.646763667614721,
+  0.794220968656191,
+  0.935406229222053,
+  1.07115498985172,
+  1.22829285073681,
+  1.41743286999082,
+  1.68584255860708,
+  2.07891569357685,
+  2.51067881348359,
+  2.87012177850158,
+  3.11238978324229,
+  2.40834049881812,
+  2.06147705898053,
+  2.17363852690846,
+  2.19473266922643,
+  2.19546263022261 ;
+
+ THIC =
+  0.616134,
+  0.5178283,
+  0.2993143,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ THLQ =
+  0.04,
+  0.15,
+  0.3294279,
+  0.705,
+  0.390066,
+  0.3901121,
+  0.3900892,
+  0.3900234,
+  0.3900949,
+  0.3905075,
+  0.3911157,
+  0.3920942,
+  0.3933966,
+  0.394966,
+  0.3973848,
+  0.4027195,
+  0.4068151,
+  0.3947346,
+  0.397007,
+  0 ;
+
+ DELZ = 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.2, 0.3, 0.4, 0.5, 
+    1, 3, 5, 15, 30, 5 ;
+
+ DRN =
+  0.3 ;
+
+ FARE =
+  1 ;
+
+ SDEP =
+  36 ;
+
+ SOCI =
+  18 ;
+
+ TCAN =
+  -22.38541 ;
+
+ ALBS =
+  0.7947412 ;
+
+ GRO =
+  0 ;
+
+ RCAN =
+  0 ;
+
+ RHOS =
+  185.0895 ;
+
+ SCAN =
+  2.072401 ;
+
+ SNO =
+  43.98396 ;
+
+ TPND =
+  0 ;
+
+ TSNO =
+  -8.106716 ;
+
+ ZPND =
+  0 ;
+
+ grclarea =
+  100 ;
+
+ twarmm =
+  0 ;
+
+ tcoldm =
+  0 ;
+
+ gdd5 =
+  0 ;
+
+ aridity =
+  0 ;
+
+ srplsmon =
+  0 ;
+
+ defctmon =
+  0 ;
+
+ anndefct =
+  0 ;
+
+ annsrpls =
+  0 ;
+
+ annpcp =
+  0 ;
+
+ dry_season_length =
+  0 ;
+
+ ipeatland =
+  0 ;
+
+ Cmossmas =
+  0 ;
+
+ litrmsmoss =
+  0 ;
+
+ dmoss =
+  0 ;
+
+ maxAnnualActLyr =
+  61.3999999999999 ;
+
+ slopefrac =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ peatSoilC =
+  0 ;
+
+ cfluxcg =
+  0.06980557 ;
+
+ cfluxcs =
+  0.03045739 ;
+
+ colddays_leaffall =
+  7 ;
+
+ colddays_harvest =
+  5 ;
+
+ fcol =
+  0 ;
+
+ FLND =
+  1 ;
+
+ soilpH =
+  5.775 ;
+
+ tracerMossCMass =
+  0 ;
+
+ tracerMossLitrMass =
+  0 ;
+
+ litrmass =
+  0,
+  0,
+  1.2677804762119,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  2.29094526743785,
+  0.591098457800196,
+  0,
+  0,
+  0,
+  0,
+  0.176052003768501,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.559494551439,
+  0.0992292710358189,
+  0,
+  0,
+  0,
+  0,
+  0.094361803610557,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.377019418903281,
+  0.0414434631589321,
+  0,
+  0,
+  0,
+  0,
+  0.0443906787419004,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.222879614213897,
+  0.0154009308443326,
+  0,
+  0,
+  0,
+  0,
+  0.0185412949428467,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.11670266599313,
+  0.004722862471815,
+  0,
+  0,
+  0,
+  0,
+  0.00942351456344896,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.0744603706978047,
+  0.000420771883568737,
+  0,
+  0,
+  0,
+  0,
+  0.00358851112043736,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.0463641754327859,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.0287253406889842,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.0153897904217768,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.00944986351133283,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  8.99772857688785e-21,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ soilcmas =
+  0,
+  0,
+  15.57526,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  57.24449,
+  19.44209,
+  0,
+  0,
+  0,
+  0,
+  1.274498,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  8.374299,
+  1.823202,
+  0,
+  0,
+  0,
+  0,
+  0.675146,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  5.601052,
+  0.7130286,
+  0,
+  0,
+  0,
+  0,
+  0.3118571,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  3.267847,
+  0.2441943,
+  0,
+  0,
+  0,
+  0,
+  0.1298225,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1.716298,
+  0.05809896,
+  0,
+  0,
+  0,
+  0,
+  0.0669777,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1.117297,
+  0.002784502,
+  0,
+  0,
+  0,
+  0,
+  0.02338969,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.6835459,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.4214524,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.2248524,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.1394461,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ tracerSoilCMass =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ tracerLitrMass =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ soilnmas =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ no3_mass =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ nlitrmass =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ nh4_mass =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ bleafmas =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ lfstatus =
+  0,
+  0,
+  1,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  4 ;
+
+ pandays =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ grwtheff =
+  0,
+  0,
+  0.3518449,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ gleafmas_ns =
+  0,
+  0,
+  0.01545861,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.03490347,
+  6.16638e-18 ;
+
+ gleafmas_s =
+  0,
+  0,
+  0.2742469,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.5436562,
+  0 ;
+
+ stemmass_ns =
+  0,
+  0,
+  0.4003828,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.06641003,
+  0.0216658 ;
+
+ stemmass_s =
+  0,
+  0,
+  5.04116,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.9646663,
+  0.3433793 ;
+
+ rootmass_ns =
+  0,
+  0,
+  0.06755394,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.1369449,
+  0.03330801 ;
+
+ rootmass_s =
+  0,
+  0,
+  1.101918,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  2.599441,
+  0.5977179 ;
+
+ tracerRootMass =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ tracerGLeafMass =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ tracerBLeafMass =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ tracerStemMass =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ nstemmass_s =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ nrootmass_s =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ nstemmass_ns =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ ngleafmas_ns =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ nbleafmas =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ nrootmass_ns =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ ngleafmas_s =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ lygleafmasmax =
+  0,
+  0,
+  0.3114422,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.6657477,
+  0.06704672 ;
+
+ lystemmassmax =
+  0,
+  0,
+  5.479126,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1.049046,
+  0.3740655 ;
+
+ lyrootmassmax =
+  0,
+  0,
+  1.212955,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  2.878407,
+  0.6871704 ;
+
+ flhrloss_ns =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ flhrloss_s =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ stmhrlos =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ rothrlos =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ lystmmas =
+  0,
+  0,
+  5.44188182552773,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1.031217617034,
+  0.365095124861638 ;
+
+ lyrotmas =
+  0,
+  0,
+  1.16954503375817,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  2.73676105723395,
+  0.631112381848616 ;
+
+ tymaxlai =
+  0,
+  0,
+  3.48202934683859,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  5.32598160815729,
+  1.00570077507126 ;
+
+ co2i1cg =
+  0,
+  0,
+  28.9907703486794,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  28.9823918554399,
+  28.0117797815842 ;
+
+ co2i2cg =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ co2i1cs =
+  0,
+  0,
+  28.2578527757248,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  27.9223603828715,
+  27.9025424633374 ;
+
+ co2i2cs =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ bnf_nat =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ bnf_ant =
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0 ;
+
+ fcancmx =
+  0,
+  0,
+  0.9,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0.05,
+  0.05 ;
+
+ CMAS =
+  8,
+  0,
+  0,
+  0,
+  0 ;
+
+ PAMN =
+  2.5,
+  0,
+  0,
+  0,
+  0 ;
+
+ PAMX =
+  4.8,
+  0,
+  0,
+  0,
+  0 ;
+
+ ROOT =
+  1,
+  0,
+  0,
+  0,
+  0 ;
+
+ ALIC =
+  0.19,
+  0,
+  0,
+  0,
+  0,
+  0.4 ;
+
+ ALVC =
+  0.03,
+  0,
+  0,
+  0,
+  0,
+  0.2 ;
+
+ FCAN =
+  0.9,
+  0,
+  0,
+  0,
+  0.1,
+  0 ;
+
+ LNZ0 =
+  0,
+  0,
+  0,
+  0,
+  0,
+  -3.5 ;
+
+ lon = -98.48081 ;
+
+ lat = 55.87962 ;
+
+ tile = 1 ;
+
+ layer = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ;
+
+ iccp1 = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ;
+
+ slope = 1, 2, 3, 4, 5, 6, 7, 8 ;
+
+ iccp2 = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ;
+
+ icc = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ;
+
+ ic = 1, 2, 3, 4, 5 ;
+
+ icp1 = 1, 2, 3, 4, 5, 6 ;
+
+ control_vector =
+  -1 ;
+
+ tile_age =
+  0 ;
+}

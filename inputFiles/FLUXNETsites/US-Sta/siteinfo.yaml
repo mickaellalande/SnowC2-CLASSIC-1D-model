@@ -1,0 +1,55 @@
+name: "US-Sta"
+full_name: "Saratoga"
+biome: "OSH"
+lon: -106.8024
+lat: 41.3966
+soilcolour: 18
+start: 2005
+end: 2009
+ZRFH: 2.0
+ZRFM:  3.0
+PFTs: "18 % C3Grass, 18 % BdlEvgSh" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1246831"
+notes: " 
+Sagebrush steppe ecosystem
+Elevation: 2069 m
+
+Vegetation:
+
+- dominant plant species: black Sagebrush (Artemisia tridentata nova - evergreen shrub) with several perennial grasses
+(e.g.,Festuca idahoensisandPoa secunda, Koeleria macrantha) and forbs (e.g.,Stenotus acaulis,Eriogonum umbellatum, Phloxspp.)
+
+- rooting depth: black sagebrush has a taproot and wide-spreading lateral roots; roots can be deep on favorable sites, but shallow soils prevent
+deep root development on most sites where black sagebrush is dominant (https://www.fs.fed.us/database/feis/plants/shrub/artnov/all.html)
+
+- highly drought tolerant! (https://www.fs.fed.us/database/feis/plants/shrub/artnov/all.html)
+
+- average plant height about 0.5 m
+
+- average LAI: ~0.67 m2/m2 +- 1.15 (SD) m2/m2  (Reed et al., 2018)
+
+- plant cover: ~18 % shrub cover, total vegetation cover of 36% (Reed et al., 2018); 64% bare soil
+
+- Bowen ratio:
+
+Climate:
+
+- mean annual precipitation: 300 mm (Reed et al., 2018)
+
+- mean annual temperature: 5.1 degrees C (Reed et al., 2018)
+
+Soils:
+
+- sandy loam to a depth of at least 150 cm (Reed et al., 2018); McFadden sandy loam
+
+- near-level topography (<1%)
+
+
+Soil composition (sand/clay/silt): 60 % sand, 15 % clay, 25 % silt
+
+Soil permeable depth: 11 m
+"
+principal_refs: "Reed et al. (2018), Biophysical Factors And Canopy Coupling Control Ecosystem Water And Carbon Fluxes Of Semiarid Sagebrush Ecosystems, Rangeland Ecology & Management"

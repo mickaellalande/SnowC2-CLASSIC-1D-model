@@ -1,0 +1,54 @@
+name: "CA-TP1"
+full_name: "Ontario - Turkey Point 2002 Plantation White Pine"
+biome: "ENF"
+lon: -80.5595
+lat: 42.6609
+soilcolour: 7
+start: 2002
+end: 2017
+ZRFH: 40
+ZRFM: 40
+PFTs: "98% NdlEvgTr, 2% BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "harvested"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+Plantation established in 2002 on a former sandy agricultural field, which was abandoned three years prior to planting
+
+Vegetation:
+
+- The site experienced excessive weed growth (e.g. Conyza canadensis, Trifolium repens, Digitaria sanguinalis) in 2005
+
+- Weeds were cut in between the tree rows usually two or three times a year. Cut biomass is left on the site in order to enrich the soil. 
+
+- Mean tree height: 2.8±0.7 m in 2010
+
+- Mean tree diameter at DBH: 7.7 cm in 2010
+
+- stand density: 1683±189 trees/ ha in 2010
+
+- leaf area index: 1 m2 leaf/m2 ground in 2010
+
+- Woody debris biomass: 0.2 t/ha in 2010
+
+- Forest floor mass: 2.7 t/ha in 2010
+
+- Water table depth below surface: 2-3.5m in 2010
+
+- Mean Air Temperature: 8.1 °C
+
+- Mean Annual Precipitation: 832 mm 
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "Peichl, Matthias, M. Altaf Arain, Jason J. Brodeur,
+Age effects on carbon fluxes in temperate pine forests,
+Agricultural and Forest Meteorology,
+Volume 150, Issues 7–8,
+2010,
+Pages 1090-1101,
+ISSN 0168-1923,
+10.1016/j.agrformet.2010.04.008"

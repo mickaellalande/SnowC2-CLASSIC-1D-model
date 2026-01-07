@@ -1,0 +1,51 @@
+name: "CA-ER1"
+full_name: "Ontario - Elora Research Station"
+biome: "CRO"
+lon: -80.4123
+lat: 43.6405
+soilcolour: 13
+start: 2015
+end: 2021
+ZRFH: 3
+ZRFM: 3
+PFTs: "25% CropC3, 50% CropC4, 25% GrassC3" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "agriculture"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+
+An agricultural site that typically grows corn and perennial system consisted of a grass and legume
+
+Vegetation:
+
+- The site is relatively flat and homogenous. 
+
+- The site has been managed as agricultural land since the 1960s and records exist of the previously-grown crops.
+
+- Soil pH is 7.6; soil composition is sand, 29%, silt, 52% and clay, 19%
+
+- soil bulk density: 1.30 Mg/m3
+- total organic C: 26.9 g/kg soil
+- total N: 2.4 g/kg soil
+- available P: 24 mg/kg soil
+- available K: 146 mg/kg soil
+
+- Mean Air Temperature: 6.1 °C
+
+- Mean Annual Precipitation: 920 mm 
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+
+
+"
+
+principal_refs: "Sulaiman, M.F., Wagner-Riddle, C., Brown, S.E., Warland, J., Voroney, P. and Rochette, P.,
+Greenhouse gas mitigation potential of annual and perennial dairy feed crop systems,
+Agriculture, Ecosystems & Environment,
+Volume 245,
+2017,
+Pages 52-62,
+ISSN 0167-8809,
+doi.org/10.1016/j.agee.2017.05.001"

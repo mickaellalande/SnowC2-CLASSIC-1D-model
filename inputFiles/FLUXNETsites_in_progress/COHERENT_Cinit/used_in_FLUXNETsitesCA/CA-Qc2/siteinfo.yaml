@@ -1,0 +1,51 @@
+name: "CA-Qc2"
+full_name: "Quebec - 1975 Harvested Black Spruce"
+biome: "MF"
+lon: -74.5711
+lat: 49.7598
+soilcolour: 18
+start: 2007
+end: 2010
+ZRFH: 15
+ZRFM: 15
+PFTs: "0.9 NdlEvgTr, 0.1 BdlEvgSh" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "harvest"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+
+Vegetation:
+
+- Clear-cut in 1975 and precommercial thinning over 70% of the flux footprint area in 1998
+
+- dominated by black spruce (90% of the canopy) and tamarack (Larix laricina (Du Roi) K. Koch) is present in humid areas. 
+
+- ground cover consists of ericaceous shrubs (Kalmia angustifolia L., Vaccinium angustifolium Ait. and Rhododendron groenlandicum (Oeder) Kron et Judd), mosses (Pleurozium schreberi (BSG) Mitt. and Sphagnum spp.) and lichen (Cladina spp.)
+
+- Mean Air Temperature: 10.8 °C
+
+- Mean Annual Precipitation: 830 mm 
+
+- average tree height: 8.9 m in 2008
+
+- canopy leaf area index: 1.9 m2 leaf/m2 ground in 2008
+
+- total leaf area index: 3.5 m2 leaf/m2 ground in 2008
+
+- stand density: 2725 trees/ ha in 2008
+
+- diameter at breast height: 3.9 cm in 2008
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "Jean-Lionel Payeur-Poirier, Carole Coursolle, Hank A. Margolis, Marc-André Giasson,
+CO2 fluxes of a boreal black spruce chronosequence in eastern North America,
+Agricultural and Forest Meteorology,
+Volume 153,
+2012,
+Pages 94-105,
+ISSN 0168-1923,
+10.1016/j.agrformet.2011.07.009"

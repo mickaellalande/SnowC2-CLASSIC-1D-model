@@ -1,0 +1,52 @@
+name: "CA-Oas"
+full_name: "Saskatchewan - Western Boreal, Mature Aspen"
+biome: "DBF"
+lon: -106.1978
+lat: 53.6289
+soilcolour: 19
+start: 1996
+end: 2010
+ZRFH: 39
+ZRFM: 37
+PFTs: "1.0 BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1375197"
+notes: "
+A mature deciduous broadleaf forest located near the southern edge of the boreal forest in Prince Albert National Park, Saskatchewan
+
+Vegetation:
+
+- Fire in 1919
+
+- Stand average age of 60 years
+
+- The forest consists of trembling aspen with scattered (~10%) balsam poplar overstory and a hazelnut (Corylus cornuta Marsh.) understory.
+
+- The understory accounts for 50% of the total leaf area
+
+- Mean tree height: 21 m in 2010
+
+- stand density: 486 trees/ ha in 2017
+
+- Mean Air Temperature: 0.4 °C
+
+- Mean Annual Precipitation: 467 mm 
+
+- leaf area index: 3.9–5.2 m2 leaf/m2 ground in 2010
+
+- Mean tree diameter at DBH: 17 cm
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "Stephens, J.J., Black, T.A., Jassal, R.S., Nesic, Z., Grant, N.J., Barr, A.G., Helgason, W.D., Richardson, A.D., Johnson, M.S. and Christen, A.,
+Effects of forest tent caterpillar defoliation on carbon and water fluxes in a boreal aspen stand,
+Agricultural and Forest Meteorology,
+Volume 253-254, Issues 1,
+2018,
+Pages 176-189,
+ISSN 0168-1923,
+10.1016/j.agrformet.2018.01.035"

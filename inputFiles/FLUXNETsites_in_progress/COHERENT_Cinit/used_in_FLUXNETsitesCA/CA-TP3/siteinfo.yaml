@@ -1,0 +1,54 @@
+name: "CA-TP3"
+full_name: "Ontario - Turkey Point 1974 Plantation White Pine"
+biome: "ENF"
+lon: -80.3483
+lat: 42.7068
+soilcolour: 10
+start: 2002
+end: 2017
+ZRFH: 16
+ZRFM: 16
+PFTs: "99% NdlEvgTr, 1% BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "harvested"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+Plantation established in 1974 on a former sandy agricultural field
+
+Vegetation:
+
+- White pine (94%), mixed with Jack pine (5%) and oak (1%)
+
+- Oak savanna cleared for afforestation; stand not thinned
+
+- Mean tree height: 13.1±0.5 m in 2010
+
+- Mean tree diameter at DBH: 16.4±0.3 cm in 2010
+
+- stand density: 1633±166 trees/ ha in 2010
+
+- leaf area index: 5.9 m2 leaf/m2 ground in 2010
+
+- Woody debris biomass: 2.7 t/ha in 2010
+
+- Forest floor mass: 11.1 t/ha in 2010
+
+- Water table depth below surface: 6-7m in 2010
+
+- Mean Air Temperature: 8 °C
+
+- Mean Annual Precipitation: 1036 mm 
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "Peichl, Matthias, M. Altaf Arain, Jason J. Brodeur,
+Age effects on carbon fluxes in temperate pine forests,
+Agricultural and Forest Meteorology,
+Volume 150, Issues 7–8,
+2010,
+Pages 1090-1101,
+ISSN 0168-1923,
+10.1016/j.agrformet.2010.04.008"

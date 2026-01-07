@@ -1,0 +1,63 @@
+name: "CA-LP1"
+full_name: "British Columbia - Mountain pine beetle-attacked lodgepole pine stand"
+biome: "ENF"
+lon: -122.8414
+lat: 55.1119
+soilcolour: 20
+start: 2007
+end: 2020
+ZRFH: 26
+ZRFM: 26
+PFTs: "100% NdlEvgTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "disturbed"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+
+- MPB attack from 2006 to 2012 with ~50% of the canopy attacked in 2006 and only 14% of the canopy trees remaining healthy by 2012
+
+Vegetation:
+
+- mainly lodgepole pine with an understory consisting of pine seedlings, scattered shrubs and a ground cover of moss, lichen and dwarf shrubs
+
+- After the attacks, the 80-year-old stand was not harvested and left to naturally regenerate
+
+- Mean tree height: 15 m 
+
+- leaf area index: 1.24 m2 leaf/m2 ground in 2007
+                   0.95 m2/m2 in 2010
+
+- stand density: 1275 ± 204 trees/ ha in 2006
+
+- Basal area: 11.8 - 19.2 m2/ha 
+
+- Litter-fibric-humus C content: 1.10-3.78 kg/m2
+
+- Mineral soil C (0–55 cm): 1.76-3.15 kg/m2
+
+- Fine soil bulk density: 1180 ± 220 kg/m3
+
+- Mean Air Temperature: 2.3 ± 0.7 °C
+
+- Mean Annual Precipitation: 676 ± 115 mm 
+
+- soil texture: gravelly sandy loam
+
+- Soil coarse fragments (% by volume > 2 mm): 34 ± 11 %
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "
+Brown, M., Black, T. A., Nesic, Z., Foord, V. N., Spittlehouse, D. L., Fredeen, A. L., Grant, N. J., Burton, P. J., and Trofymow, J. A.: Impact of mountain pine beetle on the net ecosystem production of lodgepole pine stands in British Columbia, Agric. For. Meteorol., 150, 254–264, https://doi.org/10.1016/j.agrformet.2009.11.008, 2010.
+
+Brown, M. G., Black, T. A., Nesic, Z., Fredeen, A. L., Foord, V. N., Spittlehouse, D. L., Bowler, R., Burton, P. J., Trofymow, J. A., Grant, N. J., and Lessard, D.: The carbon balance of two lodgepole pine stands recovering from mountain pine beetle attack in British Columbia, Agric. For. Meteorol., 153, 82–93, https://doi.org/10.1016/j.agrformet.2011.07.010, 2012.
+
+Bowler, R., Fredeen, A. L., Brown, M., and Andrew Black, T.: Residual vegetation importance to net CO2 uptake in pine-dominated stands following mountain pine beetle attack in British Columbia, Canada, For. Ecol. Manage., 269, 82–91, https://doi.org/10.1016/j.foreco.2011.12.011, 2012.
+
+Meyer, G., Black, T. A., Jassal, R. S., Nesic, Z., Grant, N. J., Spittlehouse, D. L., Fredeen, A. L., Christen, A., Coops, N. C., Foord, V. N., and Bowler, R.: Measurements and simulations using the 3-PG model of the water balance and water use efficiency of a lodgepole pine stand following mountain pine beetle attack, For. Ecol. Manage., 393, 89–104, https://doi.org/10.1016/j.foreco.2017.03.019, 2017.
+
+Meyer, G., Black, T. A., Jassal, R. S., Nesic, Z., Coops, N. C., Christen, A., Fredeen, A. L., Spittlehouse, D. L., Grant, N. J., Foord, V. N., and Bowler, R.: Simulation of net ecosystem productivity of a lodgepole pine forest after mountain pine beetle attack using a modified version of 3-PG, For. Ecol. Manage., 412, 41–52, https://doi.org/10.1016/j.foreco.2018.01.034, 2018.
+"

@@ -1,0 +1,73 @@
+name: "US-Prr"
+full_name: "Poker Flat Research Range Black Spruce Forest"
+biome: "ENF"
+lon: -147.4876
+lat: 65.1237
+soilcolour: 18
+start: 2010
+end: 2014
+ZRFH: 20 # Real height is 11 m, but CLASSIC tends to grow vegetation taller than that so increase to prevent fails.
+ZRFM: 20 # Real height is 16 m, but CLASSIC tends to grow vegetation taller than that so increase to prevent fails.
+PFTs: "0.2 NdlEvgTr, 0.24 Sedge, 0.14 BdlEvgSh, 0.13 BdlDCoSh" # use same naming convention as in run_parameters.txt/model code.
+leap: ".false." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1246153"
+notes: "
+
+An open black spruce forest characterized by patchy canopy gaps in interior Alaska
+
+General:
+
+- soil profile: the layer of 0 - 14 cm surface depth was the moss layer. The layer of 14 - 25 cm surface depth was an undecomposed organic layer, and at 25 - 39 cm was a decomposed organic layer. below 39 cm was silty and cryoturbated. 
+
+- active layer depth was at 43 cm. 
+
+- soil deeper than 43 cm was permafrost.
+
+- A 17-m scaffold tower hosts an EC system for CO2 and energy fluxes and other meteorological measurements.
+
+Vegetation:
+
+- Vegetation IGBP: ENF (Evergreen Needleleaf Forests: Lands dominated by woody vegetation with a percent cover >60% and height exceeding 2 meters. Almost all trees remain green all year. Canopy is never without green foliage.)
+
+- Considering the stand age, canopy height, and density, the ecosystem is best classified as an open black spruce forest (1.A.2.f) in Viereck et al. (1992)’s vegetation classification for Alaska.
+
+- Black spruce (Picea mariana) is the dominant species (98% of the overstory)
+
+- Black spruce trees are distributed heterogeneously, and some patchy open areas existed.
+
+- The last major disturbance (i.e., forest fire) at the site was about 100 years ago, an average stand age was 67 years as of 2012 
+
+- LAI of the overstory, considering clumping index, is 0.73. 
+
+- A cumulative basal area inflection (CuBI) height, also an aerodynamically effective canopy height, is 2.91 m. 
+
+- The stem density of trees higher than 1.3 m was 3967 trees ha−1. 
+
+- The aboveground biomass around the study site is 6.6–50.7 Mg DW ha−1; the average tree height and DBH were 2.4 ± 1.1 m and 1.2 ± 0.079 cm, respectively (Kobayashi et al,2013).
+
+- The understory is predominated by peat moss (Sphagnum fuscum) and feather moss (Hylocomiumsplendens). These cover 27% of the floor surface, though they also reside under shrubs and sedges. 
+
+- Shrubs, which mainly include Labrador tea (Ledum groenlandicum), bog bilberry (Vaccinium ulig-inosum), cloudberry (Rubus chamaemorus), and bog birch (Betulaglandulosa or Betula nana) account for 27% of the floor surface. 
+
+- Sedges, mostly identified as cotton grass (Eriophorum vaginatum),form tussocks, covering 24% of the floor surface. 
+
+- Northern reindeer lichen (Cladina stellaris) often forms a colony, covering 13% of the ground surface. 
+
+- Bare peat ground and dead plants cover 9% of thesurface.
+
+Climate:
+
+- Climate Koeppen: Dwc (Subarctic: severe, dry winter, cool summer)
+
+- Mean Annual Temp (°C): -2
+
+- Mean Annual Precip. (mm):	275
+
+"
+
+principal_refs: "
+Ikawa H, Nakai T, Busey R C, et al. Understory CO2, sensible heat, and latent heat fluxes in a black spruce forest in interior Alaska[J]. Agricultural and Forest Meteorology, 2015, 214, 80-90.
+
+Nakai T, Kim Y, Busey R C, et al. Characteristics of evapotranspiration from a permafrost black spruce forest in interior Alaska[J]. Polar Science, 2013, 7(2), 136-148."

@@ -1,0 +1,61 @@
+name: "RU-SkP"
+full_name: "Yakutsk Spasskaya Pad larch"
+biome: "DNF"
+lon: 129.24138889
+lat: 62.2550
+soilcolour: 18
+start: 2012
+end: 2014
+ZRFH: 32
+ZRFM: 32
+PFTs: "0.72 NdlDcdTr, 0.28 BdlEvgSh" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".false." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440243"
+notes: "
+Larch Forest - Eastern Siberia
+
+
+Vegetation:
+
+- Situated in the continuous permafrost region in the Lena Delta. Maximum active layer depth (ALT) reached 2-~2.5 m in 2009-2010 (Iijima et al., 2014).
+  Increased precipitation following 2006 led to an increase in ALT and increased soil moisture, which saturated the deeper sections of the active layer
+  (depth > 25 cm; Iijima et al., 2014).
+
+- The top soil layer was set as an organic layer with mineral soil below, as Siewert et al. (2015) showed organic layer depth of 6.2 +/- 2.8 cm in 
+  larch dominated forests in the region. Soil organic carbon (SOC) in the top 1 m was 24.4 +/- 15.8 kg C m-2 and between 1 and 2 m depth SOC was 
+  14.2 +/- 7.8 kg C m-2. Cryoturbation was observed in the larch forests and has a high variability with SOC of 11.6 +/- 14.4 kg C m-2 (Siewert et al., 2015).
+
+- Dominant species of overstory: larch with stand density of 840 trees/ ha and LAI of 1.56 (Ohta et al., 2008).
+  Maximum LAI is ~1.5 – 2.The LAI of the ground vegetation was ~2.1 with mainly cowberry in 2005 and 1.5 after the conversion to grasses in 2012 (Kotani et al., 2019).
+
+- Except for small patches of birch (COLD DCD BDL) and red pine (EVG NDL), larch forest extends over several kilometres in all directions.
+ The canopy cover was 0.72 +/- 0.07 (SD) in June 2017 (Tei et al., 2019). As it's described as a low density stand with a dense understory / 
+ ground cover consisting mostly of evergreen cowberry (Vaccinium vitis-idaea), we set the vegetation cover as 72% NdlDcdTr and 28& BdlEvgSh.
+
+- Roots are concentrated in surface soil layer (more than 80% of root surface distributed above depth of 20 cm; only 1.5% deeper than 50 cm)
+
+- Start date of leaf-out of larch trees varied from DOY 175 in 2005 and 149 in 2003; canopy matured in the following 2 - 4 weeks
+
+- Date of leaf fall fluctuated from DOY 240 in 1998 to DOY 265 in 2003, leaves then fell for the following 10 - 20 days
+
+
+Climate:
+
+- strong continentality
+
+- mean annual rainfall in Yakutsk: 213 mm
+
+-> 30 year climatalogy average: 240 mm
+
+- annual mean temperature: -10.4 deg C
+
+- lowest temperature measured: -57.1 deg C
+"
+principal_refs: "
+Ohta, T., Maximov, T., Dolman, H., Nakai, T., Van der Molen, M., Kononov, A., Maximov, A., Hiyama, T., Iijima, Y., Moors, E., Tanaka, H., Toba, T., Yabuki, Hironori. (2008). Interannual variation of water balance and summer evapotranspiration in an eastern Siberian larch forest over a 7-year period (1998-2006). Agricultural and Forest Meteorology. 148. 1941-1953. 10.1016/j.agrformet.2008.04.012, 
+Iijima, Y., Ohta, T., Kotani, A., Fedorov, A. N., Kodama, Y., and Maximov, T. C.: Sap flow changes in relation to permafrost degradation under increasing precipitation in an eastern Siberian larch forest: sap flow change in Eastern Siberia, Ecohydrol., 7, 177–187, https://doi.org/10.1002/eco.1366, 2014,
+Siewert, M. B., Hanisch, J., Weiss, N., Kuhry, P., and Hugelius, G.: Comparing carbon storage of Siberian tundra and taiga permafrost ecosystems at very high spatial resolution, Journal of Geophysical Research: Biogeosciences, 120, https://doi.org/10.1002/2015JG002999, 2015,
+Tei, S., Sugimoto, A., Kotani, A., Ohta, T., Morozumi, T., Saito, S., Hashiguchi, S., and Maximov, T.: Strong and stable relationships between tree-ring parameters and forest-level carbon fluxes in a Siberian larch forest, Polar Sci., 21, 146–157, https://doi.org/10.1016/j.polar.2019.02.001, 2019,
+Kotani, A., Saito, A., Kononov, A. V., Petrov, R. E., Maximov, T. C., Iijima, Y., and Ohta, T.: Impact of unusually wet permafrost soil on understory vegetation and CO2 exchange in a larch forest in eastern Siberia, Agric. For. Meteorol., 265, 295–309, https://doi.org/10.1016/j.agrformet.2018.11.025, 2019."

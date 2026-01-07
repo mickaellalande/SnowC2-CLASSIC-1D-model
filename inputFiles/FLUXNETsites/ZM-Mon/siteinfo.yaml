@@ -1,0 +1,52 @@
+name: "ZM-Mon"
+full_name: "Mongu"
+biome: "DBF"
+lon: 23.25
+lat: -15.437
+soilcolour: 17
+start: 2007
+end: 2009
+ZRFH: 19.5
+ZRFM: 19.5
+PFTs: "0.65 BdlDDrTr, 0.35 GrassC4" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "disturbed"
+doi: "10.18140/FLX/1440189"
+notes: "
+Miombo Woodland - Western Zambia
+
+
+Vegetation:
+
+- projected canopy cover of nearly 70% (65% in Canopy structure in savannas along a moisture gradient on Kalakari sands. Scholes et al., 2004); broad-leafed deciduous woodland
+
+- dominant species: Brachustegia spiciformis (24.7%), B. bakerana (29.8%), Guibourtia coleosperma (16.8%), Ochna pulchra (24.5%)
+
+- trees are exceeding 10 m in height, mostly belonging to non-nitrogen fixing legume fmaily Caesalpiniaceae
+
+- understory characterized by very small areas of few grasses and regular moss cover
+
+- open spots characterized by dense shrub vegetation: Diospyros batoeana (20.8%), Baphia obovata (10.4%), large amounts of C4 grasses that invade shortly after clear-cutting
+
+- Kataba Forest Reserve is a small area established in 1973
+
+- certain uses permitted, such as grazing and firewood collection
+
+- forest exposed to frequent, low-intensity ground fires
+
+- area surrounding the forest has undergone rapid and dramatic land cover change over th epast decade and is severely disturbed by intense charcoal production and the conversion from woodland to agricultural land
+
+
+Climate:
+
+- semi-arid
+
+- distinct dry (May - mid October) and wet season (mid October - April)
+
+- mean annual rainfall: 948 mm
+
+- average annual air temperature: 21.8
+"
+principal_refs: "
+Merbold, L., Ziegler, W., Mukelabai, M, & Kutsch, W.L. (2010). Spatial and temporal variation of CO2 efflux along a disturbance gradient in a miombo woodland in Western Zambia. Biogeosciences Discussions. 7. 5757-5800. 10.5194/bgd-7-5757-2010. "

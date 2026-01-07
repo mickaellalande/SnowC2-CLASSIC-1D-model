@@ -1,0 +1,49 @@
+name: "IT-Lav"
+full_name: "Lavarone"
+biome: "ENF"
+lon: 11.2813
+lat: 45.9562
+soilcolour: 15
+start: 2003
+end: 2014
+ZRFH: 36
+ZRFM: 36
+PFTs: "0.85 NdlEvgTr, 0.15 BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440169"
+notes: "
+Mountain Region - Northern Italy
+
+Vegetation:
+
+- landscape characterized by spatial succession of the three typical mountain management systems: grasslands, pastures, mixed coniferous and broadleaf forests 
+
+- analysed area: characterized by uneven-aged mixed forest, dominated by: Abies alba (70%) -> evergreen coniferous, Fagus sylvatica (15%) -> deciduous broadleaf, Picea Abies (15%) -> evergreen coniferous
+
+- Google Earth shows 100% forest cover
+
+- 1300 stems/ha (dbh > 7.5 cm) 
+
+- LAI = 9.6 m2/m2
+
+- canopy has dominant layer reaching 33 - 38 cm
+
+- crown layer limits at about 12 m
+
+- understory: suppressed beeches form discontinuous second layer from 0 - 4 m 
+
+- located on a gently rolling karst plateau, homogeneous vegetated fetch larger than 1 km in all directions (except for 45 degree sector, 300 m fetch in SSW direction)
+
+
+Climate:
+
+- average annual temperature: 7.2 deg C
+
+- total annual precipitation: 1150 mm"
+principal_refs: "
+The Greenhouse Gas Balanca of Italy. An Insight on Managed and Natural Terrestrial Ecosystems, Chapter 2. Valentini et al., 2015
+
+
+(book)"

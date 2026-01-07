@@ -1,0 +1,30 @@
+name: "RU-Sam"
+full_name: "Samoylov (Lena River Delta)"
+biome: "GRA"
+lon: 126.4958
+lat: 72.3738
+soilcolour: 18
+start: 2002
+end: 2014
+ZRFH: 4
+ZRFM: 4
+PFTs: "0.2 Sedge, 0.06 BdlEvgSh, 0.04 BdlDCoSh" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "?"
+notes: "
+Samoylov (Lena River Delta)
+
+
+Vegetation:
+
+- 
+
+
+Climate:
+
+-
+"
+principal_refs: "
+Ohta, T., Maximov, T., Dolman, H., Nakai, T., Van der Molen, M., Kononov, A., Maximov, A., Hiyama, T., Iijima, Y., Moors, E., Tanaka, H., Toba, T., Yabuki, Hironori. (2008). Interannual variation of water balance and summer evapotranspiration in an eastern Siberian larch forest over a 7-year period (1998-2006). Agricultural and Forest Meteorology. 148. 1941-1953. 10.1016/j.agrformet.2008.04.012. "

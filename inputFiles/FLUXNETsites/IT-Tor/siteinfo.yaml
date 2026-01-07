@@ -1,0 +1,48 @@
+name: "IT-Tor"
+full_name: "Torgnon"
+biome: "GRA"
+lon: 7.58
+lat: 45.84
+soilcolour: 14
+start: 2008
+end: 2013
+ZRFH: 2.5
+ZRFM: 2.5
+PFTs: "1.0 GrassC3" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440237"
+notes: "
+Grasslands - Northern Mountainous Italy
+
+Vegetation:
+
+- old grazed pasture abandoned in late 1990s
+
+- dominant vegetation: Nardus strica - 35%, C3, Festuca nigrescens - 11%, Arnica montana - 8%, Carex sempervirens - 5%, C3, Geum montanum - 5%, Anthaxanthum - 4%, C3, Potentilla aurea - 4%, Trifolium alpinum - 4%
+
+-> all C3
+
+- maximum seasonal LAI of 2.9%
+
+- average canopy height 18 cm
+
+- from end October to late May site is coverd by thick snow mantle which limits growing season length to four - five months
+
+
+Climate:
+
+- characterized bz intra-alpine, semi-continental climate with strong seasonality
+
+- average annual temperature: 3.1
+
+- average annual precipitation: 880 mm
+
+- October to late May site is covered by thick snow mantle (90 - 120 cm)
+
+- growing season cumulative precipitation can show huge variations (from 160 - 630 mm)
+
+- daily average air temperature varies between 4 and 13"
+principal_refs: "
+The Greenhouse Gas Balance of Italy. An Insight on Managed and Natural Terrestrial Ecosystems, Chapter 2. Valentini et al., 2015 (book)"

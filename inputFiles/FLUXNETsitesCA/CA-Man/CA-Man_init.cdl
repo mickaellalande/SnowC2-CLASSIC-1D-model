@@ -1,0 +1,865 @@
+netcdf CA-Man_init {
+dimensions:
+	lon = 1 ;
+	lat = 1 ;
+	tile = 1 ;
+	icp1 = 6 ;
+	layer = 20 ;
+	ic = 5 ;
+	icc = 12 ;
+	iccp1 = 13 ;
+	iccp2 = 14 ;
+	slope = 8 ;
+variables:
+	double lon(lon) ;
+		lon:_FillValue = NaN ;
+		lon:standard_name = "Longitude" ;
+		lon:units = "degrees_east" ;
+		lon:axis = "X" ;
+	double lat(lat) ;
+		lat:_FillValue = NaN ;
+		lat:standard_name = "Latitude" ;
+		lat:units = "degrees_north" ;
+		lat:axis = "Y" ;
+	int tile(tile) ;
+		tile:standard_name = "land surface tile" ;
+	int icp1(icp1) ;
+		icp1:standard_name = "physics (CLASS) PFTs plus bareground" ;
+	int layer(layer) ;
+		layer:standard_name = "ground layers" ;
+	int ic(ic) ;
+		ic:standard_name = "physics (CLASS) PFTs" ;
+	int icc(icc) ;
+		icc:standard_name = "biogeochemical (CTEM) PFTs" ;
+	int iccp1(iccp1) ;
+		iccp1:standard_name = "biogeochemical (CTEM) PFTs plus bareground" ;
+	int iccp2(iccp2) ;
+		iccp2:standard_name = "biogeochemical (CTEM) PFTs plus bareground and land use change product pools" ;
+	int slope(slope) ;
+		slope:standard_name = "wetland slope fractions for 0.025, 0.05, 0.1, 0.15, 0.20, 0.25, 0.3 and 0.35 percent slope threshold" ;
+	double GC(lat, lon) ;
+		GC:_FillValue = -999. ;
+		GC:units = "-" ;
+		GC:long_name = "GCM surface descriptor - land surfaces (inc. inland water) is -1" ;
+	double nmtest(lat, lon) ;
+		nmtest:_FillValue = -999. ;
+		nmtest:units = "-" ;
+		nmtest:long_name = "Number of tiles in each grid cell" ;
+	double FCAN(tile, icp1, lat, lon) ;
+		FCAN:_FillValue = -999. ;
+		FCAN:units = "-" ;
+		FCAN:long_name = "Annual maximum fractional coverage of modelled area (read in for CLASS only runs)" ;
+	double LNZ0(tile, icp1, lat, lon) ;
+		LNZ0:_FillValue = -999. ;
+		LNZ0:units = "-" ;
+		LNZ0:long_name = "Natural logarithm of maximum vegetation roughness length" ;
+	double ALIC(tile, icp1, lat, lon) ;
+		ALIC:_FillValue = -999. ;
+		ALIC:units = "-" ;
+		ALIC:long_name = "Average near-IR albedo of vegetation category when fully-leafed" ;
+	double ALVC(tile, icp1, lat, lon) ;
+		ALVC:_FillValue = -999. ;
+		ALVC:units = "-" ;
+		ALVC:long_name = "Average visible albedo of vegetation category when fully-leafed" ;
+	double PAMX(tile, ic, lat, lon) ;
+		PAMX:_FillValue = -999. ;
+		PAMX:units = "m2/m2" ;
+		PAMX:long_name = "Annual maximum plant area index of vegetation category" ;
+	double PAMN(tile, ic, lat, lon) ;
+		PAMN:_FillValue = -999. ;
+		PAMN:units = "m2/m2" ;
+		PAMN:long_name = "Annual minimum plant area index of vegetation category" ;
+	double CMAS(tile, ic, lat, lon) ;
+		CMAS:_FillValue = -999. ;
+		CMAS:units = "$[kg m^{-2} ]$" ;
+		CMAS:long_name = "Annual maximum canopy mass for vegetation category" ;
+	double ROOT(tile, ic, lat, lon) ;
+		ROOT:_FillValue = -999. ;
+		ROOT:units = "m" ;
+		ROOT:long_name = "Annual maximum rooting depth of vegetation category" ;
+	double SAND(tile, layer, lat, lon) ;
+		SAND:_FillValue = -999. ;
+		SAND:units = "%" ;
+		SAND:long_name = "Percentage sand content" ;
+	double CLAY(tile, layer, lat, lon) ;
+		CLAY:_FillValue = -999. ;
+		CLAY:units = "%" ;
+		CLAY:long_name = "Percentage clay content" ;
+	double ORGM(tile, layer, lat, lon) ;
+		ORGM:_FillValue = -999. ;
+		ORGM:units = "%" ;
+		ORGM:long_name = "Percentage organic matter content" ;
+	double TBAR(tile, layer, lat, lon) ;
+		TBAR:_FillValue = -999. ;
+		TBAR:units = "C" ;
+		TBAR:long_name = "Temperature of soil layers" ;
+	double THIC(tile, layer, lat, lon) ;
+		THIC:_FillValue = -999. ;
+		THIC:units = "m3/m3" ;
+		THIC:long_name = "Volumetric frozen water content of soil layers" ;
+	double THLQ(tile, layer, lat, lon) ;
+		THLQ:_FillValue = -999. ;
+		THLQ:units = "m3/m3" ;
+		THLQ:long_name = "Volumetric liquid water content of soil layers" ;
+	double DELZ(layer) ;
+		DELZ:_FillValue = -999. ;
+		DELZ:units = "m" ;
+		DELZ:long_name = "Ground layer thickness" ;
+	double DRN(tile, lat, lon) ;
+		DRN:_FillValue = -999. ;
+		DRN:units = "-" ;
+		DRN:long_name = "Soil drainage index" ;
+	double FARE(tile, lat, lon) ;
+		FARE:_FillValue = -999. ;
+		FARE:units = "fraction" ;
+		FARE:long_name = "Tile fractional area of gridcell" ;
+	double MID(tile, lat, lon) ;
+		MID:_FillValue = -999. ;
+		MID:units = "-" ;
+		MID:long_name = "Mosaic tile type identifier (1 for land surface, 0 for inland lake)" ;
+	double SDEP(tile, lat, lon) ;
+		SDEP:_FillValue = -999. ;
+		SDEP:units = "m" ;
+		SDEP:long_name = "Soil permeable depth" ;
+	double SOCI(tile, lat, lon) ;
+		SOCI:_FillValue = -999. ;
+		SOCI:units = "index" ;
+		SOCI:long_name = "Soil colour index" ;
+	double TCAN(tile, lat, lon) ;
+		TCAN:_FillValue = -999. ;
+		TCAN:units = "C" ;
+		TCAN:long_name = "Vegetation canopy temperature" ;
+	double ALBS(tile, lat, lon) ;
+		ALBS:_FillValue = -999. ;
+		ALBS:units = "-" ;
+		ALBS:long_name = "Soil drainage index" ;
+	double GRO(tile, lat, lon) ;
+		GRO:_FillValue = -999. ;
+		GRO:units = "-" ;
+		GRO:long_name = "Vegetation growth index" ;
+	double RCAN(tile, lat, lon) ;
+		RCAN:_FillValue = -999. ;
+		RCAN:units = "-" ;
+		RCAN:long_name = "Intercepted liquid water stored on canopy" ;
+	double RHOS(tile, lat, lon) ;
+		RHOS:_FillValue = -999. ;
+		RHOS:units = "kg/m3" ;
+		RHOS:long_name = "Density of snow" ;
+	double SCAN(tile, lat, lon) ;
+		SCAN:_FillValue = -999. ;
+		SCAN:units = "kg/m2" ;
+		SCAN:long_name = "Intercepted frozen water stored on canopy" ;
+	double SNO(tile, lat, lon) ;
+		SNO:_FillValue = -999. ;
+		SNO:units = "kg/m2" ;
+		SNO:long_name = "Mass of snow pack" ;
+	double TPND(tile, lat, lon) ;
+		TPND:_FillValue = -999. ;
+		TPND:units = "C" ;
+		TPND:long_name = "Temperature of ponded water" ;
+	double TSNO(tile, lat, lon) ;
+		TSNO:_FillValue = -999. ;
+		TSNO:units = "C" ;
+		TSNO:long_name = "Snowpack temperature" ;
+	double ZPND(tile, lat, lon) ;
+		ZPND:_FillValue = -999. ;
+		ZPND:units = "m" ;
+		ZPND:long_name = "Depth of ponded water on surface" ;
+	double grclarea(lat, lon) ;
+		grclarea:_FillValue = -999. ;
+		grclarea:units = "km2" ;
+		grclarea:long_name = "Area of grid cell" ;
+	double twarmm(lat, lon) ;
+		twarmm:_FillValue = -999. ;
+		twarmm:units = "degree C" ;
+		twarmm:long_name = "temperature of the warmest month (running averages in an e-folding sense)" ;
+	double tcoldm(lat, lon) ;
+		tcoldm:_FillValue = -999. ;
+		tcoldm:units = "degree C" ;
+		tcoldm:long_name = "temperature of the warmest month (running averages in an e-folding sense)" ;
+	double gdd5(lat, lon) ;
+		gdd5:_FillValue = -999. ;
+		gdd5:long_name = "growing degree days above 5 C (running averages in an e-folding sense)" ;
+		gdd5:units = "days" ;
+	double aridity(lat, lon) ;
+		aridity:_FillValue = -999. ;
+		aridity:units = "-" ;
+		aridity:long_name = "aridity index, ratio of potential evaporation to precipitation (running averages in an e-folding sense)" ;
+	double srplsmon(lat, lon) ;
+		srplsmon:_FillValue = -999. ;
+		srplsmon:units = "months" ;
+		srplsmon:long_name = "number of months in a year with surplus water i.e. precipitation more than potential evaporation(running averages in an e-folding sense)" ;
+	double defctmon(lat, lon) ;
+		defctmon:_FillValue = -999. ;
+		defctmon:units = "months" ;
+		defctmon:long_name = "number of months in a year with water deficit i.e. precipitation less than potential evaporation(running averages in an e-folding sense)" ;
+	double anndefct(lat, lon) ;
+		anndefct:_FillValue = -999. ;
+		anndefct:units = "mm" ;
+		anndefct:long_name = "annual water deficit(running averages in an e-folding sense)" ;
+	double annsrpls(lat, lon) ;
+		annsrpls:_FillValue = -999. ;
+		annsrpls:units = "mm" ;
+		annsrpls:long_name = "annual water surplus (running averages in an e-folding sense)" ;
+	double annpcp(lat, lon) ;
+		annpcp:_FillValue = -999. ;
+		annpcp:units = "mm" ;
+		annpcp:long_name = "annual precipitation (running averages in an e-folding sense)" ;
+	double dry_season_length(lat, lon) ;
+		dry_season_length:_FillValue = -999. ;
+		dry_season_length:units = "months" ;
+		dry_season_length:long_name = "annual maximum dry month length (running averages in an e-folding sense)" ;
+	double bleafmas(tile, icc, lat, lon) ;
+		bleafmas:_FillValue = -999. ;
+		bleafmas:units = "kgC/m2" ;
+		bleafmas:long_name = "Brown leaf mass" ;
+	double gleafmas(tile, icc, lat, lon) ;
+		gleafmas:_FillValue = -999. ;
+		gleafmas:units = "kgC/m2" ;
+		gleafmas:long_name = "Green leaf mass" ;
+	double stemmass(tile, icc, lat, lon) ;
+		stemmass:_FillValue = -999. ;
+		stemmass:units = "kgC/m2" ;
+		stemmass:long_name = "Stem mass" ;
+	double rootmass(tile, icc, lat, lon) ;
+		rootmass:_FillValue = -999. ;
+		rootmass:units = "kgC/m2" ;
+		rootmass:long_name = "Root mass" ;
+	double grwtheff(tile, icc, lat, lon) ;
+		grwtheff:_FillValue = -999. ;
+		grwtheff:units = "(kg C/m^2)/(m2/m2)" ;
+		grwtheff:long_name = "Growth efficiency. Change in biomass per year per unit max. LAI,for use in mortality subroutine" ;
+	double lfstatus(tile, icc, lat, lon) ;
+		lfstatus:_FillValue = -999. ;
+		lfstatus:units = "-" ;
+		lfstatus:long_name = "Leaf status, see Phenology" ;
+	double pandays(tile, icc, lat, lon) ;
+		pandays:_FillValue = -999. ;
+		pandays:units = "-" ;
+		pandays:long_name = "Days with +ve new photosynthesis, see Phenology" ;
+	double ipeatland(tile, lat, lon) ;
+		ipeatland:_FillValue = -999. ;
+		ipeatland:units = "-" ;
+		ipeatland:long_name = "Peatland flag: 0 = not a peatland, 1= bog, 2 = fen" ;
+	double Cmossmas(tile, lat, lon) ;
+		Cmossmas:_FillValue = -999. ;
+		Cmossmas:units = "kgC/m2" ;
+		Cmossmas:long_name = "C in moss biomass" ;
+	double litrmsmoss(tile, lat, lon) ;
+		litrmsmoss:_FillValue = -999. ;
+		litrmsmoss:units = "kgC/m2" ;
+		litrmsmoss:long_name = "Moss litter mass" ;
+	double dmoss(tile, lat, lon) ;
+		dmoss:_FillValue = -999. ;
+		dmoss:units = "m" ;
+		dmoss:long_name = "Depth of living moss" ;
+	double maxAnnualActLyr(tile, lat, lon) ;
+		maxAnnualActLyr:_FillValue = -999. ;
+		maxAnnualActLyr:units = "m" ;
+		maxAnnualActLyr:long_name = "Active layer depth maximum over the e-folding period specified by parameter eftime" ;
+	double slopefrac(tile, slope, lat, lon) ;
+		slopefrac:_FillValue = -999. ;
+		slopefrac:units = "-" ;
+		slopefrac:long_name = "Slope-based fraction for dynamic wetlands" ;
+	double fcancmx(tile, icc, lat, lon) ;
+		fcancmx:_FillValue = -999. ;
+		fcancmx:units = "-" ;
+		fcancmx:long_name = "PFT fractional coverage per grid cell" ;
+	double litrmass(tile, layer, iccp2, lat, lon) ;
+		litrmass:_FillValue = NaN ;
+		litrmass:units = "kgC/m2" ;
+		litrmass:long_name = "Litter mass per soil layer" ;
+	double soilcmas(tile, layer, iccp2, lat, lon) ;
+		soilcmas:_FillValue = NaN ;
+		soilcmas:units = "kgC/m2" ;
+		soilcmas:long_name = "Soil C mass per soil layer" ;
+	double gleafmas_ns(tile, icc, lat, lon) ;
+		gleafmas_ns:_FillValue = -999. ;
+		gleafmas_ns:long_name = "Non-structural green leaf mass" ;
+		gleafmas_ns:units = "kg C/m^2" ;
+	double gleafmas_s(tile, icc, lat, lon) ;
+		gleafmas_s:_FillValue = -999. ;
+		gleafmas_s:long_name = "Structural green leaf mass" ;
+		gleafmas_s:units = "kg C/m^2" ;
+	double stemmass_ns(tile, icc, lat, lon) ;
+		stemmass_ns:_FillValue = -999. ;
+		stemmass_ns:long_name = "Non-structural stem mass" ;
+		stemmass_ns:units = "kg C/m^2" ;
+	double stemmass_s(tile, icc, lat, lon) ;
+		stemmass_s:_FillValue = -999. ;
+		stemmass_s:long_name = "Structural stem mass" ;
+		stemmass_s:units = "kg C/m^2" ;
+	double rootmass_ns(tile, icc, lat, lon) ;
+		rootmass_ns:_FillValue = -999. ;
+		rootmass_ns:long_name = "Non-structural root mass" ;
+		rootmass_ns:units = "kg C/m^2" ;
+	double rootmass_s(tile, icc, lat, lon) ;
+		rootmass_s:_FillValue = -999. ;
+		rootmass_s:long_name = "Structural root mass" ;
+		rootmass_s:units = "kg C/m^2" ;
+	double peatSoilC(tile, lat, lon) ;
+		peatSoilC:_FillValue = -999. ;
+		peatSoilC:long_name = "Peat soil C for peatland tiles" ;
+		peatSoilC:units = "kg C/m^2" ;
+	double cfluxcg(tile, lat, lon) ;
+		cfluxcg:_FillValue = -999. ;
+		cfluxcg:long_name = "Aerodynamic conductance, canopy over ground" ;
+		cfluxcg:units = "m/s" ;
+	double cfluxcs(tile, lat, lon) ;
+		cfluxcs:_FillValue = -999. ;
+		cfluxcs:long_name = "Aerodynamic conductance, canopy over snow" ;
+		cfluxcs:units = "m/s" ;
+	double co2i1cg(tile, icc, lat, lon) ;
+		co2i1cg:_FillValue = -999. ;
+		co2i1cg:long_name = "Intercellular CO2, single/sunlit leaf, canopy over ground" ;
+		co2i1cg:units = "Pascals" ;
+	double co2i2cg(tile, icc, lat, lon) ;
+		co2i2cg:_FillValue = -999. ;
+		co2i2cg:long_name = "Intercellular CO2, shaded leaf, canopy over ground" ;
+		co2i2cg:units = "Pascals" ;
+	double co2i1cs(tile, icc, lat, lon) ;
+		co2i1cs:_FillValue = -999. ;
+		co2i1cs:long_name = "Intercellular CO2, single/sunlit leaf, canopy over snow" ;
+		co2i1cs:units = "Pascals" ;
+	double co2i2cs(tile, icc, lat, lon) ;
+		co2i2cs:_FillValue = -999. ;
+		co2i2cs:long_name = "Intercellular CO2, shaded leaf, canopy over snow" ;
+		co2i2cs:units = "Pascals" ;
+	double colddays_leaffall(tile, lat, lon) ;
+		colddays_leaffall:_FillValue = -999. ;
+		colddays_leaffall:long_name = "Cold days counters for NDL DCD TREES (days below temperature threshold for leaf fall)" ;
+		colddays_leaffall:units = "-" ;
+	double colddays_harvest(tile, lat, lon) ;
+		colddays_harvest:_FillValue = -999. ;
+		colddays_harvest:long_name = "Cold days counters for CROPS (days below temperature threshold for harvest)" ;
+		colddays_harvest:units = "-" ;
+	double fcol(lat, lon) ;
+		fcol:_FillValue = -999. ;
+		fcol:long_name = "Land-atmosphere CO2 flux from previous time step, +ve up, NBP is +ve down, used in CanESM only" ;
+		fcol:units = "mol CO2/m2.s" ;
+	float FLND(lat, lon) ;
+		FLND:_FillValue = -999.f ;
+		FLND:long_name = "Fractional land cover. Excludes lakes, glaciers, and icesheets" ;
+		FLND:units = "-" ;
+	double flhrloss_ns(tile, icc, lat, lon) ;
+		flhrloss_ns:_FillValue = -999. ;
+		flhrloss_ns:long_name = "Fall and harvest loss rate for dcd trees and crops (non structural)" ;
+		flhrloss_ns:units = "1/day" ;
+	double flhrloss_s(tile, icc, lat, lon) ;
+		flhrloss_s:_FillValue = -999. ;
+		flhrloss_s:long_name = "Fall and harvest loss rate for dcd trees and crops (structural)" ;
+		flhrloss_s:units = "1/day" ;
+	float lygleafmasmax(tile, icc, lat, lon) ;
+		lygleafmasmax:_FillValue = -999.f ;
+		lygleafmasmax:units = "kg C/m^2" ;
+		lygleafmasmax:long_name = "last year maximum of the green leaf mass for each PFT" ;
+	float lystemmassmax(tile, icc, lat, lon) ;
+		lystemmassmax:_FillValue = -999.f ;
+		lystemmassmax:units = "kg C/m^2" ;
+		lystemmassmax:long_name = "last year maximum of the stem mass for each PFT" ;
+	float lyrootmassmax(tile, icc, lat, lon) ;
+		lyrootmassmax:_FillValue = -999.f ;
+		lyrootmassmax:units = "kg C/m^2" ;
+		lyrootmassmax:long_name = "last year maximum of the root mass for each PFT" ;
+	double lystmmas(tile, icc, lat, lon) ;
+		lystmmas:_FillValue = -999. ;
+		lystmmas:long_name = "Stem mass at the end of last year" ;
+		lystmmas:units = "Kg C/m2" ;
+	double lyrotmas(tile, icc, lat, lon) ;
+		lyrotmas:_FillValue = -999. ;
+		lyrotmas:long_name = "Root mass at the end of last year" ;
+		lyrotmas:units = "Kg C/m2" ;
+	double nbleafmas(tile, icc, lat, lon) ;
+		nbleafmas:_FillValue = -999. ;
+		nbleafmas:units = "g N/m2" ;
+		nbleafmas:long_name = "Brown leaf nitrogen mass" ;
+	double ngleafmas_ns(tile, icc, lat, lon) ;
+		ngleafmas_ns:_FillValue = -999. ;
+		ngleafmas_ns:units = "g N/m2" ;
+		ngleafmas_ns:long_name = "non-structural green leaf nitrogen mass" ;
+	double ngleafmas_s(tile, icc, lat, lon) ;
+		ngleafmas_s:_FillValue = -999. ;
+		ngleafmas_s:units = "g N/m2" ;
+		ngleafmas_s:long_name = "structural green leaf nitrogen mass" ;
+	float nh4_mass(tile, iccp1, lat, lon) ;
+		nh4_mass:_FillValue = -999.f ;
+		nh4_mass:units = "g N/m2" ;
+		nh4_mass:long_name = "Nitrogen Mass in Model Ammonium Pool" ;
+	double nlitrmass(tile, iccp1, lat, lon) ;
+		nlitrmass:_FillValue = -999. ;
+		nlitrmass:units = "g N/m2" ;
+		nlitrmass:long_name = "Litter nitrogen mass" ;
+	float no3_mass(tile, iccp1, lat, lon) ;
+		no3_mass:_FillValue = -999.f ;
+		no3_mass:units = "g N/m2" ;
+		no3_mass:long_name = "Nitrogen Mass in Model Nitrate Pool" ;
+	float soilpH(tile, lat, lon) ;
+		soilpH:_FillValue = -999.f ;
+		soilpH:units = "pH units" ;
+		soilpH:long_name = "soil pH" ;
+	double nrootmass_ns(tile, icc, lat, lon) ;
+		nrootmass_ns:_FillValue = -999. ;
+		nrootmass_ns:units = "g N/m2" ;
+		nrootmass_ns:long_name = "non-structural root nitrogen mass" ;
+	double nrootmass_s(tile, icc, lat, lon) ;
+		nrootmass_s:_FillValue = -999. ;
+		nrootmass_s:units = "g N/m2" ;
+		nrootmass_s:long_name = "structural root nitrogen mass" ;
+	double nstemmass_ns(tile, icc, lat, lon) ;
+		nstemmass_ns:_FillValue = -999. ;
+		nstemmass_ns:units = "g N/m2" ;
+		nstemmass_ns:long_name = "non-structural stem nitrogen mass" ;
+	double nstemmass_s(tile, icc, lat, lon) ;
+		nstemmass_s:_FillValue = -999. ;
+		nstemmass_s:units = "g N/m2" ;
+		nstemmass_s:long_name = "structural stem nitrogen mass" ;
+	double stmhrlos(tile, icc, lat, lon) ;
+		stmhrlos:_FillValue = -999. ;
+		stmhrlos:long_name = "Stem harvest loss rate for crops" ;
+		stmhrlos:units = "1/day" ;
+	double rothrlos(tile, icc, lat, lon) ;
+		rothrlos:_FillValue = -999. ;
+		rothrlos:long_name = "Root harvest loss rate for crops" ;
+		rothrlos:units = "1/day" ;
+	double soilnmas(tile, iccp1, lat, lon) ;
+		soilnmas:_FillValue = -999. ;
+		soilnmas:long_name = "Soil N mass" ;
+		soilnmas:units = "g N/m2" ;
+	double tymaxlai(tile, icc, lat, lon) ;
+		tymaxlai:_FillValue = -999. ;
+		tymaxlai:long_name = "This year\'s maximum LAI" ;
+		tymaxlai:units = "m2/m2" ;
+
+// global attributes:
+		:title = "CLASSIC initialization file" ;
+		:creation_date = "20220428" ;
+data:
+// Longitude
+lon = -98.48081 ;
+
+// Latitude
+lat = 55.87962 ;
+
+// land surface tile
+tile = 1 ;
+
+// physics (CLASS) PFTs plus bareground (icp1)
+icp1 = 
+1, 2, 3, 4, 5, 6 ;
+
+// ground layers (layer)
+layer = 
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ;
+
+// physics (CLASS) PFTs (ic)
+ic = 
+1, 2, 3, 4, 5 ;
+
+// biogeochemical (CTEM) PFTs (icc)
+icc = 
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ;
+
+// biogeochemical (CTEM) PFTs plus bareground (iccp1)
+iccp1 = 
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ;
+
+// biogeochemical (CTEM) PFTs plus bareground and land use change product pools (iccp2)
+iccp2 = 
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ;
+
+// wetland slope fractions for 0.025, 0.05, 0.1, 0.15, 0.20, 0.25, 0.3 and 0.35 percent slope threshold (slope)
+slope = 
+1, 2, 3, 4, 5, 6, 7, 8 ;
+
+// GCM surface descriptor - land surfaces (inc. inland water) is -1
+GC = -1.0 ;
+
+// Number of tiles in each grid cell
+nmtest = 1.0 ;
+
+// Annual maximum fractional coverage of modelled area (read in for CLASS only runs) (icp1)
+FCAN = 
+0.9, 0.0, 0.0, 0.0, 0.1, 0.0 ;
+
+// Natural logarithm of maximum vegetation roughness length (icp1)
+LNZ0 = 
+0.0, 0.0, 0.0, 0.0, -3.5, 0.0 ;
+
+// Average near-IR albedo of vegetation category when fully-leafed (icp1)
+ALIC = 
+0.19, 0.0, 0.0, 0.0, 0.4, 0.0 ;
+
+// Average visible albedo of vegetation category when fully-leafed (icp1)
+ALVC = 
+0.03, 0.0, 0.0, 0.0, 0.2, 0.0 ;
+
+// Annual maximum plant area index of vegetation category (ic)
+PAMX = 
+4.8, 0.0, 0.0, 0.0, 2.5 ;
+
+// Annual minimum plant area index of vegetation category (ic)
+PAMN = 
+2.5, 0.0, 0.0, 0.0, 0.0 ;
+
+// Annual maximum canopy mass for vegetation category (ic)
+CMAS = 
+8.0, 0.0, 0.0, 0.0, 1.0 ;
+
+// Annual maximum rooting depth of vegetation category (ic)
+ROOT = 
+1.0, 0.0, 0.0, 0.0, 0.4 ;
+
+// Percentage sand content (layer)
+SAND = 
+-2.0, -2.0, -2.0, -2.0, 2.3, 0.5, 0.5, 0.5, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, -3.0 ;
+
+// Percentage clay content (layer)
+CLAY = 
+0.0, 0.0, 0.0, 0.0, 81.0, 90.0, 90.0, 90.0, 47.8, 47.8, 47.8, 47.8, 47.8, 47.8, 47.8, 47.8, 47.8, 47.8, 47.8, 0.0 ;
+
+// Percentage organic matter content (layer)
+ORGM = 
+92.6, 93.8, 92.0, 80.0, 6.8, 5.2, 5.2, 5.2, 36.8, 36.8, 36.8, 36.8, 36.8, 36.8, 36.8, 36.8, 36.8, 36.8, 36.8, 0.0 ;
+
+// Temperature of soil layers (layer)
+TBAR = 
+-3.0, -2.5, -2.0, -1.5, -1.0, -0.8, -0.6, -0.4, -0.2, 0.0, 0.0, 0.0, 0.2, 0.4, 0.6, 1.0, 2.0, 3.1, 2.4, 2.3 ;
+
+// Volumetric frozen water content of soil layers (layer)
+THIC = 
+0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.0, 0.0 ;
+
+// Volumetric liquid water content of soil layers (layer)
+THLQ = 
+0.8, 0.6, 0.6, 0.5, 0.5, 0.5, 0.5, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.0, 0.0 ;
+
+// Ground layer thickness (layer)
+DELZ = 
+0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.2, 0.3, 0.4, 0.5, 1.0, 3.0, 5.0, 15.0, 30.0, 5.0 ;
+
+// Soil drainage index
+DRN = 0.3 ;
+
+// Tile fractional area of gridcell
+FARE = 1.0 ;
+
+// Mosaic tile type identifier (1 for land surface, 0 for inland lake)
+MID = 1.0 ;
+
+// Soil permeable depth
+SDEP = 36.0 ;
+
+// Soil colour index
+SOCI = 18.0 ;
+
+// Vegetation canopy temperature
+TCAN = -17.0 ;
+
+// Soil drainage index
+ALBS = 0.8 ;
+
+// Vegetation growth index
+GRO = 0.0 ;
+
+// Intercepted liquid water stored on canopy
+RCAN = 0.0 ;
+
+// Density of snow
+RHOS = 160.0 ;
+
+// Intercepted frozen water stored on canopy
+SCAN = 0.0 ;
+
+// Mass of snow pack
+SNO = 160.0 ;
+
+// Temperature of ponded water
+TPND = -17.0 ;
+
+// Snowpack temperature
+TSNO = -17.0 ;
+
+// Depth of ponded water on surface
+ZPND = 0.0 ;
+
+// Area of grid cell
+grclarea = 100.0 ;
+
+// temperature of the warmest month (running averages in an e-folding sense)
+twarmm = -99.0 ;
+
+// temperature of the warmest month (running averages in an e-folding sense)
+tcoldm = 99.0 ;
+
+// growing degree days above 5 C (running averages in an e-folding sense)
+gdd5 = -8553600000000000 ;
+
+// aridity index, ratio of potential evaporation to precipitation (running averages in an e-folding sense)
+aridity = 99.0 ;
+
+// number of months in a year with surplus water i.e. precipitation more than potential evaporation(running averages in an e-folding sense)
+srplsmon = -99.0 ;
+
+// number of months in a year with water deficit i.e. precipitation less than potential evaporation(running averages in an e-folding sense)
+defctmon = -99.0 ;
+
+// annual water deficit(running averages in an e-folding sense)
+anndefct = 99.0 ;
+
+// annual water surplus (running averages in an e-folding sense)
+annsrpls = -99.0 ;
+
+// annual precipitation (running averages in an e-folding sense)
+annpcp = -99.0 ;
+
+// annual maximum dry month length (running averages in an e-folding sense)
+dry_season_length = -99.0 ;
+
+// Brown leaf mass (icc)
+bleafmas = 
+0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Green leaf mass (icc)
+gleafmas = 
+0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.0 ;
+
+// Stem mass (icc)
+stemmass = 
+8.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.1 ;
+
+// Root mass (icc)
+rootmass = 
+1.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5 ;
+
+// Growth efficiency. Change in biomass per year per unit max. LAI,for use in mortality subroutine (icc)
+grwtheff = 
+100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0 ;
+
+// Leaf status, see Phenology (icc)
+lfstatus = 
+1.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 1.0, 1.0 ;
+
+// Days with +ve new photosynthesis, see Phenology (icc)
+pandays = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Peatland flag: 0 = not a peatland, 1= bog, 2 = fen
+ipeatland = 0.0 ;
+
+// C in moss biomass
+Cmossmas = 0.0 ;
+
+// Moss litter mass
+litrmsmoss = 0.0 ;
+
+// Depth of living moss
+dmoss = 0.0 ;
+
+// Active layer depth maximum over the e-folding period specified by parameter eftime
+maxAnnualActLyr = 6.0 ;
+
+// Slope-based fraction for dynamic wetlands (slope)
+slopefrac = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// PFT fractional coverage per grid cell (icc)
+fcancmx = 
+0.9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.05, 0.05 ;
+
+// Litter mass per soil layer (layer, iccp2)
+litrmass = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Soil C mass per soil layer (layer, iccp2)
+soilcmas = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Non-structural green leaf mass (icc)
+gleafmas_ns = 
+0.05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.010000000000000002, 0.0 ;
+
+// Structural green leaf mass (icc)
+gleafmas_s = 
+0.45, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.09000000000000001, 0.0 ;
+
+// Non-structural stem mass (icc)
+stemmass_ns = 
+0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.020000000000000004, 0.010000000000000002 ;
+
+// Structural stem mass (icc)
+stemmass_s = 
+7.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.18000000000000002, 0.09000000000000001 ;
+
+// Non-structural root mass (icc)
+rootmass_ns = 
+0.19, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.05, 0.05 ;
+
+// Structural root mass (icc)
+rootmass_s = 
+1.71, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.45, 0.45 ;
+
+// Peat soil C for peatland tiles
+peatSoilC = 0.0 ;
+
+// Aerodynamic conductance, canopy over ground
+cfluxcg = 0.0 ;
+
+// Aerodynamic conductance, canopy over snow
+cfluxcs = 0.0 ;
+
+// Intercellular CO2, single/sunlit leaf, canopy over ground (icc)
+co2i1cg = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Intercellular CO2, shaded leaf, canopy over ground (icc)
+co2i2cg = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Intercellular CO2, single/sunlit leaf, canopy over snow (icc)
+co2i1cs = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Intercellular CO2, shaded leaf, canopy over snow (icc)
+co2i2cs = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Cold days counters for NDL DCD TREES (days below temperature threshold for leaf fall)
+colddays_leaffall = 
+0.0 ;
+
+// Cold days counters for CROPS (days below temperature threshold for harvest)
+colddays_harvest = 
+0.0 ;
+
+// Land-atmosphere CO2 flux from previous time step, +ve up, NBP is +ve down, used in CanESM only
+fcol = 0.0 ;
+
+// last year maximum of the green leaf mass for each PFT (icc)
+lygleafmasmax = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// last year maximum of the stem mass for each PFT (icc)
+lystemmassmax = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// last year maximum of the root mass for each PFT (icc)
+lyrootmassmax = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Fall and harvest loss rate for dcd trees and crops (non structural) (icc)
+flhrloss_ns = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Fractional land cover
+FLND = 1.0;
+
+// Fall and harvest loss rate for dcd trees and crops (structural) (icc)
+flhrloss_s = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Stem mass at the end of last year (icc)
+lystmmas = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Root mass at the end of last year (icc)
+lyrotmas = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Brown leaf nitrogen mass (icc)
+nbleafmas = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// non-structural green leaf nitrogen mass (icc)
+ngleafmas_ns = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// structural green leaf nitrogen mass (icc)
+ngleafmas_s = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Nitrogen Mass in Model Ammonium Pool (iccp1)
+nh4_mass = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Litter nitrogen mass (iccp1)
+nlitrmass = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Nitrogen Mass in Model Nitrate Pool (iccp1)
+no3_mass = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// soil pH
+soilpH = 5.775 ;
+
+// non-structural root nitrogen mass (icc)
+nrootmass_ns = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// structural root nitrogen mass (icc)
+nrootmass_s = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// non-structural stem nitrogen mass (icc)
+nstemmass_ns = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// structural stem nitrogen mass (icc)
+nstemmass_s = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Stem harvest loss rate for crops (icc)
+stmhrlos = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Root harvest loss rate for crops (icc)
+rothrlos = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// Soil N mass (iccp1)
+soilnmas = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+// This year's maximum LAI (icc)
+tymaxlai = 
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ;
+
+}

@@ -1,0 +1,48 @@
+#!/bin/bash
+
+export NETCDFDIR=$(pwd)
+
+export NUMCORE=${NUMCORE-$(( $(egrep ^processor /proc/cpuinfo | wc -l) - 2 ))}
+
+case "$0" in
+    *mpi)
+	export NETCDFDIR=${NETCDFDIR}/MPI
+	export CCCPARALLEL=true
+	export CC=mpicc.openmpi
+	export CPPFLAGS=
+	export CFLAGS="-I${NETCDFDIR}/include -fopenmp"
+	export CXX=mpiCC.openmpi
+	export CXXFLAGS="${CFLAGS}"
+	export FC=mpif90.openmpi
+	export FCFLAGS="-I${NETCDFDIR}/include"
+	export FFLAGS="$FCFLAGS"
+	export F77=mpif77.openmpi
+	export LIBS="-L${NETCDFDIR}/lib"
+	export LDFLAGS="-L${NETCDFDIR}/lib -fPIC"
+	export LD_LIBRARY_PATH="${NETCDFDIR}/lib}"
+	;;
+    *gcc)
+	export NETCDFDIR=${NETCDFDIR}/GCC
+	export CCCPARALLEL=false
+	export CC=gcc
+	export CPPFLAGS=
+	export CFLAGS="-I${NETCDFDIR}/include -fopenmp -O"
+	export CXX=g++
+	export CXXFLAGS="${CFLAGS}"
+	export FC=gfortran
+	export FCFLAGS="-I${NETCDFDIR}/include"
+	export FFLAGS="${FCFLAGS}"
+	export F77=gfortran
+	export LIBS="-L${NETCDFDIR}/lib"
+	export LDFLAGS="-L${NETCDFDIR}/lib -fPIC"
+	export LD_LIBRARY_PATH="${NETCDFDIR}/lib}"
+	;;
+esac
+
+export PATH=${NETCDFDIR}/bin:${PATH}
+
+
+for i in zlib-1.2.11 hdf5-1.10.5 netcdf-c-4.6.3 netcdf-fortran-4.4.5
+do
+    (cd src/$i ; time make check) || break
+done

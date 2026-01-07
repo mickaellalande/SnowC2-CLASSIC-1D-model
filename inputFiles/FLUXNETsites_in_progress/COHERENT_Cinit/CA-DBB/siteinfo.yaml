@@ -1,0 +1,51 @@
+name: "CA-DBB"
+full_name: "British Columbia - Delta Burns Bog"
+biome: "WET"
+lon: -122.9849
+lat: 49.1293
+soilcolour: 20
+start: 2014
+end: 2020
+ZRFH: 1.8
+ZRFM: 2
+PFTs: "1% BdlDCoTr, 54% Sedge" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "true"
+landscape_state: "disturbed"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+
+Disturbed raised bog ecosystem (peat harvesting 1957 to 1963). Site has been restored and rewetted in 2007 by ditch blocking.
+
+Vegetation:
+
+- depth of peat at the study site is 5.83 m
+
+- plant communities in the study ecosystem are dominated by Sphagnum spp. and Rhynchospora alba
+
+- Plants are separated by shallow open water pools
+
+- Sphagnum covers over 25 % of the surface and the open water ponds was estimated to be about 20 %
+
+- Mean Air Temperature: 10.4 °C
+
+- Mean Annual Precipitation: 1189 mm 
+
+- Water table height: 30 cm above ground to 30 cm below ground
+
+- average canopy height: 0.5m~0.8m
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+- Cmossmass and litrmsmoss: Used the value from CA-WP1
+
+"
+
+principal_refs: "Lee, S.C., Christen, A., Black, A.T., Johnson, M.S., Jassal, R.S., Ketler, R., Nesic, Z. and Merkens, M.,
+Annual greenhouse gas budget for a bog ecosystem undergoing restoration by rewetting,
+Biogeosciences,
+Volume 14,
+2017,
+Pages 2799–2814,
+ISSN 1726-4170,
+doi.org/10.5194/bg-14-2799-2017"

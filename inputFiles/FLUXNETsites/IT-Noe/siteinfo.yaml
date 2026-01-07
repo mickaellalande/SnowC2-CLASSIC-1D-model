@@ -1,0 +1,64 @@
+name: "IT-Noe"
+full_name: "Arca di Noe - Le Prigionette"
+biome: "CSH"
+lon: 8.15169
+lat: 40.60618
+soilcolour: 17
+start: 2004
+end: 2014
+ZRFH: 2.0
+ZRFM: 2.0
+PFTs: "0.70 BdlEvgSh" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "disturbed"
+doi: "10.18140/FLX/1440171"
+notes: "
+Nature Reserve, Part of Capo Caccia peninsula in North-Western Sardinia (Papale et al., 2015); the site has a surface area of 1200 ha and is delimited by cliffs dropping into
+ the sea on the north-western and western boundaries
+Elevation: 25 m
+
+Vegetation:
+
+- plant species: for vegetated surface 53% juniper, 22% lentisk and 15% other species(tree phyllirea, dwarf fan palm) (Marras et al., 2011); sparsely vegetated shrubland,
+ patches with bare ground in between (EVG BDL shrubs)
+
+- Other species present in the experimental site are rosemary (Rosmarinus officinalis L.), Genista corsica (Loisel) DC., Daphne gnidium L., Smilax aspera L., 
+Euphorbia characias L., Helichrysum microphyllum DC., Asphodelus microcarpus Salzm., and Ferula communis L.
+
+- vegetation is a secondary succession following a fire event occurred in 1963 and agricultural abandonment in 1970. Currently, this area has limited human activity.
+
+Sun and Verseghy used in CLASS: 70% shrub cover, 30% bare soil
+
+- rooting depth not available, but Sun and Verseghy used 0.4 m
+
+- vegetation coverage 42-91% (Marras et al., 2011), used 70% in CLASS (Sun and Verseghy, 2019)
+
+- average plant height about 1.75 m (Marras et al., 2011); mean maquis height ranges between 0.93 and 1.43 m (Marras et al., 2011)
+
+- wilting point: 0.24 (Marras et al., 2011)
+
+- average LAI: 2.7-3.0 m2/m2 (Marras et al., 2011) 
+
+Climate: semiarid Mediterranean climate with warm summers, mild winters and a high water deficit from May through September; precipitation mainly during spring; intense rainstorms during the fall with high runoff and low water storage
+
+- mean annual precipitation: 588 mm (Fluxnet)
+
+- mean annual temperature: 15.9 degrees C (Fluxnet)
+
+
+Soils: soil is Lithic Xerorthent, 0.3–0.4 m deep, mainly composed of clay, and erosion is common
+
+Soil composition (sand/clay): 15-16% / 28-37% (Sun and Verseghy, 2019; Marras et al., 2011)
+Soil permeable depth: 0.3-0.4 m (Marras et al., 2011) on limestone (used 0.4 m in CLASS)
+
+PI: Donatella Spano, University of Sassari; Pierpaolo Duce, IBIMET CNR Sassari
+
+"
+principal_refs: "Marras, S., Pyles, R.D., Sirca, C., Snyder, R.L., Duce, P., Spano, D., 2011. Evaluation of the advanced canopy–atmosphere–soil algorithm (ACASA) model performance over
+Mediterranean maquis ecosystem. Agric. For. Meteorol. 151 (6), 730–745.
+Papale, D., Migliavacca, M., Cremonese, E., Cescatti, A., Alberti, G., Balzarolo, M., et al.,
+2015. Carbon, water and energy fluxes of terrestrial ecosystems, Italy. In The
+Greenhouse Gas Balance of Italy. Springer, Berlin, Heidelberg, pp. 11–45."
+
+# Comments are started with the pound sign, as per usual.

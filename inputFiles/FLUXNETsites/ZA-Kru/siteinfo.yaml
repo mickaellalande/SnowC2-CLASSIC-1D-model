@@ -1,0 +1,40 @@
+name: "ZA-Kru"
+full_name: "Skukuza"
+biome: "SAV"
+lon: 31.4969
+lat: -25.0197
+soilcolour: 17
+start: 2000
+end: 2013
+ZRFH: 17
+ZRFM: 17
+PFTs: "0.28 BdlDDrTr, 0.72 GrassC4" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".false." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440188"
+notes: "
+Savanna - Kruger National Park, South Africa
+
+
+Vegetation:
+
+- 28% tree cover, evenly mixed between: Combretum apiculatum, Acacia migrescens (both deciduous broadleaf
+
+- 72% grass layer dominated by: Panicum maximum (C4), Digataria eriantha (C4), Eragrostis rigidor (C4?), Pogonarthria squarrosa (C4)
+
+-> 100% C4 in CTM 
+
+- woody plant basal area: 7m2/ha
+
+- tree canopies average 5 - 8 m high with occasional trees reaching 10 m
+
+- growing season LAI average about 1.1; has reached as high as 2.0 for more extended record
+
+
+Climate:
+- annual precipitation: 550 +- 160 mm; rainy days per year almost entirely between November and April
+- year divided into hot, occasionally wet growing season and warm, dry non-growing season
+"
+principal_refs: "
+Williams, C., Hanan, N., Scholes, R., & Kutsch, W.L. (2009). Complexity in water and carbon dioxide fluxes following rain pulses in an African savanna. Oecologia. 161. 469-80. 10.1007/s00442-009-1405-y. "

@@ -1,0 +1,57 @@
+name: "PA-SPs"
+full_name: "Sardinilla-Pasture"
+biome: "GRA"
+lon: -79.63
+lat: 9.31
+soilcolour: 15
+start: 2007
+end: 2009
+ZRFH: 3
+ZRFM: 3
+PFTs: "0.25 GrassC3, 0.75 GrassC4" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "disturbed"
+doi: "10.18140/FLX/1440179"
+notes: "
+Tropical Grassland - Panama
+
+
+Vegetation:
+
+- site logged in 1952/ 1953, used for agriculture for two years, then converted into pasture
+
+- 2001: afforestation using native trees (7.5 ha)
+
+- traditional grazing continued on remaining pasture (6.5 ha)
+
+- two flux towers, one in pasture, one in afforestation: afforestation site can be neglected. pasture (9.31, -79.63), afforestation (9.33, -79.64)
+
+- dominated by C4-grasses: Paspalum dilatatum (C4, 50 - 75%), Rhynchospora nervosa (C3, 25 - 50%)
+
+- six deciduous and semi-deciduous trees in the afforestation
+
+-> 25% C3 referred to as low_C3, 50% C3 referred to as high_C3
+
+-> after running the test, decided for low C3 value as literature says that site is dominated by C4 
+
+- canopy height: 0.09 +- 0.07m 
+
+- LAI of canopy: dry season: 1.2 +- 0.14; wet season: 2.9 +- 0.15
+
+- management: grazing, herbicide treatment (annually in May)
+
+
+Climate:
+
+- semihumid tropical climate
+
+- mean annual temperature: 25.2 deg C
+
+- mean annual precipitation (2007 - 2009): 2289 mm
+
+- pronounced dry season from January to April, characterized by strong North-easterly trade winds
+
+- dry season length in Central Panama varies among years (134 +- 19 days for 1954 - 2009), influenced by ENSO"
+principal_refs: "
+Wolf, S., Werner, E., Potvin, C., & Buchmann, N. (2011). Strong seasonal variations in net ecosystem CO2 exchange of a tropical pasture and afforestation in Panama. Agricultural and Forest Meteorology. 151. 1139-1151. 10.1016/j.agrformet.2011.04.002. "

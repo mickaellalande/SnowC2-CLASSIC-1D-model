@@ -1,0 +1,46 @@
+name: "FR-Pue"
+full_name: "Puechabon"
+biome: "EBF"
+lon: 3.5958
+lat: 43.7414
+soilcolour: 15
+start: 2000
+end: 2014
+ZRFH: 20
+ZRFM: 20
+PFTs: "1.0 BdlEvgTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "disturbed"
+doi: "10.18140/FLX/1440164"
+notes: "
+Mediterranean Forest - Southern France
+
+Vegetation:
+
+- forest managed as coppice for centuries and was last cut in 1942
+
+- vegetation largely dominated by dense overstory of evergreen oak Q.Ilex -> 100% EVG BDL 
+
+- mean tree height: 5 m 
+
+- density of resprouted stem: 6885 stems/ha in 2005
+
+- stems with diamter at breast hight: < 4 cm: 12% of total stems, > 10 cm: 15.25 % of total stems
+
+- aboveground biomass: 12.3 kg dry matter/ m2 in 2005
+
+- understory compose sparse (< 25%) shrubby <2 m high layer with: Bexus sempervirens, Phyllirea latifolia, Pistacia terebinthus and Juniperus oxycedrus being most abundant species 
+
+- overstory LAI: 2.8 +- 0.4
+
+
+Climate
+
+- mediterrenean climate with annual rainfall of 907 mm/yr and a range of 546 - 1549 mm for 1984 - 2006
+
+- precipitation occurs during autumn and winter with about 80% of annual rainfall occuring between September and April
+
+- mean annual temperature over same period 13.4 with minimum in January (5.5) and maximum in July (22.9)"
+principal_refs: "
+Allard, Vincent., Ourcival, J.M., Rambal, S., Joffre, R., & Rocheteau, A. (2008). Seasonal and annual variation of carbon exchange in an evergreen Mediterranean forest in southern France. Global Change Biology. 14. 714 - 725. 10.1111/j.1365-2486.2008.01539.x. "

@@ -1,0 +1,66 @@
+name: "RU-Che"
+full_name: "Cherski"
+biome: "WET"
+lon: 161.3414
+lat: 68.6130
+soilcolour: 2
+start: 2002
+end: 2005
+ZRFH: 5.3
+ZRFM: 5.3
+PFTs: "1.0 GrassC3" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440181"
+notes: "
+Siberian Tundra - Eastern Russia
+
+Vegetation:
+
+- part of wide floodplain of lower Kolyma river (150 km south of the Arctic Ocean)
+
+- frost polygons of about 20 m diameter and ice wedges formation take place over the whole territory
+
+- Calamagrostis is typical vegetation of thel aiden depressions
+
+- uneroded plain areas are occupied byu tussock grasslands with cotton-grass growing in the hollows between the tussocks
+
+- topographically higher levels, such as the river bank, may be occupied by willows or larch trees
+
+- tussock height: 12 - 40 cm above surface of organic layer
+
+- total height of the grass canopy: 40 - 50 cm
+
+- diameter of tussocks 12 - 35 cm covering 15 - 18% of ground surface
+
+- intertussock hollows cover 80 - 85% of total surface; covered by C3 grasses
+
+- permanent water table covers active layer above the permafrost
+
+- permafrost depth is at 47 cm below top surface of organic layer in August 2002
+
+-> 100% C3 grass
+
+
+Climate:
+
+- dry continental climate with dry and warm summer (June - August) and cold winter (September - April, snow melt in May)
+
+- weather is characterized by rapid change between arctic cold and moist air masses reaching the continent (main wind direction: N - NW) and continental warm and dry air masses (main wind direction: S to SE)
+
+- mean annual temperature: - 12.5
+
+- daily mean temperatures reach - 40 in January and + 13 in July
+
+- mean annual precipitation: 200 - 215 m: only 80 - 100 mm fall as rain in summer
+
+- extremely dry in 2002: 50 mm rain from June to August 
+
+- max. daytime temperatures in July and August 2002: 28 
+
+- without snowmelt area would be arctic desert
+
+- moderate wind speed (1.5 - 4.5 m/s during 66.3% of the time, 5 - 10 m/s during 21% of the time)"
+principal_refs: "
+Corradi, C., Kolle, O., KK, W., Zimov, S., & Schulze, E.D. (2005). Carbon dioxide and methane exchange of a north-east Siberian tussock tundra. Global Change Biology. 11. 1910 - 1925. 10.1111/j.1365-2486.2005.01023.x. "

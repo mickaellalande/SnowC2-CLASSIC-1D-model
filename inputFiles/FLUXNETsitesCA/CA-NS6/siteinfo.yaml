@@ -1,0 +1,46 @@
+name: "CA-NS6"
+full_name: "Manitoba - UCI-1989 burn site"
+biome: "ENF"
+lon: -98.9644
+lat: 55.9167
+soilcolour: 18
+start: 2001
+end: 2005
+ZRFH: 40
+ZRFM: 40
+PFTs: "100% NdlEvgTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "fire"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+
+- A continental boreal forest, dominated by black spruce trees
+
+Vegetation:
+
+- Many 20–100 cm tall black spruce, 100–200 cm tall jack pine, and 50–400 cm tall aspen.
+- Most blackspruce trees killed by the 1989 fire fell from 2000 to 2005
+- Thick layer of wild rose, grass, Labrador tea, fireweed, alder, and willow.
+- Extensive firemoss withpatches of sphagnum (Sphagnumspp.) and feather (Ptilium,Pleurozium,orHylocomiumspp.) moss.
+
+- Mean tree height: ~1 m in 2005
+
+- leaf area index: ~1.8 m2 leaf/m2 ground in 2005
+
+- Mean Air Temperature: -2.9 °C
+
+- Mean Annual Precipitation: 500 mm 
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "Goulden, M.L., Winston, G.C., McMILLAN, A.M., Litvak, M.E., Read, E.L., Rocha, A.V. and Rob Elliot, J.,
+An eddy covariance mesonet to measure the effect of forest age on land–atmosphere exchange,
+Global change biology,
+Volume 12, Issues 11,
+2006,
+Pages 2146-2162,
+ISSN 1365-2486,
+10.1111/j.1365-2486.2006.01251.x"

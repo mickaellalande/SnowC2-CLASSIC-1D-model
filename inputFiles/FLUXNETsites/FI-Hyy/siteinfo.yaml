@@ -1,0 +1,60 @@
+name: "FI-Hyy"
+full_name: "Hyytiala"
+biome: "ENF"
+lon: 24.2950
+lat: 61.8475
+soilcolour: 19
+start: 1996
+end: 2014
+ZRFH: 23.3
+ZRFM: 33.3
+PFTs: "0.99 NdlEvgTr, 0.01 BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "harvested"
+doi: "10.18140/FLX/1440158"
+notes: "
+Boreal Forest - Finland
+
+Original values ZRFH = 23.3 m and ZRFM = 23.3 m. ZRFM was raised to 33.3 m to account for CLASSIC growing a vegetation canopy that was taller than the measurement heights.
+
+Vegetation:
+
+- dominated by Scot spine, homogenous for about 200 m in all directions from measurement site- further from homogenous stand mainly pine-dominated forests cover extended areas
+
+- dominant stand contains only 1% other than Scots pine: downy birch (Betula pubescens), grey alder (Alnus incana) and aspen (Populus tremula), all BDL DCD
+
+- ground vegetation consists of heather (Calluna vulgaris), lingonberry and blueberry
+
+- height of dominant trees in stand: 13 m
+
+- roughness length: 1.2 m
+
+- mean diameter at breast height: 13 cm
+
+- total (all-sided) needle area index: 9 
+
+- tree density: 2500 trees/ ha 
+
+- zero plane displacement: 9 m
+
+- typical growth rate: 8 m3/ha yr
+
+- forest half way through rotation time for this site type which is about 80 years
+
+- height of dominant trees: 14 m (2002)
+
+- all-sided needle area: 8 (2002)
+
+- tree biomass: 68 t/ha above- and belowground
+
+- forest floor: dwarf shrubs and mosses
+
+
+Climate:
+
+- annual mean temperature: 2.9 (1961 - 1990)
+
+- annual mean precipitation: 709 mm"
+principal_refs: "
+Kulmala, M., Hameri, K., Aalto, P., Makela, J., Pirjola, L., Nilsson, E., Buzorius, G., Rannik, U., Dal Maso, M., Seidl, W., Hoffman, T., Janson, R., Hansson, H., Viisanen, Y., Laaksonen, A., & O'Dowd, C. D. (2003). Overview of the international project on biogenic aerosol formation in the boreal forest (BIOFOR). Tellus B. 53. 324 - 343. 10.1034/j.1600-0889.2001.530402.x. "

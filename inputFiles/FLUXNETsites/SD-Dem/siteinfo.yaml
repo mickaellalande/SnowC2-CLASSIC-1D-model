@@ -1,0 +1,35 @@
+name: "SD-Dem"
+full_name: "Demokeya"
+biome: "SAV"
+lon: 30.5
+lat: 13.3
+soilcolour: 6
+start: 2005
+end: 2009
+ZRFH: 9
+ZRFM: 9
+PFTs: "0.075 BdlDDrTr, 0.925 GrassC4" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440186"
+notes: "
+Sparse Savanna - Sudan
+
+
+Vegetation:
+
+- 5 - 10% canopy cover 'Acacia senegal savanna'
+ground cover mostly composed of C4 grasses and herbs
+
+- maximum plant available water content: 10%
+
+
+Climate:
+
+- mean annual precipitation: 320 mm, falls from June to October
+
+- mean annual temperature: 26
+"
+principal_refs: "
+Sjostrom, M., Ardo, J., Eklundh, L., El Tahir, B., El-Khidir, H., Hellstrom, M., Pilesjo, P., & Seaquist, J. (2009). Evaluation of satellite based indices for gross primary production estimates in a sparse savanna in the Sudan. Biogeosciences. 6. 10.5194/bg-6-129-2009. "

@@ -1,0 +1,28 @@
+name: "CA-Mer"
+full_name: "Ontario - Eastern Peatland, Mer Bleue"
+biome: "WET"
+lon: -75.5186
+lat: 45.4094
+soilcolour: 14
+start: 2004
+end: 2009
+ZRFH: 2
+ZRFM: 2
+PFTs: "0.40 BdlEvgSh, 0.10 BdlDCoSh" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "true"
+landscape_state: "undisturbed"
+doi: "No DOIs available for CA-Mer"
+notes: "
+
+https://ameriflux.lbl.gov/sites/siteinfo/CA-Mer
+
+The Mer Bleue peatland is primarily a large ombrotrophic bog located in the Ottawa River Valley, 10 km east of Ottawa, Ontario, Canada (45.40 N lat., 75.50 W long.). Mean annual temperature is 6.3 C ranging from -10.5 C in January to 21.0 C in July. Mean annual precipitation is 943 mm, 268 mm of which falls during the summer months (Environment Canada; climate normals). Peat began to form approximately 8500 years ago, but the bog phase began later, about 6400 years ago (Lafleur et al., 2003; Richard, pers. comm.). The peat depth now ranges from 2 m at the edge to >5 m in the middle. Beaver ponds are found at the lagg margin of the bog. The bog is dominated by plant communities comprised primarily of the ericaceous shrubs Chamaedaphne calyculata (L.) Moench, Ledum groenlandicum Oeder, and Kalmia angustifolia L. Clusters of the deciduous shrub Vaccinium myrtilloides Michx. and the tufted sedge Eriophorum vaginatum L. are fairly common across the bog. The most common tree species found in the bog are Larix laricina (Duroi) K. Koch., Betula populifolia Marshall and Picea mariana (Miller) BSP occurring less frequently. In the poor fen, located to the north of the bog proper, community composition is primarily composed of the ericaceous shrubs listed above, including higher densities of K. angustifolia and Andromeda glaucophylla Link. The primary sedge in this area is Carex oligosperma Michx. All sites are dominated by an under story of bryophytes, mainly Sphagnum magellanicum Brid., Sphagnum capillifolium (Ehrh.) Hedw., and Polytrichum strictum Brid. in the bog, with Sphagnum papillosum Lindb., and Sphagnum fallax (Klinggr.) Klinggr. common in the wetter portions of the poor fen
+
+Elevation (m): 70, Climate: Dfc, Land cover: woody savannas, Dominant vegetation: shrub,
+Vegetation coverage: 0.5, Max. LAI (m−2m−2): 3.0, MAP (mm): 943, MAT (◦C): 6.0, 
+Peat depth (m): 2 - >5, Peatland type: Ombrotrophic bog.
+
+"
+principal_refs: 
+# Comments are started with the pound sign, as per usual.

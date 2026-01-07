@@ -1,0 +1,70 @@
+name: "US-BZS"
+full_name: "Bonanza Creek Black Spruce"
+biome: "ENF"
+lon: -148.3235
+lat: 64.6963
+soilcolour: 19
+start: 2014
+end: 2018
+ZRFH: 20
+ZRFM: 20
+PFTs: "0.21 NdlEvgTr, 0.24 Sedge, 0.41 BdlEvgSh, 0.14 BdlDCoSh" # use same naming convention as in run_parameters.txt/model code.
+leap: ".false." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1756434"
+notes: "
+
+Mature black spruce boreal forest with permafrost soils on a peat plateau in the Tanana lowlands in interior Alaska 
+
+General:
+
+- The site is situated in discontinuous permafrost, where most low-lying peatlands are underlain by ice-rich permafrost. 
+
+- Maximum seasonal thaw depth (cm): 50.6 ± 1.9
+
+- The peat soils is ~1 m thick with a low bulk density (0.27 ± 0.16 g cm-3) and high field water content (74 ± 16 vol.%).
+
+- The mineral texture is Silt
+
+- The eddy covariance system was mounted at 5m on a triangular tower.
+
+- adjacent to the Tanana River floodplain
+
+- The permafrost forest is on an intact peat plateau that rises ~130 cm from the surrounding landscape.
+
+Vegetation:
+
+- Vegetation IGBP: ENF (Evergreen Needleleaf Forests: Lands dominated by woody vegetation with a percent cover >60% and height exceeding 2 meters. Almost all trees remain green all year. Canopy is never without green foliage.)
+
+- The permafrost forest is dominated by mature black spruce trees (Picea mariana, ~100 years old), with an understory consisting of various shrubs, mosses, grasses, and lichens. 
+
+- sparse black spruce, mean tree density < 800 trees ha-1.
+
+- The understory was dominated by evergreen shrubs, primarily Rhododendron groenlandicum (bog labrador tea), Vaccinium vitis-idaea (lignonberry), and Oxycoccus microcarpus (bog cranberry)
+
+- The ground layer was dominated by lichens and feather moss.
+
+Climate:
+
+- Climate Koeppen: Dfd (Subarctic: severe, very cold winter, no dry season, cool summer)
+
+- Mean Annual Temp (°C): -2.4
+
+- Mean Annual Precip. (mm):	274
+
+- Primary wind direction in the summer is WSW.
+
+- air temperatures range from -50 °C in January to +33 °C in July with a mean annual temperature of -2.9 °C (1988–2014; BNZ LTER climate data base). 
+
+- Growing seasons average 135 days.
+
+"
+
+principal_refs: "
+Euskirchen, Eugenie S., et al. Differential response of carbon fluxes to climate in three peatland ecosystems that vary in the presence and stability of permafrost. Journal of Geophysical Research, Biogeosciences 119.8 (2014), 1576-1595.
+
+Neumann R B, Moorberg C J, Lundquist J D, et al. Warming effects of spring rainfall increase methane emissions from thawing permafrost[J]. Geophysical Research Letters, 2019, 46(3), 1393-1401.
+
+Finger R A, Turetsky M R, Kielland K, et al. Effects of permafrost thaw on nitrogen availability and plant–soil interactions in a boreal Alaskan lowland[J]. Journal of Ecology, 2016, 104(6), 1542-1554.
+"

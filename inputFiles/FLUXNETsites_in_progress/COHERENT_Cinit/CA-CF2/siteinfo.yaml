@@ -1,0 +1,42 @@
+name: "CA-CF2"
+full_name: "Manitoba - Churchill Fen Site 2"
+biome: "WET"
+lon: -93.8300
+lat: 58.6658
+soilcolour: 15
+start: 2008
+end: 2011
+ZRFH: 4.3
+ZRFM: 1.8
+PFTs: "55% Sedge" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "true"
+landscape_state: "undisturbed"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+Peat development has occurred for over 6000 years in the area 
+
+- Vegetation: dominated by the sedge and an understory of the moss
+
+- Soil: the active layer can extend to a depth of more than 1.5 m
+
+- Water table: Fluctuates from 15 cm below to 20 cm above the mean sedge–peat surface
+
+- Mean Air Temperature: -6.5 °C
+
+- Mean Annual Precipitation: 452 mm 
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+- Cmossmass and litrmsmoss: Used the value from CA-WP1
+
+"
+
+principal_refs: "Hanis, K.L., Amiro, B.D., Tenuta, M., Papakyriakou, T. and Swystun, K.A.,
+Carbon exchange over four growing seasons for a subarctic sedge fen in northern Manitoba, Canada,
+Arctic Science,
+Volume 1, Issues 2,
+2015,
+Pages 27-44,
+ISSN 2368-7460,
+doi.org/10.1139/as-2015-0003"

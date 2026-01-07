@@ -1,0 +1,64 @@
+name: "GL-ZaH"
+full_name: "Zackenberg Heath"
+biome: "GRA"
+lon: -20.5503
+lat: 74.47328
+soilcolour: 7
+start: 2000
+end: 2014
+ZRFH:  2.8
+ZRFM:  2.76
+PFTs: "0.56 BdlEvgSh, 0.09 BdlDCoSh" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440224"
+notes: " 
+Greenland Heath tundra (renamed from DK-ZaH to GL-ZaH in 2020 update of FLUXNET2015)
+
+Vegetation:
+
+- dominant plant species: Cassiope tetragona (Arctic bell-heather, evergreen dwarf shrub), Dryas octopetala (Mountain evans, small prostrate 
+evergreen subshrub) and Vaccinium uliginosum (Arctic blueberry, small deciduous shrub), low vegetation density 
+
+- Cassiope tetragona, Dryas integrifolia and Vaccinium uliginosum, accompanied by patches of mosses
+
+- footprint (~200 m) dominated by Cassiope heath plant community
+
+- average LAI: 0.2-0.3 m2/m2 
+  Cassiope Heath  - 20.45 % Cover - LAI (average ± SD) 0.21 ± 0.09 m2/m2 (Soegaard et al., 2000)
+  Dryas Heath     - 5.81 % Cover  - LAI 0.24 ± 0.11 m2/m2 (Soegaard et al., 2000)
+  Vaccinium Heath - 4.36 % Cover  - LAI 0.14 ± 0.08 m2/m2 (Soegaard et al., 2000)
+
+- plant cover: 65 % (Elberling et al., 2004)
+
+- Bowen ratio: 1.37 (Soegaard et al., 2001)
+
+Climate:
+
+- mean annual precipitation: 211 mm (Fluxnet), 261 mm (Lund et al., 2014) (~85% as snow)
+
+- mean annual temperature: -9 degrees C (Fluxnet)  
+
+Soils:
+
+- sandy loam (Jung et al., 2019)
+
+- minerogen soils with low organic carbon content
+
+- soil organic matter content: 15.1 ± 2.4 to 19.2 ± 1.4 % (% of dry weight) (Sorensen et al., 2006)
+
+- continuous permafrost with maximum thaw depth of 0.4-0.8 m (Lund et al., 2014)
+
+- slightly acidic with a pH of 5-5.5 in the top 20 cm (Elberling et al., 2008)
+
+Soil composition (sand/clay/silt): 0-5 cm depth    62.1 ± 10 / 11 ± 1 / 26.9 ± 9.2 % (Jung et al., 2019)
+	Cassiope heath	           5-10 cm depth   63.8 ± 6.7 / 11.7 ± 1.4 / 24.1 ± 6.7 %
+				   10-15 cm depth  65.4 ± 10.4 / 11 ± 2.7 / 23.6 ± 8.3 %
+
+Soil permeable depth: set to 5 m
+
+PI: Marcin Antoni Jackowicz-Korczynski, Aarhus University; Affiliate- Jakob Abermann, Greenland Survey
+"
+principal_refs: "Lund, M., Falk, J.M., Friborg, T., Mbufong, H.N., Sigsgaard, C., Soegaard, H., & Tamstorf, M.P. (2012). Trends in CO2 exchange in a high Arctic tundra heath, 2000-2010. Journal of Geophysical Research-Biogeosciences, 117"
+# Comments are started with the pound sign, as per usual.

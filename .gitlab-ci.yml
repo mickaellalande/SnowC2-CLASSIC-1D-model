@@ -1,0 +1,132 @@
+before_script:
+ - . /home/scrd101/generic/sc_cccma_setup_profile
+
+stages:
+ - setup
+ - build
+ - submit
+ - test
+ - documentation
+
+prepare_binary_folder:
+  stage: setup
+  script:
+    - if [ -d "~/tmp/CLASSIC" ]; then
+    -   rm -rf ~/tmp/CLASSIC
+    - else
+    -   mkdir -p ~/tmp/CLASSIC
+    - fi
+    - echo "setup complete"
+  except:
+    - branches@cccma/classic
+    - tags@cccma/classic
+
+compile:
+  stage: build
+  script:
+    - . ssmuse-sh -x /fs/ssm/hpco/exp/hdf5-netcdf4/parallel/openmpi-3.1.2/static/intel-19.0.3.199/01
+    - /usr/bin/make mode=ppp
+    - cp -r bin/* ~/tmp/CLASSIC
+    - echo "compilation complete"
+  except:
+    - branches@cccma/classic
+    - tags@cccma/classic
+
+submit:ctem_on:
+  stage: submit
+  script:
+    - tools/regression_testing/submission_scripts/job_submit.sh ctem_on
+    - echo "job submitted"
+    - rm -f /space/hall3/sitestore/eccc/crd/ccrp/scrd530/classic_checksums/ctem_on/checksums.csv
+  artifacts:
+    paths:
+      - job_id.txt
+  except:
+    - branches@cccma/classic
+    - tags@cccma/classic
+
+submit:ctem_off:
+  stage: submit
+  script:
+    - tools/regression_testing/submission_scripts/job_submit.sh ctem_off
+    - echo "job submitted"
+    - rm -f /space/hall3/sitestore/eccc/crd/ccrp/scrd530/classic_checksums/ctem_off/checksums.csv
+  artifacts:
+    paths:
+      - job_id.txt
+  except:
+    - branches@cccma/classic
+    - tags@cccma/classic
+
+submit:ctem_compete:
+  stage: submit
+  script:
+    - tools/regression_testing/submission_scripts/job_submit.sh ctem_compete
+    - echo "job submitted"
+    - rm -f /space/hall3/sitestore/eccc/crd/ccrp/scrd530/classic_checksums/ctem_compete/checksums.csv
+  artifacts:
+    paths:
+      - job_id.txt
+  except:
+    - branches@cccma/classic
+    - tags@cccma/classic
+
+regression_test:ctem_on:
+  stage: test
+  script:
+    - tools/regression_testing/sleepcheck.sh $( cat job_id.txt )
+    - tools/regression_testing/regtest.py /space/hall3/sitestore/eccc/crd/ccrp/scrd530 ctem_on
+    - chmod 777 -R /space/hall3/sitestore/eccc/crd/ccrp/scrd530/classic_checksums/* 2>/dev/null || true
+    - tools/regression_testing/verification.sh ctem_on
+    - echo "regression test complete"
+  dependencies:
+    - submit:ctem_on
+  except:
+    - branches@cccma/classic
+    - tags@cccma/classic
+
+retression_test:ctem_off:
+  stage: test
+  script:
+    - tools/regression_testing/sleepcheck.sh $( cat job_id.txt )
+    - tools/regression_testing/regtest.py /space/hall3/sitestore/eccc/crd/ccrp/scrd530 ctem_off
+    - chmod 777 -R /space/hall3/sitestore/eccc/crd/ccrp/scrd530/classic_checksums/* 2>/dev/null || true
+    - tools/regression_testing/verification.sh ctem_off
+    - echo "regression test complete"
+  dependencies:
+    - submit:ctem_off
+  except:
+    - branches@cccma/classic
+    - tags@cccma/classic
+
+retression_test:ctem_compete:
+  stage: test
+  script:
+    - tools/regression_testing/sleepcheck.sh $( cat job_id.txt )
+    - tools/regression_testing/regtest.py /space/hall3/sitestore/eccc/crd/ccrp/scrd530 ctem_compete
+    - chmod 777 -R /space/hall3/sitestore/eccc/crd/ccrp/scrd530/classic_checksums/* 2>/dev/null || true
+    - tools/regression_testing/verification.sh ctem_compete
+    - echo "regression test complete"
+  dependencies:
+    - submit:ctem_compete
+  except:
+    - branches@cccma/classic
+    - tags@cccma/classic
+
+pages:
+  stage: build
+  image: ubuntu
+  script:
+  - apt update
+  - apt install doxygen perl texlive-latex-base -y -f -m
+  - doxygen Doxyfile
+  - mv documentation/html/ public/
+  - rm -r -f documentation/html
+  - rm -f bib*
+  - rm -f citelist*
+  artifacts:
+    paths:
+    - public
+  only:
+  - branches@cccma/classic
+  - tags@cccma/classic

@@ -1,0 +1,29 @@
+name: "CA-WP1"
+full_name: "Alberta - Western Peatland - LaBiche River,Black Spruce/Larch Fen"
+biome: "WET"
+lon: -112.467
+lat: 54.954
+soilcolour: 12
+start: 2004
+end: 2008
+ZRFH: 5
+ZRFM: 9
+PFTs: "0.42 NdlEvgTr, 0.18 NdlDcdTr, 0.18 BdlEvgSh, 0.12 BdlDCoSh, 0.06 GrassC3, 0.04 Sedge" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "true"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1436323"
+notes: "
+
+https://ameriflux.lbl.gov/sites/siteinfo/CA-WP1
+
+This site was called 'AB-Fen' in Wu, Y., Verseghy, D. L. and Melton, J. R.: Integrating peatlands into the coupled Canadian Land Surface Scheme (CLASS) v3.6 and the Canadian Terrestrial Ecosystem Model (CTEM) v2.0, Geoscientific Model Development, 9(8), 2639–2663, 2016. 
+
+The  ecosystem  leaf  area  index,  measured  at  peak  leaf area  in  July  2004,  was  2.6+/-0.16 m2m2(average+/-SE). 
+
+For the interval from August 1, 2003 until September 30,2009,  we  obtained  NEE  data  in  91.1%  of  the  possible  30 min time periods. During a total of 58.9% of possible 30 min time periods, NEE measurements were available and friction velocity  was  above  the  threshold  value  of  0.15 m s-1.  Therefore, gap-filled data included 41.1% of the total possible 30 min time periods during the 6-year study.
+"
+principal_refs: "Flanagan, L. B. and Syed, K. H.: Stimulation of both photosynthesis and respiration in response to warmer and drier conditions in a boreal peatland ecosystem, Glob. Chang. Biol., 17(7), 2271–2287, 2011.
+
+Syed, K. H., Flanagan, L. B., Carlson, P. J., Glenn, A. J. and Van Gaalen, K. E.: Environmental control of net ecosystem CO2 exchange in a treed, moderately rich fen in northern Alberta, Agric. For. Meteorol., 140(1), 97–114, 2006."
+# Comments are started with the pound sign, as per usual.

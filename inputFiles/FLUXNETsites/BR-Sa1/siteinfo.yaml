@@ -1,0 +1,51 @@
+name: "BR-Sa1"
+full_name: "Santarem-Km67-Primary Forest"
+biome: "EBF"
+lon: -54.958
+lat: -2.856
+soilcolour: 14
+start: 2002
+end: 2011
+ZRFH: 58
+ZRFM: 58
+PFTs: "1.0 BdlEvgTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440032"
+notes: "
+Amazon Forest - Brazil
+
+
+General:
+
+- The tower is 58 m for highest emergent trees of 47m. Closed canopy at 40 m
+
+- NOTE: Precipitation does not match literature we looked up
+
+
+Vegetation:
+
+- located in Tapajos National Forest
+
+- canopy has significant number of large emergent trees to 55 m hieght
+
+- only EVG BDL listed:  Manilhara huberi, Hymenaea courbaril, Betholletia excelsa, Tachigalia spp
+
+- closed canopy at 40 m -> 100% EVG BDL
+
+- large logs, many epiphytes, uneven age distribution and emergent trees: forest can be considered primary or 'old-growth'
+
+- shows no sign of recent anthorpogenic disturbance
+
+
+Climate
+
+- mean annual temperature: 25
+
+- mean annual precipitation: 2000 mm
+
+- dry season from May through October
+
+- humidity 85%"
+principal_refs: "Saleska, S. R., Miller, S. D., Matross, D. M., Goulden, M. L., Wofsy, S. C., da Rocha, H. R., de Camargo, P. B., Crill, P., Daube, B. C., de Freitas, H. C., Hutyra, L., Keller, M., Kirchhoff, V., Menton, M., Munger, J. W., Pyle, E. H., Rice, A. H. and Silva, H.: Carbon in Amazon forests: unexpected seasonal fluxes and disturbance-induced losses, Science, 302(5650), 1554-1557, 2003."

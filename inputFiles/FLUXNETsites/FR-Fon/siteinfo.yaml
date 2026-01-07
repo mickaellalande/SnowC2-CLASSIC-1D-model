@@ -1,0 +1,40 @@
+name: "FR-Fon"
+full_name: "Fontainebleau-Barbeau"
+biome: "DBF"
+lon: 2.78
+lat: 48.4764
+soilcolour: 14
+start: 2005
+end: 2014
+ZRFH: 35
+ZRFM: 35
+PFTs: "0.01 NdlEvgTr, 0.99 BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "disturbed"
+doi: "10.18140/FLX/1440161"
+notes: "
+Temperate Oak Forest - Central Northern France
+
+Vegetation:
+
+- stand composed of: sessile oak (Quercus petraea, DCD BDL): 79% of basal area, hornbeam (Carpinus betulus, DCD BDL): 18% of basal area, dominates understory,
+ Pinus sylvestris L., Sorbus torminalis, make up less than 3 % of basal area; put 1% to EVG NDL, Corylus avellana, Mespilus germanica 
+
+- dominant height: 25 m at age 100 year
+
+- LAI: 6.4 averaged over 2006 - 2010
+
+- commercial thinning began in winter 2010/2011 and was pursued up to following winter
+
+  -> LAI fully recovered in 2012
+
+Climate
+
+- mean annual air temperature: 11.2
+
+- mean annual precipitation: 677 mm
+
+- homogenous distribution of precipitation events throughout the year"
+principal_refs: "
+Delpierre, N., Berveiller, D., Granda, E., & Dufrene, E. (2016). Wood phenology, not carbon input, controls the interannual variability of wood growth in a temperate oak forest. New Phytologist. 210. 459-470. 10.1111/nph.13771."

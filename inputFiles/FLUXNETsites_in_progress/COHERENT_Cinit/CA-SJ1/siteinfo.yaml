@@ -1,0 +1,58 @@
+name: "CA-SJ1"
+full_name: "Saskatchewan - Western Boreal, Jack Pine forest harvested in 1994"
+biome: "ENF"
+lon: -104.6560
+lat: 53.9080
+soilcolour: 18
+start: 2000
+end: 2010
+ZRFH: 6
+ZRFM: 6
+PFTs: "100% NdlEvgTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "harvested"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+
+- A chronosequence of four jack pine (Pinus banksiana Lamb.) stands, located approximately 100 km northeast of Prince Albert, Saskatchewan, Canada
+
+Vegetation:
+
+- Tree regeneration at the harvested sites was from seeds (cones) left behind following the whole-tree harvest; no additional planting was conducted
+
+- No understory
+
+- Mean tree height: 0.2 m in 2005
+
+- leaf area index: 0.8 m2 leaf/m2 ground in 2005
+
+- Mean tree diameter at DBH: 1.1 cm in 2005
+
+- stand density: 14091 trees/ ha in 2005
+
+- Live above ground C: 0.3±0.2 t/ha in 2005
+
+- Dead above ground C: 8.8±1.3 t/ha in 2005
+
+- Top forest floor organic layer C: 1.0±0.7 t/ha in 2005
+
+- Mineral soil C (0–50 cm): 17.4±3.3 t/ha in 2005
+
+- Mean Air Temperature: 0.13 °C
+
+- Mean Annual Precipitation: 430 mm 
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "Mkhabela, M.S., Amiro, B.D., Barr, A.G., Black, T.A., Hawthorne, I.,
+Kidston, J., McCaughey, J.H., Orchansky, A.L., Nesic, Z., Sass, A. and Shashkov, A.,
+Comparison of carbon dynamics and water use efficiency following fire and harvesting in Canadian boreal forests.,
+Agricultural and Forest Meteorology,
+Volume 149, Issues 5,
+2009,
+Pages 783-794,
+ISSN 0168-1923,
+10.1016/j.agrformet.2008.10.025"

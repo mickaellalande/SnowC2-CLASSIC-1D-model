@@ -1,0 +1,52 @@
+name: "US-SRC"
+full_name: "Santa Rita Creosote"
+biome: "OSH"
+lon: -110.8395
+lat: 31.9083
+soilcolour: 16
+start: 2008
+end: 2014
+ZRFH: 3.75
+ZRFM:  3.75
+PFTs: "10 % C3Grass, 14 % BdlEvgSh" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1246127"
+notes: " 
+Creosote bush dominated shrubland
+Elevation: 950 m
+
+Vegetation:
+
+- dominant plant species: creosotebush
+
+- rooting depth: Creosotebush is most dense at 20-40 cm (Cavanaugh et al., 2011); used 1m in CLASS
+
+- soil moisture contributes to the green-up of creosotebush; larger rainfall events that enable moisture to reach deep soil layers (<30 cm) appear to 
+have a greater influence on green-up than smaller events wetting only the surface (Kurc and Benton, 2010)
+
+- average plant height about 1.7 m (Kurc and Benton, 2010)
+
+- average LAI: 0.55 m2/m2 (Li et al., 2008); mean PAI of 0.45 ± 0.4 with a maximum PAI of 0.55 ± 0.24 (in September)
+
+- plant cover: 24 % (Kurc and Benton, 2010); 14% creosotebush (Larrea tridentata - evergreen shrub) and 10% annual grasses, herbaceous plants and cacti (Kurc and Benton, 2010)
+24% shrub cover, 76% bare soil in CLASS (Sun and Verseghy, 2019)
+
+Climate:
+
+- mean annual precipitation: 330 mm (Fluxnet); ~ 50 % of the precipitation as rain during the monsoon (July-September); other half between December and 
+February
+
+- mean annual temperature: 22 degrees C (Fluxnet)
+
+Soils:
+
+- sandy loam (Kurc and Benton, 2010)
+
+
+Soil composition (sand/clay/silt): 65% sand, 11% clay, 24% silt at least to 1 m depth (Kurc and Benton, 2010)
+
+Soil permeable depth: 4.1m used in CLASS (Sun and Verseghy, 2019)
+"
+principal_refs: "Kurc, S. A. and Benton, L. M.: Digital image-derived greenness links deep soil moisture to carbon uptake in a creosotebush-dominated shrubland, J. Arid Environ., 74(5), 585–594, doi:10.1016/j.jaridenv.2009.10.003, 2010."

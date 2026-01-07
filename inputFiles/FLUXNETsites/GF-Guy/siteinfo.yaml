@@ -1,0 +1,48 @@
+name: "GF-Guy"
+full_name: "Guyaflux (French Guiana)"
+biome: "EBF"
+lon: -52.92
+lat: 5.27
+soilcolour: 16
+start: 2004
+end: 2014
+ZRFH: 58
+ZRFM: 58
+PFTs: "1.0 BdlEvgTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440165"
+notes: "
+Neotropical Rainforest - Coastal French Guiana
+
+Vegetation:
+
+- 400 ha of undisturbed forest covered by experimental unit
+
+- pristine, tropical, wet forest
+
+- MODIS: Evergreen Broadleaf Forest
+
+- Google Earth: 100% forest cover
+
+
+Climate:
+
+- tropical wet, mainly driven by north/south movement of ITCZ
+
+- zone brings heavy rains when above French Guiana (December - February, April - July)
+
+- short dry period (March) when located south of French Guiana
+
+- long dry period (August - November) when located to the North
+
+- severity of long, dry period highly variable from year to year
+
+-> some remain mild (eg 2004) with 50 - 100 mm per month
+
+-> some severe (eg 2005) with 4 months < 50 mm precipitation 
+
+- over past decade, average annual       rainfall: 3041 mm"
+principal_refs: "
+Bonal, Damien., Bosc, A., Ponton, S., Goret, J., Burban, B., Gross, P., Bonnefond, J., Elbers, J., Bernard, L., Epron, D., Guehl, J., & Granier, A. (2008). Impact of severe dry season on net ecosystem exchange in the Neotropical rainforest of French Guiana. Global Change Biology. 14. 1917 - 1933. 10.1111/j.1365-2486.2008.01610.x. "

@@ -1,0 +1,44 @@
+name: "CA-NS8"
+full_name: "Manitoba - UCI-2003 burn site"
+biome: "ENF"
+lon: -98.2161
+lat: 55.8981
+soilcolour: 18
+start: 2001
+end: 2005
+ZRFH: 6
+ZRFM: 6
+PFTs: "100% NdlEvgTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "fire"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+
+- A continental boreal forest, dominated by black spruce trees
+
+Vegetation:
+
+- Many 2–4 cm tall black spruce and jack pine seedlings. Almost all of the black spruce trees killed in the 2003 fire werestill standing
+- Rapidly developing herbaceous layer of wild rose, fireweed, grass, Labrador tea, alder, willow, poplar,and aspen
+
+- Mean tree height: ~0.05 m in 2005
+
+- leaf area index: ~1.5 m2 leaf/m2 ground in 2005
+
+- Mean Air Temperature: -2.9 °C
+
+- Mean Annual Precipitation: 500 mm 
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "Goulden, M.L., Winston, G.C., McMILLAN, A.M., Litvak, M.E., Read, E.L., Rocha, A.V. and Rob Elliot, J.,
+An eddy covariance mesonet to measure the effect of forest age on land–atmosphere exchange,
+Global change biology,
+Volume 12, Issues 11,
+2006,
+Pages 2146-2162,
+ISSN 1365-2486,
+10.1111/j.1365-2486.2006.01251.x"

@@ -1,0 +1,52 @@
+name: "CA-Na1"
+full_name: "New Brunswick - 1967 Balsam Fir - Nashwaak Lake Site 01"
+biome: "ENF"
+lon: -67.1
+lat: 45.4722
+soilcolour: 17
+start: 2003
+end: 2005
+ZRFH: 24
+ZRFM: 18
+PFTs: "95% NdlEvgTr, 5% BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "harvested"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+Mature balsam fir forest
+
+- Vegetation: Composed of sugar and red maple, yellow birch, red spruce, balsam fir (~90% of the total site volume), eastern white pine and hemlock. Age was 32-37 in 2005.
+
+- Mean number of growing degree days: 1583 days
+
+- stand density: 2250 trees/ ha
+
+- Mean tree height: 13.5 m
+
+- Mean tree diameter at DBH: 12.9 cm
+
+- Leaf area index: 8.3 m2 leaf / m2 ground
+
+- Basal area: 30 m2/ha
+
+- Average rooting depth: 32.3±9.6cm
+
+- Soil pH: 4.1±0.09 
+
+- Mean Air Temperature: 3.5 °C
+
+- Mean Annual Precipitation: 972 mm 
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "Xing, Z., Bourque, C.P.A., Swift, D.E., Clowater, C.W., Krasowski, M. and Meng, F.R.,
+Carbon and biomass partitioning in balsam fir (Abies balsamea),
+Tree Physiology,
+Volume 25, Issues 9,
+2005,
+Pages 1207-1217,
+ISSN 1758-4469,
+10.1093/treephys/25.9.1207"

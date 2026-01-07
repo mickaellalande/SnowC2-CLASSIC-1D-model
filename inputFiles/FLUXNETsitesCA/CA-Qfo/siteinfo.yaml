@@ -1,0 +1,95 @@
+name: "CA-Qfo"
+full_name: "Quebec - E. Boreal, Mature Black Spruce"
+biome: "ENF"
+lon: -74.342
+lat: 49.6925
+soilcolour: 18
+start: 2003
+end: 2010
+ZRFH: 24
+ZRFM: 24
+PFTs: "0.9801 NdlEvgTr, 0.0099 NdlDcdTr, 0.01 BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1246829"
+notes: "
+
+An Old Black Spruce (OBS) site in eastern Canada (Chibougamau, Quebec) - EOBS
+
+General
+
+- 24 m tower, canopy at 13.8 m
+
+- Organic layers are 15-40 cm deep except where bedrock is apparent near the surface (<5 cm) and where intermittent creeks flow (>40 cm). The parent material has a silty‐sand texture with a moderate stone content. Drainage is good to moderate and the water table is usually at least 50 cm deep.
+
+- EOBS is dominated by podzol soils. The parent material has a silty-sand texture with a moderate stone content. Drainage is good to moderate and the water table is usually at least 50 cm deep. 
+
+- Ae horizon: 27-35 cm, mineral content, 51% Sand/ 33% Silt/ 4% Clay, OrgC 20.7g/100g
+
+- B horizon: 35-68 cm, mineral content, 52% Sand/ 25% Silt/ 4% Clay, OrgC 11.8 g/100g
+
+- The terrain has a gentle, variable slope (0 - 15%) that faces north toward a lake located 900m N-NW of the flux tower and the tower is installed mid-way up the slope. Bedrock is apparent on one small patch (<200 m2). 
+
+- 24 m tower, flux footprint approximate 500 m radius
+
+- the fetch extends to at least 500m in all directions except in the SE direction where a peatland is located around 350m from the tower.
+
+Vegetation
+
+- lies about halfway between southern and northern (treeline) limits of the boreal forest
+
+- flux footprint corresponds to an approximate 500 m radius centered on the tower
+
+- mainly covered by black spruce (EVG NDL)
+
+- few   jack pine (EVG NDL), tamarack (DCD NDL), alder (DCD BDL) on wet microsites
+
+- 99% NDL (1% DCD, 99% EVG), 1% DCD BDL 
+
+- dominant shrubs in drier habitats: Labrador tea 
+
+- groundcover: feather mosses (46% of total study area), sphagnum (13% of total study area), lichens (6% of total study area)
+
+- most of study area burnt between 1895 and 1915
+
+- stand age (in 2007): 95
+
+- mean tree height: 13.8 m
+
+- mean DBH: 12.7 cm
+
+- tree density: 4490 stems/ ha (DBH-range: 1.0 - 26.3 cm) 
+
+- black spruce basal area: 22.9 m2/ ha
+
+- hemispherical LAI: 3.7 m2/m2
+
+- total above-ground biomass: 4.5 kgC/m2
+
+- total below-ground biomass: 1.6 kgC/m2
+
+- standing dead: 1.0 kgC/m2
+
+- woddy debris: 0.8 kgC/m2
+
+- forest floor: 6.3 kgC/m2
+
+- mineral soil: 3.5 kgC/m2
+
+
+Climate
+
+- 30-year mean annual air temperature: 0.0
+
+- mean annual air temperature for 2004: -1.0
+
+- 30-year total annual precipitation: 961.3 mm (out of which 659.7 mm rain and 301.7 cm snow)
+
+- total annual precipitation for 2004: 1054.5 mm
+
+- mean annual soil temperature for 2004: 4.3
+
+- predominant winds come from south and the north-west, during both day and night"
+
+principal_refs: "Bergeron, O., Margolis, H. A., Black, T. A., Coursolle, C., Dunn, A. L., Barr, A. G. and Wofsy, S. C.: Comparison of carbon dioxide fluxes over three boreal black spruce forests in Canada, Glob. Chang. Biol., 13(1), 89-107, 2007. Bergeron, Onil, et al. How does forest harvest influence carbon dioxide fluxes of black spruce ecosystems in eastern North America?. Agricultural and Forest Meteorology 148.4 (2008), 537-548."

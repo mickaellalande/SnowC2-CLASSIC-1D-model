@@ -1,0 +1,95 @@
+name: "CA-Obs"
+full_name: "Saskatchewan-Western Boreal, Mature Black Spruce"
+biome: "ENF"
+lon: -105.1178
+lat: 53.9872
+soilcolour: 19
+start: 1997
+end: 2010
+ZRFH: 25
+ZRFM: 26
+PFTs: "0.9 NdlEvgTr, 0.1 NdlDcdTr" # use same naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1375198"
+notes: "
+
+- The research site was established as part of BOREAS in 1993 (Southern Study Area - Old Black Spruce Site, SOBS) and has been operated by the Boreal Ecosystem Research and Monitoring Sites (BERMS) program since 1997.
+
+- 100km NE of Prince Albert, Saskatchewan
+
+General:
+
+- the southern edge of the boreal forest.
+
+- Soil organic layers are 20–30 cm deep and the mineral soil has a sandy loam texture. 
+
+- The soil is Peaty Orthic Gleysol.
+
+- The surface is relatively flat with a hummock-hollow micro topography in wetter areas with occasional surface water in the hollows. Drainage is poor to imperfect and the water table is generally near the surface.
+
+- The tower at SOBS has a uniform fetch in the prevailing wind directions (SW to NW) of at least 1.2 km. The flux footprint (>80%) at this site was found to spread along the prevailing wind direction up to 200– 300 m during daytime convective conditions and 500 m during neutral or nighttime stable conditions.
+
+Vegetation:
+
+- homogeneously covered by black spruce (EVG NDL), with occasional tamaracks (DCD NDL) and jack pines (EVG NDL).
+
+- 90% black spruce and ~10% tamarack 
+
+- understory is sparse and dominated by Labrador tea and wild rose (Rosa spp.).
+
+- The ground is covered mainly with a dense moss mat (sphagnum and feather mosses).
+
+- feather mosses (Hylocomium splendens, Pleurozium schreberi and Ptilium crista-castrensis) overlaying an organic layer (70% of total forest- floor coverage), peat moss (Sphagnum spp.) in wetter areas (10%), lichens (Cladina spp.) in drier areas (10%)
+
+- black spruce up to 11 m high and tamarack 10–16 m high 
+
+- The stand density was 4330 stems ha-1 in 1998 with mean canopy height of 11 m (Krishnan et al., 2008).
+
+- The stand was established by natural regeneration after a forest fire in 1879.
+
+- stand age (in 2007): 130
+
+- mean tree height: 7.2 m (Bergeron et al.,2007) 
+
+- mean DBH: 7.1 cm (range: 2.1 – 21.1 cm)
+
+- tree density: 5900 stems/ ha
+
+- black spruce basal area: 27.2 m2/ ha
+
+- hemispherical LAI: 3.8 m2/m2
+
+- total above-ground biomass: 3.3 kgC/m2
+
+- total below-ground biomass: 1.1 kgC/m2
+
+- woddy debris: 0.1 kgC/m2
+
+- forest floor: 8.1 kgC/m2
+
+- mineral soil: 2.5 kgC/m2
+
+- Total Carbon: 15.1 kgC/m2
+
+Climate:
+
+- 30-year mean annual air temperature (°C): 0.4
+
+- mean annual air temperature for 2004 (°C): 0.8
+
+- 30-year total annual precipitation (mm): 424.3 mm (out of which 323.7 mm rain and 111.3 cm snow)
+
+- total annual precipitation for 2004 (mm): 577 mm (out of which 460.6 mm rain and 155.4 cm snow)
+
+- mean annual soil temperature for 2004 (°C): 2.6 
+
+- the region has a frost-free season of between 80 to 100 days on average.  
+"
+principal_refs: "
+Krishnan P, Black T A, Barr A G, et al. Factors controlling the interannual variability in the carbon balance of a southern boreal black spruce forest[J]. Journal of Geophysical Research, Atmospheres, 2008, 113(D9).
+
+Bergeron, O., Margolis, H. A., Black, T. A., Coursolle, C., Dunn, A. L., Barr, A. G. and Wofsy, S. C.. Comparison of carbon dioxide fluxes over three boreal black spruce forests in Canada, Glob. Chang. Biol., 13(1), 89-107, 2007.
+"
+

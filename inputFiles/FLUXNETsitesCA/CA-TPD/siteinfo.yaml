@@ -1,0 +1,34 @@
+name: "CA-TPD"
+full_name: "Ontario - Turkey Point Mature Deciduous"
+biome: "DBF"
+lon: -80.5576
+lat: 42.6353
+soilcolour: 7
+start: 2012
+end: 2014
+ZRFH: 28
+ZRFM: 28
+PFTs: "0.05 NdlEvgTr, 0.95 BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "	10.18140/FLX/1440112"
+notes: "
+Temperate pine plantation - Southeastern Canada
+
+Vegetation:
+
+- geographic location between boreal and broadleaf deciduous forest transition zone 
+
+- forest naturally regenerated on sandy terrain and abandoned agricultural land
+
+- predominantly hardwood species with few scatterd conifers
+
+- average tree height: 25.7 m
+
+- stand density: 504 +- 18 trees/ ha
+
+- basal area: 0.06m (29m2/ ha) 
+
+- 90 years old, has been thinned in past"
+principal_refs: "Arain, M. A., Altaf Arain, M. and Restrepo-Coupe, N.: Net ecosystem production in a temperate pine plantation in southeastern Canada, Agricultural and Forest Meteorology, 128(3-4), 223-241, doi:10.1016/j.agrformet.2004.10.003, 2005."

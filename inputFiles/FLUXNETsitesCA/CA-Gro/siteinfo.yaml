@@ -1,0 +1,46 @@
+name: "CA-Gro"
+full_name: "Ontario - Groundhog River, Boreal Mixedwood Forest"
+biome: "MF"
+lon: -82.1556
+lat: 48.2167
+soilcolour: 18
+start: 2003
+end: 2014
+ZRFH: 40
+ZRFM: 40
+PFTs: "45% NdlEvgTr, 55% BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1245996"
+notes: "
+A typical boreal mixedwood forest in northeastern Ontario
+
+Vegetation:
+
+- The average age in 2013 is estimated at beteen 75 and 80 years. 
+
+- Dominated by five species characteristic of Ontario boreal mixedwoods, trembling aspen, black spruce, white spruce, white birch, and balsam fir
+
+- leaf area index: 2–3 m2 leaf/m2 ground
+
+- Mean tree height: 30 m
+
+- Mean Air Temperature: 3.3 °C
+
+- Mean Annual Precipitation: 784 mm 
+
+- Basal area: 22 to 27 m2 / ha
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "McCaughey, J.H., Pejam, M.R., Arain, M.A. and Cameron, D.A.,
+Carbon dioxide and energy fluxes from a boreal mixedwood forest ecosystem in Ontario, Canada,
+Agricultural and Forest Meteorology,
+Volume 140, Issues 1-4,
+2006,
+Pages 79-96,
+ISSN 0168-1923,
+10.1016/j.agrformet.2006.08.010"

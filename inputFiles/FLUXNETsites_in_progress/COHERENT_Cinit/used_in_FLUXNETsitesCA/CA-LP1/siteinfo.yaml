@@ -1,0 +1,54 @@
+name: "CA-LP1"
+full_name: "British Columbia - Mountain pine beetle-attacked lodgepole pine stand"
+biome: "ENF"
+lon: -122.8414
+lat: 55.1119
+soilcolour: 20
+start: 2007
+end: 2020
+ZRFH: 26
+ZRFM: 26
+PFTs: "100% NdlEvgTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "disturbed"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+
+- MPB attacks in 2005 and 2006
+
+Vegetation:
+
+- 57% lodgepole pine and 43% hybrid white spruce
+
+- After the attacks, the 70-year-old stand was partially harvested in a 40 ha cutblock
+
+- Mean tree height: 16 m in 2013
+
+- leaf area index: 1.3 m2 leaf/m2 ground in 2013
+
+- stand density: 435 trees/ ha in 2013
+
+- Basal area: 7.6 m2/ha in 2010
+
+- Top forest floor organic layer C: 30.6-42.6 kg/ha in 2013
+
+- Mineral soil C (0–55 cm): 75.6-158.9 kg/ha in 2013
+
+- Mean Air Temperature: 4 °C
+
+- Mean Annual Precipitation: 570 mm 
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "Mathys, A., Black, T.A., Nesic, Z., Nishio, G., Brown, M., Spittlehouse,
+D.L., Fredeen,A.L., Bowler, R., Jassal, R.S., Grant, N.J. and Burton, P.J.,
+Carbon balance of a partially harvested mixed conifer forest following mountain pine beetle attack and its comparison to a clear-cut,
+Biogeosciences,,
+Volume 10,
+2013,
+Pages 5451–5463,
+ISSN 1726-4170,
+10.5194/bg-10-5451-2013"

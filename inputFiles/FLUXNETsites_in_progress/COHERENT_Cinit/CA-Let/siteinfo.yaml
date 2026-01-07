@@ -1,0 +1,59 @@
+name: "CA-Let"
+full_name: "Alberta - Mixed Grass Prairie"
+biome: "GRA"
+lon: -112.9402
+lat: 49.7093
+soilcolour: 11
+start: 1998
+end: 2008
+ZRFH: 6
+ZRFM: 6
+PFTs: "1.0 GrassC3 " # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+
+Vegetation:
+
+- mixed grassland and occurs in the northern portion of the Great Plains
+
+- dominated by the grasses Agropyron dasystachyum and A.smithii
+
+- The grassland has not been grazed for at least 20 years
+
+Soil:
+
+- soil bulk density of 1.24 g / cm3
+
+- The soil A horizon (0.09 m) was clay loam (28.8% sand, 40% silt, 31.2% clay)
+
+- B horizon (0.16 m) had a clay texture (27.4% sand, 29.6% silt, 40% clay; Carlson 2000).
+
+- The surface soil horizon (top 10 cm) bulk density was 1.24 g cm−3, and the organic matter content was 5.2%.
+
+- Dead plant biomass on the ground surface: 288.4 ± 12.7 g / m2 in 2001 and 2002
+
+- Aboveground carbon stock in live and dead vegetation: 265 gC / m2 in 2003
+
+- Below ground carbon stock: 8053 gC / m2 in 2003
+
+- average tree height: 0.3 m in 2006
+
+- Mean Air Temperature: 5.4 °C
+
+- Mean Annual Precipitation: 402 mm
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "Flanagan, L.B. and Farquhar, G.D.,
+Variation in the carbon and oxygen isotope composition of plant biomass and its relationship to water‐use efficiency at the leaf‐and ecosystem‐scales in a northern Great Plains grassland,
+Plant, Cell & Environment,
+Volume 37, Issues 2
+2014,
+Pages 425-438,
+ISSN 1365-3040,
+10.1111/pce.12165"

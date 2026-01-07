@@ -1,0 +1,57 @@
+name: "DK-Sor"
+full_name: "Soroe"
+biome: "DBF"
+lon: 11.6446
+lat: 55.4849
+soilcolour: 9
+start: 1996
+end: 2014
+ZRFH: 43
+ZRFM: 41
+PFTs: "0.8 BdlDCoTr, 0.196 NdlEvgTr, 0.004 NdlDcdTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440155"
+notes: "
+Beech Forest - Denmark
+
+Vegetation:
+
+- 40 m above sea level near Soro on Zealand
+
+- never been under cultivation, beech trees have been dominating in area since 2500 BC
+
+- forest mentioned in writing first in 1697 (mainly consisting of  young beech)
+
+- trees around station 82-year-old beech rees, average tree height: 25 m
+
+- roughness length: 1.6 m
+
+- displacement height: 1.9 m
+
+- average tree diameter: 38 cm
+
+- stand density: 283 stems/ ha
+
+- wood increment: 11 m3/ha yr
+
+- peak LAI: 5 m2/m2 at mid summer
+
+- 80% beeches
+
+- 20% conifers: mainly Norway spruce (EVG) -> 98%; few European Larches (DCD) -> 2%
+
+- in spring, forest floor vegetation composed of Anemone nemerosa L. and Mercevialis perennis L.; later in summer mainly patches of grass
+
+
+Climate:
+
+- located in northern temperate zone on western side of European landmass, close to North Sea -> temperature influenced by warm Gulf Stream
+
+- station has maritime temperatue climate dominated by westerly winds and frequent passes of frontal systems
+
+- usually weather characterized by cool and unsteady summers, warm and changeable winters
+
+- occasionally easterly winds dominate: severe winters, hot summers"
+principal_refs: "Pilegaard, K., Mikkelsen, T. N., Beier, C., Jensen, N. O., Ambus, P., Ro-Poulsen, H. (2003). Field Measurements of Atmosphere-Biosphere Interactions in a Danish Beech Forest. Boreal Environment Research, 8, 315-333"

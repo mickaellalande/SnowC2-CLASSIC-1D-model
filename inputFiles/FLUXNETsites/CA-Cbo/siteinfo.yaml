@@ -1,0 +1,49 @@
+name: "CA-Cbo"
+full_name: "Ontario - Mixed Deciduous, Borden Forest Site"
+biome: "DBF"
+lon: -79.9333
+lat: 44.3167
+soilcolour: 14
+start: 1994
+end: 2014
+ZRFH: 33.4
+ZRFM: 41
+PFTs: "0.17 NdlEvgTr, 0.83 BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1854365"
+notes: "
+Mixed deciduous forest from natural regrowth in Ontario, Canada
+
+Vegetation:
+
+- 100-year-old forest, consisting of natural re-growth on abandoned farmland
+
+- From the 2006 survey, 52.2% is red maple (Acer rubrum L.), 13.5 % is eastern white pine (Pinus strobus L.),
+7% is large-tooth aspen (Populus grandidentata Michx.), and 7% is white ash (Fraxinus americana L.). The rest 20% is from other hardwood species.
+
+- average tree height: 22 m in 2009
+
+- leaf area index: 3.9 (±0.13) m2 leaf/m2 ground in 2009
+
+- stand density: 2996 trees/ ha in 2009
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+- tree biomass: 2.51 kg m−3
+
+- Mean Air Temperature: 6.4 °C
+
+- Mean Annual Precipitation: 800 mm 
+
+"
+
+principal_refs: "Teklemariam, T., R. M. Staebler, A. G. Barr.,
+Eight years of carbon dioxide exchange above a mixed forest at Borden, Ontario,
+Agricultural and Forest Meteorology,
+Volume 149, Issues 11,
+2009,
+Pages 2040-2053,
+ISSN 0168-1923,
+doi.org/10.1016/j.agrformet.2009.07.011"

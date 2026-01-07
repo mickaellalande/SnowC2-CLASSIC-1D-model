@@ -1,0 +1,48 @@
+name: "US-Wkg"
+full_name: "Walnut Gulch Kendall Grasslands"
+biome: "GRA"
+lon: -109.9419
+lat: 31.7365
+soilcolour: 15
+start: 2004
+end: 2014
+ZRFH: 6
+ZRFM: 6
+PFTs: "0.35 GrassC4" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "disturbed"
+doi: "10.18140/FLX/1440096"
+notes: "
+Semiarid Watershed - Southern Arizona, US
+
+
+Vegetation:
+
+- vegetation on Kendall watershed dominated by grass and forbs with a trace of shrubs and succulents
+
+- canopy cover: 35%
+
+- ground cover during rainy season: 28% rock, 42% litter, 14% basal cover
+
+-> took 35% canopy cover for INI-file
+
+- dominated by herbaceous vegetation, all C4
+
+- site served as grazing land for cattle and horses
+
+
+Climate:
+
+- mean annual temperature: 18
+
+- average maximum temperature: 35 in June
+
+- average monthly minimum temperature: 2 in December
+
+- two thirds of annual precipitation fall during 'monsoon' season from July through September; much of remainder concentrated in winter months December - February
+
+- channels in Walnut Gulch Experimental Watershed are dry 99% of the time
+"
+principal_refs: "
+Nearing, M., Nichols, M., Stone, J.J., Renard, K.G., & Simanton, J.R. (2008). Correction to 'Sediment yields from unit-source semiarid watersheds at Walnut Gulch'. Water Resources Research. 43. 10.1029/2008WR006907. "

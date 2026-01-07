@@ -1,0 +1,86 @@
+name: "US-Uaf"
+full_name: "University of Alaska, Fairbanks"
+biome: "ENF"
+lon: -147.8555
+lat: 64.8663
+soilcolour: 17
+start: 2003
+end: 2018
+ZRFH: 20  # Real height is 8 m, but CLASSIC tends to grow vegetation taller than that so increase to prevent fails.
+ZRFM: 20  # Real height is 8 m, but CLASSIC tends to grow vegetation taller than that so increase to prevent fails.
+PFTs: "0.2 NdlEvgTr, 0.25 Sedge, 0.4 BdlEvgSh, 0.15 BdlDCoSh" # use same naming convention as in run_parameters.txt/model code.
+leap: ".false." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1480322"
+notes: "
+
+An open black spruce forest on ice-rich permafrost in interior Alaska, Fairbanks
+
+General:
+
+- The open black spruce is dominated on discontinuous permafrost.
+
+- it is poorly drained due to the presence of ice-rich permafrost.
+ 
+- The depth of the active layer is 40–50 cm 
+
+- The forest floor has a pronounced hummock-hollow microtopography.
+
+- Soil and peat conditions is highly heterogeneous in US-Uaf. For wet area, we can see the peat accumulation at least top 1-m, but for dry area, the mineral soil can be seen within the mineral soil. Main footprint of the US-Uaf mostly represent the wet area that high peat could be accumulated. setting of the peat accumulation would be better to be 50 cm or deeper (site PI).
+
+- The soil is silt-loam overlain by an organic layer of 25–45 cm (Iwata et al., 2013).
+
+- Fluxes of momentum, sensible heat, and water vapor were observed at a height of 6 m.
+
+- Mean air temperature and relative humidity were measured at 1, 2, 4, and 8 m.
+
+Vegetation:
+
+- Vegetation IGBP: ENF (Evergreen Needleleaf Forests: Lands dominated by woody vegetation with a percent cover >60% and height exceeding 2 meters. Almost all trees remain green all year. Canopy is never without green foliage.)
+
+- The dominant tree species was black spruce (Picea mariana) with a sparse canopy. 
+
+- the age of the trees ranged from 35 to 120 years, with a mean age of approximately 85 years.
+
+- Tree density was 4500 tree ha-1. 
+
+- The plant area index (PAI) was 1.8 m2 m-2 above the moss surface in mid-summer, while the PAI above 1.0 m height was 0.2 m2 m-2 for the entire season. 
+
+- Leaf area index (LAI), measured with a plant canopy analyzer (LAI-2000, Li-Cor, USA), varied from 0.2 m2 m−2, when the ground was covered with snow, to 1.9 m2 m−2 during mid-summer. most of this variation in LAI can be explained by leaf growth and fall of understory deciduous vegetation. 
+ 
+- The biomass of black spruce trees and mosses were 0.06 ± 0.03 kg C m -2 and 0.22 ± 0.05 kg C m-2, respectively. 
+ 
+- The average canopy height was ca. 3 m. 
+ 
+- The forest floor was fully covered by understory vegetations, including Betula glandulosa, Ledum groenlandicum, Vaccinium uliginosum, Vaccinium vitis-idaea, and Rubus chamaemorus. 
+ 
+- The forest floor consisted of tussock with graminoids (Carex spp.), where sphagnum and feather mosses dominate over ice-rich permafrost.
+
+- The carbon stored in the organic layers was 4.1 kg C m-2 for the Oi layer (0–8 cm below surface) and 6.4 kg C m-2 for the Oe + Oa layer (8–18 cm below surface). 
+
+Climate:
+
+- Climate Koeppen: Dwc (Subarctic: severe, dry winter, cool summer)
+
+- Mean Annual Temp (°C): -2.9
+
+- Mean Annual Precip. (mm):	263
+
+- mean monthly air temperature was the lowest in January (-23.2 ± 5.7 degC) and the highest in July (16.9 ± 1.2 degC), with an annual mean of –2.9 ± 1.3 degC, between 1971 and 2000
+
+- Annual total precipitation was 263 ±  60 mm yr-1 between 1971 and 2000 
+
+- Air temperature between April and September during the measurement period (2003–2011) was 0.4 degC higher than the long-term mean.
+
+- Annual precipitation during the measurement period was 10 mm greater than the long-term mean.
+
+- Flux Species Measured: CO2, H, H2O, CH4
+
+"
+principal_refs: "
+Ueyama M, Iwata H, Harazono Y. Autumn warming reduces the CO2 sink of a black spruce forest in interior Alaska based on a nine‐year eddy covariance measurement[J]. Global change biology, 2014, 20(4), 1161-1173.
+
+Iwata H, Harazono Y, Ueyama M. The role of permafrost in water exchange of a black spruce forest in Interior Alaska[J]. Agricultural and Forest Meteorology, 2012, 161, 107-115.
+"
+

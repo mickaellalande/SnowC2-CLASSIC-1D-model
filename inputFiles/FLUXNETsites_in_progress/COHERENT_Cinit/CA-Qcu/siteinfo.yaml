@@ -1,0 +1,45 @@
+name: "CA-Qcu"
+full_name: "Quebec - Eastern Boreal, Black Spruce/Jack Pine Cutover"
+biome: "MF"
+lon: -74.0365
+lat: 49.2671
+soilcolour: 18
+start: 2001
+end: 2010
+ZRFH: 7
+ZRFM: 7
+PFTs: "0.9 NdlEvgTr, 0.1 BdlEvgSh" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "harvested"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+
+Vegetation:
+
+- Clear-cut in 2000 
+
+- dominated by black spruce and jack pine. 
+
+- ground cover consists of ericaceous shrubs (Kalmia angustifolia L., Vaccinium angustifolium Ait. and Rhododendron groenlandicum (Oeder) Kron et Judd), mosses (Pleurozium schreberi (BSG) Mitt. and Sphagnum spp.) and lichen (Cladina spp.)
+
+- stand density: 2000 trees/ ha in 2008
+
+- average tree height: 1 m in 2008
+
+- Mean Air Temperature: 10.8 °C
+
+- Mean Annual Precipitation: 830 mm
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+"
+
+principal_refs: "Jean-Lionel Payeur-Poirier, Carole Coursolle, Hank A. Margolis, Marc-André Giasson,
+CO2 fluxes of a boreal black spruce chronosequence in eastern North America,
+Agricultural and Forest Meteorology,
+Volume 153,
+2012,
+Pages 94-105,
+ISSN 0168-1923,
+10.1016/j.agrformet.2011.07.009"

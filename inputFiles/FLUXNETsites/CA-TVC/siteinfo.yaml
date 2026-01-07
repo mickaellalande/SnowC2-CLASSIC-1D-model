@@ -1,0 +1,57 @@
+name: "CA-TVC"
+full_name: "Trail Valley Creek"
+biome: "OSH"
+lon: -133.50171
+lat: 68.74617
+soilcolour: 16
+start: 2013
+end: 2019
+ZRFH:  2
+ZRFM:  4
+PFTs: "0.60 Sedge, 0.05 BdlEvgSh, 0.28 BdlDCoSh" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: ""
+notes: "Southern Arctic tundra site, erect-shrub tundra, tundra dominated by low shrubs <40 cm, continuous permafrost
+Elevation: 85 m
+
+Vegetation:
+
+- dominant plant species: Graminoids (Carex spp.), deciduous (Vaccinum uliginosum, Betula glandulosa, Salix glauca) and evergreen
+shrubs (Rhododendron groenlandicum)
+
+- rooting depth: maximum set to 40 cm
+
+- average plant height < 40 cm
+
+- average LAI: 0.66 ± 0.11 m2/m2
+
+- plant cover: 92.5 % vascular plants, 31.5 % moss, 51 % lichen
+
+- Bowen ratio:
+
+Climate:
+
+- mean annual precipitation: 240.6 mm (Fluxnet)
+
+- mean annual temperature: -8.2 degrees C (Fluxnet)
+
+
+Soils:
+
+- silty clay to silt loam
+
+- soil organic matter content:
+
+- continuous permafrost with average thaw depth of 0.74 ± 0.05 m
+
+Soil composition (sand/clay/silt): 18 ± 3 cm organic layer depth
+	mineral soil   35 % sand / 40 % clay (Marsh et al., 2010)
+                 21 % sand / 16 % clay (Julia Boike, AWI)
+
+Soil permeable depth: set to 9 m 
+
+PI: Oliver Sonnentag
+"
+principal_refs: ""

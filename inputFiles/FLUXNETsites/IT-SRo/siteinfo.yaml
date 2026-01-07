@@ -1,0 +1,59 @@
+name: "IT-SRo"
+full_name: "San Rossore"
+biome: "ENF"
+lon: 10.2844
+lat: 43.7279
+soilcolour: 16
+start: 1999
+end: 2012
+ZRFH: 37.5
+ZRFM: 37.5
+PFTs: "0.96 NdlEvgTr, 0.04 BdlDCoTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "fire"
+doi: "10.18140/FLX/1440176"
+notes: "
+Pinus Pinaster Forest - Coastal West Italy
+
+
+Vegetation:
+
+- even aged Pinus Pinaster forest, 800 m east of seashore in regional park
+
+- park extends 24000 ha about 30 km between Livorno and Viareggio along Tzrrhenian coast with esturial morphology characterized by prsence of alluvial deposits and sandy dunes
+
+- Pinus pinaster Aiton introduced in 1771 in a strip of 10 x 1 km behind the dunes to save more inland P. Pinea
+
+- before: P. Pinaster area covered by Mediterrenean sclerophyllous forests and scrubs, a formation of Ligureian-Thyrrenian meso-Meditrrenean holm-oak-forests
+
+- current forest established from seed after a big fire 1944, never thinned systematically
+
+- tree density 587 trees/ ha -> P. Pinaster 84% (EVG NDL), P. Pinae 12% (EVG NDL), Q. Ilex 4% (EVG BDL)
+
+- basal area 40m2/ha
+
+- average canopy height 18.7m
+
+- LAI = 2.8
+
+- total aboveground and root biomass of 9.7 and 1.9 kg C m-2
+
+- no ground vegetation and only few shrubs due to ungulate density
+
+- large scale dye back of P. Pinaster in 70s due to marine aerosols and surfactants
+
+
+Climate:
+
+- mediterrenean sub-humid
+
+- average rainfall of 876 mm
+
+- average temperature 15.6
+
+- wind regime characterized by land-sea-breeze circulation with air flows from the west during the day and the east during the night
+
+Soil in the pinewood is a regosol with a 93% sand texture extending down to 4m depth. The top 10 cm of soil is characterized by pH (H2O) of 6.5 and C/N ratio of 25.2; rooting depth is limited by the water table varying between 100 cm in winter and 200 cm in summer."
+principal_refs: "
+The Greenhouse Gas Balanca of Italy. An Insight on Managed and Natural Terrestrial Ecosystems, Chapter 2. Valentini et al., 2015 (book)"

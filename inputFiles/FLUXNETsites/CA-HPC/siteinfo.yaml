@@ -1,0 +1,76 @@
+name: "CA-HPC"
+full_name: "Havikpak Creek"
+biome: "ENF"
+lon: -133.5188
+lat: 68.3203
+soilcolour: 17
+start: 2016
+end: 2018
+ZRFH: 10
+ZRFM: 20
+PFTs: "0.15 NdlEvgTr, 0.04 GrassC3, 0.61 BdlEvgSh, 0.05 BdlDCoSh" # use same naming convention as in run_parameters.txt/model code.
+leap: ".false." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1773392"
+notes: "Southern Arctic boreal woodland (Picea mariana) site with sparse needleleaf vegetation > 2m, continuous permafrost
+
+General:
+
+- 2 km north of Inuvik Airport, Northwest Territories (NWT), Canada
+
+- Havikpak Creek is a relatively small (16.4 km2) taiga-dominated Arctic basin in the transition treeline region.
+
+- HPC has moderate topography (mean slope of approximately 2 degree) and an elevation range from 60 to 240 m, with a primary SW aspect.
+
+- This region is underlain by continuous permafrost from 350 to over 575 m deep. 
+
+- shallow active layer (e.g. between 0.4 and 0.8 m for Siksik Creek – 50 km from HPC)
+
+- ice-rich soils restrict percolation and exfiltration of groundwater.
+
+- upper peat (~10 cm): partially decomposed and highly porous organic matter with the porosity of 0.8 - 0.85
+
+- lower peat (20~50 cm): highly decomposed and denser organic matter with the porosity of 0.75 - 0.8
+
+- The mineral texture is silty clay
+
+- The porosity of mineral soil: 0.5 ~ 0.6 
+
+Original values ZRFH = 10 m and ZRFM = 15 m. ZRFM was raised to 20 m to account for CLASSIC growing a vegetation canopy that was taller than the measurement heights.
+
+Vegetation:
+
+- Vegetation IGBP: ENF (Evergreen Needleleaf Forests: Lands dominated by woody vegetation with a percent cover >60% and height exceeding 2 meters. Almost all trees remain green all year. Canopy is never without green foliage.)
+
+- The site was mainly covered by stunted black spruce (Picea mariana) forest with a quite open canopy and a varying stand density across the slope.
+
+- black spruce taiga (Picea mariana) is primarily restricted to the mid-low elevations (<140 masl); however, a smaller area of forest can also be found on well drained hillsides and both shrub and some sparse tundra cover the highest elevations plateaux and gullies.
+
+- The undestory are mainly formed by Lingonberry, crowberry, marsh Labrador tea, and bog labrador tea.
+
+- mosses and lichenes mainly include Hylocomium splendens, Sphagnum spp., Cladina sp., and Peltigera sp..
+
+Climate: 
+
+- Climate Koeppen: Dfc (Subarctic: severe winter, no dry season, cool summer)
+
+- Mean Annual Temp (°C):	-8.2
+
+- Mean Annual Precip. (mm):	240.6
+
+- a mean monthly temperature below zero from October to May, and a maximum summer temperature of 14.1 degC in July. 
+
+- precipitation is distributed throughout the year, with peak precipitation during summer between July and September. 
+
+- The mean annual number of days with precipitation above 0.2 mm is 130 (36% of the year), from which 93 days are associated with snowfall.
+
+- Flux Species Measured: CO2, CH4, H, H2O
+
+"
+
+principal_refs: "
+Oliver Sonnentag, Phil Marsh (2021), AmeriFlux BASE CA-HPC Havikpak Creek, Ver. 1-5, AmeriFlux AMP, (Dataset). doi.org/10.17190/AMF/1773392
+
+Krogh S A, Pomeroy J W, Marsh P. Diagnosis of the hydrology of a small Arctic basin at the tundra-taiga transition using a physically based hydrological model[J]. Journal of hydrology, 2017, 550, 685-703.
+"

@@ -1,0 +1,47 @@
+name: "RU-Ha1"
+full_name: "Hakasia steppe"
+biome: "GRA"
+lon: 90.0022
+lat: 54.7252
+soilcolour: 12
+start: 2002
+end: 2004
+ZRFH: 4.5
+ZRFM: 4.5
+PFTs: "0.98 GrassC3, 0.02 GrassC4" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440184"
+notes: "
+Steppe - Southern Siberia
+
+
+Vegetation:
+
+- natural graminoid small-tussock steppe
+
+- steppe wsa managed as a pasture until 2001 but because of the low grazing pressure, no major signs of disturbance over the vegetation composition and structure, 
+compared to sites with no mangement history, were found
+
+- plant composition counts 102 species of 26 families
+
+- most numerous belong to: Asteraceae (21 species; C3-C4-intermediate), Poaceae (16 species, can be C3 or C4), Lamiaceae (6 species, CAM), Fabaceae (6 species, C3), Brassicaceae (6 species, mostly C3, some C3-C4-intermediate, no C4)
+
+- perennial living forms prevail (76%), dominant species are: Festuca valesiaca (C3), Koeleria cristata (C3), Stipa krylovi, Cleistogenes squarrosa (C4), Poa botryoides
+
+-> given location 98% C3, 2% C4
+
+
+Climate:
+
+- semi-arid cool (Koeppen)
+
+- mean annual temperature: 0.4
+
+- seasonal temperature characterized by great continentality (Delta T Jan - July: 35)
+
+- annual precipitation: 304 mm in total, out of which 245 mm is distributed during summer from May to September
+"
+principal_refs: "
+Belelli Marchesini, L., Papale, D., Reichstein, M., Vuichard, N., Tchebakova, N., & Valentini, R. (2007). Carbon balance assessment of a natural steppe of southern Siberia by multiple constraint approach. Biogeosciences Discussions. 4. 10.5194/bg-4-581-2007. "

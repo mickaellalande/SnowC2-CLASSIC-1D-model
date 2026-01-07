@@ -1,0 +1,30 @@
+name: "RU-Fyo"
+full_name: "Fyodorovskoye"
+biome: "ENF"
+lon: 32.9220833
+lat: 56.4615278
+soilcolour: 15
+start: 1998
+end: 2014
+ZRFH: 29
+ZRFM: 29
+PFTs: "0.705 NdlEvgTr, 0.115 BdlDCoTr, 0.18 GrassC3" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "disturbed"
+doi: "10.18140/FLX/1440183"
+notes: "
+Mixed Forest - West Russia
+
+Vegetation:
+
+- site located in Central Forest Biospheric State Reserve
+
+- reserve area covered by: 37% Picea Abies mixed with Picea fennica, 11% mixed spruce forests with broadleaved trees, 8% Pinus sylvestris, 19% bogs and grasslands, 33% small leaved deciduous trees
+
+- Betula and Populus early susccesional spercies after windthrows, logging or fire; large area covered by those show significance of disturbances in this region
+
+http://www.europe-fluxdata.eu/home/site-details?id=RU-Fyo
+"
+principal_refs: "
+Vygodskaya, N. N., Detlef, S., Tchebakova, N.M., Karpachevskii, L., Kozlov, D.,Sidorov, K.,Panfyorov, M., Abrazko, M., Shaposhnikov, E., Solnzeva, O., Minaeva, T., Jeltuchin, A., Wirth, C., & Pugachevskii, A. (2002). Climatic control of stand thinning in unmanaged spruce forests of the southern taiga in European Russia. Tellus, Series B - Chemical and Physical Meteorology, v.54, 443-461 (2002). 54. 10.1034/j.1600-0889.2002.01344.x. "

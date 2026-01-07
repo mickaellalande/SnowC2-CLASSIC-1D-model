@@ -1,0 +1,38 @@
+name: "MY-PSO"
+full_name: "Pasoh Forest Reserve"
+biome: "EBF"
+lon: 102.3062
+lat: 2.973
+soilcolour: 15
+start: 2003
+end: 2009
+ZRFH: 52
+ZRFM: 52
+PFTs: "1.0 BdlEvgTr" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440240"
+notes: "
+Tropical Rainforest - Southern Central Malaysia
+
+Vegetation:
+
+- core area (600 ha) of Pasoh Forest reserve (2450 ha) covered with primary lowland mixed diperocarp forest (tropical EVG BDL) -> 100% EVG BDL
+
+- continuous canopy height: 35 m; some emergent trees exceed 45 m
+
+- estimated LAI (from empirical equations): 6.52
+
+
+Climate:
+
+- mean annual rainfall: 1804 mm
+
+- total rainfall shows peaks from March to May and October to December
+
+-> characterized by short duration (mean: 3.8h) and relatively high intensity
+
+-> rainfall shows diurnal cycle"
+principal_refs: "
+Kosugi, Y., Takanashi, S., Ohkubo, S., Matsuo, N., Tani, M., Mitani, T., Tsutsumi, D., & Rahim Nik, Abdul. (2008). CO2 exchange of a tropical rainforest at Pasoh in Peninsular Malaysia. Agricultural and Forest Meteorology. 148. 439-452. 10.1016/j.agrformet.2007.10.007."

@@ -1,0 +1,100 @@
+name: "DE-Tha"
+full_name: "Tharandt"
+biome: "ENF"
+lon: 13.566944
+lat: 50.963611
+soilcolour: 14
+start: 1996
+end: 2014
+ZRFH: 42
+ZRFM: 42
+PFTs: "0.85347 NdlEvgTr, 0.12753 NdlDcdTr, 0.019 GrassC3" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.18140/FLX/1440152"
+notes: "
+Evergreen Needleleaf Forest - East Germany
+
+
+General:
+
+- 2 runs: excl_understory and incl_understory. excl_understory was used for these met files.
+
+
+Vegetation:
+
+- spruce dominant species
+
+- species of the main canopy: 87% coniferous evergreen, 13% coniferous deciduous
+
+- ground mainly covered by: 20% fagus sylvatica (beech, deciduous broadleaf), 50% deschampia flexuosa (hairgrass, C3) 
+
+- forest covers 60 km2, 1.5 ha only covered by grass
+
+-> site still considered to be reasonably homogenous to represent fluxes of the spruce dominated area of Tharandt forest
+
+- total footprint: 78.5 ha = 0.785 km2 
+
+1999:
+
+- tree density: 477 trees/ ha
+
+- above ground biomass> 213 t/ ha
+
+- LAI: 7.6 
+
+- mean canopy height: 26.5 m
+
+- mean breast height diameter: 33 cm
+
+thinning in 2002 lead to: 
+
+- - 30% tree density
+
+- - 11% LAI 
+
+- + mean breast heigh diaemter
+
+SENSITVITY TEST
+
+
+RUN 1 (referred to as DE-Tha_excl_understory):
+
+- ignore understory
+
+- C3-grass = 1.9%
+
+- evergreen needleleaf: 87% 
+
+- deciduous needleleaf: 13% 
+
+
+RUN 2 (referred to as DE-Tha_incl_understory):
+
+- C3-grass = 1.9%
+
+- broadleafed deciduous: 19.6%
+
+- needleleaf: 78.5% ->  87% evergreen, 13% deciduous
+
+
+Climate:
+
+- suboceanic/ subcontinental climate
+
+- mean annual air temperature: 7.8 (max: 9.4 in 2000, min 6.0 in 1996)
+
+- mean annual precipitation: 823 mm (max 1287 mm in 1981, min 501 mm in 2003)
+
+- annual course of precipitation has convective summer maximm and weaker frontal maximum in winter
+
+- area subject to episodic summer droughts with re-occurence of about 10 years; extremely dry summer in 2003
+
+- mean wind direction: SW
+
+A loamy skeleton podsol‐brown earth. The soil depth is around 1 m, the depth of the main rooting zone is 35 cm. The soil water field capacity and the wilting point were estimated to 16 Vol‐% and 7 Vol‐%.
+
+"
+principal_refs: "
+Grunwald, T. and Bernhofer, C. (2006). A Decade of Carbon, Water, and Energy Flux Measurements of an Old Spruce Forest at the Anchor Station Tharandt. Tellus, 59B, 387-396"

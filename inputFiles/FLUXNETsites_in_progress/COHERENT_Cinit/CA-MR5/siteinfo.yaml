@@ -1,0 +1,43 @@
+name: "CA-MR5"
+full_name: "Alberta - Mattheis Ranch E5 North"
+biome: "GRA"
+lon: -111.8823
+lat: 50.9056
+soilcolour: 11
+start: 2012
+end: 2016
+ZRFH: 3
+ZRFM: 3
+PFTs: "100% GrassC3" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "disturbed"
+doi: "10.3334/ORNLDAAC/1335"
+notes: "
+
+This field has a slightly varied microtopography with mixed species grass vegetation cover
+
+Vegetation:
+
+- 100% Stipa Comata, Koeleria macrantha, Bouteloua gracilis
+
+- The grazing regime is a rotational system with relatively short grazing periods of 7–12 days, followed by long recovery periods (6–8 weeks) between grazing periods at moderate stocking
+
+- Mean Air Temperature: 4.5 °C
+
+- Mean Annual Precipitation: 325 mm 
+
+- soil colour index, sand, clay, orgm, and sdep: from satellite gridded estimates
+
+
+
+"
+
+principal_refs: "Wang, R., Gamon, J.A., Emmerton, C.A., Li, H., Nestola, E., Pastorello, G.Z. and Menzer, O.,
+Integrated analysis of productivity and biodiversity in a southern Alberta prairie,
+Remote Sensing,
+Volume 8, Issues 3,
+2016,
+Pages 214,
+ISSN 2072-4292,
+doi.org/10.3390/rs8030214"

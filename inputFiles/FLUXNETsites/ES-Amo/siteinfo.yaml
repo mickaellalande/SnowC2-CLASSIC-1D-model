@@ -1,0 +1,53 @@
+name: "ES-Amo"
+full_name: "Las Amoladeras"
+biome: "OSH"
+lon: -2.25232
+lat: 36.83361
+soilcolour: 16
+start: 2007
+end: 2012
+ZRFH: 3.62
+ZRFM: 3.05
+PFTs: "23 % C3 grass" # use same PFT naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "disturbed"
+doi: "10.18140/FLX/1440156"
+notes: "
+Steppe alpha grass. 
+
+Amoladeras (the “degraded” site), is nearer to the sea, at 50 m asl, with less vegetation cover and shallower soils as a consequence of intensive grazing (Rey et al. 2011).
+
+Elevation: 65 m; slope: 2-6 %; SW orientation
+
+Vegetation: scattered shrubs covering around 30% of the area, predominately Macrochloa tenacissima; Due to the coarse soil texture, physical crusts
+are not abundant, and biological soil crusts (BSCs) are the most representative crust types found. BSCs occupy around 30% of the open areas surrounding shrubs.
+The remaining area is occupied by a calcaric outcrop and stones.
+
+- dominant plant species: Stipa tenacissima / Steppe alpha grass (Rey et al., 2011) (drought tolerant species)
+  Macrochloa tenacissima/Esparto grass
+
+- rooting depth: shallow roots; Stipa tenacissima has a large root:shoot ratio (Rey et al., 2011)
+
+- average Stipa tenacissima height about 60-100 cm, but there are shorter grass species present as well
+
+- ground cover:  23.1 ± 2.4 % vegetation cover, 10.5 ± 2.0 % litter, 23.1 ± 2.8 biological crust, 8.1 ± 0.1 % bare soil, 21.1 ± 0.1 % gravel,
+14.0 ± 1.2 % rock (Rey et al., 2011)
+
+Climate:
+
+- mean annual precipitation: 220 mm
+
+- mean annual temperature: 18 degrees C (Rey et al., 2011)
+
+Soils:
+
+-  Soils are Lithic Leptosols (Calcaric), and the texture is sandy loam (Rey et al., 2011)
+
+Soil composition (sand/clay/silt): 58.4 % sand, 14.6 % clay, 27 % silt; ~ 2 % organic C content (Rey et al., 2011)
+
+Soil permeable depth: shallow soil depth of ~10 cm
+"
+principal_refs: "Rey, A., Pegoraro, E., Oyonarte, C., Were, A., Escribano, P. and Raimundo, J.: Impact of land degradation on soil respiration in a steppe (Stipa tenacissima L.) semi-arid ecosystem in the SE of Spain, Soil Biol. Biochem., 43(2), 393–403, doi:10.1016/j.soilbio.2010.11.007, 2011.,
+Chamizo et al. (2012), Biological soil crust development affects physicochemical characteristics of soil surface in semiarid ecosystems, Soil Biology and Biochemistry, https://doi.org/10.1016/j.soilbio.2012.02.017
+"

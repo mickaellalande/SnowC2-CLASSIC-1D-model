@@ -1,0 +1,99 @@
+name: "CA-Man"
+full_name: "Manitoba-Northern Old Black Spruce"
+biome: "ENF"
+lon: -98.4808
+lat: 55.8796
+soilcolour: 18
+start: 1994
+end: 2008
+ZRFH: 30
+ZRFM: 29
+PFTs: "0.9 NdlEvgTr, 0.05 BdlEvgSh, 0.05 BdlDCoSh" # use same naming convention as in run_parameters.txt/model code.
+leap: ".true." #.true. if the meteorology contains leap years
+peatland: "false"
+landscape_state: "undisturbed"
+doi: "10.17190/AMF/1245997"
+notes: "It was established in 1993 as the Northern Old Black Spruce (NOBS) site for Boreal Ecosystem-Atmosphere Study (BOREAS). 
+
+It is situated on the low-relief terrain of the Canadian Shield. 
+
+NOBS lies near the northern boreal forest edge in the zone of discontinuous permafrost, 40km west of Thompson (Manitoba). 
+
+ 
+General:
+
+- Soil organic layers are 30–50cm deep over clay and water tables are high in the veneer bogs.
+
+- Soil is classified as a peaty-phase orthic gleysol.
+
+- The peat-rich soils developed atop the clay/silt sediments of glacial Lake Agassiz over the past 8000 years
+
+- Flux measurements were made from a 31-m-tall, triangular cross-section tower. 
+
+Vegetation:
+
+- The site is a mixture of upland forests and veneer bogs on relatively flat terrain. 
+
+- Small topographic variations cause large changes in vegetation.
+
+- The mosaic of vegetation within a radius of 500 m consists of approximately 25% moderately well drained upland forest, 50% imperfectly to poorly drained feath- ermoss/Sphagnum veneer bogs, and 25% very poorly drained Sphagnum/brown moss areas, including fens.
+
+- Black spruce is the only overstory species in NOBS. 
+
+- The understory is quite diverse.
+
+- Moderately well-drained upland areas are dominated by dense, 10m tall black spruce (EVG NDL) trees, feather mosses, and an understory of Labrador tea and wild rose.
+
+- Poorly drained veneer bogs feature sparse 1–6 m tall black spruce on continuous sphagnum moss, with Labrador tea, bog birch (Betula glandulosa var hallii), blueberry (Vaccinium spp.), and willow (Salix spp.) in the understory.
+
+- 53% feathermoss (on moderately well and half of imperfect to poorly drained soils), 34% sphagnum (on half of imperfect to poorly drained and poor to very poorly drained soils), 17% brown moss (on very poorly drained and half of very poor to poorly drained soils) (Harden et al., 1997, fig 5B).
+
+- stand age (in 2007): 160
+
+- mean tree height:  9.1 m
+
+- mean DBH: 8.5 cm (range: 2.5 - 18.6 cm)
+
+- tree density: 5450 stems/ ha
+
+- black spruce basal area: 35.6 m2/ ha
+
+- hemispherical LAI: 4.8 m2/m2
+
+- total above-ground biomass: 5.1 kgC/m2
+
+- total below-ground biomass: 0.9 kgC/m2
+
+- standing dead: 0.2 kgC/m2
+
+- woddy debris: 0.2 kgC/m2
+
+- forest floor: 9.9 kgC/m2
+
+- mineral soil: 7.3 kgC/m2
+
+- Total Carbon: 23.6 kgC/m2
+
+- The soil carbon profile is very heterogeneous, reflecting differences in drainage associated with the same low-relief topography that controls the vegetation cover.
+
+- The moderately well drained feathermoss/ spruce uplands can burn deeply during forest fires, and consequently contain relatively modest amounts of soil carbon (13 kg C m-2). The poorly drained soils in Sphagnum veneer bogs and other wetlands are protected by high water tables and retain much of their soil organic matter during fires, resulting in higher soil carbon content (25 kg C m-2).
+
+Climate:
+
+- 30-year mean annual air temperature (°C): -3.2
+
+- mean annual air temperature for 2004 (°C): -4.4
+
+- 30-year total annual precipitation (mm): 517.4 mm (out of which 348.2 mm rain and 185.2 cm snow)
+
+- total annual precipitation for 2004 (mm): 378.8 mm (out of which 184.0 mm rain and 214.7 cm snow)
+
+- mean annual soil temperature for 2004 (°C): 2.0
+
+"
+
+principal_refs: "
+Dunn A L, Barford C C, Wofsy S C, et al. A long‐term record of carbon exchange in a boreal black spruce forest-Means, responses to interannual variability, and decadal trends[J]. Global Change Biology, 2007, 13(3), 577-590.
+
+Bergeron, O., Margolis, H. A., Black, T. A., Coursolle, C., Dunn, A. L., Barr, A. G. and Wofsy, S. C.. Comparison of carbon dioxide fluxes over three boreal black spruce forests in Canada, Glob. Chang. Biol., 13(1), 89-107, 2007.
+"
