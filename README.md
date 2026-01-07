@@ -20,7 +20,7 @@ Further details on CLASSIC itself are available on the [CLASSIC webpage](https:/
 
 This repository contains a modified version of CLASSIC that implements **six new model developments** aimed at improving snow simulations in Arctic conditions. These modifications were developed and tested as part of the study submitted to GMD.
 
-The large files (including binaries, input, and output files) are furnished in a separate **Zenodo repository**: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18157337.svg)](https://doi.org/10.5281/zenodo.18157337)
+The large files (including binaries, input, and output files) are furnished in a separate **Zenodo repository**: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18175772.svg)](https://doi.org/10.5281/zenodo.18175772)
 
 
 The analysis scripts (for data processing and figure generation) are provided separately in the repository: **[SnowC2-CLASSIC-1D-analysis](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-analysis/tree/v0.1.0)**
@@ -28,17 +28,14 @@ The analysis scripts (for data processing and figure generation) are provided se
 
 ## Branches in This Repository
 
-- **[SnowC2-1D](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/tree/SnowC2-1D)**  
+- **[SnowC2-1D](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/tree/SnowC2-1D)**  
   Full implementation of all new developments, including job option files to launch the model.  
 
-- **[SnowC2-1D-clean](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/tree/SnowC2-1D-clean)**  
+- **[SnowC2-1D-clean](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/tree/SnowC2-1D-clean)**  
   Cleaned version containing only the modified files.  
-  Intended for direct [comparison](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/compare/develop-1.8...SnowC2-1D-clean) against the `develop-1.8` branch.  
+  Intended for direct [comparison](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/compare/develop-1.8...SnowC2-1D-clean) against the `develop-1.8` branch.  
 
-- **[SnowC2-1D-backup](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/tree/SnowC2-1D-backup)**  
-  Legacy version including the earlier compaction scheme (not factorized) and other tests.  
-
-- **[develop-1.8](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/tree/develop-1.8)**  
+- **[develop-1.8](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/tree/develop-1.8)**  
   Starting point for this work, originating from a private GitLab repository maintained by Joe Melton.  
 
 
@@ -53,9 +50,9 @@ The official documentation of CLASSIC v1.0 is accessible here: https://cccma.git
 ---
 #### 1.1. Thermal conductivity at the top of the first soil layer  
 
-Pass `ZERO` to [soilHeatFluxPrep.f90](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/src/soilHeatFluxPrep.f90) instead `ZSNOW` to the subfractions without snow in [energyBudgetDriver.f90](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/src/energyBudgetDriver.f90):
-- *CANOPY OVER BARE GROUND*: https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blame/SnowC2-1D/src/energyBudgetDriver.f90#L1357
-- *BARE GROUND*: https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blame/SnowC2-1D/src/energyBudgetDriver.f90#L1556
+Pass `ZERO` to [soilHeatFluxPrep.f90](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/src/soilHeatFluxPrep.f90) instead `ZSNOW` to the subfractions without snow in [energyBudgetDriver.f90](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/src/energyBudgetDriver.f90):
+- *CANOPY OVER BARE GROUND*: https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blame/SnowC2-1D/src/energyBudgetDriver.f90#L1357
+- *BARE GROUND*: https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blame/SnowC2-1D/src/energyBudgetDriver.f90#L1556
 
 See more information at: https://gitlab.com/cccma/classic/-/issues/119 (last access: 2025-09-03)
 
@@ -64,7 +61,7 @@ See more information at: https://gitlab.com/cccma/classic/-/issues/119 (last acc
 #### 1.2. Bottom snow temperature 
 
 
-In [snowTempUpdate.f90](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/src/snowTempUpdate.f90), the computation of the bottom snow temperature $T_{s, b}$ has been modified from:
+In [snowTempUpdate.f90](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/src/snowTempUpdate.f90), the computation of the bottom snow temperature $T_{s, b}$ has been modified from:
 
 $$
 T_{s,b} = \frac{d_s T_s + d_1 T_1}{d_s + d_1}
@@ -81,13 +78,13 @@ $$
 where $T_1$ is the first soil layer temperature, $T_s$ the snow temperature, and $d_1$ and $d_s$ their respective thickness.
 
 
-- https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/src/snowTempUpdate.f90#L152
+- https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/src/snowTempUpdate.f90#L152
 
 ---
 
 #### 1.3. Windless exchange coefficient  
 
-Incorporate a windless transfer coefficient $E_0$ into the sensible heat flux $Q_H$ (W m $^{-2}$) calculation of 2 W m $^{-2}$ K $^{-1}$ during stable atmospheric conditions over non-vegetated areas (i.e., over bare ground or when snow entirely buries the vegetation), as follows in [energBalNoVegSolve.f90](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/src/energBalNoVegSolve.f90):
+Incorporate a windless transfer coefficient $E_0$ into the sensible heat flux $Q_H$ (W m $^{-2}$) calculation of 2 W m $^{-2}$ K $^{-1}$ during stable atmospheric conditions over non-vegetated areas (i.e., over bare ground or when snow entirely buries the vegetation), as follows in [energBalNoVegSolve.f90](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/src/energBalNoVegSolve.f90):
 
 $$
 Q_H = \left(\rho_{\text{air}}  c_P  C_H  U + E_0\right) \left(T_s - \theta_a\right),
@@ -97,8 +94,8 @@ where $\rho_{\text{air}}$ is the density of air (kg m $^{-3}$), $c_P$ is the spe
 
 See Brown et al. ([2006](https://doi.org/10.3137/ao.440302)) Fig. 11 for more details.
 
-- Set $E_0 = 2$ W m $^{-2}$ K $^{-1}$ if there is snow: https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blame/SnowC2-1D/src/energBalNoVegSolve.f90#L269
-- Add it in the sensible heat flux: e.g., https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/src/energBalNoVegSolve.f90#L594 (already coded by Ross Brown; see paper above)
+- Set $E_0 = 2$ W m $^{-2}$ K $^{-1}$ if there is snow: https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blame/SnowC2-1D/src/energBalNoVegSolve.f90#L269
+- Add it in the sensible heat flux: e.g., https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/src/energBalNoVegSolve.f90#L594 (already coded by Ross Brown; see paper above)
 
 
 ---
@@ -125,11 +122,11 @@ $$
 
 where $U_t$ [m s $^{-1}$] is the threshold wind speed at 10 m for the initiation of blowing snow, $T_{\text{air}}$ is the near-surface air temperature [K], $T_0$ is the freezing point of water (defined as 273.16 °K in CLASSIC), $\rho_a$ is the density of air [kg m $^{-3}$], $q_{si}$ is the saturation specific humidity of ice at reference height [kg kg $^{-1}$], $RH_i$ is the relative humidity with respect to ice [fraction], $U_{10}$ is the wind speed at 10 m above the snow surface [m s $^{-1}$]. This equation is only applied over bare ground subareas covered with snow (i.e., over bare ground and when snow buries the vegetation). The blowing snow sublimation losses from the intercepted snow on the canopy are not considered. 
 
-- Implementation in a new file [snowWindSublimation.f90](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/src/snowWindSublimation.f90)
-- 10 m wind speed adjustment in [energyBudgetDriver.f90](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/src/energyBudgetDriver.f90#L1153) (L1153)
-- Blowing snow sublimation loss rate added to the evaporation flux in [energBalNoVegSolve.f90](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/src/energBalNoVegSolve.f90): 
-  - https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/src/energBalNoVegSolve.f90#L600
-  - https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/src/energBalNoVegSolve.f90#L902
+- Implementation in a new file [snowWindSublimation.f90](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/src/snowWindSublimation.f90)
+- 10 m wind speed adjustment in [energyBudgetDriver.f90](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/src/energyBudgetDriver.f90#L1153) (L1153)
+- Blowing snow sublimation loss rate added to the evaporation flux in [energBalNoVegSolve.f90](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/src/energBalNoVegSolve.f90): 
+  - https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/src/energBalNoVegSolve.f90#L600
+  - https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/src/energBalNoVegSolve.f90#L902
 
 
 
@@ -138,7 +135,7 @@ where $U_t$ [m s $^{-1}$] is the threshold wind speed at 10 m for the initiation
 
 #### 2.2. Snow compaction scheme  
 
-##### Fresh snow density (not modified) in [atmosphericVarsCalc.f90](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/src/atmosphericVarsCalc.f90#L135)
+##### Fresh snow density (not modified) in [atmosphericVarsCalc.f90](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/src/atmosphericVarsCalc.f90#L135)
 
 ##### Maximum snow density
 
@@ -202,8 +199,8 @@ $$
 
 where $U$ is the wind speed at 2 m above the snowpack [m s $^{-1}$], $U_0=2.5$ m s $^{-1}$ or $3.5$ m s $^{-1}$ (TVC adjusted), $d_0=0.8$ m, and $\sigma=1.0$ m. The constant $450$ is decreased to $430$ in order to better fit with the observations at all sites, considering the induced increased wind compaction during strong wind events. The wind induced compaction is used only over the bare ground subfraction (i.e., over non-vegetated subareas and/or when the snow buries the vegetation) as we consider that there is no further snow compaction within the canopy. Over the vegetated subarea $\rho_{\text {no wind }}$ is maintained regardless of the wind speed. We adjust the wind speed provided at specific measurement heights to 2 meters in the model using a logarithmic wind profile. For wet snow, the Brown et al. ([2006](https://doi.org/10.3137/ao.440302))'s equation is kept unchanged.
 
-- Implementation of the new maximum snow density: https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/src/snowProcesses.f90#L167
-- 2 m wind speed adjustment: https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/src/waterBudgetDriver.f90#L653
+- Implementation of the new maximum snow density: https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/src/snowProcesses.f90#L167
+- 2 m wind speed adjustment: https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/src/waterBudgetDriver.f90#L653
 
 ---
 
@@ -234,7 +231,7 @@ $$
 
 with $\lambda_s$ the snow thermal conductivity [W m $^{-1}$ K $^{-1}$], and $\rho_s$ the snow density [kg m $^{-3}$].
 
-- Implementation of the new snow thermal conductivity: https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/src/energyBudgetPrep.f90#L666
+- Implementation of the new snow thermal conductivity: https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/src/energyBudgetPrep.f90#L666
 
 
 
@@ -284,7 +281,7 @@ Each site and experiment has an associated job options file, which specifies the
 
 ### SnowMIP Sites
 Base path:  
-`https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/<site>/job_options_file_run_<experiment>.txt`
+`https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/<site>/job_options_file_run_<experiment>.txt`
 
 Experiments included per site:  
 - DEF  
@@ -295,91 +292,91 @@ Experiments included per site:
 - PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne  
 
 **Col de Porte (cdp)**  
-- [DEF](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/cdp/job_options_file_run_DEF.txt)  
-- [BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/cdp/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
-- [PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/cdp/job_options_file_run_PHYS_ALL_SUBLI_v2.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/cdp/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/cdp/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/cdp/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
+- [DEF](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/cdp/job_options_file_run_DEF.txt)  
+- [BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/cdp/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
+- [PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/cdp/job_options_file_run_PHYS_ALL_SUBLI_v2.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/cdp/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/cdp/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/cdp/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
 
 **Reynolds Mountain East (rme)**  
-- [DEF](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/rme/job_options_file_run_DEF.txt)  
-- [BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/rme/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
-- [PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/rme/job_options_file_run_PHYS_ALL_SUBLI_v2.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/rme/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/rme/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/rme/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
+- [DEF](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/rme/job_options_file_run_DEF.txt)  
+- [BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/rme/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
+- [PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/rme/job_options_file_run_PHYS_ALL_SUBLI_v2.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/rme/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/rme/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/rme/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
 
 **Senator Beck (snb)**  
-- [DEF](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/snb/job_options_file_run_DEF.txt)  
-- [BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/snb/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
-- [PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/snb/job_options_file_run_PHYS_ALL_SUBLI_v2.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/snb/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/snb/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/snb/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
+- [DEF](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/snb/job_options_file_run_DEF.txt)  
+- [BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/snb/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
+- [PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/snb/job_options_file_run_PHYS_ALL_SUBLI_v2.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/snb/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/snb/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/snb/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
 
 **Swamp Angel (swa)**  
-- [DEF](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/swa/job_options_file_run_DEF.txt)  
-- [BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/swa/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
-- [PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/swa/job_options_file_run_PHYS_ALL_SUBLI_v2.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/swa/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/swa/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/swa/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
+- [DEF](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/swa/job_options_file_run_DEF.txt)  
+- [BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/swa/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
+- [PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/swa/job_options_file_run_PHYS_ALL_SUBLI_v2.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/swa/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/swa/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/swa/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
 
 **Sapporo (sap)**  
-- [DEF](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/sap/job_options_file_run_DEF.txt)  
-- [BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/sap/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
-- [PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/sap/job_options_file_run_PHYS_ALL_SUBLI_v2.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/sap/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/sap/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/sap/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
+- [DEF](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/sap/job_options_file_run_DEF.txt)  
+- [BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/sap/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
+- [PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/sap/job_options_file_run_PHYS_ALL_SUBLI_v2.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/sap/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/sap/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/sap/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
 
 **Sodankylä (sod)**  
-- [DEF](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/sod/job_options_file_run_DEF.txt)  
-- [BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/sod/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
-- [PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/sod/job_options_file_run_PHYS_ALL_SUBLI_v2.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/sod/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/sod/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/sod/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
+- [DEF](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/sod/job_options_file_run_DEF.txt)  
+- [BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/sod/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
+- [PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/sod/job_options_file_run_PHYS_ALL_SUBLI_v2.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/sod/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/sod/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/sod/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
 
 **Weissfluhjoch (wfj)**  
-- [DEF](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/wfj/job_options_file_run_DEF.txt)  
-- [BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/wfj/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
-- [PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/wfj/job_options_file_run_PHYS_ALL_SUBLI_v2.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/wfj/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/wfj/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowMIP/wfj/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
+- [DEF](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/wfj/job_options_file_run_DEF.txt)  
+- [BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/wfj/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
+- [PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/wfj/job_options_file_run_PHYS_ALL_SUBLI_v2.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/wfj/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/wfj/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowMIP/wfj/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
 
 
 
 
 ### Arctic Sites
 Base path:  
-`https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/<site>/job_options_file_run_<experiment>.txt`
+`https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/<site>/job_options_file_run_<experiment>.txt`
 
 **Bylot Island (byl)**  
-- [peat_DEF](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/byl/job_options_file_run_peat_DEF.txt)  
-- [peat_BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/byl/job_options_file_run_peat_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
-- [peat_PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/byl/job_options_file_run_peat_PHYS_ALL_SUBLI_v2.txt)  
-- [peat_PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/byl/job_options_file_run_peat_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
-- [peat_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/byl/job_options_file_run_peat_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
-- [peat_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/byl/job_options_file_run_peat_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
+- [peat_DEF](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/byl/job_options_file_run_peat_DEF.txt)  
+- [peat_BUG_CORRECT_TSNBT_OP1_EZERO](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/byl/job_options_file_run_peat_BUG_CORRECT_TSNBT_OP1_EZERO.txt)  
+- [peat_PHYS_ALL_SUBLI_v2](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/byl/job_options_file_run_peat_PHYS_ALL_SUBLI_v2.txt)  
+- [peat_PHYS_ALL_SUBLI_v2_COMPAC_v1](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/byl/job_options_file_run_peat_PHYS_ALL_SUBLI_v2_COMPAC_v1.txt)  
+- [peat_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/byl/job_options_file_run_peat_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne.txt)  
+- [peat_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/byl/job_options_file_run_peat_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne.txt)  
 
 **Umiujaq (umt)**  
-- [DEF_correct_SH](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/umt/job_options_file_run_DEF_correct_SH.txt)  
-- [BUG_CORRECT_TSNBT_OP1_EZERO_correct_SH](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/umt/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO_correct_SH.txt)  
-- [PHYS_ALL_SUBLI_v2_correct_SH](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/umt/job_options_file_run_PHYS_ALL_SUBLI_v2_correct_SH.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1_correct_SH](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/umt/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_correct_SH.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne_correct_SH](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/umt/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne_correct_SH.txt)  
-- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne_correct_SH](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/umt/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne_correct_SH.txt)  
+- [DEF_correct_SH](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/umt/job_options_file_run_DEF_correct_SH.txt)  
+- [BUG_CORRECT_TSNBT_OP1_EZERO_correct_SH](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/umt/job_options_file_run_BUG_CORRECT_TSNBT_OP1_EZERO_correct_SH.txt)  
+- [PHYS_ALL_SUBLI_v2_correct_SH](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/umt/job_options_file_run_PHYS_ALL_SUBLI_v2_correct_SH.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1_correct_SH](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/umt/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_correct_SH.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne_correct_SH](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/umt/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne_correct_SH.txt)  
+- [PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne_correct_SH](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/umt/job_options_file_run_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne_correct_SH.txt)  
 
 **Trail Valley Creek (tvc)**  
-- [1peat_2xSnowf_DEF_correct_SH](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/tvc/job_options_file_run_1peat_2xSnowf_DEF_correct_SH.txt)  
-- [1peat_2xSnowf_BUG_CORRECT_TSNBT_OP1_EZERO_correct_SH](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/tvc/job_options_file_run_1peat_2xSnowf_BUG_CORRECT_TSNBT_OP1_EZERO_correct_SH.txt)  
-- [1peat_2xSnowf_PHYS_ALL_SUBLI_v2_correct_SH](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/tvc/job_options_file_run_1peat_2xSnowf_PHYS_ALL_SUBLI_v2_correct_SH.txt)  
-- [1peat_2xSnowf_PHYS_ALL_SUBLI_v2_COMPAC_v1_correct_SH](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/tvc/job_options_file_run_1peat_2xSnowf_PHYS_ALL_SUBLI_v2_COMPAC_v1_correct_SH.txt)  
-- [1peat_2xSnowf_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne_correct_SH](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/tvc/job_options_file_run_1peat_2xSnowf_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne_correct_SH.txt)  
-- [1peat_2xSnowf_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne_correct_SH](https://github.com/mickaellalande/CLASSIC-SnowC2-1D/blob/SnowC2-1D/inputFiles/SnowArctic/tvc/job_options_file_run_1peat_2xSnowf_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne_correct_SH.txt)  
+- [1peat_2xSnowf_DEF_correct_SH](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/tvc/job_options_file_run_1peat_2xSnowf_DEF_correct_SH.txt)  
+- [1peat_2xSnowf_BUG_CORRECT_TSNBT_OP1_EZERO_correct_SH](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/tvc/job_options_file_run_1peat_2xSnowf_BUG_CORRECT_TSNBT_OP1_EZERO_correct_SH.txt)  
+- [1peat_2xSnowf_PHYS_ALL_SUBLI_v2_correct_SH](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/tvc/job_options_file_run_1peat_2xSnowf_PHYS_ALL_SUBLI_v2_correct_SH.txt)  
+- [1peat_2xSnowf_PHYS_ALL_SUBLI_v2_COMPAC_v1_correct_SH](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/tvc/job_options_file_run_1peat_2xSnowf_PHYS_ALL_SUBLI_v2_COMPAC_v1_correct_SH.txt)  
+- [1peat_2xSnowf_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne_correct_SH](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/tvc/job_options_file_run_1peat_2xSnowf_PHYS_ALL_SUBLI_v2_COMPAC_v1_calonne_correct_SH.txt)  
+- [1peat_2xSnowf_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne_correct_SH](https://github.com/mickaellalande/SnowC2-CLASSIC-1D-model/blob/SnowC2-1D/inputFiles/SnowArctic/tvc/job_options_file_run_1peat_2xSnowf_PHYS_ALL_SUBLI_v2_COMPAC_2.5_LIM_3.5_calonne_correct_SH.txt)  
 
 
 
